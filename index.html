@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الغامدي لإصلاح الجنوط | روابط التواصل</title>
+    <!-- استدعاء خط عربي أنيق (Cairo) وأيقونات FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1128 0%, #1c2b4b 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        /* قسم الشعار والتعريف */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+            border: 3px solid #ff6b00;
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* بديل مؤقت في حال لم ترفع الشعار بعد */
+        .logo-placeholder {
+            font-size: 36px;
+            color: #0a1128;
+        }
+
+        .profile-section h1 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .profile-section p {
+            font-size: 14px;
+            color: #ffaa7f;
+            font-weight: 600;
+        }
+
+        /* أزرار الروابط */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            color: #0a1128;
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background: #ff6b00;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn i {
+            font-size: 20px;
+            color: #ff6b00;
+            transition: color 0.3s ease;
+        }
+
+        .btn:hover i {
+            color: #ffffff;
+        }
+
+        .btn .arrow-icon {
+            font-size: 14px;
+            color: #888888;
+            transition: color 0.3s ease;
+        }
+
+        .btn:hover .arrow-icon {
+            color: #ffffff;
+        }
+
+        /* تخصص الأزرار المميزة (واتساب والاتصال) */
+        .btn-whatsapp {
+            background: #25d366;
+            color: #ffffff;
+        }
+        .btn-whatsapp i { color: #ffffff; }
+        .btn-whatsapp:hover { background: #1ebe5d; }
+
+        .btn-call {
+            background: #1c2b4b;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-call i { color: #ffaa7f; }
+        .btn-call:hover { background: #ff6b00; border-color: #ff6b00; }
+
+        /* التذييل (Footer) */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: #aaaaaa;
+        }
+
+        .footer span {
+            color: #ffaa7f;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <!-- قسم الشعار -->
+        <div class="profile-section">
+            <div class="logo-container">
+                <!-- ضع رابط شعارك هنا بدلاً من الايقونة المؤقتة -->
+                <!-- <img src="logo.png" alt="شعار الغامدي لإصلاح الجنوط"> -->
+                <i class="fa-solid fa-car-burst logo-placeholder"></i>
+            </div>
+            <h1>الغامدي لإصلاح الجنوط</h1>
+            <p>إصلاح، تجديد، تلميع، ورش ودهان الجنوط</p>
+        </div>
+
+        <!-- قائمة الأزرار -->
+        <div class="links-container">
+            
+            <!-- موقع فرع كيلو 14 -->
+            <a href="رابط_خرائط_جوجل_كيلو_14" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>موقع فرع جدة – كيلو 14</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- موقع فرع كيلو 3 -->
+            <a href="رابط_خرائط_جوجل_كيلو_3" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>موقع فرع جدة – كيلو 3</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- الاتصال بفرع كيلو 14 -->
+            <a href="tel:0562904736" class="btn btn-call">
+                <div class="btn-content">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>اتصل بفرع كيلو 14 (0562904736)</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- الاتصال بفرع كيلو 3 -->
+            <a href="tel:0507578871" class="btn btn-call">
+                <div class="btn-content">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>اتصل بفرع كيلو 3 (0507578871)</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- واتساب -->
+            <a href="https://wa.me/9665XXXXXXXX" class="btn btn-whatsapp" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>تواصل عبر الواتساب</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- انستقرام -->
+            <a href="رابط_انستقرام" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- فيسبوك -->
+            <a href="رابط_فيسبوك" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- تيك توك -->
+            <a href="رابط_تيكتوك" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span>TikTok</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- يوتيوب -->
+            <a href="رابط_يوتيوب" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+                <i class="fa-solid fa-chevron-last arrow-icon" style="display:none"></i>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- الموقع الإلكتروني -->
+            <a href="رابط_الموقع_الإلكتروني" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>الموقع الإلكتروني</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
+
+        </div>
+
+        <!-- تذييل الصفحة -->
+        <div class="footer">
+            <p>جميع الحقوق محفوظة &copy; 2026</p>
+            <p><span>الغامدي لإصلاح الجنوط</span> - جدة، المملكة العربية السعودية</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
