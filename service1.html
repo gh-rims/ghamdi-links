@@ -14,20 +14,20 @@
             padding: 0;
             text-align: center;
         }
-        /* تنسيق الصور الرئيسية التي تغطي العرض بالكامل (front و c4) */
+        /* تنسيق الصور التي تغطي العرض بالكامل */
         .full-width-img {
             width: 100%;
             display: block;
-            margin-bottom: 20px; /* مسافة أسفل الصورة */
+            margin-bottom: 20px;
         }
-        /* حاوية الصور الفرعية التي تحتوي على إطار (k1, k2, k3, k4,...) */
+        /* حاوية الصور التي تحتوي على إطار */
         .gallery-container {
             max-width: 450px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            padding: 0 20px; /* مسافة جانبية للصور داخل الإطار */
+            padding: 0 20px;
         }
         .image-box {
             background-color: #1a1a1a;
@@ -58,29 +58,28 @@
 </head>
 <body>
 
-    <!-- 1. الصورة الرئيسية الأولى (الهيدر) -->
+    <!-- الهيدر -->
     <img src="front.jpeg" alt="خدماتنا" class="full-width-img">
 
-    <!-- حاوية الصور الفرعية الأولى (k1, k2, k3) -->
+    <!-- مجموعة الصور الأولى -->
     <div class="gallery-container">
-        <div class="image-box"><img src="k1.jpeg" alt="خدمة k1"></div>
-        <div class="image-box"><img src="k2.jpeg" alt="خدمة k2"></div>
-        <div class="image-box"><img src="k3.jpeg" alt="خدمة k3"></div>
+        <div class="image-box"><img src="k1.ipeg" alt="خدمة k1"></div>
+        <div class="image-box"><img src="k2.ipeg" alt="خدمة k2"></div>
+        <div class="image-box"><img src="k3.ipeg" alt="خدمة k3"></div>
+        <div class="image-box"><img src="k4.ipeg" alt="خدمة k4"></div>
+        <div class="image-box"><img src="k5.ipeg" alt="خدمة k5"></div>
+        <div class="image-box"><img src="k6.ipeg" alt="خدمة k6"></div>
     </div>
 
-    <!-- 2. الصورة الرئيسية الثانية (c4) بعرض الصفحة الكامل وبدون إطار -->
-    <img src="c4.jpeg" alt="عرض خدمة c4" class="full-width-img">
+    <!-- الصورة c4 تم نقلها هنا بعد k6 -->
+    <img src="c4.ipeg" alt="عرض خدمة c4" class="full-width-img">
 
-    <!-- حاوية الصور الفرعية الثانية (باقي الصور k) -->
+    <!-- باقي الصور -->
     <div class="gallery-container" style="margin-top: 20px;">
-        <div class="image-box"><img src="k4.jpeg" alt="خدمة k4"></div>
-        <div class="image-box"><img src="k5.jpeg" alt="خدمة k5"></div>
-        <div class="image-box"><img src="k6.jpeg" alt="خدمة k6"></div>
-        <div class="image-box"><img src="c1.jpeg" alt="خدمة c1"></div>
-        <div class="image-box"><img src="c2.jpeg" alt="خدمة c2"></div>
+        <div class="image-box"><img src="c1.ipeg" alt="خدمة c1"></div>
+        <div class="image-box"><img src="c2.ipeg" alt="خدمة c2"></div>
     </div>
 
-    <!-- زر العودة للرئيسية -->
     <a href="index.html" class="back-btn">العودة للرئيسية</a>
 
 </body>
