@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط</title>
-    <!-- استدعاء خط عصري يشبه خطوط المواقع الاحترافية -->
+    <!-- استدعاء خط Tajawal العصري -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة الأيقونات الرسمية FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --orange: #ff7700; --white: #ffffff; --black: #121212; }
         body { font-family: 'Tajawal', sans-serif; background-color: var(--black); text-align: center; margin: 0; padding: 20px; color: var(--white); }
@@ -35,13 +37,15 @@
         
         /* الأزرار: بيضاء، إطار برتقالي عريض، نص أسود */
         .btn { 
-            display: block; background: var(--white); 
+            display: flex; align-items: center; justify-content: space-between; 
+            background: var(--white); 
             border: 4px solid var(--orange); 
-            padding: 16px; margin: 15px 0; text-decoration: none;
+            padding: 16px 20px; margin: 15px 0; text-decoration: none;
             color: #000000; font-weight: bold; border-radius: 12px;
             transition: all 0.3s ease;
         }
         .btn:hover { background: var(--orange); color: var(--white); border-color: var(--white); transform: scale(1.02); }
+        .btn i { font-size: 1.2em; }
         
         .footer { margin-top: 40px; color: #777; font-size: 0.85em; padding: 20px; border-top: 1px solid #333; }
     </style>
@@ -53,22 +57,53 @@
             <img src="Bbb5.png" alt="شعار الغامدي" class="logo">
         </div>
         
-        <!-- صورة الخدمات المحدثة بالاسم الجديد -->
+        <!-- صورة الخدمات -->
         <img src="ffh5.png" alt="خدمات الغامدي للجنوط" class="services-img">
         
         <h1>الغامدي لإصلاح الجنوط</h1>
         <p>متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
         
-        <a href="https://wa.me/966562904736" class="btn">💬 واتساب</a>
-        <a href="tel:0562904736" class="btn">📞 اتصال فرع جدة – كيلو 14</a>
-        <a href="tel:0507578871" class="btn">📞 اتصال فرع جدة – كيلو 3</a>
-        <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn">📍 موقع فرع جدة – كيلو 14</a>
-        <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn">📍 موقع فرع جدة – كيلو 3</a>
-        <a href="https://www.tiktok.com/@ghamdi_r4" class="btn">🎵 TikTok</a>
-        <a href="https://www.instagram.com/ghamdi_r4/" class="btn">📸 Instagram</a>
-        <a href="https://www.snapchat.com/add/ghamdi_r4" class="btn">👻 Snapchat</a>
-        <a href="https://x.com/ghamdi_r4" class="btn">𝕏 X – تويتر</a>
-        <a href="https://www.youtube.com/@ghamdi_r4" class="btn">▶️ YouTube</a>
+        <!-- الأزرار مع الأيقونات الرسمية -->
+        <a href="https://wa.me/966562904736" class="btn">
+            <span>واتساب</span>
+            <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+        </a>
+        <a href="tel:0562904736" class="btn">
+            <span>اتصال فرع جدة – كيلو 14</span>
+            <i class="fa-solid fa-phone" style="color: #ff7700;"></i>
+        </a>
+        <a href="tel:0507578871" class="btn">
+            <span>اتصال فرع جدة – كيلو 3</span>
+            <i class="fa-solid fa-phone" style="color: #ff7700;"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn">
+            <span>موقع فرع جدة – كيلو 14</span>
+            <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn">
+            <span>موقع فرع جدة – كيلو 3</span>
+            <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+        </a>
+        <a href="https://www.tiktok.com/@ghamdi_r4" class="btn">
+            <span>TikTok</span>
+            <i class="fa-brands fa-tiktok" style="color: #000000;"></i>
+        </a>
+        <a href="https://www.instagram.com/ghamdi_r4/" class="btn">
+            <span>Instagram</span>
+            <i class="fa-brands fa-instagram" style="color: #e1306c;"></i>
+        </a>
+        <a href="https://www.snapchat.com/add/ghamdi_r4" class="btn">
+            <span>Snapchat</span>
+            <i class="fa-brands fa-snapchat" style="color: #fffc00;"></i>
+        </a>
+        <a href="https://x.com/ghamdi_r4" class="btn">
+            <span>X – تويتر</span>
+            <i class="fa-brands fa-x-twitter" style="color: #000000;"></i>
+        </a>
+        <a href="https://www.youtube.com/@ghamdi_r4" class="btn">
+            <span>YouTube</span>
+            <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+        </a>
 
         <div class="footer">
             <p><strong>الغامدي لإصلاح الجنوط</strong><br>جدة – المملكة العربية السعودية</p>
