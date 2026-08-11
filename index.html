@@ -33,8 +33,37 @@
         }
         
         h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; }
-        p { color: #cccccc; margin-bottom: 30px; font-weight: 400; }
+        p { color: #cccccc; margin-bottom: 20px; font-weight: 400; }
         
+        /* صندوق الخدمات الاحترافي */
+        .services-box {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid var(--orange);
+            text-align: right;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .services-box h3 {
+            color: var(--orange);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        .services-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.7;
+            color: #dddddd;
+            font-size: 0.9em;
+        }
+        .services-box li {
+            margin-bottom: 8px;
+        }
+
         /* الأزرار: بيضاء، إطار برتقالي عريض، نص أسود */
         .btn { 
             display: flex; align-items: center; justify-content: space-between; 
@@ -62,6 +91,17 @@
         
         <h1>الغامدي لإصلاح الجنوط</h1>
         <p>متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
+        
+        <!-- قسم الخدمات المدمج للظهور في محرك بحث جوجل -->
+        <div class="services-box">
+            <h3>خدماتنا الاحترافية</h3>
+            <ul>
+                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل واستعدال طعجات وانحناءات الجنوط.</li>
+                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر ولحام أرجون للجنوط.</li>
+                <li>🎨 <strong>الرش والدهان:</strong> رش بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي.</li>
+                <li>✨ <strong>التلميع والمسح:</strong> تلميع الجنوط ومسح ماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
+            </ul>
+        </div>
         
         <!-- الأزرار مع الأيقونات الرسمية -->
         <a href="https://wa.me/966562904736" class="btn">
