@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط</title>
-    <!-- استدعاء خط Tajawal العصري -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <!-- استدعاء مكتبة الأيقونات الرسمية FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --orange: #ff7700; --white: #ffffff; --black: #121212; }
+        :root { --orange: #ff7700; --white: #ffffff; --black: #121212; --grey: #333333; }
         body { font-family: 'Tajawal', sans-serif; background-color: var(--black); text-align: center; margin: 0; padding: 20px; color: var(--white); }
         .container { max-width: 450px; margin: auto; }
         
-        /* دائرة الشعار بحجم متناسق ومضبوط */
         .logo-container {
             width: 120px; height: 120px; margin: 0 auto 15px auto;
             border-radius: 50%; background: #ffffff; 
@@ -24,20 +21,12 @@
         }
         .logo { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
         
-        /* تنسيق صورة الخدمات الجديدة */
-        .services-img {
-            width: 100%; max-height: 140px; object-fit: cover;
-            border-radius: 12px; margin-bottom: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-        }
-        
         h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; }
         p { color: #cccccc; margin-bottom: 20px; font-weight: 400; }
         
         /* صندوق الخدمات الاحترافي */
         .services-box {
-            background: #1a1a1a;
+            background: var(--grey);
             padding: 15px 20px;
             border-radius: 12px;
             margin: 20px 0;
@@ -64,16 +53,29 @@
             margin-bottom: 8px;
         }
 
-        /* الأزرار: بيضاء، إطار برتقالي عريض، نص أسود */
+        /* تصميم مجموعات الفروع */
+        .branch-box {
+            background: var(--grey);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .branch-title { font-size: 1.2em; font-weight: bold; margin-bottom: 15px; color: var(--white); }
+        
+        .btn-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .btn-grid.dual { grid-template-columns: 1fr 1fr; }
+        
         .btn { 
             display: flex; align-items: center; justify-content: space-between; 
             background: var(--white); 
-            border: 4px solid var(--orange); 
-            padding: 16px 20px; margin: 15px 0; text-decoration: none;
-            color: #000000; font-weight: bold; border-radius: 12px;
+            border: 3px solid var(--orange); 
+            padding: 12px 15px; text-decoration: none;
+            color: #000000; font-weight: bold; border-radius: 8px;
             transition: all 0.3s ease;
         }
-        .btn:hover { background: var(--orange); color: var(--white); border-color: var(--white); transform: scale(1.02); }
+        .btn:hover { background: var(--orange); color: var(--white); border-color: var(--white); }
         .btn i { font-size: 1.2em; }
         
         .footer { margin-top: 40px; color: #777; font-size: 0.85em; padding: 20px; border-top: 1px solid #333; }
@@ -86,45 +88,40 @@
             <img src="Bbb5.png" alt="شعار الغامدي" class="logo">
         </div>
         
-        <!-- صورة الخدمات -->
-        <img src="ffh5.png" alt="خدمات الغامدي للجنوط" class="services-img">
-        
         <h1>الغامدي لإصلاح الجنوط</h1>
         <p>متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
         
-        <!-- قسم الخدمات المدمج للظهور في محرك بحث جوجل -->
-        <div class="services-box">
-            <h3>خدماتنا الاحترافية</h3>
-            <ul>
-                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل/استعدال طعجات وانحناءات الجنوط.</li>
-                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر / لحام أرجون للجنوط.</li>
-                <li>🎨 <strong>الرش والدهان:</strong>   
-                  بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
-                <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
-            </ul>
+        <!-- فرع كيلو 14 -->
+        <div class="branch-box">
+            <div class="branch-title">فرع كيلو 14 الصناعية الجديدة محل رقم 10</div>
+            <div class="btn-grid">
+                <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn">
+                    <span>موقع فرع كيلو 14</span>
+                    <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+                </a>
+            </div>
+            <div class="btn-grid dual" style="margin-top:10px;">
+                <a href="https://wa.me/966562904736" class="btn" style="justify-content: center;">واتساب كيلو 14</a>
+                <a href="tel:0562904736" class="btn" style="justify-content: center;">اتصال كيلو 14</a>
+            </div>
+        </div>
+
+        <!-- فرع كيلو 3 -->
+        <div class="branch-box">
+            <div class="branch-title">فرع كيلو 3 مجمع الإطارات</div>
+            <div class="btn-grid">
+                <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn">
+                    <span>موقع فرع كيلو 3</span>
+                    <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+                </a>
+            </div>
+            <div class="btn-grid dual" style="margin-top:10px;">
+                <a href="https://wa.me/966507578871" class="btn" style="justify-content: center;">واتساب كيلو 3</a>
+                <a href="tel:0507578871" class="btn" style="justify-content: center;">اتصال كيلو 3</a>
+            </div>
         </div>
         
-        <!-- الأزرار مع الأيقونات الرسمية -->
-        <a href="https://wa.me/966562904736" class="btn">
-            <span>واتساب</span>
-            <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
-        </a>
-        <a href="tel:0562904736" class="btn">
-            <span>اتصال فرع جدة – كيلو 14</span>
-            <i class="fa-solid fa-phone" style="color: #ff7700;"></i>
-        </a>
-        <a href="tel:0507578871" class="btn">
-            <span>اتصال فرع جدة – كيلو 3</span>
-            <i class="fa-solid fa-phone" style="color: #ff7700;"></i>
-        </a>
-        <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn">
-            <span>موقع فرع جدة – كيلو 14</span>
-            <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
-        </a>
-        <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn">
-            <span>موقع فرع جدة – كيلو 3</span>
-            <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
-        </a>
+        <!-- روابط وسائل التواصل الاجتماعي -->
         <a href="https://www.tiktok.com/@ghamdi_r4" class="btn">
             <span>TikTok</span>
             <i class="fa-brands fa-tiktok" style="color: #000000;"></i>
@@ -145,6 +142,17 @@
             <span>YouTube</span>
             <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
         </a>
+
+        <!-- قسم الخدمات الاحترافية (بعد وسائل التواصل الاجتماعي) -->
+        <div class="services-box">
+            <h3>خدماتنا الاحترافية</h3>
+            <ul>
+                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل/استعدال طعجات وانحناءات الجنوط.</li>
+                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر / لحام أرجون للجنوط.</li>
+                <li>🎨 <strong>الرش والدهان:</strong> بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
+                <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
+            </ul>
+        </div>
 
         <div class="footer">
             <p><strong>الغامدي لإصلاح الجنوط</strong><br>جدة – المملكة العربية السعودية</p>
