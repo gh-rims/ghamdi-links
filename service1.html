@@ -14,13 +14,11 @@
             padding: 0;
             text-align: center;
         }
-        /* تنسيق الصور التي تغطي العرض بالكامل */
         .full-width-img {
             width: 100%;
             display: block;
             margin-bottom: 20px;
         }
-        /* حاوية الصور التي تحتوي على إطار */
         .gallery-container {
             max-width: 450px;
             margin: 0 auto;
@@ -43,7 +41,7 @@
             display: block;
         }
 
-        /* --- تصميم عارض المقارنة (قبل وبعد) موازي ومتناسق --- */
+        /* --- تصميم عارض المقارنة --- */
         .img-comparision-container {
             position: relative;
             width: 100%;
@@ -141,30 +139,26 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
     <img src="front.jpeg" alt="خدماتنا" class="full-width-img">
 
-    <!-- قسم المقارنة (قبل وبعد) -->
     <div style="margin: 20px 0; padding: 0 20px;">
         <h3 style="color: #ff7700; margin-bottom: 10px;">اسحب للمقارنة (قبل وبعد الصيانة)</h3>
         <div class="img-comparision-container" id="beforeAfterSlider">
-            <!-- صورة "بعد" (الخلفية) -->
-            <img src="after.jpeg" alt="بعد الصيانة">
+            <!-- صورة بعد -->
+            <img src="z2.jpg" alt="بعد الصيانة">
             <span class="label-badge label-after">بعد</span>
 
-            <!-- صورة "قبل" (الستار المتحرك بالأعلى) -->
+            <!-- صورة قبل -->
             <div class="img-comp-redo" id="redoWrapper">
-                <img src="before.jpeg" alt="قبل الصيانة" id="redoImg">
+                <img src="z1.jpg" alt="قبل الصيانة" id="redoImg">
                 <span class="label-badge label-before">قبل</span>
             </div>
 
-            <!-- خط ومقبض السحب -->
             <div class="img-comp-line"></div>
             <div class="img-comp-slider" id="sliderHandle"></div>
         </div>
     </div>
 
-    <!-- مجموعة الصور الأولى -->
     <div class="gallery-container">
         <div class="image-box"><img src="k1.jpeg" alt="خدمة k1"></div>
         <div class="image-box"><img src="k2.jpeg" alt="خدمة k2"></div>
@@ -177,10 +171,8 @@
         <div class="image-box"><img src="k9.jpeg" alt="خدمة k9"></div>
     </div>
 
-    <!-- الصورة c4 -->
     <img src="c4.jpeg" alt="عرض خدمة c4" class="full-width-img">
 
-    <!-- باقي الصور -->
     <div class="gallery-container" style="margin-top: 20px;">
         <div class="image-box"><img src="c1.jpeg" alt="خدمة c1"></div>
         <div class="image-box"><img src="c2.jpeg" alt="خدمة c2"></div>
@@ -188,7 +180,6 @@
 
     <a href="index.html" class="back-btn">العودة للرئيسية</a>
 
-    <!-- كود جافاسكريبت لتشغيل أداة السحب -->
     <script>
         function initComparisons() {
             var slider = document.getElementById("beforeAfterSlider");
@@ -209,47 +200,23 @@
             function slide(clientX) {
                 var rect = slider.getBoundingClientRect();
                 var pos = clientX - rect.left;
-                
                 if (pos < 0) pos = 0;
                 if (pos > rect.width) pos = rect.width;
-
                 var percentage = (pos / rect.width) * 100;
-                
                 wrapper.style.width = percentage + "%";
                 handle.style.left = percentage + "%";
                 line.style.left = percentage + "%";
             }
 
-            handle.addEventListener("mousedown", function(e) {
-                isDown = true;
-                e.preventDefault();
-            });
-            window.addEventListener("mouseup", function() {
-                isDown = false;
-            });
-            window.addEventListener("mousemove", function(e) {
-                if (!isDown) return;
-                slide(e.clientX);
-            });
-
-            handle.addEventListener("touchstart", function(e) {
-                isDown = true;
-            });
-            window.addEventListener("touchend", function() {
-                isDown = false;
-            });
-            window.addEventListener("touchmove", function(e) {
-                if (!isDown) return;
-                slide(e.touches[0].clientX);
-            });
-
-            slider.addEventListener("click", function(e) {
-                slide(e.clientX);
-            });
+            handle.addEventListener("mousedown", function(e) { isDown = true; e.preventDefault(); });
+            window.addEventListener("mouseup", function() { isDown = false; });
+            window.addEventListener("mousemove", function(e) { if (!isDown) return; slide(e.clientX); });
+            handle.addEventListener("touchstart", function(e) { isDown = true; });
+            window.addEventListener("touchend", function() { isDown = false; });
+            window.addEventListener("touchmove", function(e) { if (!isDown) return; slide(e.touches[0].clientX); });
+            slider.addEventListener("click", function(e) { slide(e.clientX); });
         }
-
         initComparisons();
     </script>
-
 </body>
 </html>
