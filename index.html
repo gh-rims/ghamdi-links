@@ -7,78 +7,166 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --orange: #ff7700; --white: #ffffff; --black: #121212; --grey: #333333; }
-        body { font-family: 'Tajawal', sans-serif; background-color: var(--black); text-align: center; margin: 0; padding: 20px; color: var(--white); }
+        :root { 
+            --orange: #ff7700; 
+            --white: #ffffff; 
+            --black: #0d0d0d; 
+            --card-bg: #161616;
+            --border-glow: rgba(255, 119, 0, 0.4);
+        }
+        
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background-color: var(--black); 
+            text-align: center; 
+            margin: 0; 
+            padding: 20px; 
+            color: var(--white); 
+        }
+        
         .container { max-width: 450px; margin: auto; }
         
+        /* الشعار */
         .logo-container {
-            width: 120px; height: 120px; margin: 0 auto 15px auto;
+            width: 110px; height: 110px; margin: 0 auto 15px auto;
             border-radius: 50%; background: #ffffff; 
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            border: 3px solid var(--white);
+            box-shadow: 0 4px 15px rgba(255, 119, 0, 0.3);
+            border: 3px solid var(--orange);
             overflow: hidden;
         }
-        .logo { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+        .logo { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
         
-        h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; }
-        p { color: #cccccc; margin-bottom: 20px; font-weight: 400; }
+        h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; font-size: 1.5em; }
+        p.subtitle { color: #aaaaaa; margin-bottom: 25px; font-weight: 400; font-size: 0.95em; }
+
+        /* عناوين الأقسام مثل الصورة */
+        .section-header {
+            color: var(--orange);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .section-header::before, .section-header::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to var(--dir, right), rgba(255,119,0,0), var(--orange));
+        }
+        .section-header::before { --dir: left; }
+
+        /* حاوية الفروع الاحترافية */
+        .branch-box {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 16px;
+            margin: 15px 0;
+            border: 1px solid #2a2a2a;
+            box-shadow: -5px 0 15px rgba(255, 119, 0, 0.15); /* إضاءة برتقالية على الحافة اليسرى مشابهة للصورة */
+            text-align: center;
+        }
         
+        .branch-main-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1e1e1e;
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1em;
+            margin-bottom: 12px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .branch-main-btn:hover { border-color: var(--orange); }
+
+        .branch-grid-dual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .sub-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #1e1e1e;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9em;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .sub-btn:hover { background: #262626; border-color: var(--orange); }
+
+        /* أزرار وسائل التواصل الاجتماعي بتصميم الصورة */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 18px;
+            border-radius: 14px;
+            margin: 10px 0;
+            border: 1px solid #2a2a2a;
+            box-shadow: -5px 0 15px rgba(255, 119, 0, 0.15);
+            font-weight: bold;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+        .social-btn:hover { border-color: var(--orange); transform: translateY(-2px); }
+        .social-left { display: flex; align-items: center; gap: 12px; }
+        .social-btn i { font-size: 1.3em; }
+
         /* صندوق الخدمات الاحترافي */
         .services-box {
-            background: var(--grey);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 2px solid var(--orange);
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+            border: 1px solid #2a2a2a;
+            box-shadow: -5px 0 15px rgba(255, 119, 0, 0.15);
             text-align: right;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
         .services-box h3 {
             color: var(--orange);
             text-align: center;
             margin-top: 0;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 1.1em;
         }
         .services-box ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
-            line-height: 1.7;
-            color: #dddddd;
+            line-height: 1.8;
+            color: #cccccc;
             font-size: 0.9em;
         }
         .services-box li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        /* تصميم مجموعات الفروع */
-        .branch-box {
-            background: var(--grey);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        .footer { 
+            margin-top: 30px; 
+            color: #777; 
+            font-size: 0.85em; 
+            padding: 20px; 
+            border-top: 1px solid #222; 
         }
-        .branch-title { font-size: 1.2em; font-weight: bold; margin-bottom: 15px; color: var(--white); }
-        
-        .btn-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        .btn-grid.dual { grid-template-columns: 1fr 1fr; }
-        
-        .btn { 
-            display: flex; align-items: center; justify-content: space-between; 
-            background: var(--white); 
-            border: 3px solid var(--orange); 
-            padding: 12px 15px; text-decoration: none;
-            color: #000000; font-weight: bold; border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        .btn:hover { background: var(--orange); color: var(--white); border-color: var(--white); }
-        .btn i { font-size: 1.2em; }
-        
-        .footer { margin-top: 40px; color: #777; font-size: 0.85em; padding: 20px; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
@@ -89,61 +177,91 @@
         </div>
         
         <h1>الغامدي لإصلاح الجنوط</h1>
-        <p>متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
+        <p class="subtitle">متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
         
+        <!-- قسم الفروع والمواقع -->
+        <div class="section-header">Location | مواقعنا</div>
+
         <!-- فرع كيلو 14 -->
         <div class="branch-box">
-            <div class="branch-title">فرع كيلو 14 الصناعية الجديدة محل رقم 10</div>
-            <div class="btn-grid">
-                <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn">
-                    <span>موقع فرع كيلو 14</span>
-                    <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+            <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="branch-main-btn">
+                <span>فرع كيلو 14 الصناعية الجديدة محل رقم 10</span>
+                <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+            </a>
+            <div class="branch-grid-dual">
+                <a href="https://wa.me/966562904736" class="sub-btn">
+                    <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+                    <span>واتساب كيلو 14</span>
                 </a>
-            </div>
-            <div class="btn-grid dual" style="margin-top:10px;">
-                <a href="https://wa.me/966562904736" class="btn" style="justify-content: center;">واتساب كيلو 14</a>
-                <a href="tel:0562904736" class="btn" style="justify-content: center;">اتصال كيلو 14</a>
+                <a href="tel:0562904736" class="sub-btn">
+                    <i class="fa-solid fa-phone" style="color: var(--orange);"></i>
+                    <span>اتصال كيلو 14</span>
+                </a>
             </div>
         </div>
 
         <!-- فرع كيلو 3 -->
         <div class="branch-box">
-            <div class="branch-title">فرع كيلو 3 مجمع الإطارات</div>
-            <div class="btn-grid">
-                <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn">
-                    <span>موقع فرع كيلو 3</span>
-                    <i class="fa-solid fa-location-dot" style="color: #e74c3c;"></i>
+            <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="branch-main-btn">
+                <span>فرع كيلو 3 مجمع الإطارات</span>
+                <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+            </a>
+            <div class="branch-grid-dual">
+                <a href="https://wa.me/966507578871" class="sub-btn">
+                    <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+                    <span>واتساب كيلو 3</span>
                 </a>
-            </div>
-            <div class="btn-grid dual" style="margin-top:10px;">
-                <a href="https://wa.me/966507578871" class="btn" style="justify-content: center;">واتساب كيلو 3</a>
-                <a href="tel:0507578871" class="btn" style="justify-content: center;">اتصال كيلو 3</a>
+                <a href="tel:0507578871" class="sub-btn">
+                    <i class="fa-solid fa-phone" style="color: var(--orange);"></i>
+                    <span>اتصال كيلو 3</span>
+                </a>
             </div>
         </div>
         
-        <!-- روابط وسائل التواصل الاجتماعي -->
-        <a href="https://www.tiktok.com/@ghamdi_r4" class="btn">
-            <span>TikTok</span>
-            <i class="fa-brands fa-tiktok" style="color: #000000;"></i>
-        </a>
-        <a href="https://www.instagram.com/ghamdi_r4/" class="btn">
-            <span>Instagram</span>
-            <i class="fa-brands fa-instagram" style="color: #e1306c;"></i>
-        </a>
-        <a href="https://www.snapchat.com/add/ghamdi_r4" class="btn">
-            <span>Snapchat</span>
-            <i class="fa-brands fa-snapchat" style="color: #fffc00;"></i>
-        </a>
-        <a href="https://x.com/ghamdi_r4" class="btn">
-            <span>X – تويتر</span>
-            <i class="fa-brands fa-x-twitter" style="color: #000000;"></i>
-        </a>
-        <a href="https://www.youtube.com/@ghamdi_r4" class="btn">
-            <span>YouTube</span>
-            <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+        <!-- قسم وسائل التواصل الاجتماعي -->
+        <div class="section-header">تابعنا على مواقع التواصل الاجتماعي</div>
+
+        <a href="https://www.tiktok.com/@ghamdi_r4" class="social-btn">
+            <div class="social-left">
+                <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
+                <span>TikTok</span>
+            </div>
+            <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
-        <!-- قسم الخدمات الاحترافية (بعد وسائل التواصل الاجتماعي) -->
+        <a href="https://www.instagram.com/ghamdi_r4/" class="social-btn">
+            <div class="social-left">
+                <i class="fa-brands fa-instagram" style="color: #e1306c;"></i>
+                <span>Instagram</span>
+            </div>
+            <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+        </a>
+
+        <a href="https://www.snapchat.com/add/ghamdi_r4" class="social-btn">
+            <div class="social-left">
+                <i class="fa-brands fa-snapchat" style="color: #fffc00;"></i>
+                <span>Snapchat</span>
+            </div>
+            <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+        </a>
+
+        <a href="https://x.com/ghamdi_r4" class="social-btn">
+            <div class="social-left">
+                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                <span>X – تويتر</span>
+            </div>
+            <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@ghamdi_r4" class="social-btn">
+            <div class="social-left">
+                <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+                <span>YouTube</span>
+            </div>
+            <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
+        </a>
+
+        <!-- قسم الخدمات الاحترافية -->
         <div class="services-box">
             <h3>خدماتنا الاحترافية</h3>
             <ul>
