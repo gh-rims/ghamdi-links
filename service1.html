@@ -43,24 +43,26 @@
             display: block;
         }
 
-        /* --- تصميم عارض المقارنة (قبل وبعد) --- */
+        /* --- تصميم عارض المقارنة (قبل وبعد) موازي ومتناسق --- */
         .img-comparision-container {
             position: relative;
             width: 100%;
             max-width: 450px;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             border: 3px solid #ff7700;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0,0,0,0.5);
             background-color: #1a1a1a;
             user-select: none;
+            padding: 0;
         }
         .img-comparision-container img {
             display: block;
             width: 100%;
             height: auto;
             pointer-events: none;
+            border-radius: 0;
         }
         .img-comp-redo {
             position: absolute;
@@ -142,17 +144,17 @@
     <!-- الهيدر -->
     <img src="front.jpeg" alt="خدماتنا" class="full-width-img">
 
-    <!-- قسم المقارنة (قبل وبعد) بالتصميم المطلوب -->
-    <div style="margin: 20px 0;">
+    <!-- قسم المقارنة (قبل وبعد) -->
+    <div style="margin: 20px 0; padding: 0 20px;">
         <h3 style="color: #ff7700; margin-bottom: 10px;">اسحب للمقارنة (قبل وبعد الصيانة)</h3>
         <div class="img-comparision-container" id="beforeAfterSlider">
             <!-- صورة "بعد" (الخلفية) -->
-            <img src="z2.jpg" alt="بعد الصيانة">
+            <img src="after.jpeg" alt="بعد الصيانة">
             <span class="label-badge label-after">بعد</span>
 
             <!-- صورة "قبل" (الستار المتحرك بالأعلى) -->
             <div class="img-comp-redo" id="redoWrapper">
-                <img src="z1.jpg" alt="قبل الصيانة" id="redoImg">
+                <img src="before.jpeg" alt="قبل الصيانة" id="redoImg">
                 <span class="label-badge label-before">قبل</span>
             </div>
 
@@ -197,7 +199,6 @@
 
             let isDown = false;
 
-            // ضبط عرض الصورة داخل الستار ليتطابق مع الحاوية تماماً حتى لا تنضغط الصورة
             function adjustWidth() {
                 redoImg.style.width = slider.offsetWidth + "px";
             }
@@ -209,7 +210,6 @@
                 var rect = slider.getBoundingClientRect();
                 var pos = clientX - rect.left;
                 
-                // تحديد الحدود ضمن الحاوية
                 if (pos < 0) pos = 0;
                 if (pos > rect.width) pos = rect.width;
 
@@ -220,7 +220,6 @@
                 line.style.left = percentage + "%";
             }
 
-            // دعم الماوس
             handle.addEventListener("mousedown", function(e) {
                 isDown = true;
                 e.preventDefault();
@@ -233,7 +232,6 @@
                 slide(e.clientX);
             });
 
-            // دعم اللمس للأجهزة الذكية (الجوال)
             handle.addEventListener("touchstart", function(e) {
                 isDown = true;
             });
@@ -245,7 +243,6 @@
                 slide(e.touches[0].clientX);
             });
 
-            // السحب عند النقر المباشر على أي مكان في الصورة
             slider.addEventListener("click", function(e) {
                 slide(e.clientX);
             });
