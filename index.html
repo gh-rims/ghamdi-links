@@ -36,6 +36,21 @@
             overflow: hidden;
         }
         .logo { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+
+        /* صورة Ffh5.png بحجمها الطبيعي بدون إطار تحت الشعار مباشرة */
+        .top-image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .top-custom-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+        }
         
         h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; font-size: 1.5em; }
         p.subtitle { color: #aaaaaa; margin-bottom: 25px; font-weight: 400; font-size: 0.95em; }
@@ -132,12 +147,12 @@
         .social-left { display: flex; align-items: center; gap: 12px; }
         .social-btn i { font-size: 1.3em; }
 
-        /* قسم الأزرار المميزة في أسفل الصفحة */
+        /* قسم الأزرار البارزة */
         .bottom-actions-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin: 30px 0 20px 0;
+            margin: 25px 0;
         }
 
         .action-highlight-btn {
@@ -214,6 +229,11 @@
         <!-- الشعار -->
         <div class="logo-container">
             <img src="Bbb5.png" alt="شعار الغامدي" class="logo">
+        </div>
+
+        <!-- صورة Ffh5.png تحت الشعار مباشرة بحجمها الطبيعي وبدون إطار -->
+        <div class="top-image-container">
+            <img src="Ffh5.png" alt="صورة توضيحية" class="top-custom-image">
         </div>
         
         <h1>الغامدي لإصلاح الجنوط</h1>
@@ -301,18 +321,7 @@
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
-        <!-- صندوق الخدمات الاحترافي -->
-        <div class="services-box">
-            <h3>Our Services | خدماتنا</h3>
-            <ul>
-                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل/استعدال طعجات وانحناءات الجنوط.</li>
-                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر / لحام أرجون للجنوط.</li>
-                <li>🎨 <strong>الرش والدهان:</strong> بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
-                <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
-            </ul>
-        </div>
-
-        <!-- الزران البارزان في أسفل الصفحة (قبل الفوتر مباشرة) -->
+        <!-- الزران البارزان -->
         <div class="bottom-actions-grid">
             <a href="https://wa.me/c/966541250787" class="action-highlight-btn">
                 <i class="fa-solid fa-book-open"></i>
@@ -322,6 +331,17 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                 <span>Our Services | خدماتنا</span>
             </a>
+        </div>
+
+        <!-- صندوق الخدمات الاحترافي في أخر الصفحة -->
+        <div class="services-box">
+            <h3>Our Services | خدماتنا</h3>
+            <ul>
+                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل/استعدال طعجات وانحناءات الجنوط.</li>
+                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر / لحام أرجون للجنوط.</li>
+                <li>🎨 <strong>الرش والدهان:</strong> بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
+                <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
+            </ul>
         </div>
 
         <div class="footer">
