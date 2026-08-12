@@ -132,6 +132,45 @@
         .social-left { display: flex; align-items: center; gap: 12px; }
         .social-btn i { font-size: 1.3em; }
 
+        /* قسم الأزرار المميزة في أسفل الصفحة */
+        .bottom-actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 30px 0 20px 0;
+        }
+
+        .action-highlight-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1e1e1e, #2a1b0d);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 10px;
+            border-radius: 16px;
+            font-weight: bold;
+            font-size: 0.95em;
+            border: 2px solid var(--orange);
+            box-shadow: 0 4px 15px rgba(255, 119, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+        .action-highlight-btn:hover {
+            background: var(--orange);
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 119, 0, 0.4);
+        }
+        .action-highlight-btn i {
+            font-size: 1.5em;
+            color: var(--orange);
+        }
+        .action-highlight-btn:hover i {
+            color: var(--black);
+        }
+
         /* صندوق الخدمات الاحترافي */
         .services-box {
             background: var(--card-bg);
@@ -187,7 +226,7 @@
         <div class="branch-box">
             <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="branch-main-btn">
                 <i class="fa-solid fa-location-dot" style="color: var(--orange);"></i>
-                <span> فرع كيلو 14 الصناعية الجديدة </span>
+                <span>فرع كيلو 14 الصناعية الجديدة محل رقم 10</span>
             </a>
             <div class="branch-grid-dual">
                 <a href="https://wa.me/966562904736" class="sub-btn">
@@ -262,7 +301,7 @@
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
-        <!-- قسم الخدمات الاحترافية -->
+        <!-- صندوق الخدمات الاحترافي -->
         <div class="services-box">
             <h3>Our Services | خدماتنا</h3>
             <ul>
@@ -271,6 +310,18 @@
                 <li>🎨 <strong>الرش والدهان:</strong> بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
                 <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
             </ul>
+        </div>
+
+        <!-- الزران البارزان في أسفل الصفحة (قبل الفوتر مباشرة) -->
+        <div class="bottom-actions-grid">
+            <a href="https://wa.me/c/966541250787" class="action-highlight-btn">
+                <i class="fa-solid fa-book-open"></i>
+                <span>الكتلوج | Catalog</span>
+            </a>
+            <a href="https://gh-rims.github.io/ghamdi-links/service1.html" class="action-highlight-btn">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>Our Services | خدماتنا</span>
+            </a>
         </div>
 
         <div class="footer">
