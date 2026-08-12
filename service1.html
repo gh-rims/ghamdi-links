@@ -42,6 +42,87 @@
             border-radius: 8px;
             display: block;
         }
+
+        /* --- تصميم عارض المقارنة (قبل وبعد) --- */
+        .img-comparision-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            border: 3px solid #ff7700;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+            background-color: #1a1a1a;
+            user-select: none;
+        }
+        .img-comparision-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+        }
+        .img-comp-redo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+        }
+        .img-comp-redo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            max-width: none;
+        }
+        .img-comp-slider {
+            position: absolute;
+            z-index: 9;
+            cursor: ew-resize;
+            width: 40px;
+            height: 40px;
+            background-color: #ff7700;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-comp-slider::after {
+            content: "↔";
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .img-comp-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background-color: #ff7700;
+            z-index: 8;
+            transform: translateX(-50%);
+        }
+        .label-badge {
+            position: absolute;
+            bottom: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            z-index: 5;
+            font-weight: bold;
+        }
+        .label-before { left: 10px; }
+        .label-after { right: 10px; }
+
         .back-btn {
             display: inline-block;
             margin-top: 30px;
@@ -61,6 +142,26 @@
     <!-- الهيدر -->
     <img src="front.jpeg" alt="خدماتنا" class="full-width-img">
 
+    <!-- قسم المقارنة (قبل وبعد) بالتصميم المطلوب -->
+    <div style="margin: 20px 0;">
+        <h3 style="color: #ff7700; margin-bottom: 10px;">اسحب للمقارنة (قبل وبعد الصيانة)</h3>
+        <div class="img-comparision-container" id="beforeAfterSlider">
+            <!-- صورة "بعد" (الخلفية) -->
+            <img src="z2.jpg" alt="بعد الصيانة">
+            <span class="label-badge label-after">بعد</span>
+
+            <!-- صورة "قبل" (الستار المتحرك بالأعلى) -->
+            <div class="img-comp-redo" id="redoWrapper">
+                <img src="z1.jpg" alt="قبل الصيانة" id="redoImg">
+                <span class="label-badge label-before">قبل</span>
+            </div>
+
+            <!-- خط ومقبض السحب -->
+            <div class="img-comp-line"></div>
+            <div class="img-comp-slider" id="sliderHandle"></div>
+        </div>
+    </div>
+
     <!-- مجموعة الصور الأولى -->
     <div class="gallery-container">
         <div class="image-box"><img src="k1.jpeg" alt="خدمة k1"></div>
@@ -69,9 +170,9 @@
         <div class="image-box"><img src="k4.jpeg" alt="خدمة k4"></div>
         <div class="image-box"><img src="k5.jpeg" alt="خدمة k5"></div>
         <div class="image-box"><img src="k6.jpeg" alt="خدمة k6"></div>
-        <div class="image-box"><img src="k7.jpg" alt="خدمة k6"></div>
-        <div class="image-box"><img src="K8.jpg" alt="خدمة k6"></div>
-        <div class="image-box"><img src="k9.jpeg" alt="خدمة k6"></div>
+        <div class="image-box"><img src="k7.jpg" alt="خدمة k7"></div>
+        <div class="image-box"><img src="K8.jpg" alt="خدمة k8"></div>
+        <div class="image-box"><img src="k9.jpeg" alt="خدمة k9"></div>
     </div>
 
     <!-- الصورة c4 -->
@@ -84,6 +185,74 @@
     </div>
 
     <a href="index.html" class="back-btn">العودة للرئيسية</a>
+
+    <!-- كود جافاسكريبت لتشغيل أداة السحب -->
+    <script>
+        function initComparisons() {
+            var slider = document.getElementById("beforeAfterSlider");
+            var wrapper = document.getElementById("redoWrapper");
+            var handle = document.getElementById("sliderHandle");
+            var line = slider.querySelector(".img-comp-line");
+            var redoImg = document.getElementById("redoImg");
+
+            let isDown = false;
+
+            // ضبط عرض الصورة داخل الستار ليتطابق مع الحاوية تماماً حتى لا تنضغط الصورة
+            function adjustWidth() {
+                redoImg.style.width = slider.offsetWidth + "px";
+            }
+            window.addEventListener("load", adjustWidth);
+            window.addEventListener("resize", adjustWidth);
+            adjustWidth();
+
+            function slide(clientX) {
+                var rect = slider.getBoundingClientRect();
+                var pos = clientX - rect.left;
+                
+                // تحديد الحدود ضمن الحاوية
+                if (pos < 0) pos = 0;
+                if (pos > rect.width) pos = rect.width;
+
+                var percentage = (pos / rect.width) * 100;
+                
+                wrapper.style.width = percentage + "%";
+                handle.style.left = percentage + "%";
+                line.style.left = percentage + "%";
+            }
+
+            // دعم الماوس
+            handle.addEventListener("mousedown", function(e) {
+                isDown = true;
+                e.preventDefault();
+            });
+            window.addEventListener("mouseup", function() {
+                isDown = false;
+            });
+            window.addEventListener("mousemove", function(e) {
+                if (!isDown) return;
+                slide(e.clientX);
+            });
+
+            // دعم اللمس للأجهزة الذكية (الجوال)
+            handle.addEventListener("touchstart", function(e) {
+                isDown = true;
+            });
+            window.addEventListener("touchend", function() {
+                isDown = false;
+            });
+            window.addEventListener("touchmove", function(e) {
+                if (!isDown) return;
+                slide(e.touches[0].clientX);
+            });
+
+            // السحب عند النقر المباشر على أي مكان في الصورة
+            slider.addEventListener("click", function(e) {
+                slide(e.clientX);
+            });
+        }
+
+        initComparisons();
+    </script>
 
 </body>
 </html>
