@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط</title>
+    
+    <!-- وسوم المعاينة والتوجيه عند المشاركة -->
+    <meta property="og:title" content="تفضل بزيارة صفحة الغامدي لإصلاح الجنوط">
+    <meta property="og:url" content="https://gh-rims.github.io/ghamdi-links/">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -202,7 +208,7 @@
         }
         .services-box h3 { color: var(--orange); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.1em; }
         .services-box ul { list-style-type: none; padding: 0; margin: 0; line-height: 1.8; color: #cccccc; font-size: 0.9em; }
-        .services-box li { margin-bottom: 10px; }
+        .services-box li { margin-bottom: 12px; }
 
         .footer { margin-top: 30px; color: #777; font-size: 0.85em; padding: 20px; border-top: 1px solid #222; }
     </style>
@@ -313,13 +319,14 @@
             </a>
         </div>
 
+        <!-- صندوق الخدمات الجديد -->
         <div class="services-box">
-            <h3>Our Services | خدماتنا</h3>
+            <h3>خدماتنا | Our Services</h3>
             <ul>
-                <li>🛠️ <strong>التعديل والاستعدال:</strong> تعديل/استعدال طعجات وانحناءات الجنوط.</li>
-                <li>🔥 <strong>اللحام:</strong> لحام كسور الجنوط بالليزر / لحام أرجون للجنوط.</li>
-                <li>🎨 <strong>الرش والدهان:</strong> بوية جنوط (اسود لامع ومطفي)، رصاصي/سيلفر/فيراني، هايبر كروم ودقمي وجميع الالوان.</li>
-                <li>✨ <strong>التلميع والمسح الماسي :</strong> تلميع الجنوط بالمسح الماسي CNC للجنوط، وتجهيز التنكيل والتغطيس.</li>
+                <li>- 🛠️ <strong>تعديل واستعدال الجنوط:</strong> إصلاح واستعدال طعجات وانحناءات الجنوط وإعادتها إلى وضعها المناسب.</li>
+                <li>- 🔥 <strong>لحام كسور الجنوط:</strong> لحام وإصلاح كسور الجنوط بالليزر / لحام ارجون للجنوط، ومعالجة الشروخ والتشققات.</li>
+                <li>- 🎨 <strong>رش / دهان الجنوط:</strong> رش بوية جنوط السيارات بجميع الألوان، مثل رش جنوط اسود لامع او مطفي، سيلفر، رصاصي، فيراني، دقمي والهايبر كروم.</li>
+                <li>- ✨ <strong>تلميع ومسح ماسي CNC للجنوط:</strong> تجديد وتلميع أسطح الجنوط بالمسح الماسي CNC وإظهار التفاصيل الأصلية للجنط. وتلميع بوليش للجنوط (تنكيل جنوط).</li>
             </ul>
         </div>
 
@@ -341,17 +348,14 @@
             }
         }
 
-        // دالة المشاركة الحديثة (تفتح خيارات واتساب وغيرها مباشرة في الجوال)
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
-                    title: 'الغامدي لإصلاح الجنوط',
-                    text: 'تفضل بزيارة صفحة الغامدي لإصلاح وتجديد الجنوط في جدة',
-                    url: window.location.href,
+                    title: 'تفضل بزيارة صفحة الغامدي لإصلاح الجنوط',
+                    url: 'https://gh-rims.github.io/ghamdi-links/',
                 }).catch(() => {});
             } else {
-                // بديل في حال المتصفحات القديمة: نسخ الرابط أو فتح واتساب مباشرة
-                var dummyUrl = window.location.href;
+                var dummyUrl = 'https://gh-rims.github.io/ghamdi-links/';
                 navigator.clipboard.writeText(dummyUrl).then(() => {
                     alert('تم نسخ رابط الصفحة بنجاح!');
                 });
