@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>الغامدي لإصلاح الجنوط | رش ودهان وإصلاح جنوط السيارات في جدة</title>
 
 <meta name="description" content="الغامدي لإصلاح الجنوط في جدة متخصصون في إصلاح وتجديد وتلميع ورش ودهان جنوط السيارات بجميع الألوان، ومنها رش جنوط اسود لامع ومطفي، سيلفر، رصاصي، فيراني، دقمي وهايبر كروم.">
@@ -14,6 +14,7 @@
 <meta property="og:type" content="website">
 
 <style>
+
 :root{
 --orange:#FF8800;
 --navy:#103456;
@@ -30,15 +31,19 @@
 --shadow:0 14px 35px rgba(0,0,0,.28)
 }
 
-*{
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent
+/* منع أي تمدد أفقي */
+html{
+scroll-behavior:smooth;
+width:100%;
+max-width:100%;
+overflow-x:hidden
 }
-
-html{scroll-behavior:smooth}
 
 body{
 margin:0;
+width:100%;
+max-width:100%;
+overflow-x:hidden;
 background:
 radial-gradient(circle at 50% -10%,rgba(16,52,86,.75),transparent 38%),
 linear-gradient(180deg,#081019,#070B10 55%);
@@ -47,14 +52,36 @@ font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
 line-height:1.6
 }
 
-a{text-decoration:none;color:inherit}
-button{font-family:inherit}
+*{
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+max-width:100%
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button{
+font-family:inherit
+}
+
+img{
+max-width:100%;
+height:auto
+}
 
 .page{
-width:min(100%,560px);
-margin:auto;
-padding:14px
+width:100%;
+max-width:560px;
+margin:0 auto;
+padding:14px;
+overflow-x:hidden
 }
+
+
+/* الشريط العلوي */
 
 .topbar{
 height:48px;
@@ -75,6 +102,7 @@ color:#fff
 .brand-dot{
 width:8px;
 height:8px;
+min-width:8px;
 border-radius:50%;
 background:var(--orange);
 box-shadow:0 0 12px rgba(255,136,0,.65)
@@ -83,6 +111,7 @@ box-shadow:0 0 12px rgba(255,136,0,.65)
 .share{
 width:42px;
 height:42px;
+min-width:42px;
 border:1px solid var(--border);
 border-radius:50%;
 background:rgba(16,52,86,.7);
@@ -105,9 +134,13 @@ width:20px;
 height:20px
 }
 
+
+/* الهيرو */
+
 .hero{
 text-align:center;
-padding:8px 0 12px
+padding:8px 0 12px;
+overflow:hidden
 }
 
 .logo-wrap{
@@ -137,11 +170,14 @@ padding:8px
 
 .hero-image{
 margin:10px auto 12px;
-max-width:100%
+width:100%;
+max-width:100%;
+overflow:hidden
 }
 
 .hero-image img{
 width:100%;
+max-width:100%;
 height:auto;
 display:block
 }
@@ -164,16 +200,18 @@ color:var(--muted);
 font-size:14px
 }
 
+
 /* التنقل */
 
 .quick-nav{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(3,minmax(0,1fr));
 gap:8px;
 margin:16px 0 22px
 }
 
 .quick{
+min-width:0;
 min-height:58px;
 display:flex;
 flex-direction:column;
@@ -187,14 +225,17 @@ font-size:11px;
 font-weight:800;
 transition:.2s;
 position:relative;
-overflow:hidden
+overflow:hidden;
+text-align:center
 }
 
 .quick svg{
 width:19px;
 height:19px;
-color:var(--orange)
+color:var(--orange);
+flex:0 0 auto
 }
+
 
 /* العناوين */
 
@@ -205,7 +246,8 @@ gap:10px;
 margin:28px 0 13px;
 font-size:15px;
 font-weight:900;
-color:var(--orange)
+color:var(--orange);
+min-width:0
 }
 
 .section-title:before,
@@ -213,6 +255,7 @@ color:var(--orange)
 content:"";
 height:1px;
 flex:1;
+min-width:0;
 background:linear-gradient(to left,transparent,rgba(255,136,0,.55))
 }
 
@@ -220,22 +263,29 @@ background:linear-gradient(to left,transparent,rgba(255,136,0,.55))
 background:linear-gradient(to right,transparent,rgba(255,136,0,.55))
 }
 
+
 /* المواقع */
 
 .locations{
+width:100%;
+max-width:100%;
 background:linear-gradient(180deg,rgba(16,52,86,.25),rgba(13,20,28,.8));
 border:1px solid rgba(255,136,0,.2);
 border-radius:20px;
 padding:10px;
-box-shadow:var(--shadow)
+box-shadow:var(--shadow);
+overflow:hidden
 }
 
 .branch{
+width:100%;
+max-width:100%;
 padding:10px;
 margin:0 0 10px;
 background:#0E1720;
 border:1px solid var(--border);
-border-radius:16px
+border-radius:16px;
+overflow:hidden
 }
 
 .branch:last-child{
@@ -243,6 +293,8 @@ margin-bottom:0
 }
 
 .branch-main{
+width:100%;
+min-width:0;
 min-height:58px;
 display:flex;
 align-items:center;
@@ -255,23 +307,26 @@ font-size:14px;
 font-weight:900;
 transition:.2s;
 position:relative;
-overflow:hidden
+overflow:hidden;
+text-align:center
 }
 
 .branch-main svg{
 width:21px;
 height:21px;
+min-width:21px;
 color:var(--orange)
 }
 
 .branch-actions{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:8px;
 margin-top:8px
 }
 
 .branch-action{
+min-width:0;
 min-height:45px;
 display:flex;
 align-items:center;
@@ -284,12 +339,14 @@ font-size:12px;
 font-weight:800;
 transition:.2s;
 position:relative;
-overflow:hidden
+overflow:hidden;
+text-align:center
 }
 
 .branch-action svg{
 width:17px;
-height:17px
+height:17px;
+min-width:17px
 }
 
 .whatsapp svg{
@@ -300,14 +357,19 @@ color:var(--green)
 color:var(--orange)
 }
 
+
 /* التواصل الاجتماعي العلوي */
 
 .social-list{
 display:grid;
-gap:8px
+gap:8px;
+width:100%;
+max-width:100%
 }
 
 .social{
+width:100%;
+min-width:0;
 min-height:56px;
 display:flex;
 align-items:center;
@@ -322,6 +384,7 @@ overflow:hidden
 }
 
 .social-left{
+min-width:0;
 display:flex;
 align-items:center;
 gap:11px;
@@ -332,6 +395,7 @@ font-weight:900
 .social-icon{
 width:36px;
 height:36px;
+min-width:36px;
 border-radius:10px;
 background:#1B2630;
 display:flex;
@@ -339,12 +403,10 @@ align-items:center;
 justify-content:center
 }
 
-/* جميع الأيقونات بيضاء */
-
 .social-icon svg{
 width:19px;
 height:19px;
-color:#fff !important;
+color:#fff!important;
 fill:currentColor
 }
 
@@ -355,19 +417,26 @@ stroke:currentColor
 
 .social-arrow{
 color:var(--orange);
-font-size:20px
+font-size:20px;
+min-width:18px;
+text-align:center
 }
+
 
 /* الخدمات */
 
 .services-grid{
 display:grid;
-gap:11px
+gap:11px;
+width:100%;
+max-width:100%
 }
 
 .service-card{
 position:relative;
 overflow:hidden;
+width:100%;
+max-width:100%;
 min-height:105px;
 padding:16px;
 border-radius:18px;
@@ -392,12 +461,14 @@ background:var(--orange)
 .service-top{
 display:flex;
 align-items:center;
-gap:12px
+gap:12px;
+min-width:0
 }
 
 .service-icon{
 width:46px;
 height:46px;
+min-width:46px;
 flex:0 0 46px;
 border-radius:13px;
 background:rgba(255,136,0,.13);
@@ -440,16 +511,18 @@ font-size:11px;
 font-weight:900
 }
 
+
 /* الكتلوج */
 
 .action-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:9px;
 margin:25px 0 10px
 }
 
 .action{
+min-width:0;
 min-height:88px;
 display:flex;
 flex-direction:column;
@@ -473,9 +546,12 @@ height:27px;
 color:var(--orange)
 }
 
+
 /* تواصل معنا */
 
 .contact-now{
+width:100%;
+max-width:100%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -495,12 +571,16 @@ overflow:hidden
 
 .contact-now svg{
 width:21px;
-height:21px
+height:21px;
+min-width:21px
 }
+
 
 /* من نحن */
 
 .about{
+width:100%;
+max-width:100%;
 background:linear-gradient(135deg,rgba(16,52,86,.6),#101923);
 border:1px solid rgba(16,52,86,.9);
 border-radius:18px;
@@ -519,11 +599,13 @@ align-items:center;
 justify-content:space-between;
 font-size:14px;
 font-weight:900;
-cursor:pointer
+cursor:pointer;
+text-align:right
 }
 
 .about-head svg{
-transition:.25s
+transition:.25s;
+flex:0 0 auto
 }
 
 .about-head.open svg{
@@ -537,7 +619,8 @@ border-top:1px solid var(--border);
 color:#C9D2DA;
 font-size:13px;
 line-height:1.9;
-text-align:right
+text-align:right;
+overflow-wrap:anywhere
 }
 
 .about-content.open{
@@ -548,19 +631,23 @@ display:block
 color:#fff
 }
 
+
 /* أيقونات التواصل السفلية */
 
 .bottom-social{
+width:100%;
 display:flex;
 justify-content:center;
 align-items:center;
 gap:17px;
-margin:22px 0 4px
+margin:22px 0 4px;
+overflow:hidden
 }
 
 .bottom-social a{
 width:42px;
 height:42px;
+min-width:42px;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -573,7 +660,7 @@ transition:.2s
 .bottom-social svg{
 width:20px;
 height:20px;
-color:#fff !important;
+color:#fff!important;
 fill:currentColor
 }
 
@@ -598,6 +685,7 @@ margin:8px 0 16px;
 direction:ltr
 }
 
+
 /* الفوتر */
 
 .footer{
@@ -613,7 +701,8 @@ text-align:center
 color:#AEB9C3
 }
 
-/* لمعة */
+
+/* اللمعة */
 
 .ripple{
 position:absolute;
@@ -640,7 +729,8 @@ from{left:-100%}
 to{left:150%}
 }
 
-/* الزر المضغوط يبقى برتقالي */
+
+/* الزر النشط يبقى برتقالي */
 
 .active-orange{
 background:linear-gradient(135deg,var(--orange),#D96D00)!important;
@@ -654,6 +744,7 @@ box-shadow:0 0 18px rgba(255,136,0,.25)
 color:#081019!important
 }
 
+
 /* النافذة */
 
 .modal{
@@ -666,7 +757,8 @@ justify-content:center;
 padding:14px;
 background:rgba(0,0,0,.88);
 backdrop-filter:blur(7px);
--webkit-backdrop-filter:blur(7px)
+-webkit-backdrop-filter:blur(7px);
+overflow:hidden
 }
 
 .modal.show{
@@ -675,6 +767,7 @@ display:flex
 
 .modal-box{
 width:min(100%,520px);
+max-width:520px;
 max-height:94vh;
 background:linear-gradient(160deg,#122333,#080E14);
 border:1px solid rgba(255,136,0,.35);
@@ -682,7 +775,8 @@ border-radius:20px;
 padding:12px;
 box-shadow:0 20px 70px rgba(0,0,0,.65);
 display:flex;
-flex-direction:column
+flex-direction:column;
+overflow:hidden
 }
 
 .modal-head{
@@ -698,12 +792,14 @@ font-size:15px;
 font-weight:900;
 color:#fff;
 text-align:center;
-flex:1
+flex:1;
+min-width:0
 }
 
 .close{
 width:38px;
 height:38px;
+min-width:38px;
 border:1px solid var(--border);
 border-radius:50%;
 background:#17232E;
@@ -719,6 +815,7 @@ flex:0 0 38px
 .photo-wrap{
 position:relative;
 width:100%;
+max-width:100%;
 border-radius:15px;
 overflow:hidden;
 background:#05080B;
@@ -729,6 +826,7 @@ cursor:pointer
 .photo-wrap img{
 display:block;
 width:100%;
+max-width:100%;
 height:auto;
 max-height:62vh;
 object-fit:contain;
@@ -765,7 +863,7 @@ margin-bottom:8px
 
 .modal-controls{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:9px
 }
 
@@ -781,12 +879,16 @@ cursor:pointer;
 transition:.2s
 }
 
+
 @media(prefers-reduced-motion:reduce){
+
 *{
 scroll-behavior:auto!important;
 transition:none!important
 }
+
 }
+
 </style>
 </head>
 
@@ -809,11 +911,13 @@ aria-label="مشاركة الصفحة">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <circle cx="18" cy="5" r="2.5"/>
 <circle cx="6" cy="12" r="2.5"/>
 <circle cx="18" cy="19" r="2.5"/>
 <path d="M8.2 10.8 15.8 6.2"/>
 <path d="m8.2 13.2 7.6 4.6"/>
+
 </svg>
 
 </button>
@@ -841,7 +945,6 @@ loading="eager">
 <img src="front2.png"
 alt="الغامدي لإصلاح الجنوط"
 width="500"
-height="auto"
 loading="eager">
 
 </div>
@@ -858,41 +961,55 @@ loading="eager">
 <nav class="quick-nav">
 
 <a href="#locations" class="quick ripple-btn">
+
 <span class="ripple"></span>
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/>
 <circle cx="12" cy="9" r="2.3"/>
+
 </svg>
 
 مواقعنا
+
 </a>
 
+
 <a href="#social" class="quick ripple-btn">
+
 <span class="ripple"></span>
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <circle cx="12" cy="12" r="9"/>
 <path d="M8 12h8M12 8v8"/>
+
 </svg>
 
 التواصل
+
 </a>
 
+
 <a href="#services" class="quick ripple-btn">
+
 <span class="ripple"></span>
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="m14.7 6.3 3 3"/>
 <path d="m3 21 7.5-7.5"/>
 <path d="M14 4a4 4 0 0 1 5.7 5.7l-4.4 4.4-5.7-5.7L14 4Z"/>
 <path d="m8 13-4 4"/>
+
 </svg>
 
 خدماتنا
+
 </a>
 
 </nav>
@@ -908,6 +1025,7 @@ Location | مواقعنا
 
 <div class="locations">
 
+
 <div class="branch">
 
 <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA"
@@ -917,13 +1035,16 @@ class="branch-main ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
 <circle cx="12" cy="10" r="2.5"/>
+
 </svg>
 
 <span>فرع كيلو 14 الصناعية الجديدة</span>
 
 </a>
+
 
 <div class="branch-actions">
 
@@ -934,12 +1055,16 @@ class="branch-action whatsapp ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
 <path d="M8.5 9.2c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
+
 </svg>
 
 واتساب كيلو 14
+
 </a>
+
 
 <a href="tel:0562904736"
 class="branch-action phone ripple-btn">
@@ -948,10 +1073,13 @@ class="branch-action phone ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-2 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
+
 </svg>
 
 اتصال كيلو 14
+
 </a>
 
 </div>
@@ -967,13 +1095,16 @@ class="branch-main ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
 <circle cx="12" cy="10" r="2.5"/>
+
 </svg>
 
 <span>فرع كيلو 3 مجمع الإطارات</span>
 
 </a>
+
 
 <div class="branch-actions">
 
@@ -984,12 +1115,16 @@ class="branch-action whatsapp ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
 <path d="M8.5 9.2c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
+
 </svg>
 
 واتساب كيلو 3
+
 </a>
+
 
 <a href="tel:0507578871"
 class="branch-action phone ripple-btn">
@@ -998,10 +1133,13 @@ class="branch-action phone ripple-btn">
 
 <svg viewBox="0 0 24 24" fill="none"
 stroke="currentColor" stroke-width="2">
+
 <path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-2 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
+
 </svg>
 
 اتصال كيلو 3
+
 </a>
 
 </div>
@@ -1021,6 +1159,7 @@ stroke="currentColor" stroke-width="2">
 
 <div class="social-list">
 
+
 <a href="https://www.tiktok.com/@ghamdi_r4"
 class="social ripple-btn">
 
@@ -1029,9 +1168,13 @@ class="social ripple-btn">
 <div class="social-left">
 
 <span class="social-icon">
+
 <svg viewBox="0 0 24 24" fill="currentColor">
+
 <path d="M15.5 3h3.1c.2 1.8 1.2 3.3 2.9 4.1v3.2c-1.2-.1-2.3-.5-3.2-1.1v6.2c0 4.1-3 6.8-6.7 6.8-3.5 0-6.2-2.6-6.2-6 0-3.7 3-6.2 6.8-6.2.3 0 .7 0 1 .1v3.4c-.3-.1-.6-.1-1-.1-1.9 0-3.4 1.2-3.4 2.9 0 1.6 1.2 2.8 2.8 2.8 1.8 0 3.2-1.2 3.2-3.5V3Z"/>
+
 </svg>
+
 </span>
 
 TikTok
@@ -1150,6 +1293,7 @@ YouTube
 </a>
 
 </div>
+
 </section>
 
 
@@ -1414,7 +1558,7 @@ class="about-content">
 </section>
 
 
-<!-- التواصل الاجتماعي السفلي: أيقونات فقط -->
+<!-- التواصل الاجتماعي السفلي -->
 
 <div class="bottom-social">
 
@@ -1499,9 +1643,11 @@ aria-label="YouTube">
 
 </div>
 
+
 <div class="username">
 ghamdi_r4
 </div>
+
 
 <div class="specialist">
 Specialists in car rims repair
@@ -1797,6 +1943,8 @@ function showPhoto(){
 
 const photo=currentPhotos[currentIndex];
 
+if(!photo)return;
+
 const img=document.getElementById("modalImage");
 
 const label=document.getElementById("photoLabel");
@@ -1931,8 +2079,7 @@ prompt("انسخ رابط الصفحة:",url);
 }
 
 
-/* تأثير جميع الأزرار
-   ضغط → برتقالي → لمعة → انتقال */
+/* تأثير جميع الأزرار */
 
 document.addEventListener("click",function(e){
 
