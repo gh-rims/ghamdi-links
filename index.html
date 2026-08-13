@@ -37,25 +37,26 @@
         }
         .logo { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
 
-        /* صورة Ffh5.png بحجمها الطبيعي بدون إطار تحت الشعار مباشرة */
-        .top-image-container {
-            margin: 15px 0;
-            text-align: center;
-        }
-        .top-custom-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border: none;
-            box-shadow: none;
-            background: transparent;
-        }
+        .top-image-container { margin: 15px 0; text-align: center; }
+        .top-custom-image { max-width: 100%; height: auto; display: block; margin: 0 auto; border: none; box-shadow: none; background: transparent; }
         
         h1 { color: var(--white); margin-bottom: 5px; font-weight: 700; font-size: 1.5em; }
         p.subtitle { color: #aaaaaa; margin-bottom: 25px; font-weight: 400; font-size: 0.95em; }
 
-        /* عناوين الأقسام مثل الصورة */
+        /* ستايل صندوق من نحن التفاعلي */
+        .about-dropdown-box {
+            background: var(--card-bg);
+            padding: 14px 18px;
+            border-radius: 14px;
+            margin: 15px 0;
+            border: 1px solid #2a2a2a;
+            box-shadow: -5px 0 15px rgba(255, 119, 0, 0.15);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .about-dropdown-box:hover { border-color: var(--orange); }
+        .about-header { display: flex; align-items: center; justify-content: space-between; color: var(--orange); font-weight: bold; font-size: 1em; }
+
         .section-header {
             color: var(--orange);
             font-weight: bold;
@@ -74,7 +75,6 @@
         }
         .section-header::before { --dir: left; }
 
-        /* حاوية الفروع الاحترافية */
         .branch-box {
             background: var(--card-bg);
             padding: 15px;
@@ -103,11 +103,7 @@
         }
         .branch-main-btn:hover { border-color: var(--orange); }
 
-        .branch-grid-dual {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+        .branch-grid-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
         .sub-btn {
             display: flex;
@@ -126,7 +122,6 @@
         }
         .sub-btn:hover { background: #262626; border-color: var(--orange); }
 
-        /* أزرار وسائل التواصل الاجتماعي */
         .social-btn {
             display: flex;
             align-items: center;
@@ -147,13 +142,7 @@
         .social-left { display: flex; align-items: center; gap: 12px; }
         .social-btn i { font-size: 1.3em; }
 
-        /* قسم الأزرار البارزة */
-        .bottom-actions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 25px 0;
-        }
+        .bottom-actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
 
         .action-highlight-btn {
             display: flex;
@@ -172,21 +161,10 @@
             box-shadow: 0 4px 15px rgba(255, 119, 0, 0.25);
             transition: all 0.3s ease;
         }
-        .action-highlight-btn:hover {
-            background: var(--orange);
-            color: var(--black);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 119, 0, 0.4);
-        }
-        .action-highlight-btn i {
-            font-size: 1.5em;
-            color: var(--orange);
-        }
-        .action-highlight-btn:hover i {
-            color: var(--black);
-        }
+        .action-highlight-btn:hover { background: var(--orange); color: var(--black); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 119, 0, 0.4); }
+        .action-highlight-btn i { font-size: 1.5em; color: var(--orange); }
+        .action-highlight-btn:hover i { color: var(--black); }
 
-        /* صندوق الخدمات الاحترافي */
         .services-box {
             background: var(--card-bg);
             padding: 20px;
@@ -196,42 +174,19 @@
             box-shadow: -5px 0 15px rgba(255, 119, 0, 0.15);
             text-align: right;
         }
-        .services-box h3 {
-            color: var(--orange);
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .services-box ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            line-height: 1.8;
-            color: #cccccc;
-            font-size: 0.9em;
-        }
-        .services-box li {
-            margin-bottom: 10px;
-        }
+        .services-box h3 { color: var(--orange); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.1em; }
+        .services-box ul { list-style-type: none; padding: 0; margin: 0; line-height: 1.8; color: #cccccc; font-size: 0.9em; }
+        .services-box li { margin-bottom: 10px; }
 
-        .footer { 
-            margin-top: 30px; 
-            color: #777; 
-            font-size: 0.85em; 
-            padding: 20px; 
-            border-top: 1px solid #222; 
-        }
+        .footer { margin-top: 30px; color: #777; font-size: 0.85em; padding: 20px; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- الشعار -->
         <div class="logo-container">
             <img src="Bbb5.png" alt="شعار الغامدي" class="logo">
         </div>
 
-        <!-- صورة Ffh5.png تحت الشعار مباشرة بحجمها الطبيعي وبدون إطار -->
         <div class="top-image-container">
             <img src="ffh5.png" alt="صورة توضيحية" class="top-custom-image">
         </div>
@@ -239,10 +194,22 @@
         <h1>الغامدي لإصلاح الجنوط</h1>
         <p class="subtitle">متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
         
-        <!-- قسم الفروع والمواقع -->
+        <!-- قسم من نحن التفاعلي الجديد -->
+        <div class="about-dropdown-box" onclick="toggleAbout()">
+            <div class="about-header">
+                <span>نبذة عن المحل | من نحن</span>
+                <i id="arrow-icon" class="fa-solid fa-chevron-down" style="transition: 0.3s;"></i>
+            </div>
+            <div id="about-content" style="display: none; margin-top: 12px; color: #cccccc; font-size: 0.9em; line-height: 1.8; text-align: right; border-top: 1px solid #333; padding-top: 10px;">
+                <strong>خبرة تمتد منذ 2009</strong><br>
+                تأسس <strong>الغامدي لإصلاح الجنوط</strong> عام 2009 في كيلو 2 بجدة، ومنذ ذلك الوقت ونحن متخصصون في العناية بالجنوط وإصلاحها وتجديد مظهرها.<br><br>
+                نقدم مجموعة متكاملة من خدمات الجنوط، ومن أبرزها المسح الماسي CNC، الذي كنا من أوائل من قدموا هذه الخدمة في المملكة.<br><br>
+                واليوم نواصل تقديم خدماتنا من خلال فرعي <strong>كيلو 14</strong> و<strong>كيلو 3</strong> في جدة.
+            </div>
+        </div>
+        
         <div class="section-header">Location | مواقعنا</div>
 
-        <!-- فرع كيلو 14 -->
         <div class="branch-box">
             <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="branch-main-btn">
                 <i class="fa-solid fa-location-dot" style="color: var(--orange);"></i>
@@ -260,7 +227,6 @@
             </div>
         </div>
 
-        <!-- فرع كيلو 3 -->
         <div class="branch-box">
             <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="branch-main-btn">
                 <i class="fa-solid fa-location-dot" style="color: var(--orange);"></i>
@@ -278,50 +244,33 @@
             </div>
         </div>
         
-        <!-- قسم وسائل التواصل الاجتماعي -->
         <div class="section-header">تابعنا على مواقع التواصل الاجتماعي</div>
 
         <a href="https://www.tiktok.com/@ghamdi_r4" class="social-btn">
-            <div class="social-left">
-                <i class="fa-brands fa-tiktok" style="color: #ffffff;"></i>
-                <span>TikTok</span>
-            </div>
+            <div class="social-left"><i class="fa-brands fa-tiktok" style="color: #ffffff;"></i><span>TikTok</span></div>
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
         <a href="https://www.instagram.com/ghamdi_r4/" class="social-btn">
-            <div class="social-left">
-                <i class="fa-brands fa-instagram" style="color: #e1306c;"></i>
-                <span>Instagram</span>
-            </div>
+            <div class="social-left"><i class="fa-brands fa-instagram" style="color: #e1306c;"></i><span>Instagram</span></div>
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
         <a href="https://www.snapchat.com/add/ghamdi_r4" class="social-btn">
-            <div class="social-left">
-                <i class="fa-brands fa-snapchat" style="color: #fffc00;"></i>
-                <span>Snapchat</span>
-            </div>
+            <div class="social-left"><i class="fa-brands fa-snapchat" style="color: #fffc00;"></i><span>Snapchat</span></div>
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
         <a href="https://x.com/ghamdi_r4" class="social-btn">
-            <div class="social-left">
-                <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
-                <span>X – تويتر</span>
-            </div>
+            <div class="social-left"><i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i><span>X – تويتر</span></div>
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
         <a href="https://www.youtube.com/@ghamdi_r4" class="social-btn">
-            <div class="social-left">
-                <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
-                <span>YouTube</span>
-            </div>
+            <div class="social-left"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i><span>YouTube</span></div>
             <i class="fa-solid fa-chevron-left" style="color: var(--orange);"></i>
         </a>
 
-        <!-- الزران البارزان -->
         <div class="bottom-actions-grid">
             <a href="https://wa.me/c/966541250787" class="action-highlight-btn">
                 <i class="fa-solid fa-book-open"></i>
@@ -333,7 +282,6 @@
             </a>
         </div>
 
-        <!-- صندوق الخدمات الاحترافي في أخر الصفحة -->
         <div class="services-box">
             <h3>Our Services | خدماتنا</h3>
             <ul>
@@ -348,5 +296,19 @@
             <p><strong>الغامدي لإصلاح الجنوط</strong><br>جدة – المملكة العربية السعودية</p>
         </div>
     </div>
+
+    <script>
+        function toggleAbout() {
+            var content = document.getElementById("about-content");
+            var arrow = document.getElementById("arrow-icon");
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                arrow.style.transform = "rotate(180deg)";
+            } else {
+                content.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+            }
+        }
+    </script>
 </body>
 </html>
