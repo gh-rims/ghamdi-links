@@ -8,7 +8,10 @@
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 0; text-align: center; }
         .full-width-img { width: 100%; display: block; margin-bottom: 20px; }
-        
+        .gallery-container { max-width: 450px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; padding: 0 20px; }
+        .image-box { background-color: #1a1a1a; border: 3px solid #ff7700; border-radius: 12px; padding: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.5); }
+        .image-box img { width: 100%; height: auto; border-radius: 8px; display: block; }
+
         /* --- تصميم المعارض المربعة 1:1 --- */
         .slideshow-wrapper {
             margin: 20px auto 30px auto; width: 90%; max-width: 350px;
@@ -43,7 +46,7 @@
 
     <img src="front.jpeg" alt="خدماتنا" class="full-width-img">
 
-    <!-- 1. معرض هايبر كروم -->
+    <!-- المعارض التلقائية -->
     <h2 style="color: #ff7700; margin-top: 30px; margin-bottom: 5px;">رش بوية هايبر كروم</h2>
     <div class="slideshow-wrapper">
         <div class="mySlides1 fade"><img src="h1.jpg" alt="1"></div>
@@ -53,7 +56,6 @@
         <div class="dot-container"><span class="dot1"></span> <span class="dot1"></span> <span class="dot1"></span> <span class="dot1"></span></div>
     </div>
 
-    <!-- 2. معرض الجنوط الأسود -->
     <h2 style="color: #ff7700; margin-top: 10px; margin-bottom: 5px;">رش جنوط اسود / لامع / نص لمعه / مطفي</h2>
     <div class="slideshow-wrapper">
         <div class="mySlides2 fade"><img src="b1.jpg" alt="1"></div>
@@ -62,7 +64,7 @@
         <div class="dot-container"><span class="dot2"></span> <span class="dot2"></span> <span class="dot2"></span></div>
     </div>
 
-    <!-- 3. عارض النقر للتبديل الأساسي (z1/z2) -->
+    <!-- عارض التبديل الأساسي (z1/z2) -->
     <h3>قبل / بعد</h3>
     <div class="toggle-wrapper">
         <div class="toggle-container" onclick="toggleImage(this, 'z1.jpg', 'z2.jpg')">
@@ -71,7 +73,7 @@
         </div>
     </div>
 
-    <!-- 4. الخدمات الـ 6 الجديدة -->
+    <!-- الخدمات الـ 6 الجديدة -->
     <script>
         const services = [
             { title: "تكحيل الجنوط", before: "b1.jpg", after: "a1.jpg" },
@@ -94,7 +96,6 @@
             `);
         });
 
-        // دالة التبديل العامة
         function toggleImage(container, beforeSrc, afterSrc) {
             const img = container.querySelector('.toggle-img');
             const label = container.querySelector('.label-badge');
@@ -106,28 +107,48 @@
                 img.style.opacity = 1;
             }, 400);
         }
-
-        // دالة تشغيل المعرض التلقائي
-        function startSlideshow(slideClass, dotClass) {
-            let slideIndex = 0;
-            let slides = document.getElementsByClassName(slideClass);
-            let dots = document.getElementsByClassName(dotClass);
-            function show() {
-                for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-                slideIndex++;
-                if (slideIndex > slides.length) {slideIndex = 1}
-                for (let i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
-                slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " active";
-                setTimeout(show, 3000);
-            }
-            show();
-        }
-        startSlideshow("mySlides1", "dot1");
-        startSlideshow("mySlides2", "dot2");
     </script>
+
+    <!-- الصور الأصلية -->
+    <div class="gallery-container">
+        <div class="image-box"><img src="k1.jpeg" alt="k1"></div>
+        <div class="image-box"><img src="k2.jpeg" alt="k2"></div>
+        <div class="image-box"><img src="k3.jpeg" alt="k3"></div>
+        <div class="image-box"><img src="k4.jpeg" alt="k4"></div>
+        <div class="image-box"><img src="k5.jpeg" alt="k5"></div>
+        <div class="image-box"><img src="k6.jpeg" alt="k6"></div>
+        <div class="image-box"><img src="k7.jpg" alt="k7"></div>
+        <div class="image-box"><img src="K8.jpg" alt="k8"></div>
+        <div class="image-box"><img src="k9.jpeg" alt="k9"></div>
+    </div>
+
+    <img src="c4.jpeg" alt="c4" class="full-width-img">
+
+    <div class="gallery-container" style="margin-top: 20px;">
+        <div class="image-box"><img src="c1.jpeg" alt="c1"></div>
+        <div class="image-box"><img src="c2.jpeg" alt="c2"></div>
+    </div>
 
     <a href="index.html" class="back-btn">العودة للرئيسية</a>
 
+    <script>
+        // تفعيل المعارض التلقائية
+        function runSlides(slideClass, dotClass) {
+            let idx = 0;
+            let slides = document.getElementsByClassName(slideClass);
+            let dots = document.getElementsByClassName(dotClass);
+            function next() {
+                for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+                idx = (idx + 1 > slides.length) ? 1 : idx + 1;
+                for (let i = 0; i < dots.length; i++) dots[i].className = dots[i].className.replace(" active", "");
+                slides[idx-1].style.display = "block";
+                dots[idx-1].className += " active";
+                setTimeout(next, 3000);
+            }
+            next();
+        }
+        runSlides("mySlides1", "dot1");
+        runSlides("mySlides2", "dot2");
+    </script>
 </body>
 </html>
