@@ -2,74 +2,49 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>الغامدي لإصلاح الجنوط | رش ودهان وإصلاح جنوط السيارات في جدة</title>
+<meta name="description" content="الغامدي لإصلاح الجنوط في جدة متخصصون في إصلاح وتجديد وتلميع ورش ودهان جنوط السيارات بجميع الألوان.">
 <style>
-:root {
-    --orange: #FF8800;
-    --navy: #103456;
-    --navy2: #174D78;
-    --black: #070B10;
-    --white: #fff;
-    --text: #EAF0F5;
-    --muted: #9AA9B7;
-    --green: #25D366;
-    --border: rgba(255,255,255,.09);
-}
-
+/* --- إصلاح الفراغ الجانبي --- */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden !important;
     background: #070B10;
-    color: var(--text);
     font-family: system-ui, -apple-system, sans-serif;
-    overflow-x: hidden;
+    color: #EAF0F5;
 }
-
-* {
-    box-sizing: border-box;
-    max-width: 100%;
+* { box-sizing: border-box; max-width: 100%; }
+.page { 
+    width: 100%; 
+    max-width: 560px; 
+    margin: 0 auto; 
+    padding: 14px; 
+    overflow-x: hidden; 
 }
+/* --- نهاية الإصلاح --- */
 
-.page {
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
-    padding: 15px;
-}
-
-a { text-decoration: none; color: inherit; }
-button { font-family: inherit; cursor: pointer; }
-
-/* الهيرو واللوجو */
-.hero { text-align: center; padding: 20px 0; }
-.logo-wrap { width: 110px; height: 110px; margin: auto; border-radius: 50%; background: linear-gradient(145deg, var(--orange), var(--navy)); padding: 3px; }
-.logo-inner { width: 100%; height: 100%; border-radius: 50%; background: #fff; overflow: hidden; }
-.logo { width: 100%; height: 100%; object-fit: contain; padding: 5px; }
-h1 { font-size: 24px; margin: 15px 0 5px; color: #fff; }
-.subtitle { color: var(--muted); font-size: 14px; }
-
-/* الأقسام العامة */
-.section-title { color: var(--orange); font-weight: 900; margin: 25px 0 15px; display: flex; align-items: center; gap: 10px; }
-.section-title::after { content: ""; height: 1px; flex: 1; background: linear-gradient(to right, var(--orange), transparent); }
-
-/* البطاقات والخدمات */
-.branch, .service-card { background: #0E1720; border: 1px solid var(--border); border-radius: 16px; padding: 15px; margin-bottom: 10px; }
-.branch-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-.btn-main { background: var(--navy); padding: 12px; border-radius: 12px; text-align: center; font-weight: 800; display: block; }
-
-.services-grid { display: grid; gap: 10px; }
-.service-card { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
-
-/* زر التواصل العائم / الرئيسي */
-.contact-now { background: linear-gradient(135deg, #128C4A, #25D366); color: #fff; padding: 15px; border-radius: 15px; text-align: center; font-weight: 900; display: block; margin: 20px 0; }
-
-/* النافذة المنبثقة */
-.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 10px; }
-.modal.show { display: flex; }
-.modal-box { width: 100%; max-width: 500px; background: #080E14; border-radius: 20px; padding: 20px; color: #fff; }
-
+/* بقية التنسيقات الأصلية */
+:root{--orange:#FF8800;--navy:#103456;--navy2:#174D78;--black:#070B10;--green:#25D366;--border:rgba(255,255,255,.09);}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%; height:auto;}
+.hero{text-align:center; padding:20px 0;}
+.logo-wrap{width:112px; height:112px; margin:auto; border-radius:50%; background:linear-gradient(145deg,var(--orange),var(--navy)); padding:4px;}
+.logo-inner{width:100%; height:100%; border-radius:50%; background:#fff; overflow:hidden;}
+.logo{width:100%; height:100%; object-fit:contain; padding:8px;}
+h1{color:#fff; font-weight:900; margin:15px 0;}
+.section-title{color:var(--orange); font-weight:900; margin:25px 0 15px; display:flex; align-items:center; gap:10px;}
+.section-title:before, .section-title:after{content:""; height:1px; flex:1; background:linear-gradient(to right,var(--orange),transparent);}
+.branch{background:#0E1720; border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:10px;}
+.branch-actions{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;}
+.btn-main{display:block; padding:12px; background:var(--navy); border-radius:12px; text-align:center; font-weight:800; border:1px solid rgba(255,136,0,.25);}
+.btn-action{padding:10px; background:#151F28; border-radius:10px; text-align:center; font-size:12px; border:1px solid var(--border);}
+.contact-now{display:flex; align-items:center; justify-content:center; gap:10px; padding:15px; background:linear-gradient(135deg,#128C4A,#25D366); color:#fff; border-radius:15px; font-weight:900; margin:20px 0;}
+.modal{position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; z-index:9999; padding:15px;}
+.modal.show{display:flex;}
+.modal-box{width:100%; max-width:500px; background:#080E14; border:1px solid var(--orange); border-radius:20px; padding:20px; text-align:center;}
 </style>
 </head>
 <body>
@@ -78,7 +53,6 @@ h1 { font-size: 24px; margin: 15px 0 5px; color: #fff; }
     <header class="hero">
         <div class="logo-wrap"><div class="logo-inner"><img src="Logo.png" alt="شعار" class="logo"></div></div>
         <h1>الغامدي لإصلاح الجنوط</h1>
-        <p class="subtitle">متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات</p>
     </header>
 
     <section id="locations">
@@ -86,31 +60,40 @@ h1 { font-size: 24px; margin: 15px 0 5px; color: #fff; }
         <div class="branch">
             <a href="https://maps.app.goo.gl/aUgLV4DJwiko7XtEA" class="btn-main">فرع كيلو 14 الصناعية الجديدة</a>
             <div class="branch-actions">
-                <a href="https://wa.me/966562904736" class="btn-main">واتساب</a>
-                <a href="tel:0562904736" class="btn-main">اتصال</a>
+                <a href="https://wa.me/966562904736" class="btn-action">واتساب كيلو 14</a>
+                <a href="tel:0562904736" class="btn-action">اتصال كيلو 14</a>
             </div>
         </div>
         <div class="branch">
             <a href="https://maps.app.goo.gl/9R1pvcM4YNobthtp9" class="btn-main">فرع كيلو 3 مجمع الإطارات</a>
             <div class="branch-actions">
-                <a href="https://wa.me/966507578871" class="btn-main">واتساب</a>
-                <a href="tel:0507578871" class="btn-main">اتصال</a>
+                <a href="https://wa.me/966507578871" class="btn-action">واتساب كيلو 3</a>
+                <a href="tel:0507578871" class="btn-action">اتصال كيلو 3</a>
             </div>
         </div>
     </section>
 
     <a href="https://wa.me/966567705074" class="contact-now">تواصل معنا الآن</a>
+</div>
 
-    <footer style="text-align:center; color:var(--muted); font-size:12px; padding:20px;">
-        الغامدي لإصلاح الجنوط © 2026
-    </footer>
+<!-- النافذة المنبثقة للصور -->
+<div id="serviceModal" class="modal" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+        <h2 id="modalTitle" style="color:var(--orange)"></h2>
+        <img id="modalImg" src="" style="width:100%; border-radius:10px; margin:15px 0;">
+        <button onclick="closeModal()" style="width:100%; padding:10px; background:var(--navy); color:#fff; border:none; border-radius:10px;">إغلاق</button>
+    </div>
 </div>
 
 <script>
-// سكربت بسيط للتحقق من تحميل الصور وتجنب الأخطاء
-window.addEventListener('load', function() {
-    console.log("الموقع يعمل بكامل طاقته");
-});
+function openModal(title, imgSrc) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalImg').src = imgSrc;
+    document.getElementById('serviceModal').classList.add('show');
+}
+function closeModal() {
+    document.getElementById('serviceModal').classList.remove('show');
+}
 </script>
 
 </body>
