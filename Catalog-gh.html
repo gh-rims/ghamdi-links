@@ -471,10 +471,12 @@ border-radius:13px;
 
 font-size:20px;
 font-weight:900;
-webkit-text-stroke:0.5px current-Color;
+
+-webkit-text-stroke:.5px currentColor;
+
 position:relative;
 overflow:hidden;
-   
+
 text-align:center;
 
 padding:8px 10px;
@@ -491,7 +493,6 @@ flex:0 0 23px;
 
 .branch-main span{
 min-width:0;
-
 overflow-wrap:anywhere;
 }
 
@@ -518,19 +519,22 @@ align-items:center;
 justify-content:center;
 
 gap:8px;
+
 background:
 linear-gradient(
 135deg,
-rgba(16,52,80,.75),
-#0D151D 60%
+var(--navy2),
+var(--navy)
 );
 
-border:1px solid var(--border);
+border:1px solid rgba(255,136,0,.25);
 border-radius:17px;
 
 font-size:15px;
 font-weight:900;
-webkit-text-stroke:0.5px current-Color;
+
+-webkit-text-stroke:.5px currentColor;
+
 position:relative;
 overflow:hidden;
 
@@ -652,7 +656,7 @@ width:100%;
 
 display:grid;
 
-gap:11px;
+gap:9px;
 
 min-width:0;
 }
@@ -663,11 +667,12 @@ position:relative;
 width:100%;
 min-width:0;
 
-min-height:80px;
+height:62px;
+min-height:62px;
 
-padding:12px;
+padding:7px 12px;
 
-border-radius:18px;
+border-radius:15px;
 
 border:1px solid var(--border);
 
@@ -706,18 +711,20 @@ width:100%;
 display:flex;
 align-items:center;
 
-gap:12px;
+gap:10px;
+
+height:100%;
 
 min-width:0;
 }
 
 .service-icon{
-width:36px;
-height:36px;
+width:40px;
+height:40px;
 
-flex:0 0 46px;
+flex:0 0 40px;
 
-border-radius:13px;
+border-radius:11px;
 
 background:rgba(255,136,0,.13);
 
@@ -727,7 +734,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-font-size:23px;
+font-size:21px;
 }
 
 .service-top > div:last-child{
@@ -744,11 +751,11 @@ overflow-wrap:anywhere;
 .service-desc{
 color:var(--muted);
 
-font-size:11px;
+font-size:10px;
 
-margin-top:4px;
+margin-top:1px;
 
-line-height:1.5;
+line-height:1.4;
 
 overflow-wrap:anywhere;
 }
@@ -756,28 +763,28 @@ overflow-wrap:anywhere;
 .service-arrow{
 position:absolute;
 
-left:14px;
+left:12px;
 top:50%;
 
 transform:translateY(-50%);
 
 color:var(--orange);
 
-font-size:20px;
+font-size:21px;
 font-weight:bold;
 }
 
 .service-photos{
 position:absolute;
 
-left:40px;
+left:35px;
 top:50%;
 
 transform:translateY(-50%);
 
 color:var(--orange);
 
-font-size:11px;
+font-size:10px;
 font-weight:900;
 }
 
@@ -942,7 +949,6 @@ text-align:right;
 
 .about-head svg{
 transition:.25s;
-
 flex:0 0 auto;
 }
 
@@ -1180,7 +1186,192 @@ color:var(--orange)!important;
 
 
 /* =========================================================
-   MODAL
+   MODAL - تفاصيل الخدمة
+========================================================= */
+
+.service-modal{
+position:fixed;
+
+top:0;
+right:0;
+bottom:0;
+left:0;
+
+z-index:9998;
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+padding:14px;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.88);
+
+backdrop-filter:blur(7px);
+-webkit-backdrop-filter:blur(7px);
+
+overflow:hidden;
+}
+
+.service-modal.show{
+display:flex;
+}
+
+.service-modal-box{
+width:100%;
+max-width:520px;
+
+max-height:90vh;
+
+background:
+linear-gradient(
+160deg,
+#122333,
+#080E14
+);
+
+border:1px solid rgba(255,136,0,.35);
+
+border-radius:20px;
+
+padding:18px;
+
+box-shadow:
+0 20px 70px rgba(0,0,0,.65);
+
+overflow:auto;
+
+min-width:0;
+}
+
+.service-modal-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+gap:10px;
+
+margin-bottom:15px;
+}
+
+.service-modal-title{
+flex:1;
+
+font-size:19px;
+font-weight:900;
+
+color:#fff;
+
+text-align:right;
+}
+
+.service-close{
+width:38px;
+height:38px;
+
+border:1px solid var(--border);
+
+border-radius:50%;
+
+background:#17232E;
+
+color:#fff;
+
+font-size:22px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+flex:0 0 38px;
+}
+
+.service-detail{
+color:#C9D2DA;
+
+font-size:14px;
+
+line-height:1.9;
+
+text-align:right;
+
+margin:0 0 18px;
+}
+
+.service-detail strong{
+color:#fff;
+}
+
+.service-gallery-btn{
+width:100%;
+
+height:55px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+gap:9px;
+
+border:1px solid rgba(255,136,0,.45);
+
+border-radius:14px;
+
+background:
+linear-gradient(
+135deg,
+var(--navy2),
+var(--navy)
+);
+
+color:#fff;
+
+font-size:15px;
+font-weight:900;
+
+cursor:pointer;
+
+position:relative;
+overflow:hidden;
+}
+
+.service-gallery-btn svg{
+width:23px;
+height:23px;
+
+color:var(--orange);
+}
+
+.service-back{
+width:100%;
+
+height:45px;
+
+margin-top:9px;
+
+border:1px solid var(--border);
+
+border-radius:13px;
+
+background:#101A23;
+
+color:#AEB9C3;
+
+font-size:13px;
+font-weight:800;
+
+cursor:pointer;
+}
+
+
+/* =========================================================
+   نافذة الصور
 ========================================================= */
 
 .modal{
@@ -1458,17 +1649,28 @@ flex-basis:25px;
 }
 
 .service-card{
-padding:13px;
+height:62px;
+min-height:62px;
+padding:7px 10px;
 }
 
 .service-top{
-gap:8px;
+gap:7px;
 }
 
 .service-icon{
-width:42px;
-height:42px;
-flex-basis:42px;
+width:38px;
+height:38px;
+flex-basis:38px;
+font-size:19px;
+}
+
+.service-name{
+font-size:13px;
+}
+
+.service-desc{
+font-size:9px;
 }
 
 }
@@ -1592,7 +1794,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/>
-
 <circle cx="12" cy="9" r="2.3"/>
 
 </svg>
@@ -1614,7 +1815,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <circle cx="12" cy="12" r="9"/>
-
 <path d="M8 12h8M12 8v8"/>
 
 </svg>
@@ -1677,7 +1877,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
-
 <circle cx="12" cy="10" r="2.5"/>
 
 </svg>
@@ -1702,7 +1901,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
-
 <path d="M8.5 9.2c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
 
 </svg>
@@ -1753,7 +1951,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
-
 <circle cx="12" cy="10" r="2.5"/>
 
 </svg>
@@ -1778,7 +1975,6 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
-
 <path d="M8.5 9.2c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
 
 </svg>
@@ -1820,7 +2016,7 @@ stroke-width="2">
 
 
 <!-- =====================================================
-     تم نقل قسم الخدمات إلى هنا
+     الخدمات
 ===================================================== -->
 
 <section id="services">
@@ -1836,7 +2032,7 @@ stroke-width="2">
 
 
 <div class="service-card ripple-btn"
-onclick="openService('welding',this)">
+onclick="openServiceDetails('welding',this)">
 
 <span class="ripple"></span>
 
@@ -1858,7 +2054,9 @@ onclick="openService('welding',this)">
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+صور
+</div>
 
 <div class="service-arrow">‹</div>
 
@@ -1867,7 +2065,7 @@ onclick="openService('welding',this)">
 
 
 <div class="service-card ripple-btn"
-onclick="openService('cnc',this)">
+onclick="openServiceDetails('cnc',this)">
 
 <span class="ripple"></span>
 
@@ -1889,7 +2087,9 @@ onclick="openService('cnc',this)">
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+صور
+</div>
 
 <div class="service-arrow">‹</div>
 
@@ -1898,7 +2098,7 @@ onclick="openService('cnc',this)">
 
 
 <div class="service-card ripple-btn"
-onclick="openService('paint',this)">
+onclick="openServiceDetails('paint',this)">
 
 <span class="ripple"></span>
 
@@ -1920,7 +2120,9 @@ onclick="openService('paint',this)">
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+صور
+</div>
 
 <div class="service-arrow">‹</div>
 
@@ -1929,7 +2131,7 @@ onclick="openService('paint',this)">
 
 
 <div class="service-card ripple-btn"
-onclick="openService('polish',this)">
+onclick="openServiceDetails('polish',this)">
 
 <span class="ripple"></span>
 
@@ -1951,7 +2153,9 @@ onclick="openService('polish',this)">
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+صور
+</div>
 
 <div class="service-arrow">‹</div>
 
@@ -1965,7 +2169,7 @@ onclick="openService('polish',this)">
 
 
 <!-- =====================================================
-     تم نقل قسم التواصل الاجتماعي إلى هنا
+     التواصل الاجتماعي
 ===================================================== -->
 
 <section id="social">
@@ -2325,7 +2529,7 @@ aria-label="Snapchat">
 viewBox="0 0 24 24"
 fill="currentColor">
 
-<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
+<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
 
 </svg>
 
@@ -2400,6 +2604,77 @@ Specialists in car rims repair
 </p>
 
 </footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     نافذة تفاصيل الخدمة
+===================================================== -->
+
+<div id="serviceDetailsModal"
+class="service-modal"
+onclick="outsideServiceClose(event)">
+
+<div class="service-modal-box">
+
+<div class="service-modal-head">
+
+<div id="serviceDetailsTitle"
+class="service-modal-title">
+</div>
+
+<button
+class="service-close"
+onclick="closeServiceDetails()"
+aria-label="إغلاق">
+
+×
+
+</button>
+
+</div>
+
+
+<div id="serviceDetailsText"
+class="service-detail">
+</div>
+
+
+<button
+id="serviceGalleryButton"
+class="service-gallery-btn ripple-btn"
+onclick="openServiceGallery()">
+
+<span class="ripple"></span>
+
+<svg
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
+
+<rect x="3" y="4" width="18" height="16" rx="2"/>
+<circle cx="8.5" cy="9" r="1.5"/>
+<path d="m3 16 5-5 4 4 3-3 6 6"/>
+
+</svg>
+
+<span>صور من أعمالنا</span>
+
+</button>
+
+
+<button
+class="service-back"
+onclick="closeServiceDetails()">
+
+العودة إلى الخدمات
+
+</button>
+
+</div>
 
 </div>
 
@@ -2487,8 +2762,18 @@ onclick="nextPhoto()">
 
 <script>
 
-
 let activeButton=null;
+
+let currentServiceName=null;
+
+let currentPhotos=[];
+
+let currentIndex=0;
+
+
+/* =========================================================
+   تفعيل الأزرار
+========================================================= */
 
 function activateButton(btn){
 
@@ -2528,6 +2813,10 @@ activeButton=null;
 }
 
 
+/* =========================================================
+   من نحن
+========================================================= */
+
 function toggleAbout(btn){
 
 const content=
@@ -2551,10 +2840,19 @@ String(open)
 }
 
 
+/* =========================================================
+   بيانات الخدمات
+========================================================= */
+
 const services={
 
+
 welding:{
+
 title:"لحام كسور الجنوط",
+
+description:
+"نقدم خدمة لحام وإصلاح كسور وشروخ الجنوط ومعالجتها بطريقة احترافية، مع الاهتمام بإعادة الجنوط إلى حالة مناسبة للاستخدام.",
 
 photos:[
 
@@ -2571,11 +2869,17 @@ title:"لحام جنط مكسور"
 }
 
 ]
+
 },
 
 
+
 cnc:{
-title:"تلميع ومسح ماسي CNC للجنوط",
+
+title:"تلميع ومسح ماسي CNC",
+
+description:
+"خدمة المسح الماسي CNC لتجديد أسطح الجنوط وإظهار التفاصيل الأصلية وإعطاء الجنط مظهرًا احترافيًا مميزًا بعد المعالجة.",
 
 photos:[
 
@@ -2628,11 +2932,17 @@ title:"مسح ماسي CNC"
 }
 
 ]
+
 },
 
 
+
 paint:{
-title:"رش بوية ودهان الجنوط",
+
+title:"رش ودهان الجنوط",
+
+description:
+"نقدم خدمة رش ودهان جنوط السيارات بجميع الألوان والتشطيبات، مع تجهيز سطح الجنط ومعالجة الحكات والتقشير للحصول على مظهر متناسق واحترافي.",
 
 photos:[
 
@@ -2679,11 +2989,17 @@ title:"رش جنوط بوية هايبر كروم"
 }
 
 ]
+
 },
 
 
+
 polish:{
+
 title:"تلميع بوليش | تنكيل الجنوط",
+
+description:
+"خدمة تلميع بوليش وتنکیل الجنوط لإظهار لمعان سطح الجنط وتجديد مظهره بشكل احترافي.",
 
 photos:[
 
@@ -2700,30 +3016,93 @@ title:"تلميع بوليش (تنكيل جنوط)"
 }
 
 ]
+
 }
 
 };
 
 
-let currentPhotos=[];
-let currentIndex=0;
+/* =========================================================
+   فتح تفاصيل الخدمة
+========================================================= */
 
-
-function openService(name,btn){
-
-activateButton(btn);
+function openServiceDetails(name,btn){
 
 const service=services[name];
 
 if(!service)return;
 
-currentPhotos=service.photos;
+currentServiceName=name;
+
+activateButton(btn);
+
+document.getElementById(
+"serviceDetailsTitle"
+).textContent=
+service.title;
+
+document.getElementById(
+"serviceDetailsText"
+).innerHTML=
+"<strong>تفاصيل الخدمة:</strong><br>"+
+service.description;
+
+document.getElementById(
+"serviceDetailsModal"
+).classList.add("show");
+
+document.body.classList.add("modal-open");
+
+}
+
+
+/* =========================================================
+   إغلاق تفاصيل الخدمة
+========================================================= */
+
+function closeServiceDetails(){
+
+document.getElementById(
+"serviceDetailsModal"
+).classList.remove("show");
+
+document.body.classList.remove(
+"modal-open"
+);
+
+resetActiveButtons();
+
+currentServiceName=null;
+
+}
+
+
+/* =========================================================
+   فتح صور الخدمة
+========================================================= */
+
+function openServiceGallery(){
+
+if(!currentServiceName)return;
+
+const service=
+services[currentServiceName];
+
+if(!service)return;
+
+currentPhotos=
+service.photos;
 
 currentIndex=0;
 
 document.getElementById(
 "modalTitle"
-).textContent=service.title;
+).textContent=
+service.title;
+
+document.getElementById(
+"serviceDetailsModal"
+).classList.remove("show");
 
 document.getElementById(
 "galleryModal"
@@ -2736,11 +3115,16 @@ showPhoto();
 }
 
 
+/* =========================================================
+   عرض الصورة
+========================================================= */
+
 function showPhoto(){
 
 if(!currentPhotos.length)return;
 
-const photo=currentPhotos[currentIndex];
+const photo=
+currentPhotos[currentIndex];
 
 const img=
 document.getElementById(
@@ -2766,9 +3150,11 @@ img.src=photo.src;
 
 img.alt=photo.title;
 
-label.textContent=photo.label;
+label.textContent=
+photo.label;
 
-title.textContent=photo.title;
+title.textContent=
+photo.title;
 
 counter.textContent=
 (currentIndex+1)
@@ -2779,6 +3165,10 @@ currentPhotos.length;
 
 }
 
+
+/* =========================================================
+   الصورة التالية
+========================================================= */
 
 function nextPhoto(){
 
@@ -2793,6 +3183,10 @@ showPhoto();
 
 }
 
+
+/* =========================================================
+   الصورة السابقة
+========================================================= */
 
 function prevPhoto(){
 
@@ -2809,6 +3203,10 @@ showPhoto();
 }
 
 
+/* =========================================================
+   إغلاق معرض الصور
+========================================================= */
+
 function closeGallery(){
 
 document.getElementById(
@@ -2819,18 +3217,19 @@ document.body.classList.remove(
 "modal-open"
 );
 
-if(activeButton){
+resetActiveButtons();
 
-activeButton.classList.remove(
-"active-light"
-);
+currentPhotos=[];
+currentIndex=0;
 
-activeButton=null;
-
-}
+currentServiceName=null;
 
 }
 
+
+/* =========================================================
+   إغلاق بالنقر خارج النافذة
+========================================================= */
 
 function outsideClose(e){
 
@@ -2848,33 +3247,87 @@ closeGallery();
 }
 
 
+function outsideServiceClose(e){
+
+if(
+e.target===
+document.getElementById(
+"serviceDetailsModal"
+)
+){
+
+closeServiceDetails();
+
+}
+
+}
+
+
+/* =========================================================
+   لوحة المفاتيح
+========================================================= */
+
 document.addEventListener(
 "keydown",
 function(e){
 
-const modal=
+const gallery=
 document.getElementById(
 "galleryModal"
 );
 
-if(!modal.classList.contains("show"))
-return;
+const details=
+document.getElementById(
+"serviceDetailsModal"
+);
+
+
+if(
+gallery.classList.contains("show")
+){
 
 if(e.key==="Escape"){
+
 closeGallery();
+
 }
 
 if(e.key==="ArrowRight"){
+
 prevPhoto();
+
 }
 
 if(e.key==="ArrowLeft"){
+
 nextPhoto();
+
+}
+
+return;
+
+}
+
+
+if(
+details.classList.contains("show")
+){
+
+if(e.key==="Escape"){
+
+closeServiceDetails();
+
+}
+
 }
 
 }
 );
 
+
+/* =========================================================
+   المشاركة
+========================================================= */
 
 function sharePage(){
 
@@ -2926,6 +3379,10 @@ url
 }
 
 
+/* =========================================================
+   تأثير الضغط
+========================================================= */
+
 document.addEventListener(
 "click",
 function(e){
@@ -2957,6 +3414,10 @@ btn.classList.remove("clicked");
 );
 
 
+/* =========================================================
+   إعادة الحالة
+========================================================= */
+
 window.addEventListener(
 "pageshow",
 function(){
@@ -2977,6 +3438,10 @@ resetActiveButtons();
 );
 
 
+/* =========================================================
+   منع التمرير الأفقي
+========================================================= */
+
 function fixHorizontalOverflow(){
 
 document.documentElement.style.maxWidth="100%";
@@ -2992,8 +3457,7 @@ document.body.style.overflowX="hidden";
 window.addEventListener(
 "load",
 fixHorizontalOverflow
-)
-   ;
+);
 
 window.addEventListener(
 "resize",
