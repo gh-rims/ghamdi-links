@@ -823,17 +823,12 @@ color:var(--navy);
 
 .social-icon{
 
-width:37px;
-height:37px;
+width:42px;
+height:42px;
 
-border-radius:10px;
+border-radius:12px;
 
-background:
-linear-gradient(
-145deg,
-#244F6E,
-#103456
-);
+background:#FFFFFF;
 
 display:flex;
 
@@ -841,29 +836,156 @@ align-items:center;
 
 justify-content:center;
 
-flex:0 0 37px;
+flex:0 0 42px;
+
+border:1px solid #D7E1E8;
 
 box-shadow:
-0 3px 0 #0A2943;
+0 4px 0 #C5D1D9,
+0 6px 12px rgba(16,52,86,.12);
+
+overflow:hidden;
 }
+
+
+/* حجم الأيقونات */
 
 .social-icon svg{
 
-width:19px;
-height:19px;
+width:23px;
+height:23px;
 
-color:#fff !important;
+display:block;
+
+flex:0 0 23px;
+}
+
+
+/* واتساب */
+
+.whatsapp .social-icon{
+
+background:#E9FFF1;
+
+border-color:#BCE8CC;
+}
+
+.whatsapp .social-icon svg{
+
+color:#20B95A !important;
 
 fill:currentColor;
 }
 
-.instagram svg{
 
-fill:none;
+/* إنستجرام */
 
-stroke:currentColor;
+.social .social-icon svg{
+
+fill:currentColor;
 }
 
+.social-icon svg[viewBox="0 0 24 24"]{
+}
+
+
+/* Instagram */
+
+.social:nth-child(2) .social-icon{
+
+background:
+linear-gradient(
+135deg,
+#FFF0F7,
+#FCE7F3
+);
+
+border-color:#EFC6D8;
+}
+
+.social:nth-child(2) .social-icon svg{
+
+fill:none !important;
+
+stroke:#D62976 !important;
+
+stroke-width:2.2;
+}
+
+
+/* Snapchat */
+
+.social:nth-child(3) .social-icon{
+
+background:#FFFDE0;
+
+border-color:#E8E2A8;
+}
+
+.social:nth-child(3) .social-icon svg{
+
+color:#111111 !important;
+
+fill:#FFE812 !important;
+
+stroke:#111111;
+
+stroke-width:.7;
+}
+
+
+/* TikTok */
+
+.social:nth-child(1) .social-icon{
+
+background:#EEF8FA;
+
+border-color:#C8E5EA;
+}
+
+.social:nth-child(1) .social-icon svg{
+
+color:#111111 !important;
+
+fill:#111111 !important;
+}
+
+
+/* X */
+
+.social:nth-child(4) .social-icon{
+
+background:#F1F3F5;
+
+border-color:#D5DADF;
+}
+
+.social:nth-child(4) .social-icon svg{
+
+color:#111111 !important;
+
+fill:#111111 !important;
+}
+
+
+/* YouTube */
+
+.social:nth-child(5) .social-icon{
+
+background:#FFF0F0;
+
+border-color:#F0CACA;
+}
+
+.social:nth-child(5) .social-icon svg{
+
+color:#FF0000 !important;
+
+fill:#FF0000 !important;
+}
+
+
+      
 .social-arrow{
 
 color:var(--orange);
