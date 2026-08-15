@@ -464,7 +464,7 @@ border-radius:13px;
 
 font-size:18px;
 font-weight:900;
-webkit-text-stroke:0.3px current-Color;
+-webkit-text-stroke:0.3px currentColor;
 
 position:relative;
 overflow:hidden;
@@ -514,14 +514,13 @@ justify-content:center;
 gap:7px;
 
 background:#151F28;
-   border:5px solid rgba(255,136,0,.45);
 
 border:3px solid var(--border);
 border-radius:11px;
 
 font-size:16px;
 font-weight:900;
-webkit-text-stroke:0.3px current-Color;
+-webkit-text-stroke:0.3px currentColor;
 
 position:relative;
 overflow:hidden;
@@ -655,9 +654,9 @@ position:relative;
 width:100%;
 min-width:0;
 
-min-height:105px;
+min-height:125px;
 
-padding:16px;
+padding:16px 16px 42px;
 
 border-radius:18px;
 
@@ -727,20 +726,22 @@ min-width:0;
 }
 
 .service-name{
-font-size:14px;
+font-size:16px;
 font-weight:900;
 
 overflow-wrap:anywhere;
+
+color:#fff;
 }
 
 .service-desc{
 color:var(--muted);
 
-font-size:11px;
+font-size:12px;
 
-margin-top:4px;
+margin-top:5px;
 
-line-height:1.5;
+line-height:1.7;
 
 overflow-wrap:anywhere;
 }
@@ -749,9 +750,7 @@ overflow-wrap:anywhere;
 position:absolute;
 
 left:14px;
-top:50%;
-
-transform:translateY(-50%);
+bottom:12px;
 
 color:var(--orange);
 
@@ -763,14 +762,22 @@ font-weight:bold;
 position:absolute;
 
 left:40px;
-top:50%;
-
-transform:translateY(-50%);
+bottom:11px;
 
 color:var(--orange);
 
-font-size:11px;
+font-size:12px;
 font-weight:900;
+
+padding:4px 9px;
+
+border:1px solid rgba(255,136,0,.35);
+
+border-radius:8px;
+
+background:rgba(255,136,0,.08);
+
+line-height:1.3;
 }
 
 
@@ -1143,7 +1150,7 @@ skewX(-20deg);
 
 
 /* =========================================================
-   الزر النشط — كحلي فاتح عند الضغط
+   الزر النشط
 ========================================================= */
 
 .active-light{
@@ -1430,7 +1437,7 @@ font-size:11px;
 }
 
 .service-card{
-padding:13px;
+padding:13px 13px 42px;
 }
 
 .service-top{
@@ -1441,6 +1448,19 @@ gap:8px;
 width:42px;
 height:42px;
 flex-basis:42px;
+}
+
+.service-name{
+font-size:14px;
+}
+
+.service-desc{
+font-size:11px;
+}
+
+.service-photos{
+left:36px;
+font-size:11px;
 }
 
 }
@@ -1667,7 +1687,7 @@ fill="none"
 stroke="currentColor"
 stroke-width="2">
 
-<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-2 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
+<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-.1 1-1 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
 
 </svg>
 
@@ -1737,7 +1757,7 @@ fill="none"
 stroke="currentColor"
 stroke-width="2">
 
-<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 2-1 2C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
+<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-1 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
 
 </svg>
 
@@ -1828,7 +1848,7 @@ Instagram
 <svg viewBox="0 0 24 24"
 fill="currentColor">
 
-<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2.4.9 1.4 1.4 2.7 1.4h.1c1.3 0 2.3-.5 2.7-1.4 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
+<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
 
 </svg>
 
@@ -1875,6 +1895,10 @@ X – تويتر
 
 <div class="social-left">
 
+<span class="ripple"></span>
+
+<div class="social-left">
+
 <span class="social-icon">
 
 <svg viewBox="0 0 24 24"
@@ -1908,6 +1932,10 @@ YouTube
 <div class="services-grid">
 
 
+<!-- =====================================================
+     الخدمة الأولى
+===================================================== -->
+
 <div class="service-card ripple-btn"
 onclick="openService('welding',this)">
 
@@ -1924,19 +1952,26 @@ onclick="openService('welding',this)">
 </div>
 
 <div class="service-desc">
-تعديل طعجات الجنوط وخرط الجنوط ومعالجة مشاكل الرجة والاهتزاز 
-  لحام وإصلاح كسور وشروخ الجنوط ومعالجتها .لحام الجنوط لحام ارجون  
+تعديل طعجات الجنوط وخرط الجنوط ومعالجة مشاكل الرجة والاهتزاز،
+مع لحام وإصلاح كسور وشروخ الجنوط بلحام الأرجون ومعالجتها باحترافية.
 </div>
 
 </div>
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+نماذج أعمال
+</div>
+
 <div class="service-arrow">‹</div>
 
 </div>
 
+
+<!-- =====================================================
+     الخدمة الثانية
+===================================================== -->
 
 <div class="service-card ripple-btn"
 onclick="openService('cnc',this)">
@@ -1950,22 +1985,30 @@ onclick="openService('cnc',this)">
 <div>
 
 <div class="service-name">
-تلميع ومسح ماسي CNC
+تلميع ومسح ماسي CNC للجنوط
 </div>
 
 <div class="service-desc">
-تجديد أسطح الجنوط وإظهار التفاصيل الأصلية باحدث أجهزة ال سي ان سي للجنوط 
+تجديد أسطح الجنوط وإظهار تفاصيلها الأصلية باستخدام أحدث أجهزة
+CNC للجنوط للحصول على تشطيب احترافي قريب من تشطيب الوكالة.
 </div>
 
 </div>
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+نماذج أعمال
+</div>
+
 <div class="service-arrow">‹</div>
 
 </div>
 
+
+<!-- =====================================================
+     الخدمة الثالثة
+===================================================== -->
 
 <div class="service-card ripple-btn"
 onclick="openService('paint',this)">
@@ -1983,20 +2026,26 @@ onclick="openService('paint',this)">
 </div>
 
 <div class="service-desc">
-رش بوية جنوط جميع الالوان رش جنوط اسود. فيراني .رصاصي .سيلفر .
-   تكحيل الجنوط بأي لون يختاره العميل رش جنوط وكالة  
-   معالجة حكات الجنوط ومعالجة تقشير الجنوط 
+رش ودهان الجنوط بجميع الألوان والتشطيبات، مثل الأسود والفيراني
+والرصاصي والسيلفر، مع معالجة حكات وتقشير البوية وتكحيل الجنوط.
 </div>
 
 </div>
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+نماذج أعمال
+</div>
+
 <div class="service-arrow">‹</div>
 
 </div>
 
+
+<!-- =====================================================
+     الخدمة الرابعة
+===================================================== -->
 
 <div class="service-card ripple-btn"
 onclick="openService('polish',this)">
@@ -2014,17 +2063,22 @@ onclick="openService('polish',this)">
 </div>
 
 <div class="service-desc">
-تلميع احترافي وإظهار لمعان سطح الجنط
+تلميع احترافي للجنوط وإظهار لمعان سطح الجنط وتفاصيله
+بمظهر نظيف ولامع.
 </div>
 
 </div>
 
 </div>
 
-<div class="service-photos">صور</div>
+<div class="service-photos">
+نماذج أعمال
+</div>
+
 <div class="service-arrow">‹</div>
 
 </div>
+
 
 </div>
 
@@ -2091,7 +2145,7 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
-<path d="M8.5 9.2c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
+<path d="M8.5 9.2c.3-.7.6-.7 1 .4l.8 1.8c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.1 3.1 2.8l.6-.6c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.6 0 .5-.2 1.2-.6 1.5"/>
 
 </svg>
 
@@ -2205,7 +2259,7 @@ aria-label="Snapchat">
 
 <svg viewBox="0 0 24 24" fill="currentColor">
 
-<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
+<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
 
 </svg>
 
@@ -2271,7 +2325,7 @@ Specialists in car rims repair
 
 
 <!-- =====================================================
-     نافذة الصور
+     نافذة النماذج
 ===================================================== -->
 
 <div id="galleryModal"
@@ -2343,7 +2397,7 @@ onclick="nextPhoto()">
 <script>
 
 /* =====================================================
-   الزر النشط — كحلي فاتح
+   الزر النشط
 ===================================================== */
 
 let activeButton=null;
@@ -2370,7 +2424,7 @@ activeButton=btn;
 
 
 /* =====================================================
-   إعادة جميع الأزرار للونها الطبيعي
+   إعادة جميع الأزرار
 ===================================================== */
 
 function resetActiveButtons(){
@@ -2418,13 +2472,13 @@ String(open)
 
 
 /* =====================================================
-   الخدمات
+   نماذج الخدمات
 ===================================================== */
 
 const services={
 
 welding:{
-title:"تعديل ولحام كسور الجنوط",
+title:"نماذج من أعمالنا | تعديل ولحام كسور الجنوط",
 photos:[
 {
 src:"z1.jpg",
@@ -2434,13 +2488,13 @@ title:"لحام جنط مكسور"
 {
 src:"z2.jpg",
 label:"بعد",
-title:"لحام جنط مكسور"
+title:"إصلاح ولحام جنط مكسور"
 }
 ]
 },
 
 cnc:{
-title:"تلميع ومسح ماسي CNC للجنوط",
+title:"نماذج من أعمالنا | تلميع ومسح ماسي CNC للجنوط",
 photos:[
 {
 src:"b1.jpg",
@@ -2455,38 +2509,38 @@ title:"تكحيل باللون الأسود مع مسح ماسي CNC"
 {
 src:"b2.jpg",
 label:"قبل",
-title:"تكحيل باللون + CNC"
+title:"تكحيل الجنوط مع مسح ماسي CNC"
 },
 {
 src:"a2.jpg",
 label:"بعد",
-title:"تكحيل باللون + CNC"
+title:"تكحيل الجنوط مع مسح ماسي CNC"
 },
 {
 src:"b4.png",
 label:"قبل",
-title:"معالجة حكات الجنوط بـ CNC"
+title:"معالجة حكات الجنوط باستخدام CNC"
 },
 {
 src:"a4.png",
 label:"بعد",
-title:"معالجة حكات الجنوط بـ CNC"
+title:"معالجة حكات الجنوط باستخدام CNC"
 },
 {
 src:"b6.jpg",
 label:"قبل",
-title:"مسح ماسي CNC"
+title:"مسح ماسي CNC للجنوط"
 },
 {
 src:"a6.jpg",
 label:"بعد",
-title:"مسح ماسي CNC"
+title:"مسح ماسي CNC للجنوط"
 }
 ]
 },
 
 paint:{
-title:"رش بوية ودهان الجنوط",
+title:"نماذج من أعمالنا | رش ودهان الجنوط",
 photos:[
 {
 src:"b5.png",
@@ -2501,17 +2555,17 @@ title:"إصلاح حكات الجنوط"
 {
 src:"bn3.jpg",
 label:"صورة",
-title:"رش جنوط اسود مطفي"
+title:"رش جنوط أسود مطفي"
 },
 {
 src:"bn2.jpg",
 label:"صورة",
-title:"رش جنوط اسود لامع"
+title:"رش جنوط أسود لامع"
 },
 {
 src:"bn1.jpg",
 label:"صورة",
-title:"رش جنوط اسود نص لمعة"
+title:"رش جنوط أسود نص لمعة"
 },
 {
 src:"h3.jpg",
@@ -2527,17 +2581,17 @@ title:"رش جنوط بوية هايبر كروم"
 },
 
 polish:{
-title:"تلميع بوليش | تنكيل الجنوط",
+title:"نماذج من أعمالنا | تلميع بوليش وتنـكيل الجنوط",
 photos:[
 {
 src:"b3.jpg",
 label:"قبل",
-title:"تلميع بوليش (تنكيل جنوط)"
+title:"تلميع بوليش وتنـكيل الجنوط"
 },
 {
 src:"a3.png",
 label:"بعد",
-title:"تلميع بوليش (تنكيل جنوط)"
+title:"تلميع بوليش وتنـكيل الجنوط"
 }
 ]
 }
@@ -2679,9 +2733,6 @@ document.body.classList.remove(
 "modal-open"
 );
 
-
-/* إعادة بطاقة الخدمة للونها الطبيعي */
-
 if(activeButton){
 
 activeButton.classList.remove(
@@ -2816,13 +2867,7 @@ e.target.closest(
 
 if(!btn)return;
 
-
-/* تغيير لون الزر إلى الكحلي الفاتح */
-
 activateButton(btn);
-
-
-/* تأثير اللمعة */
 
 btn.classList.remove("clicked");
 
@@ -2843,13 +2888,8 @@ btn.classList.remove("clicked");
 
 
 /* =====================================================
-   إعادة الأزرار للوضع الطبيعي عند الرجوع للصفحة
+   إعادة الأزرار عند الرجوع
 ===================================================== */
-
-/*
-   pageshow مهم جدًا هنا لأنه يعمل حتى عندما
-   يستعيد المتصفح الصفحة من الذاكرة Back/Forward Cache.
-*/
 
 window.addEventListener(
 "pageshow",
@@ -2876,7 +2916,7 @@ resetActiveButtons();
 
 
 /* =====================================================
-   حماية إضافية من أي تمدد أفقي
+   حماية إضافية من التمدد الأفقي
 ===================================================== */
 
 function fixHorizontalOverflow(){
