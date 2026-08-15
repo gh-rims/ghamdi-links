@@ -10,70 +10,50 @@ content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 
 <title>الغامدي لإصلاح الجنوط | رش ودهان وإصلاح جنوط السيارات في جدة</title>
 
-<meta name="description" content="الغامدي لإصلاح الجنوط في جدة متخصصون في إصلاح وتجديد وتلميع ورش ودهان جنوط السيارات بجميع الألوان، ومنها رش جنوط اسود لامع ومطفي، سيلفر، رصاصي، فيراني، دقمي وهايبر كروم.">
+<meta name="description"
+content="الغامدي لإصلاح الجنوط في جدة متخصصون في إصلاح وتجديد وتلميع ورش ودهان جنوط السيارات بجميع الألوان، ومنها رش جنوط اسود لامع ومطفي، سيلفر، رصاصي، فيراني، دقمي وهايبر كروم.">
 
-<meta name="theme-color" content="#0B1118">
+<meta name="theme-color" content="#103456">
 
 <meta property="og:title" content="الغامدي لإصلاح الجنوط">
-
 <meta property="og:description"
 content="متخصصون في إصلاح وتجديد وتلميع ورش جنوط السيارات في جدة">
-
 <meta property="og:url"
 content="https://gh-rims.github.io/ghamdi-links/">
-
 <meta property="og:type" content="website">
 
 
 <style>
 
 /* =========================================================
-   RESET + الهوية اللونية الجديدة
+   الألوان الأساسية
 ========================================================= */
 
 :root{
 
-/* اللون الذهبي المعدني */
---orange:#D99A3D;
+--orange:#F47B00;
+--orange2:#FF9D28;
 
-/* الكحلي المعدني */
---navy:#102337;
+--navy:#103456;
+--navy2:#1B557F;
+--navy3:#2B6D9C;
 
-/* الكحلي الفاتح */
---navy2:#1D4668;
-
-/* الخلفية */
---black:#070A0E;
-
-/* الخلفية الداكنة */
---dark:#0B1118;
-
-/* البطاقات */
---card:#101923;
-
-/* البطاقات الفاتحة */
---card2:#172635;
-
-/* الأبيض */
 --white:#FFFFFF;
+--bg:#F4F7FA;
 
-/* النص */
---text:#EEF2F5;
+--text:#102333;
+--muted:#687887;
 
-/* النص الثانوي */
---muted:#A6B1BC;
+--green:#20B95A;
 
-/* واتساب */
---green:#25D366;
+--border:#DCE5EC;
 
-/* حدود */
---border:rgba(255,255,255,.10);
+--shadow:
+0 12px 25px rgba(16,52,86,.13);
 
-/* ظل */
---shadow:0 16px 40px rgba(0,0,0,.38);
-
-/* ظل ذهبي */
---gold-shadow:0 8px 22px rgba(217,154,61,.18);
+--shadow3d:
+0 7px 0 #0A2943,
+0 12px 22px rgba(16,52,86,.22);
 
 }
 
@@ -95,6 +75,7 @@ max-width:100%;
 margin:0;
 padding:0;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
 body{
@@ -107,16 +88,11 @@ padding:0;
 overflow-x:hidden;
 
 background:
-radial-gradient(
-circle at 50% -10%,
-rgba(29,70,104,.65),
-transparent 38%
-),
 linear-gradient(
 180deg,
-#080D13,
-#070A0E 55%,
-#05070A
+#FFFFFF 0%,
+#F7F9FB 55%,
+#EEF3F7 100%
 );
 
 color:var(--text);
@@ -175,10 +151,13 @@ font-family:inherit;
 .page{
 width:100%;
 max-width:560px;
+
 margin:0 auto;
+
 padding:14px;
 
 min-width:0;
+
 overflow:clip;
 }
 
@@ -201,27 +180,34 @@ min-width:0;
 .brand{
 display:flex;
 align-items:center;
+
 gap:8px;
 
 min-width:0;
 
 font-size:12px;
-font-weight:800;
-color:#fff;
+font-weight:900;
+
+color:var(--navy);
 }
 
 .brand-dot{
-width:8px;
-height:8px;
+width:9px;
+height:9px;
 
 border-radius:50%;
 
-background:var(--orange);
+background:
+linear-gradient(
+135deg,
+var(--orange2),
+var(--orange)
+);
 
 box-shadow:
-0 0 12px rgba(217,154,61,.75);
+0 2px 8px rgba(244,123,0,.45);
 
-flex:0 0 8px;
+flex:0 0 9px;
 }
 
 .share{
@@ -229,15 +215,15 @@ flex:0 0 8px;
 width:42px;
 height:42px;
 
-border:1px solid rgba(217,154,61,.30);
+border:1px solid #D6E0E8;
 
 border-radius:50%;
 
 background:
 linear-gradient(
 145deg,
-#1D4668,
-#0C1722
+#FFFFFF,
+#E7EEF4
 );
 
 color:var(--orange);
@@ -251,13 +237,12 @@ cursor:pointer;
 flex:0 0 42px;
 
 position:relative;
+
 overflow:hidden;
 
 box-shadow:
-0 5px 14px rgba(0,0,0,.35),
-inset 0 1px 1px rgba(255,255,255,.12),
-inset 0 -2px 3px rgba(0,0,0,.35);
-
+0 4px 8px rgba(16,52,86,.12),
+inset 0 1px 0 #fff;
 }
 
 .share svg{
@@ -272,10 +257,13 @@ height:20px;
 
 .hero{
 width:100%;
+
 text-align:center;
+
 padding:8px 0 12px;
 
 min-width:0;
+
 overflow:hidden;
 }
 
@@ -285,6 +273,7 @@ width:112px;
 height:112px;
 
 padding:4px;
+
 margin:auto;
 
 border-radius:50%;
@@ -292,15 +281,14 @@ border-radius:50%;
 background:
 linear-gradient(
 145deg,
-#F0C36B,
-#D99A3D 35%,
-#173A56 70%,
-#0A121A
+var(--orange),
+var(--orange2),
+var(--navy)
 );
 
 box-shadow:
-0 12px 35px rgba(0,0,0,.55),
-0 0 30px rgba(217,154,61,.14);
+0 12px 25px rgba(16,52,86,.18),
+0 4px 0 rgba(244,123,0,.25);
 
 overflow:hidden;
 }
@@ -337,7 +325,12 @@ margin:10px auto 12px;
 
 overflow:hidden;
 
-border-radius:0;
+border-radius:16px;
+
+background:#fff;
+
+box-shadow:
+0 8px 22px rgba(16,52,86,.10);
 }
 
 .hero-image img{
@@ -345,7 +338,9 @@ border-radius:0;
 display:block;
 
 width:100%;
+
 max-width:100%;
+
 height:auto;
 }
 
@@ -355,16 +350,13 @@ font-size:clamp(24px,7vw,32px);
 
 line-height:1.25;
 
-margin:8px 0 5px;
+margin:10px 0 5px;
 
-font-weight:900;
+font-weight:950;
 
-color:#fff;
+color:var(--navy);
 
 overflow-wrap:anywhere;
-
-text-shadow:
-0 2px 12px rgba(0,0,0,.45);
 }
 
 .subtitle{
@@ -376,6 +368,8 @@ margin:0 auto;
 color:var(--muted);
 
 font-size:14px;
+
+font-weight:600;
 
 overflow-wrap:anywhere;
 }
@@ -394,7 +388,7 @@ display:grid;
 grid-template-columns:
 repeat(3,minmax(0,1fr));
 
-gap:8px;
+gap:9px;
 
 margin:16px 0 22px;
 
@@ -404,90 +398,73 @@ min-width:0;
 .quick{
 
 width:100%;
+
 min-width:0;
-min-height:58px;
+
+min-height:60px;
 
 display:flex;
+
 flex-direction:column;
+
 align-items:center;
+
 justify-content:center;
 
 gap:3px;
 
+border:1px solid #D4DFE8;
 
-/* تدرج ثلاثي الأبعاد */
+border-radius:15px;
 
 background:
 linear-gradient(
 145deg,
-#234F72 0%,
-#173A56 42%,
-#0C1B29 100%
+#FFFFFF 0%,
+#F1F5F8 48%,
+#DDE7EE 100%
 );
 
-border:1px solid rgba(217,154,61,.32);
+color:var(--navy);
 
-border-radius:14px;
+font-size:12px;
 
-font-size:11px;
-font-weight:900;
+font-weight:950;
 
 position:relative;
+
 overflow:hidden;
 
 text-align:center;
 
-
-/* العمق */
-
 box-shadow:
-0 6px 0 #08111A,
-0 9px 18px rgba(0,0,0,.35),
-inset 0 1px 2px rgba(255,255,255,.18),
-inset 0 -3px 5px rgba(0,0,0,.35);
+0 5px 0 #C7D3DC,
+0 8px 15px rgba(16,52,86,.13),
+inset 0 1px 0 #fff;
 
 transition:
-transform .18s ease,
-box-shadow .18s ease,
-background .18s ease;
-}
-
-.quick:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 8px 0 #08111A,
-0 12px 22px rgba(0,0,0,.42),
-inset 0 1px 2px rgba(255,255,255,.20),
-inset 0 -3px 5px rgba(0,0,0,.35);
+transform .15s ease,
+box-shadow .15s ease;
 }
 
 .quick:active{
 
-transform:
-translateY(3px);
+transform:translateY(4px);
 
 box-shadow:
-0 2px 0 #08111A,
-0 4px 10px rgba(0,0,0,.35),
-inset 0 2px 4px rgba(0,0,0,.25);
+0 2px 0 #C7D3DC,
+0 4px 8px rgba(16,52,86,.12),
+inset 0 1px 0 #fff;
 }
 
 .quick svg{
 
-width:19px;
-height:19px;
+width:20px;
+height:20px;
 
 color:var(--orange);
 
 flex:0 0 auto;
-
-filter:
-drop-shadow(
-0 1px 3px rgba(0,0,0,.45)
-);
 }
 
 
@@ -500,21 +477,20 @@ drop-shadow(
 width:100%;
 
 display:flex;
+
 align-items:center;
 
 gap:10px;
 
-margin:28px 0 13px;
+margin:30px 0 14px;
 
-font-size:15px;
-font-weight:900;
+font-size:16px;
 
-color:var(--orange);
+font-weight:950;
+
+color:var(--navy);
 
 min-width:0;
-
-text-shadow:
-0 2px 8px rgba(217,154,61,.15);
 }
 
 .section-title::before,
@@ -522,7 +498,7 @@ text-shadow:
 
 content:"";
 
-height:1px;
+height:2px;
 
 flex:1 1 auto;
 
@@ -532,7 +508,7 @@ background:
 linear-gradient(
 to left,
 transparent,
-rgba(217,154,61,.60)
+rgba(244,123,0,.55)
 );
 }
 
@@ -542,7 +518,7 @@ background:
 linear-gradient(
 to right,
 transparent,
-rgba(217,154,61,.60)
+rgba(244,123,0,.55)
 );
 }
 
@@ -557,12 +533,12 @@ width:100%;
 
 background:
 linear-gradient(
-180deg,
-rgba(16,35,55,.75),
-rgba(9,15,21,.92)
+145deg,
+#FFFFFF,
+#F0F5F8
 );
 
-border:1px solid rgba(217,154,61,.22);
+border:1px solid #D8E3EA;
 
 border-radius:20px;
 
@@ -578,24 +554,19 @@ overflow:hidden;
 width:100%;
 
 padding:10px;
-margin:0 0 10px;
 
-background:
-linear-gradient(
-145deg,
-#152A3D,
-#0B141D
-);
+margin:0 0 12px;
 
-border:1px solid rgba(255,255,255,.08);
+background:#fff;
 
-border-radius:16px;
+border:1px solid #DCE5EC;
+
+border-radius:17px;
 
 overflow:hidden;
 
 box-shadow:
-0 8px 20px rgba(0,0,0,.25),
-inset 0 1px 1px rgba(255,255,255,.05);
+0 5px 14px rgba(16,52,86,.07);
 }
 
 .branch:last-child{
@@ -604,7 +575,7 @@ margin-bottom:0;
 
 
 /* =========================================================
-   زر اسم الفرع - ثلاثي الأبعاد
+   زر الموقع الرئيسي
 ========================================================= */
 
 .branch-main{
@@ -613,7 +584,7 @@ width:100%;
 
 min-width:0;
 
-min-height:58px;
+min-height:60px;
 
 display:flex;
 
@@ -623,27 +594,23 @@ justify-content:center;
 
 gap:9px;
 
-
-/* تدرج معدني */
-
 background:
 linear-gradient(
-145deg,
-#2A5B80 0%,
-#1D4668 35%,
-#102A42 70%,
-#0A1826 100%
+135deg,
+#2D719F 0%,
+#174D78 50%,
+#103456 100%
 );
 
-border:1px solid rgba(217,154,61,.42);
+border:1px solid #0B2B46;
 
-border-radius:13px;
+border-radius:14px;
+
+color:#fff;
 
 font-size:18px;
-font-weight:900;
 
--webkit-text-stroke:
-0.3px currentColor;
+font-weight:950;
 
 position:relative;
 
@@ -653,41 +620,20 @@ text-align:center;
 
 padding:8px 10px;
 
-
-/* ثلاثي الأبعاد */
-
-box-shadow:
-0 5px 0 #07111A,
-0 8px 16px rgba(0,0,0,.42),
-inset 0 1px 2px rgba(255,255,255,.22),
-inset 0 -4px 7px rgba(0,0,0,.38);
+box-shadow:var(--shadow3d);
 
 transition:
-transform .16s ease,
-box-shadow .16s ease;
-}
-
-.branch-main:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 7px 0 #07111A,
-0 12px 20px rgba(0,0,0,.48),
-inset 0 1px 2px rgba(255,255,255,.22),
-inset 0 -4px 7px rgba(0,0,0,.38);
+transform .15s ease,
+box-shadow .15s ease;
 }
 
 .branch-main:active{
 
-transform:
-translateY(3px);
+transform:translateY(5px);
 
 box-shadow:
-0 2px 0 #07111A,
-0 4px 9px rgba(0,0,0,.4),
-inset 0 2px 5px rgba(0,0,0,.30);
+0 2px 0 #0A2943,
+0 5px 10px rgba(16,52,86,.2);
 }
 
 .branch-main svg{
@@ -695,14 +641,9 @@ inset 0 2px 5px rgba(0,0,0,.30);
 width:21px;
 height:21px;
 
-color:var(--orange);
+color:var(--orange2);
 
 flex:0 0 21px;
-
-filter:
-drop-shadow(
-0 2px 3px rgba(0,0,0,.5)
-);
 }
 
 .branch-main span{
@@ -728,7 +669,7 @@ repeat(2,minmax(0,1fr));
 
 gap:8px;
 
-margin-top:8px;
+margin-top:10px;
 
 min-width:0;
 }
@@ -739,7 +680,7 @@ width:100%;
 
 min-width:0;
 
-min-height:45px;
+min-height:48px;
 
 display:flex;
 
@@ -749,27 +690,23 @@ justify-content:center;
 
 gap:7px;
 
-
-/* التدرج ثلاثي الأبعاد */
-
 background:
 linear-gradient(
 145deg,
-#253F54 0%,
-#172B3C 42%,
-#0C1823 100%
+#FFFFFF,
+#EEF3F6,
+#DCE5EA
 );
 
-border:1px solid rgba(255,255,255,.11);
+border:1px solid #CCD9E2;
 
-border-radius:11px;
+border-radius:12px;
+
+color:var(--navy);
 
 font-size:16px;
 
-font-weight:900;
-
--webkit-text-stroke:
-0.3px currentColor;
+font-weight:950;
 
 position:relative;
 
@@ -779,50 +716,31 @@ text-align:center;
 
 padding:5px;
 
-
-/* الظل والعمق */
-
 box-shadow:
-0 4px 0 #060C12,
-0 7px 13px rgba(0,0,0,.38),
-inset 0 1px 2px rgba(255,255,255,.16),
-inset 0 -3px 5px rgba(0,0,0,.38);
+0 4px 0 #C4D0D9,
+0 7px 13px rgba(16,52,86,.10),
+inset 0 1px 0 #fff;
 
 transition:
 transform .15s ease,
-box-shadow .15s ease,
-background .15s ease;
-}
-
-.branch-action:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 6px 0 #060C12,
-0 10px 18px rgba(0,0,0,.45),
-inset 0 1px 2px rgba(255,255,255,.18),
-inset 0 -3px 5px rgba(0,0,0,.38);
+box-shadow .15s ease;
 }
 
 .branch-action:active{
 
-transform:
-translateY(3px);
+transform:translateY(4px);
 
 box-shadow:
-0 1px 0 #060C12,
-0 3px 8px rgba(0,0,0,.35),
-inset 0 2px 4px rgba(0,0,0,.28);
+0 1px 0 #C4D0D9,
+0 3px 7px rgba(16,52,86,.10);
 }
 
 .branch-action svg{
 
-width:17px;
-height:17px;
+width:18px;
+height:18px;
 
-flex:0 0 17px;
+flex:0 0 18px;
 }
 
 .whatsapp svg{
@@ -844,7 +762,7 @@ width:100%;
 
 display:grid;
 
-gap:8px;
+gap:9px;
 
 min-width:0;
 }
@@ -855,7 +773,7 @@ width:100%;
 
 min-width:0;
 
-min-height:56px;
+min-height:58px;
 
 display:flex;
 
@@ -865,19 +783,15 @@ justify-content:space-between;
 
 padding:9px 13px;
 
-border:1px solid rgba(255,255,255,.09);
+border:1px solid #D8E2E9;
 
-border-radius:14px;
-
-
-/* ثلاثي الأبعاد */
+border-radius:15px;
 
 background:
 linear-gradient(
 90deg,
-#182C3D,
-#102131 55%,
-#0A151F
+#FFFFFF,
+#F0F4F7
 );
 
 position:relative;
@@ -885,37 +799,15 @@ position:relative;
 overflow:hidden;
 
 box-shadow:
-0 5px 0 #060C11,
-0 8px 16px rgba(0,0,0,.32),
-inset 0 1px 2px rgba(255,255,255,.12),
-inset 0 -3px 5px rgba(0,0,0,.30);
+0 4px 10px rgba(16,52,86,.07),
+inset 0 1px 0 #fff;
 
-transition:
-transform .16s ease,
-box-shadow .16s ease;
-}
-
-.social:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 7px 0 #060C11,
-0 11px 20px rgba(0,0,0,.4),
-inset 0 1px 2px rgba(255,255,255,.15),
-inset 0 -3px 5px rgba(0,0,0,.32);
+transition:.15s;
 }
 
 .social:active{
 
-transform:
-translateY(3px);
-
-box-shadow:
-0 2px 0 #060C11,
-0 4px 8px rgba(0,0,0,.35),
-inset 0 2px 4px rgba(0,0,0,.25);
+transform:translateY(3px);
 }
 
 .social-left{
@@ -928,26 +820,26 @@ gap:11px;
 
 min-width:0;
 
-font-size:13px;
+font-size:14px;
 
-font-weight:900;
+font-weight:950;
+
+color:var(--navy);
 }
 
 .social-icon{
 
-width:36px;
-height:36px;
+width:37px;
+height:37px;
 
 border-radius:10px;
 
 background:
 linear-gradient(
 145deg,
-#294A63,
-#111F2C
+#244F6E,
+#103456
 );
-
-border:1px solid rgba(217,154,61,.18);
 
 display:flex;
 
@@ -955,11 +847,10 @@ align-items:center;
 
 justify-content:center;
 
-flex:0 0 36px;
+flex:0 0 37px;
 
 box-shadow:
-inset 0 1px 2px rgba(255,255,255,.12),
-inset 0 -2px 4px rgba(0,0,0,.35);
+0 3px 0 #0A2943;
 }
 
 .social-icon svg{
@@ -983,12 +874,11 @@ stroke:currentColor;
 
 color:var(--orange);
 
-font-size:20px;
+font-size:22px;
+
+font-weight:900;
 
 flex:0 0 auto;
-
-text-shadow:
-0 2px 5px rgba(0,0,0,.5);
 }
 
 
@@ -1002,7 +892,7 @@ width:100%;
 
 display:grid;
 
-gap:11px;
+gap:12px;
 
 min-width:0;
 }
@@ -1015,42 +905,42 @@ width:100%;
 
 min-width:0;
 
-min-height:105px;
+min-height:110px;
 
 padding:16px;
 
 border-radius:18px;
 
-border:1px solid rgba(255,255,255,.09);
-
-
-/* خلفية معدنية */
+border:1px solid #D5E0E8;
 
 background:
 linear-gradient(
 135deg,
-#19364D 0%,
-#102333 45%,
-#09121A 100%
+#FFFFFF 0%,
+#F4F7F9 60%,
+#E7EEF3 100%
 );
 
 box-shadow:
-
-0 7px 0 #050B10,
-
-0 12px 25px rgba(0,0,0,.38),
-
-inset 0 1px 2px rgba(255,255,255,.14),
-
-inset 0 -4px 7px rgba(0,0,0,.38);
+0 7px 16px rgba(16,52,86,.10),
+inset 0 1px 0 #fff;
 
 cursor:pointer;
 
 overflow:hidden;
 
 transition:
-transform .16s ease,
-box-shadow .16s ease;
+transform .15s ease,
+box-shadow .15s ease;
+}
+
+.service-card:active{
+
+transform:translateY(4px);
+
+box-shadow:
+0 3px 8px rgba(16,52,86,.10),
+inset 0 1px 0 #fff;
 }
 
 .service-card::before{
@@ -1063,50 +953,16 @@ top:0;
 
 right:0;
 
-width:4px;
+width:5px;
 
 height:100%;
 
 background:
 linear-gradient(
 180deg,
-#F0C36B,
-#D99A3D,
-#9D6522
+var(--orange2),
+var(--orange)
 );
-
-box-shadow:
-0 0 10px rgba(217,154,61,.25);
-}
-
-.service-card:hover{
-
-transform:
-translateY(-3px);
-
-box-shadow:
-
-0 10px 0 #050B10,
-
-0 16px 28px rgba(0,0,0,.46),
-
-inset 0 1px 2px rgba(255,255,255,.16),
-
-inset 0 -4px 7px rgba(0,0,0,.40);
-}
-
-.service-card:active{
-
-transform:
-translateY(3px);
-
-box-shadow:
-
-0 2px 0 #050B10,
-
-0 5px 10px rgba(0,0,0,.38),
-
-inset 0 2px 5px rgba(0,0,0,.28);
 }
 
 .service-top{
@@ -1124,22 +980,21 @@ min-width:0;
 
 .service-icon{
 
-width:46px;
+width:48px;
+height:48px;
 
-height:46px;
-
-flex:0 0 46px;
+flex:0 0 48px;
 
 border-radius:13px;
 
 background:
 linear-gradient(
 145deg,
-rgba(217,154,61,.22),
-rgba(16,35,51,.8)
+#FFF4E8,
+#FFE0BC
 );
 
-border:1px solid rgba(217,154,61,.38);
+border:1px solid rgba(244,123,0,.30);
 
 display:flex;
 
@@ -1150,9 +1005,7 @@ justify-content:center;
 font-size:23px;
 
 box-shadow:
-inset 0 1px 2px rgba(255,255,255,.12),
-inset 0 -3px 5px rgba(0,0,0,.35),
-0 3px 7px rgba(0,0,0,.25);
+0 3px 0 #E8C49F;
 }
 
 .service-top > div:last-child{
@@ -1161,9 +1014,11 @@ min-width:0;
 
 .service-name{
 
-font-size:14px;
+font-size:15px;
 
-font-weight:900;
+font-weight:950;
+
+color:var(--navy);
 
 overflow-wrap:anywhere;
 }
@@ -1174,9 +1029,11 @@ color:var(--muted);
 
 font-size:11px;
 
+font-weight:600;
+
 margin-top:4px;
 
-line-height:1.5;
+line-height:1.55;
 
 overflow-wrap:anywhere;
 }
@@ -1189,12 +1046,11 @@ left:14px;
 
 top:50%;
 
-transform:
-translateY(-50%);
+transform:translateY(-50%);
 
 color:var(--orange);
 
-font-size:20px;
+font-size:21px;
 
 font-weight:bold;
 }
@@ -1207,14 +1063,13 @@ left:40px;
 
 top:50%;
 
-transform:
-translateY(-50%);
+transform:translateY(-50%);
 
 color:var(--orange);
 
 font-size:11px;
 
-font-weight:900;
+font-weight:950;
 }
 
 
@@ -1231,9 +1086,9 @@ display:grid;
 grid-template-columns:
 repeat(2,minmax(0,1fr));
 
-gap:9px;
+gap:10px;
 
-margin:25px 0 10px;
+margin:26px 0 12px;
 
 min-width:0;
 }
@@ -1244,7 +1099,7 @@ width:100%;
 
 min-width:0;
 
-min-height:88px;
+min-height:90px;
 
 display:flex;
 
@@ -1258,23 +1113,21 @@ gap:7px;
 
 border-radius:17px;
 
-
-/* زر ثلاثي الأبعاد */
-
 background:
 linear-gradient(
 145deg,
-#2A587A 0%,
-#1A3D5A 38%,
-#0D2030 72%,
-#08131E 100%
+#2B6D9C 0%,
+#174D78 50%,
+#103456 100%
 );
 
-border:1px solid rgba(217,154,61,.45);
+border:1px solid #0B2B46;
 
-font-size:13px;
+color:#fff;
 
-font-weight:900;
+font-size:14px;
+
+font-weight:950;
 
 text-align:center;
 
@@ -1284,65 +1137,30 @@ overflow:hidden;
 
 padding:8px;
 
-box-shadow:
-
-0 6px 0 #050C12,
-
-0 10px 20px rgba(0,0,0,.40),
-
-inset 0 1px 2px rgba(255,255,255,.20),
-
-inset 0 -4px 7px rgba(0,0,0,.40);
+box-shadow:var(--shadow3d);
 
 transition:
-transform .16s ease,
-box-shadow .16s ease;
-}
-
-.action:hover{
-
-transform:
-translateY(-3px);
-
-box-shadow:
-
-0 9px 0 #050C12,
-
-0 14px 24px rgba(0,0,0,.46),
-
-inset 0 1px 2px rgba(255,255,255,.22),
-
-inset 0 -4px 7px rgba(0,0,0,.42);
+transform .15s ease,
+box-shadow .15s ease;
 }
 
 .action:active{
 
-transform:
-translateY(3px);
+transform:translateY(5px);
 
 box-shadow:
-
-0 2px 0 #050C12,
-
-0 4px 9px rgba(0,0,0,.38),
-
-inset 0 2px 5px rgba(0,0,0,.30);
+0 2px 0 #0A2943,
+0 5px 10px rgba(16,52,86,.2);
 }
 
 .action svg{
 
 width:27px;
-
 height:27px;
 
-color:var(--orange);
+color:var(--orange2);
 
 flex:0 0 auto;
-
-filter:
-drop-shadow(
-0 2px 3px rgba(0,0,0,.5)
-);
 }
 
 
@@ -1364,86 +1182,51 @@ justify-content:center;
 
 gap:10px;
 
-min-height:55px;
+min-height:57px;
 
-margin:10px 0 20px;
+margin:12px 0 22px;
 
 padding:8px;
 
 border-radius:15px;
 
-
-/* واتساب ثلاثي الأبعاد */
-
 background:
 linear-gradient(
-145deg,
-#34E879 0%,
-#25D366 45%,
-#128C4A 100%
+135deg,
+#25D366,
+#159447,
+#08763A
 );
-
-border:1px solid rgba(255,255,255,.18);
 
 color:#fff;
 
-font-size:14px;
+font-size:15px;
 
-font-weight:900;
+font-weight:950;
 
 box-shadow:
-
-0 6px 0 #096B38,
-
-0 10px 20px rgba(37,211,102,.18),
-
-inset 0 1px 2px rgba(255,255,255,.28),
-
-inset 0 -4px 7px rgba(0,0,0,.22);
+0 6px 0 #075F2F,
+0 10px 20px rgba(37,211,102,.18);
 
 position:relative;
 
 overflow:hidden;
 
-transition:
-transform .16s ease,
-box-shadow .16s ease;
-}
-
-.contact-now:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-
-0 8px 0 #096B38,
-
-0 13px 24px rgba(37,211,102,.22),
-
-inset 0 1px 2px rgba(255,255,255,.30),
-
-inset 0 -4px 7px rgba(0,0,0,.24);
+transition:.15s;
 }
 
 .contact-now:active{
 
-transform:
-translateY(3px);
+transform:translateY(4px);
 
 box-shadow:
-
-0 2px 0 #096B38,
-
-0 4px 9px rgba(37,211,102,.16),
-
-inset 0 2px 5px rgba(0,0,0,.22);
+0 2px 0 #075F2F,
+0 5px 10px rgba(37,211,102,.15);
 }
 
 .contact-now svg{
 
 width:21px;
-
 height:21px;
 }
 
@@ -1459,11 +1242,11 @@ width:100%;
 background:
 linear-gradient(
 135deg,
-#19344B,
-#0D1822
+#FFFFFF,
+#F0F4F7
 );
 
-border:1px solid rgba(217,154,61,.20);
+border:1px solid #D7E1E8;
 
 border-radius:18px;
 
@@ -1482,7 +1265,7 @@ border:0;
 
 background:none;
 
-color:#fff;
+color:var(--navy);
 
 display:flex;
 
@@ -1492,9 +1275,9 @@ justify-content:space-between;
 
 gap:10px;
 
-font-size:14px;
+font-size:15px;
 
-font-weight:900;
+font-weight:950;
 
 cursor:pointer;
 
@@ -1512,8 +1295,7 @@ color:var(--orange);
 
 .about-head.open svg{
 
-transform:
-rotate(180deg);
+transform:rotate(180deg);
 }
 
 .about-content{
@@ -1524,9 +1306,9 @@ width:100%;
 
 padding:0 17px 18px;
 
-border-top:1px solid var(--border);
+border-top:1px solid #DCE5EC;
 
-color:#C9D2DA;
+color:#52616D;
 
 font-size:13px;
 
@@ -1536,13 +1318,11 @@ text-align:right;
 }
 
 .about-content.open{
-
 display:block;
 }
 
 .about-content strong{
-
-color:#fff;
+color:var(--navy);
 }
 
 
@@ -1562,7 +1342,7 @@ align-items:center;
 
 gap:17px;
 
-margin:22px 0 4px;
+margin:24px 0 4px;
 
 min-width:0;
 
@@ -1571,9 +1351,8 @@ flex-wrap:wrap;
 
 .bottom-social a{
 
-width:42px;
-
-height:42px;
+width:43px;
+height:43px;
 
 border-radius:50%;
 
@@ -1586,68 +1365,29 @@ justify-content:center;
 background:
 linear-gradient(
 145deg,
-#294A63,
-#0D1924
+#FFFFFF,
+#E5ECF1
 );
 
-border:1px solid rgba(217,154,61,.22);
+border:1px solid #D3DEE6;
 
-flex:0 0 42px;
+flex:0 0 43px;
 
 position:relative;
 
 overflow:hidden;
 
 box-shadow:
-
-0 4px 0 #060C11,
-
-0 7px 13px rgba(0,0,0,.35),
-
-inset 0 1px 2px rgba(255,255,255,.14),
-
-inset 0 -3px 5px rgba(0,0,0,.35);
-
-transition:
-transform .16s ease,
-box-shadow .16s ease;
-}
-
-.bottom-social:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-
-0 6px 0 #060C11,
-
-0 10px 17px rgba(0,0,0,.42),
-
-inset 0 1px 2px rgba(255,255,255,.16),
-
-inset 0 -3px 5px rgba(0,0,0,.38);
-}
-
-.bottom-social:active{
-
-transform:
-translateY(2px);
-
-box-shadow:
-
-0 2px 0 #060C11,
-
-0 4px 8px rgba(0,0,0,.3);
+0 4px 0 #C5D1D9,
+0 7px 12px rgba(16,52,86,.10);
 }
 
 .bottom-social svg{
 
 width:20px;
-
 height:20px;
 
-color:#fff !important;
+color:var(--navy) !important;
 
 fill:currentColor;
 }
@@ -1667,11 +1407,11 @@ text-align:center;
 
 font-size:13px;
 
-font-weight:900;
+font-weight:950;
 
-color:#fff;
+color:var(--navy);
 
-margin-top:7px;
+margin-top:8px;
 
 overflow-wrap:anywhere;
 }
@@ -1684,7 +1424,7 @@ text-align:center;
 
 font-size:12px;
 
-color:#9AA9B7;
+color:#7B8994;
 
 margin:8px 0 16px;
 
@@ -1706,7 +1446,7 @@ margin-top:18px;
 
 padding:20px 10px 12px;
 
-border-top:1px solid rgba(217,154,61,.16);
+border-top:1px solid #DCE5EC;
 
 color:#71808E;
 
@@ -1716,8 +1456,7 @@ text-align:center;
 }
 
 .footer strong{
-
-color:#C7D0D8;
+color:var(--navy);
 }
 
 
@@ -1750,7 +1489,7 @@ background:
 linear-gradient(
 90deg,
 transparent 0%,
-rgba(255,255,255,.32) 50%,
+rgba(255,255,255,.45) 50%,
 transparent 100%
 );
 
@@ -1772,8 +1511,7 @@ z-index:1;
 
 .clicked .ripple{
 
-animation:
-shine .42s ease;
+animation:shine .42s ease;
 }
 
 @keyframes shine{
@@ -1801,34 +1539,25 @@ skewX(-20deg);
 
 background:
 linear-gradient(
-145deg,
-#3B7096 0%,
-#285B80 35%,
-#173F5D 70%,
-#0D263B 100%
+135deg,
+#3B7EAA,
+#205A83,
+#103456
 )!important;
 
-border-color:
-rgba(217,154,61,.75)!important;
+border-color:#103456!important;
 
 color:#fff!important;
 
 box-shadow:
-
-0 6px 0 #07111A,
-
-0 12px 25px rgba(217,154,61,.16),
-
-inset 0 1px 3px rgba(255,255,255,.25),
-
-inset 0 -4px 7px rgba(0,0,0,.38)!important;
+0 5px 0 #071F33,
+0 9px 18px rgba(16,52,86,.22)!important;
 }
 
 .active-light svg,
 .active-light .social-arrow{
 
-color:
-var(--orange)!important;
+color:var(--orange2)!important;
 }
 
 
@@ -1856,22 +1585,19 @@ justify-content:center;
 padding:14px;
 
 width:100%;
+
 height:100%;
 
-background:
-rgba(0,0,0,.90);
+background:rgba(5,20,31,.78);
 
-backdrop-filter:
-blur(7px);
+backdrop-filter:blur(7px);
 
--webkit-backdrop-filter:
-blur(7px);
+-webkit-backdrop-filter:blur(7px);
 
 overflow:hidden;
 }
 
 .modal.show{
-
 display:flex;
 }
 
@@ -1886,18 +1612,18 @@ max-height:94vh;
 background:
 linear-gradient(
 160deg,
-#172F44,
-#080E14
+#FFFFFF,
+#EEF3F6
 );
 
-border:1px solid rgba(217,154,61,.38);
+border:1px solid rgba(244,123,0,.45);
 
 border-radius:20px;
 
 padding:12px;
 
 box-shadow:
-0 20px 70px rgba(0,0,0,.70);
+0 20px 70px rgba(0,0,0,.35);
 
 display:flex;
 
@@ -1929,9 +1655,9 @@ min-width:0;
 
 font-size:15px;
 
-font-weight:900;
+font-weight:950;
 
-color:#fff;
+color:var(--navy);
 
 text-align:center;
 
@@ -1948,18 +1674,18 @@ width:38px;
 
 height:38px;
 
-border:1px solid rgba(217,154,61,.30);
+border:1px solid #D2DEE6;
 
 border-radius:50%;
 
 background:
 linear-gradient(
 145deg,
-#294A63,
-#0C1823
+#FFFFFF,
+#E4EBF0
 );
 
-color:#fff;
+color:var(--navy);
 
 font-size:22px;
 
@@ -1974,14 +1700,7 @@ cursor:pointer;
 flex:0 0 38px;
 
 box-shadow:
-
-0 4px 0 #060C11,
-
-0 6px 12px rgba(0,0,0,.35),
-
-inset 0 1px 2px rgba(255,255,255,.14),
-
-inset 0 -3px 5px rgba(0,0,0,.35);
+0 3px 0 #C3D0D8;
 }
 
 .photo-wrap{
@@ -1996,9 +1715,9 @@ border-radius:15px;
 
 overflow:hidden;
 
-background:#05080B;
+background:#fff;
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid #DCE5EC;
 
 cursor:pointer;
 }
@@ -2034,22 +1753,21 @@ border-radius:20px;
 
 background:
 linear-gradient(
-145deg,
-#315D7E,
-#112B40
+135deg,
+#2B6D9C,
+#103456
 );
 
-border:1px solid rgba(217,154,61,.65);
+border:1px solid rgba(244,123,0,.65);
 
 color:#fff;
 
 font-size:12px;
 
-font-weight:900;
+font-weight:950;
 
 box-shadow:
-0 4px 10px rgba(0,0,0,.35),
-inset 0 1px 2px rgba(255,255,255,.15);
+0 3px 8px rgba(0,0,0,.15);
 }
 
 .photo-title{
@@ -2060,7 +1778,7 @@ text-align:center;
 
 font-size:14px;
 
-font-weight:900;
+font-weight:950;
 
 color:var(--orange);
 
@@ -2100,69 +1818,40 @@ width:100%;
 
 height:48px;
 
-border:1px solid rgba(217,154,61,.38);
+border:1px solid #0B2B46;
 
 border-radius:12px;
 
 background:
 linear-gradient(
 145deg,
-#2A587A,
-#102A40 55%,
-#091724
+#2B6D9C,
+#174D78,
+#103456
 );
 
 color:#fff;
 
 font-size:13px;
 
-font-weight:900;
+font-weight:950;
 
 cursor:pointer;
 
 box-shadow:
+0 4px 0 #081F32,
+0 7px 12px rgba(16,52,86,.18);
 
-0 5px 0 #050C12,
-
-0 8px 15px rgba(0,0,0,.38),
-
-inset 0 1px 2px rgba(255,255,255,.18),
-
-inset 0 -3px 5px rgba(0,0,0,.35);
-
-transition:
-transform .15s ease,
-box-shadow .15s ease;
-}
-
-.modal-btn:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-
-0 7px 0 #050C12,
-
-0 11px 18px rgba(0,0,0,.44),
-
-inset 0 1px 2px rgba(255,255,255,.20),
-
-inset 0 -3px 5px rgba(0,0,0,.38);
+transition:.15s;
 }
 
 .modal-btn:active{
 
-transform:
-translateY(2px);
+transform:translateY(3px);
 
 box-shadow:
-
-0 2px 0 #050C12,
-
-0 4px 8px rgba(0,0,0,.34),
-
-inset 0 2px 4px rgba(0,0,0,.25);
+0 1px 0 #081F32,
+0 4px 7px rgba(16,52,86,.15);
 }
 
 
@@ -2183,7 +1872,6 @@ gap:9px;
 .bottom-social a{
 
 width:38px;
-
 height:38px;
 
 flex-basis:38px;
@@ -2192,34 +1880,28 @@ flex-basis:38px;
 .bottom-social svg{
 
 width:18px;
-
 height:18px;
 }
 
 .quick{
-
 font-size:10px;
 }
 
 .branch-action{
-
 font-size:11px;
 }
 
 .service-card{
-
 padding:13px;
 }
 
 .service-top{
-
 gap:8px;
 }
 
 .service-icon{
 
 width:42px;
-
 height:42px;
 
 flex-basis:42px;
@@ -2252,7 +1934,6 @@ animation:none!important;
 
 <body>
 
-
 <div class="page">
 
 
@@ -2266,9 +1947,7 @@ animation:none!important;
 
 <span class="brand-dot"></span>
 
-<span>
-الغامدي لإصلاح الجنوط
-</span>
+<span>الغامدي لإصلاح الجنوط</span>
 
 </div>
 
@@ -2287,13 +1966,10 @@ stroke="currentColor"
 stroke-width="2">
 
 <circle cx="18" cy="5" r="2.5"/>
-
 <circle cx="6" cy="12" r="2.5"/>
-
 <circle cx="18" cy="19" r="2.5"/>
 
 <path d="M8.2 10.8 15.8 6.2"/>
-
 <path d="m8.2 13.2 7.6 4.6"/>
 
 </svg>
@@ -2308,7 +1984,6 @@ stroke-width="2">
 ===================================================== -->
 
 <header class="hero">
-
 
 <div class="logo-wrap">
 
@@ -2349,7 +2024,6 @@ loading="eager">
 
 </p>
 
-
 </header>
 
 
@@ -2360,8 +2034,7 @@ loading="eager">
 <nav class="quick-nav">
 
 
-<a
-href="#locations"
+<a href="#locations"
 class="quick ripple-btn">
 
 <span class="ripple"></span>
@@ -2383,8 +2056,7 @@ stroke-width="2">
 </a>
 
 
-<a
-href="#social"
+<a href="#social"
 class="quick ripple-btn">
 
 <span class="ripple"></span>
@@ -2406,8 +2078,7 @@ stroke-width="2">
 </a>
 
 
-<a
-href="#services"
+<a href="#services"
 class="quick ripple-btn">
 
 <span class="ripple"></span>
@@ -2419,11 +2090,8 @@ stroke="currentColor"
 stroke-width="2">
 
 <path d="m14.7 6.3 3 3"/>
-
 <path d="m3 21 7.5-7.5"/>
-
 <path d="M14 4a4 4 0 0 1 5.7 5.7l-4.4 4.4-5.7-5.7L14 4Z"/>
-
 <path d="m8 13-4 4"/>
 
 </svg>
@@ -2441,7 +2109,6 @@ stroke-width="2">
 
 <section id="locations">
 
-
 <div class="section-title">
 
 Location | مواقعنا
@@ -2452,7 +2119,7 @@ Location | مواقعنا
 <div class="locations">
 
 
-<!-- كيلو 14 -->
+<!-- فرع كيلو 14 -->
 
 <div class="branch">
 
@@ -2528,13 +2195,12 @@ stroke-width="2">
 
 </a>
 
-
 </div>
 
 </div>
 
 
-<!-- كيلو 3 -->
+<!-- فرع كيلو 3 -->
 
 <div class="branch">
 
@@ -2602,14 +2268,13 @@ fill="none"
 stroke="currentColor"
 stroke-width="2">
 
-<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 2-1 2C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
+<path d="M5 4h3l2 5-2 1.5a14 14 0 0 0 5.5 5.5L15 14l5 2v3c0 1-1 1-2 1C10.8 20 4 13.2 4 5c0-1 .1-1 1-1Z"/>
 
 </svg>
 
 اتصال كيلو 3
 
 </a>
-
 
 </div>
 
@@ -2622,11 +2287,10 @@ stroke-width="2">
 
 
 <!-- =====================================================
-     التواصل الاجتماعي
+     التواصل
 ===================================================== -->
 
 <section id="social">
-
 
 <div class="section-title">
 
@@ -2662,9 +2326,7 @@ TikTok
 
 </div>
 
-<span class="social-arrow">
-‹
-</span>
+<span class="social-arrow">‹</span>
 
 </a>
 
@@ -2699,9 +2361,7 @@ Instagram
 
 </div>
 
-<span class="social-arrow">
-‹
-</span>
+<span class="social-arrow">‹</span>
 
 </a>
 
@@ -2730,9 +2390,7 @@ Snapchat
 
 </div>
 
-<span class="social-arrow">
-‹
-</span>
+<span class="social-arrow">‹</span>
 
 </a>
 
@@ -2761,9 +2419,7 @@ X – تويتر
 
 </div>
 
-<span class="social-arrow">
-‹
-</span>
+<span class="social-arrow">‹</span>
 
 </a>
 
@@ -2792,9 +2448,7 @@ YouTube
 
 </div>
 
-<span class="social-arrow">
-‹
-</span>
+<span class="social-arrow">‹</span>
 
 </a>
 
@@ -2810,7 +2464,6 @@ YouTube
 
 <section id="services">
 
-
 <div class="section-title">
 
 خدماتنا | Our Services
@@ -2821,7 +2474,7 @@ YouTube
 <div class="services-grid">
 
 
-<!-- تعديل ولحام -->
+<!-- اللحام -->
 
 <div
 class="service-card ripple-btn"
@@ -2847,7 +2500,7 @@ onclick="openService('welding',this)">
 
 تعديل طعجات الجنوط وخرط الجنوط ومعالجة مشاكل الرجة والاهتزاز
 
-لحام وإصلاح كسور وشروخ الجنوط ومعالجتها .لحام الجنوط لحام ارجون
+لحام وإصلاح كسور وشروخ الجنوط ومعالجتها. لحام الجنوط لحام ارجون
 
 </div>
 
@@ -2890,7 +2543,7 @@ onclick="openService('cnc',this)">
 
 <div class="service-desc">
 
-تجديد أسطح الجنوط وإظهار التفاصيل الأصلية باحدث أجهزة ال سي ان سي للجنوط
+تجديد أسطح الجنوط وإظهار التفاصيل الأصلية بأحدث أجهزة ال سي ان سي للجنوط
 
 </div>
 
@@ -2933,9 +2586,9 @@ onclick="openService('paint',this)">
 
 <div class="service-desc">
 
-رش بوية جنوط جميع الالوان رش جنوط اسود. فيراني .رصاصي .سيلفر .
+رش بوية جنوط جميع الالوان، رش جنوط اسود، فيراني، رصاصي، سيلفر.
 
-تكحيل الجنوط بأي لون يختاره العميل رش جنوط وكالة
+تكحيل الجنوط بأي لون يختاره العميل، رش جنوط وكالة.
 
 معالجة حكات الجنوط ومعالجة تقشير الجنوط
 
@@ -3047,11 +2700,8 @@ stroke="currentColor"
 stroke-width="1.8">
 
 <path d="m14.7 6.3 3 3"/>
-
 <path d="m3 21 7.5-7.5"/>
-
 <path d="M14 4a4 4 0 0 1 5.7 5.7l-4.4 4.4-5.7-5.7L14 4Z"/>
-
 <path d="m8 13-4 4"/>
 
 </svg>
@@ -3060,12 +2710,11 @@ Our Services | خدماتنا
 
 </a>
 
-
 </div>
 
 
 <!-- =====================================================
-     تواصل معنا
+     واتساب
 ===================================================== -->
 
 <a
@@ -3098,7 +2747,6 @@ stroke-width="2">
 ===================================================== -->
 
 <section class="about">
-
 
 <button
 class="about-head"
@@ -3148,8 +2796,7 @@ class="about-content">
 
 <p>
 
-نقدم مجموعة متكاملة من خدمات الجنوط، ومن أبرزها المسح الماسي CNC،
-الذي كنا من أوائل من قدموا هذه الخدمة في المملكة.
+نقدم مجموعة متكاملة من خدمات الجنوط، ومن أبرزها المسح الماسي CNC، الذي كنا من أوائل من قدموا هذه الخدمة في المملكة.
 
 </p>
 
@@ -3157,13 +2804,9 @@ class="about-content">
 <p>
 
 واليوم نواصل تقديم خدماتنا من خلال فرعي
-<strong>
-كيلو 14
-</strong>
+<strong>كيلو 14</strong>
 و
-<strong>
-كيلو 3
-</strong>
+<strong>كيلو 3</strong>
 في جدة.
 
 </p>
@@ -3175,7 +2818,7 @@ class="about-content">
 
 
 <!-- =====================================================
-     التواصل السفلي
+     أيقونات التواصل السفلية
 ===================================================== -->
 
 <div class="bottom-social">
@@ -3234,7 +2877,7 @@ aria-label="Snapchat">
 viewBox="0 0 24 24"
 fill="currentColor">
 
-<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
+<path d="M12 3c-3.1 0-5.4 2.1-5.4 5.3v2.4c0 .8-.4 1.3-1.2 1.8-.4.2-.8.5-.8.9 0 .7.9 1 2.1 1.2.4 1.2 1.3 1.9 2.6 2.2.4.9 1.4 1.4 2.7 1.4h.1c1.3 0 2.3-.5 2.7-1.4 1.3-.3 2.2-1 2.6-2.2 1.2-.2 2.1-.5 2.1-1.2 0-.4-.4-.7-.8-.9-.8-.5-1.2-1-1.2-1.8V8.3C17.4 5.1 15.1 3 12 3Z"/>
 
 </svg>
 
@@ -3290,10 +2933,6 @@ Specialists in car rims repair
 </div>
 
 
-<!-- =====================================================
-     الفوتر
-===================================================== -->
-
 <footer class="footer">
 
 <p>
@@ -3345,7 +2984,6 @@ aria-label="إغلاق">
 
 </button>
 
-
 </div>
 
 
@@ -3364,7 +3002,6 @@ alt="">
 id="photoLabel"
 class="photo-label">
 </div>
-
 
 </div>
 
@@ -3404,7 +3041,6 @@ onclick="nextPhoto()">
 
 </div>
 
-
 </div>
 
 </div>
@@ -3413,7 +3049,7 @@ onclick="nextPhoto()">
 <script>
 
 /* =====================================================
-   الزر النشط
+   الأزرار النشطة
 ===================================================== */
 
 let activeButton=null;
@@ -3439,10 +3075,6 @@ activeButton=btn;
 
 }
 
-
-/* =====================================================
-   إعادة جميع الأزرار
-===================================================== */
 
 function resetActiveButtons(){
 
@@ -3489,7 +3121,7 @@ String(open)
 
 
 /* =====================================================
-   الخدمات
+   الخدمات والصور
 ===================================================== */
 
 const services={
@@ -3656,7 +3288,6 @@ title:"تلميع بوليش (تنكيل جنوط)"
 
 
 let currentPhotos=[];
-
 let currentIndex=0;
 
 
@@ -3701,7 +3332,9 @@ function showPhoto(){
 
 if(!currentPhotos.length)return;
 
-const photo=currentPhotos[currentIndex];
+const photo=
+currentPhotos[currentIndex];
+
 
 const img=
 document.getElementById(
@@ -3722,6 +3355,7 @@ const counter=
 document.getElementById(
 "photoCounter"
 );
+
 
 img.src=photo.src;
 
@@ -3779,7 +3413,7 @@ showPhoto();
 
 
 /* =====================================================
-   إغلاق النافذة
+   إغلاق
 ===================================================== */
 
 function closeGallery(){
@@ -3843,21 +3477,15 @@ if(!modal.classList.contains("show"))
 return;
 
 if(e.key==="Escape"){
-
 closeGallery();
-
 }
 
 if(e.key==="ArrowRight"){
-
 prevPhoto();
-
 }
 
 if(e.key==="ArrowLeft"){
-
 nextPhoto();
-
 }
 
 }
@@ -3873,6 +3501,7 @@ function sharePage(){
 const url=
 "https://gh-rims.github.io/ghamdi-links/";
 
+
 if(navigator.share){
 
 navigator.share({
@@ -3885,6 +3514,7 @@ url:url
 }).catch(
 ()=>{}
 );
+
 
 }else if(navigator.clipboard){
 
@@ -3906,6 +3536,7 @@ url
 
 });
 
+
 }else{
 
 prompt(
@@ -3919,7 +3550,7 @@ url
 
 
 /* =====================================================
-   الأزرار + تأثير اللمعة
+   تأثير الأزرار
 ===================================================== */
 
 document.addEventListener(
@@ -3934,24 +3565,27 @@ e.target.closest(
 if(!btn)return;
 
 
-/* تغيير اللون */
-
 activateButton(btn);
 
 
-/* تأثير اللمعة */
-
-btn.classList.remove("clicked");
+btn.classList.remove(
+"clicked"
+);
 
 requestAnimationFrame(()=>{
 
-btn.classList.add("clicked");
+btn.classList.add(
+"clicked"
+);
 
 });
 
+
 setTimeout(()=>{
 
-btn.classList.remove("clicked");
+btn.classList.remove(
+"clicked"
+);
 
 },500);
 
@@ -3960,7 +3594,7 @@ btn.classList.remove("clicked");
 
 
 /* =====================================================
-   إعادة الأزرار عند الرجوع
+   إعادة الأزرار
 ===================================================== */
 
 window.addEventListener(
@@ -3973,10 +3607,6 @@ resetActiveButtons();
 );
 
 
-/* =====================================================
-   عند مغادرة الصفحة
-===================================================== */
-
 window.addEventListener(
 "pagehide",
 function(){
@@ -3988,20 +3618,25 @@ resetActiveButtons();
 
 
 /* =====================================================
-   منع التمدد الأفقي
+   حماية من التمدد الأفقي
 ===================================================== */
 
 function fixHorizontalOverflow(){
 
-document.documentElement.style.maxWidth="100%";
+document.documentElement.style.maxWidth=
+"100%";
 
-document.body.style.maxWidth="100%";
+document.body.style.maxWidth=
+"100%";
 
-document.documentElement.style.overflowX="hidden";
+document.documentElement.style.overflowX=
+"hidden";
 
-document.body.style.overflowX="hidden";
+document.body.style.overflowX=
+"hidden";
 
 }
+
 
 window.addEventListener(
 "load",
