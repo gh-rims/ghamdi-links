@@ -270,55 +270,32 @@ min-width:0;
 overflow:hidden;
 }
 
-.logo-wrap{
 
-width:100px;
-height:100px;
-
-padding:4px;
-
-margin:auto;
-
-border-radius:50%;
-
-background:
-linear-gradient(
-145deg,
-var(--orange),
-var(--orange2),
-var(--navy)
-);
-
-box-shadow:
-0 12px 25px rgba(16,52,86,.18),
-0 4px 0 rgba(244,123,0,.25);
-
-overflow:hidden;
-}
-
-.logo-inner{
-
-width:100%;
-height:100%;
-
-border-radius:50%;
-
-background:#fff;
-
-overflow:hidden;
-}
+/* =========================================================
+   الشعار - بدون دائرة
+========================================================= */
 
 .logo{
 
 display:block;
 
-width:100%;
-height:100%;
+width:180px;
+
+height:auto;
+
+max-width:75%;
 
 object-fit:contain;
 
-padding:8px;
+padding:0;
+
+margin:4px auto 8px;
 }
+
+
+/* =========================================================
+   صورة الواجهة
+========================================================= */
 
 .hero-image{
 
@@ -1964,6 +1941,15 @@ box-shadow:
 padding:10px;
 }
 
+.logo{
+
+width:155px;
+
+max-width:70%;
+
+margin:3px auto 7px;
+}
+
 .bottom-social{
 gap:9px;
 }
@@ -2084,21 +2070,15 @@ stroke-width="2">
 
 <header class="hero">
 
-<div class="logo-wrap">
 
-<div class="logo-inner">
+<!-- الشعار بدون دائرة -->
 
 <img
 src="Logo.png"
 alt="شعار الغامدي لإصلاح الجنوط"
 class="logo"
-width="112"
-height="112"
+width="180"
 loading="eager">
-
-</div>
-
-</div>
 
 
 <div class="hero-image">
@@ -3710,26 +3690,6 @@ fixHorizontalOverflow
 /* =====================================================
    إصلاح روابط الصفحة عند فتحها من TikTok
 ===================================================== */
-
-/*
-   روابط الأقسام الداخلية مثل:
-   #locations
-   #social
-   #services
-
-   تبقى داخل الصفحة.
-
-   أما الروابط الخارجية مثل:
-   WhatsApp
-   Google Maps
-   Instagram
-   TikTok
-   Snapchat
-   X
-   YouTube
-
-   فتفتح خارج الصفحة الداخلية.
-*/
 
 document.addEventListener(
 "click",
