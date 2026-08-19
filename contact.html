@@ -50,8 +50,6 @@
         .stars-container { display: flex; gap: 10px; justify-content: center; margin: 12px 0; font-size: 34px; }
         .star { color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.1s; }
         .star.active, .star:hover { color: #F47B00; transform: scale(1.15); }
-        .checkbox-field { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-weight: normal; cursor: pointer; font-size: 15px; }
-        .checkbox-field input { width: auto; transform: scale(1.2); }
 
         .btn { 
             width: 100%; padding: 15px; border: none; border-radius: 14px; font-size: 19px; font-weight: 700; cursor: pointer; 
@@ -81,25 +79,47 @@
         .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
         .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
 
-        /* ✅ قسم تقييمات العملاء */
-        .reviews-section { margin: 40px 0; }
-        .review-card { 
-            background: #fff; border-radius: 16px; padding: 22px; margin-bottom: 18px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-right: 4px solid #F47B00;
+        /* ✅ النافذة المنبثقة */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.6); display: none; 
+            justify-content: center; align-items: center; 
+            z-index: 9999; padding: 15px;
         }
-        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .review-name { font-weight: 700; color: #1B557F; font-size: 17px; }
-        .review-stars { color: #F47B00; font-size: 18px; }
-        .review-text { color: #555; font-size: 15px; line-height: 1.6; }
+        .modal-content { 
+            background: #fff; border-radius: 20px; padding: 30px 25px; max-width: 420px; width: 100%; 
+            text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-title { font-size: 20px; font-weight: 700; color: #1B557F; margin-bottom: 15px; line-height: 1.8; }
+        .modal-text { color: #555; font-size: 16px; margin-bottom: 25px; line-height: 1.7; }
+        .modal-links { margin-bottom: 20px; }
+        .modal-link { 
+            display: block; background: #f8f9fa; color: #1B557F; padding: 14px; border-radius: 12px; 
+            text-decoration: none; font-weight: 600; margin-bottom: 12px; border-right: 4px solid #F47B00;
+            transition: 0.2s;
+        }
+        .modal-link:hover { background: #fff3e8; transform: translateX(-5px); }
+        .modal-close { 
+            background: linear-gradient(180deg, #FF9C27 0%, #F47B00 100%); 
+            color: white; border: none; padding: 12px 35px; border-radius: 12px; font-size: 17px; 
+            font-weight: 700; cursor: pointer; box-shadow: 0 4px 0 #b35a00;
+        }
+        .modal-close:active { transform: translateY(2px); box-shadow: none; }
 
-        /* التذييل الجديد */
+        /* التذييل */
         .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 15px; line-height: 1.8; font-weight: 600; background: #fafafa; border-top: 1px solid #eee; }
         .contact-footer strong { color: #F47B00; font-size: 16px; }
 
         .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; }
         
-        /* ✅ إخفاء الحقول عند التبديل */
+        /* إخفاء الحقول عند التبديل */
         #dynamicFields { transition: opacity 0.2s ease; }
+        #contactMethodSection { transition: opacity 0.2s ease; }
     </style>
 </head>
 <body>
@@ -111,35 +131,6 @@
 </header>
 
 <main class="container">
-    <!-- ✅ قسم تقييمات العملاء المعروض -->
-    <div class="reviews-section">
-        <h2>⭐ آراء عملائنا</h2>
-        
-        <div class="review-card">
-            <div class="review-header">
-                <span class="review-name">أحمد السالمي</span>
-                <span class="review-stars">★★★★★</span>
-            </div>
-            <p class="review-text">عمل ممتاز ودقيق، تم إصلاح الجنوط المعوجة باحترافية عالية وسرعة في الأداء. أنصح الجميع به.</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <span class="review-name">محمد الغامدي</span>
-                <span class="review-stars">★★★★★</span>
-            </div>
-            <p class="review-text">خدمة رائعة في اللحام والرش، النتيجة وكأنها جديدة. تعامل راقي وأسعار مناسبة جداً.</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <span class="review-name">علي جدة</span>
-                <span class="review-stars">★★★★☆</span>
-            </div>
-            <p class="review-text">محل ممتاز ومتخصص، لديهم مسح CNC دقيق، شكراً للغامدي على الأمانة والدقة في العمل.</p>
-        </div>
-    </div>
-
     <!-- بطاقة النموذج -->
     <div class="card">
         <h2>📬 تواصل معنا</h2>
@@ -157,12 +148,12 @@
                 <option value="شكوى">شكوى</option>
             </select>
 
-            <!-- ✅ الاسم إجباري دائماً -->
+            <!-- الاسم إجباري دائماً -->
             <label class="label">الاسم الكامل <span class="req">*</span></label>
             <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك الكامل">
 
-            <!-- خيار الاتصال: جوال أو بريد → الافتراضي جوال -->
-            <div id="contactMethodSection">
+            <!-- قسم الاتصال (يختفي عند التقييم) -->
+            <div id="contactMethodSection" style="opacity:0; height:0; overflow:hidden;">
                 <label class="label">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
                 <div class="radio-group">
                     <label class="radio-option">
@@ -174,10 +165,10 @@
                         البريد الإلكتروني
                     </label>
                 </div>
-                <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx" required>
+                <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx">
             </div>
 
-            <!-- حقول ديناميكية → ✅ تغلق وتتغير عند اختيار النوع -->
+            <!-- حقول ديناميكية -->
             <div id="dynamicFields"></div>
 
             <!-- زر الإرسال -->
@@ -189,7 +180,24 @@
     </div>
 </main>
 
-<!-- ✅ التذييل الجديد: العنوان فقط بالشكل المطلوب -->
+<!-- النافذة المنبثقة لخمس نجوم -->
+<div id="starModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3 class="modal-title">شكراً لتقييمك الرائع 🤍</h3>
+        <p class="modal-text">
+            يسعدنا أن تشارك تجربتك وتقييمك معنا على Google Maps، فرأيك يهمنا ويساعد الآخرين 🙏
+            <br><br>
+            <strong>قيّمنا على خرائط جوجل:</strong>
+        </p>
+        <div class="modal-links">
+            <a href="https://g.page/r/CXc0Www1YSqAEBE/review" target="_blank" class="modal-link">📍 فرع الغامدي كيلو 14</a>
+            <a href="https://g.page/r/CdPyT7yrq129EBE/review" target="_blank" class="modal-link">📍 فرع الغامدي كيلو 3</a>
+        </div>
+        <button type="button" class="modal-close" onclick="closeModal()">إغلاق</button>
+    </div>
+</div>
+
+<!-- التذييل -->
 <div class="contact-footer">
     <strong>الغامدي لإصلاح الجنوط</strong><br>
     جدة – كيلو 14 – الصناعية الجديدة
@@ -206,10 +214,16 @@ const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('successMsg');
 const errorMsg = document.getElementById('errorMsg');
 const contactInput = document.getElementById('contactInput');
+const contactSection = document.getElementById('contactMethodSection');
 const methodPhone = document.getElementById('methodPhone');
 const methodEmail = document.getElementById('methodEmail');
-const contactMethodSection = document.getElementById('contactMethodSection');
 const reqContactLabel = document.querySelector('.req-contact');
+const starModal = document.getElementById('starModal');
+
+// دالة فتح وإغلاق النافذة
+function openModal() { starModal.style.display = 'flex'; }
+function closeModal() { starModal.style.display = 'none'; }
+window.addEventListener('click', (e) => { if(e.target === starModal) closeModal(); });
 
 // تبديل نص حقل الاتصال
 function updateContactPlaceholder() {
@@ -219,7 +233,7 @@ function updateContactPlaceholder() {
 methodPhone.addEventListener('change', updateContactPlaceholder);
 methodEmail.addEventListener('change', updateContactPlaceholder);
 
-// ✅ عند تغيير النوع: نمسح المحتوى فوراً ونعرض الجديد (كأنها نافذة تغلق وتفتح)
+// المنطق الرئيسي: إظهار/إخفاء رقم الجوال حسب النوع
 typeSelector.addEventListener('change', () => {
     const type = typeSelector.value;
     let html = '';
@@ -228,11 +242,20 @@ typeSelector.addEventListener('change', () => {
     // إعادة تعيين
     contactInput.removeAttribute('required');
     reqContactLabel.style.display = 'none';
-    fieldsContainer.style.opacity = "0"; // تأثير إغلاق بسيط
+    fieldsContainer.style.opacity = "0";
+
+    // التحكم في ظهور قسم الاتصال
+    if (type === 'تقييم') {
+        contactSection.style.opacity = '0';
+        contactSection.style.height = '0';
+        contactInput.removeAttribute('required');
+    } else {
+        contactSection.style.opacity = '1';
+        contactSection.style.height = 'auto';
+    }
 
     setTimeout(() => {
         if (type === 'تقييم') {
-            // 🟢 تقييم: إجباري اسم + نجوم فقط
             html = `
                 <label class="label">تقييمك <span class="req">*</span></label>
                 <div class="stars-container" id="stars">
@@ -243,21 +266,16 @@ typeSelector.addEventListener('change', () => {
                     <span class="star" data-value="5">★</span>
                 </div>
                 <input type="hidden" name="rating" id="ratingVal" required>
-                <label class="checkbox-field">
-                    <input type="checkbox" name="showPublic" value="نعم">
-                    السماح للآخرين بالاطلاع على تجربتي
-                </label>
                 <label class="label">ملاحظات إضافية</label>
                 <textarea name="message" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
             `;
         } else if (type === 'اقتراح') {
-            // 🟡 اقتراح: إجباري اسم + الوصف فقط
+            needContact = true;
             html = `
                 <label class="label">الوصف <span class="req">*</span></label>
                 <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
             `;
         } else if (type === 'شكوى') {
-            // 🔴 شكوى: إجباري اسم + اتصال + الوصف
             needContact = true;
             html = `
                 <label class="label">الخدمة التي تمت (اختياري)</label>
@@ -273,7 +291,7 @@ typeSelector.addEventListener('change', () => {
         }
 
         fieldsContainer.innerHTML = html;
-        fieldsContainer.style.opacity = "1"; // فتح المحتوى الجديد
+        fieldsContainer.style.opacity = "1";
         if (type === 'تقييم') initStars();
     }, 150);
 });
@@ -306,35 +324,39 @@ function validateField(type, value) {
     return true;
 }
 
-// الإرسال
+// الإرسال ✅ مع التحقق
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
     const type = typeSelector.value;
-    const method = document.querySelector('input[name="contactMethod"]:checked').value;
-    const contactVal = contactInput.value.trim();
     const nameVal = document.getElementById('inputName').value.trim();
+    const ratingVal = document.getElementById('ratingVal')?.value;
 
-    // تحقق أساسي
     if (!type) { errorMsg.textContent = '❌ اختر نوع الرسالة أولاً!'; errorMsg.style.display = 'block'; return; }
     if (!nameVal) { errorMsg.textContent = '❌ الاسم مطلوب إلزامياً!'; errorMsg.style.display = 'block'; return; }
 
-    // تحقق الاتصال
-    if (type === 'شكوى' && !validateField(method, contactVal)) {
-        errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
-        errorMsg.style.display = 'block'; return;
+    // التحقق من الاتصال فقط إذا لم يكن تقييم
+    if (type !== 'تقييم') {
+        const method = document.querySelector('input[name="contactMethod"]:checked').value;
+        const contactVal = contactInput.value.trim();
+        if (!validateField(method, contactVal)) {
+            errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
+            errorMsg.style.display = 'block'; return;
+        }
     }
 
-    // تحقق التقييم
-    if (type === 'تقييم' && !document.getElementById('ratingVal')?.value) {
+    if (type === 'تقييم' && !ratingVal) {
         errorMsg.textContent = '❌ اختر عدد النجوم للتقييم!'; errorMsg.style.display = 'block'; return;
     }
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    data._save_contact = `${method === 'phone' ? '📞 جوال' : '📧 بريد'}: ${contactVal}`;
+    if (type !== 'تقييم') {
+        const method = document.querySelector('input[name="contactMethod"]:checked').value;
+        data._save_contact = `${method === 'phone' ? '📞 جوال' : '📧 بريد'}: ${contactInput.value.trim()}`;
+    }
 
     try {
         const res = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
@@ -345,9 +367,18 @@ form.addEventListener('submit', async (e) => {
 
         if (res.ok) {
             successMsg.style.display = 'block';
+            
+            // إذا كان التقييم 5 نجوم → أظهر النافذة
+            if (type === 'تقييم' && ratingVal === '5') {
+                setTimeout(openModal, 300);
+            }
+
             form.reset();
             fieldsContainer.innerHTML = '';
             typeSelector.value = '';
+            // إخفاء الاتصال بعد الإرسال
+            contactSection.style.opacity = '0';
+            contactSection.style.height = '0';
         } else throw new Error('err');
     } catch {
         errorMsg.textContent = '❌ حدث خطأ في الإرسال، حاول مجدداً.';
