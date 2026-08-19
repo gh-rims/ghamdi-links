@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط - تواصل وتقييم</title>
-    <!-- خط Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -15,7 +14,6 @@
         }
         body { background-color: #FFFFFF; color: #1B557F; line-height: 1.7; font-weight: 600; }
 
-        /* رأس الصفحة */
         .page-header { 
             background: #FFFFFF; 
             color: #1B557F; 
@@ -48,9 +46,13 @@
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #F47B00; background: #fff; box-shadow: 0 0 0 4px rgba(244, 123, 0, 0.1); }
 
-        .stars-container { display: flex; gap: 10px; justify-content: center; margin: 12px 0; font-size: 34px; }
-        .star { color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.1s; }
-        .star.active, .star:hover { color: #F47B00; transform: scale(1.15); }
+        /* ✅ نجوم كبيرة وواضحة وسهلة النقر */
+        .stars-container { display: flex; gap: 15px; justify-content: center; margin: 15px 0; font-size: 42px; }
+        .star { 
+            color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.15s; 
+            padding: 8px; user-select: none; -webkit-tap-highlight-color: transparent;
+        }
+        .star.active, .star:hover { color: #F47B00; transform: scale(1.2); }
 
         .btn { 
             width: 100%; padding: 15px; border: none; border-radius: 14px; font-size: 19px; font-weight: 700; cursor: pointer; 
@@ -60,18 +62,19 @@
             color: #fff;
             font-family: 'Cairo', sans-serif;
         }
-        .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #b35a00, 0 4px 8px rgba(0,0,0,0.15); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 2px 0 #b35a00, 0 4px 8px rgba(0,0,0,0.15); }
 
         .btn-primary { 
             background: linear-gradient(180deg, #FF9C27 0%, #F47B00 50%, #d66a00 100%); 
-            margin-top: 22px;
         }
-        .btn-primary:hover { background: linear-gradient(180deg, #ffab47 0%, #f58a1a 50%, #e07000 100%); }
+        .btn-primary:hover:not(:disabled) { background: linear-gradient(180deg, #ffab47 0%, #f58a1a 50%, #e07000 100%); }
 
+        /* ✅ مسافة واضحة بين الزرين */
         .btn-back { 
             background: linear-gradient(180deg, #2a70a0 0%, #1B557F 50%, #154568 100%); 
             box-shadow: 0 6px 0 #0f344f, 0 8px 15px rgba(0,0,0,0.15);
-            margin-top: 15px;
+            margin-top: 25px;
         }
         .btn-back:hover { background: linear-gradient(180deg, #3480b3 0%, #206496 50%, #1a527a 100%); }
         .btn-back:active { box-shadow: 0 2px 0 #0f344f, 0 4px 8px rgba(0,0,0,0.15); }
@@ -80,7 +83,6 @@
         .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
         .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
 
-        /* النافذة المنبثقة للنجوم */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.6); display: none; 
@@ -112,13 +114,11 @@
         }
         .modal-close:active { transform: translateY(2px); box-shadow: none; }
 
-        /* التذييل */
         .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 15px; line-height: 1.8; font-weight: 600; background: #fafafa; border-top: 1px solid #eee; }
         .contact-footer strong { color: #F47B00; font-size: 16px; }
 
         .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; }
         
-        /* إخفاء الحقول بسلاسة */
         #dynamicFields { transition: opacity 0.2s ease; }
         #contactMethodSection { transition: opacity 0.2s ease, height 0.2s ease; overflow: hidden; }
     </style>
@@ -132,16 +132,16 @@
 </header>
 
 <main class="container">
-    <!-- بطاقة النموذج -->
     <div class="card">
         <h2>📬 تواصل معنا</h2>
 
-        <div id="successMsg" class="alert alert-success">✅ تم إرسال رسالتك بنجاح، سنتواصل معك قريباً!</div>
-        <div id="errorMsg" class="alert alert-error">❌ الرجاء التأكد من ملء البيانات المطلوبة!</div>
+        <!-- ✅ رسالة نجاح معدلة -->
+        <div id="successMsg" class="alert alert-success">شكرًا لك 🌟 تم استلام رسالتك بنجاح.</div>
+        <div id="errorMsg" class="alert alert-error">❌ حدث خطأ، يرجى المحاولة مرة أخرى.</div>
 
         <form id="contactForm">
-            <!-- ✅ نوع الرسالة: عاد كمربع اختيار عادي -->
-            <label class="label">نوع الرسالة <span class="req">*</span></label>
+            <!-- ✅ تغيير العنوان إلى "اختر نوع الرسالة" -->
+            <label class="label">اختر نوع الرسالة <span class="req">*</span></label>
             <select id="msgType" name="type" required>
                 <option value="">-- اختر نوعاً --</option>
                 <option value="تقييم">تقييم</option>
@@ -149,11 +149,9 @@
                 <option value="شكوى">شكوى</option>
             </select>
 
-            <!-- الاسم -->
             <label class="label" id="nameLabel">الاسم <span class="req">*</span></label>
             <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك">
 
-            <!-- قسم الاتصال -->
             <div id="contactMethodSection" style="opacity:0; height:0;">
                 <label class="label" id="contactLabel">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
                 <div class="radio-group">
@@ -169,19 +167,17 @@
                 <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx">
             </div>
 
-            <!-- حقول ديناميكية -->
             <div id="dynamicFields"></div>
 
-            <!-- زر الإرسال -->
-            <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+            <!-- ✅ زر الإرسال مع حالة الانتظار -->
+            <button type="submit" id="submitBtn" class="btn btn-primary">إرسال الرسالة</button>
 
-            <!-- زر العودة -->
+            <!-- ✅ زر العودة بمسافة منفصلة -->
             <a href="https://gh-rims.github.io/ghamdi-links/" class="btn btn-back">← العودة للرئيسية</a>
         </form>
     </div>
 </main>
 
-<!-- النافذة المنبثقة لخمس نجوم -->
 <div id="starModal" class="modal-overlay">
     <div class="modal-content">
         <h3 class="modal-title">شكراً لتقييمك الرائع 🤍</h3>
@@ -198,7 +194,6 @@
     </div>
 </div>
 
-<!-- ✅ التذييل بعد الحذف -->
 <div class="contact-footer">
     <strong>الغامدي لإصلاح الجنوط</strong><br>
     جدة – كيلو 14 – الصناعية الجديدة
@@ -222,13 +217,12 @@ const reqContactLabel = document.querySelector('.req-contact');
 const nameLabel = document.getElementById('nameLabel');
 const contactLabel = document.getElementById('contactLabel');
 const starModal = document.getElementById('starModal');
+const submitBtn = document.getElementById('submitBtn');
 
-// دالة فتح وإغلاق النافذة
 function openModal() { starModal.style.display = 'flex'; }
 function closeModal() { starModal.style.display = 'none'; }
 window.addEventListener('click', (e) => { if(e.target === starModal) closeModal(); });
 
-// تبديل نص حقل الاتصال
 function updateContactPlaceholder() {
     contactInput.placeholder = methodPhone.checked ? "05xxxxxxxxx" : "example@email.com";
     contactInput.type = methodPhone.checked ? "tel" : "email";
@@ -236,20 +230,17 @@ function updateContactPlaceholder() {
 methodPhone.addEventListener('change', updateContactPlaceholder);
 methodEmail.addEventListener('change', updateContactPlaceholder);
 
-// تحديث شكل النموذج بناءً على النوع المختار
 typeSelector.addEventListener('change', () => {
     const type = typeSelector.value;
     let html = '';
     let needContact = false;
 
-    // إعادة تعيين
     contactInput.removeAttribute('required');
     reqContactLabel.style.display = 'none';
     fieldsContainer.style.opacity = "0";
 
     setTimeout(() => {
         if (type === 'تقييم') {
-            // عند التقييم: تواصل اختياري + عنوان جديد
             nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
             contactSection.style.opacity = '1';
             contactSection.style.height = 'auto';
@@ -272,7 +263,6 @@ typeSelector.addEventListener('change', () => {
                 <textarea name="message" placeholder="شاركنا تفاصيل تجربتك..."></textarea>
             `;
         } else if (type === 'اقتراح') {
-            // ✅ عند الاقتراح: تواصل اختياري
             nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
             contactSection.style.opacity = '1';
             contactSection.style.height = 'auto';
@@ -285,7 +275,6 @@ typeSelector.addEventListener('change', () => {
                 <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
             `;
         } else if (type === 'شكوى') {
-            // عند الشكوى: تواصل إلزامي كما هو
             nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
             contactSection.style.opacity = '1';
             contactSection.style.height = 'auto';
@@ -294,7 +283,8 @@ typeSelector.addEventListener('change', () => {
             needContact = true;
             
             html = `
-                <label class="label">الخدمة التي تمت (اختياري)</label>
+                <!-- ✅ تعديل النص هنا -->
+                <label class="label">الخدمة التي استفدت منها (اختياري)</label>
                 <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
                 <label class="label">وصف الشكوى <span class="req">*</span></label>
                 <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
@@ -312,7 +302,6 @@ typeSelector.addEventListener('change', () => {
     }, 150);
 });
 
-// تفعيل النجوم
 function initStars() {
     const stars = document.querySelectorAll('.star');
     const ratingInput = document.getElementById('ratingVal');
@@ -333,15 +322,13 @@ function initStars() {
     });
 }
 
-// التحقق من صحة المدخلات
 function validateField(type, value) {
-    if (!value) return true; // فارغ مقبول للاختياري
+    if (!value) return true;
     if (type === 'phone') return /^05[0-9]{8}$/.test(value.trim());
     if (type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
     return true;
 }
 
-// الإرسال
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMsg.style.display = 'none';
@@ -354,7 +341,6 @@ form.addEventListener('submit', async (e) => {
     if (!type) { errorMsg.textContent = '❌ اختر نوع الرسالة أولاً!'; errorMsg.style.display = 'block'; return; }
     if (!nameVal) { errorMsg.textContent = '❌ الاسم مطلوب إلزامياً!'; errorMsg.style.display = 'block'; return; }
 
-    // التحقق حسب النوع
     const method = document.querySelector('input[name="contactMethod"]:checked').value;
     const contactVal = contactInput.value.trim();
     
@@ -364,7 +350,6 @@ form.addEventListener('submit', async (e) => {
             errorMsg.style.display = 'block'; return;
         }
     } else {
-        // تقييم واقتراح: يتحقق فقط إذا تم كتابة شيء
         if (contactVal && !validateField(method, contactVal)) {
             errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
             errorMsg.style.display = 'block'; return;
@@ -374,6 +359,10 @@ form.addEventListener('submit', async (e) => {
     if (type === 'تقييم' && !ratingVal) {
         errorMsg.textContent = '❌ اختر عدد النجوم للتقييم!'; errorMsg.style.display = 'block'; return;
     }
+
+    // ✅ تفعيل حالة "جاري الإرسال"
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
@@ -389,12 +378,10 @@ form.addEventListener('submit', async (e) => {
         if (res.ok) {
             successMsg.style.display = 'block';
             
-            // إذا كان التقييم 5 نجوم → أظهر النافذة
             if (type === 'تقييم' && ratingVal === '5') {
                 setTimeout(openModal, 300);
             }
 
-            // إعادة تعيين النموذج
             form.reset();
             fieldsContainer.innerHTML = '';
             typeSelector.value = '';
@@ -404,6 +391,10 @@ form.addEventListener('submit', async (e) => {
     } catch {
         errorMsg.textContent = '❌ حدث خطأ في الإرسال، حاول مجدداً.';
         errorMsg.style.display = 'block';
+    } finally {
+        // ✅ إعادة تفعيل الزر مهما كانت النتيجة
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'إرسال الرسالة';
     }
 });
 
