@@ -194,7 +194,7 @@ function validatePhone(phone) {
     return regex.test(phone);
 }
 
-// معالجة الإرسال لـ GitHub Pages عبر FormSubmit
+// معالجة الإرسال المحدث بالرمز الآمن
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMsg.style.display = 'none';
@@ -223,7 +223,8 @@ form.addEventListener('submit', async (e) => {
     const data = Object.fromEntries(formData);
 
     try {
-        const response = await fetch('https://formsubmit.co/ajax/ga0541ga@gmail.com', {
+        // ✅ تم تحديث الرابط بالرمز الآمن المعطى لك
+        const response = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(data)
