@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط - تواصل وتقييم</title>
-    <!-- ✅ إضافة خط Cairo الرسمي -->
+    <!-- خط Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; 
-            font-family: 'Cairo', sans-serif; /* ✅ تطبيق خط Cairo على كل شيء */
+            font-family: 'Cairo', sans-serif;
         }
         body { background-color: #FFFFFF; color: #1B557F; line-height: 1.7; font-weight: 600; }
 
-        /* رأس الصفحة بخلفية بيضاء */
+        /* رأس الصفحة */
         .page-header { 
             background: #FFFFFF; 
             color: #1B557F; 
@@ -24,22 +24,20 @@
             border-bottom: 2px solid #f1f1f1;
         }
         .logo { width: 110px; height: auto; margin-bottom: 12px; border-radius: 12px; background: #fff; padding: 5px; }
-        .page-header h1 { font-size: 28px; margin-bottom: 6px; font-weight: 900; /* وزن ثقيل للعنوان الرئيسي */ }
+        .page-header h1 { font-size: 28px; margin-bottom: 6px; font-weight: 900; }
         .subtitle { font-size: 18px; color: #666; font-weight: 400; }
 
-        /* الحاوية العامة */
         .container { max-width: 470px; margin: -5px auto 40px; padding: 0 18px; position: relative; z-index: 10; }
 
-        /* البطاقات */
         .card { background: #ffffff; border-radius: 18px; padding: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 22px; border-top: 4px solid #F47B00; }
 
-        /* العناوين */
         h2 { color: #1B557F; text-align: center; margin-bottom: 22px; font-size: 24px; font-weight: 700; }
         .label { display: block; margin: 14px 0 6px; font-weight: 700; color: #1B557F; font-size: 16px; }
         .req { color: #F47B00; font-size: 18px; }
         .hint { font-size: 13px; color: #666; margin-right: 4px; font-weight: 400; }
+        .radio-group { display: flex; gap: 20px; margin: 10px 0; }
+        .radio-option { display: flex; align-items: center; gap: 6px; cursor: pointer; }
 
-        /* حقول الإدخال */
         input, select, textarea { 
             width: 100%; padding: 14px 16px; border: 2px solid #e8e8e8; border-radius: 12px; font-size: 16px; 
             background: #fefefe; transition: all 0.3s ease; color: #1B557F; 
@@ -50,14 +48,12 @@
         input:focus, select:focus, textarea:focus { outline: none; border-color: #F47B00; background: #fff; box-shadow: 0 0 0 4px rgba(244, 123, 0, 0.1); }
         textarea { resize: vertical; min-height: 110px; }
 
-        /* تقييم النجوم */
         .stars-container { display: flex; gap: 10px; justify-content: center; margin: 12px 0; font-size: 34px; }
         .star { color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.1s; }
         .star.active, .star:hover { color: #F47B00; transform: scale(1.15); }
         .checkbox-field { display: flex; align-items: center; gap: 8px; margin-top: 18px; font-weight: normal; cursor: pointer; font-size: 15px; }
         .checkbox-field input { width: auto; transform: scale(1.2); }
 
-        /* الأزرار ثلاثية الأبعاد بتدرج جذاب */
         .btn { 
             width: 100%; padding: 15px; border: none; border-radius: 14px; font-size: 19px; font-weight: 700; cursor: pointer; 
             text-decoration: none; display: inline-block; text-align: center; 
@@ -68,14 +64,12 @@
         }
         .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #b35a00, 0 4px 8px rgba(0,0,0,0.15); }
 
-        /* زر الإرسال: تدرج برتقالي */
         .btn-primary { 
             background: linear-gradient(180deg, #FF9C27 0%, #F47B00 50%, #d66a00 100%); 
             margin-top: 22px;
         }
         .btn-primary:hover { background: linear-gradient(180deg, #ffab47 0%, #f58a1a 50%, #e07000 100%); }
 
-        /* زر العودة: نفس اللون الكحلي + تصميم 3D */
         .btn-back { 
             background: linear-gradient(180deg, #2a70a0 0%, #1B557F 50%, #154568 100%); 
             box-shadow: 0 6px 0 #0f344f, 0 8px 15px rgba(0,0,0,0.15);
@@ -84,37 +78,30 @@
         .btn-back:hover { background: linear-gradient(180deg, #3480b3 0%, #206496 50%, #1a527a 100%); }
         .btn-back:active { box-shadow: 0 2px 0 #0f344f, 0 4px 8px rgba(0,0,0,0.15); }
 
-        /* رسائل التنبيه */
         .alert { padding: 16px; border-radius: 12px; margin: 18px 0; text-align: center; display: none; font-weight: 600; font-size: 16px; }
         .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
         .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
 
-        /* معلومات الاتصال السفلية */
         .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 10px 15px 30px; line-height: 1.8; font-weight: 600; }
         .contact-footer strong { color: #F47B00; font-weight: 700; }
 
-        /* التذييل */
         .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; font-weight: 400; }
     </style>
 </head>
 <body>
 
-<!-- رأس الصفحة بخلفية بيضاء -->
 <header class="page-header">
     <img src="Ligo.jpg" alt="شعار الغامدي لإصلاح الجنوط" class="logo">
     <h1>الغامدي لإصلاح الجنوط</h1>
     <p class="subtitle">رأيك يهمنا.. شاركنا تقييمك، اقتراحك أو شكواك</p>
 </header>
 
-<!-- المحتوى الرئيسي -->
 <main class="container">
-    <!-- بطاقة النموذج -->
     <div class="card">
         <h2>📬 تواصل معنا</h2>
 
-        <!-- رسائل النجاح والخطأ -->
-        <div id="successMsg" class="alert alert-success">✅ تم إرسال رسالتك بنجاح !</div>
-        <div id="errorMsg" class="alert alert-error">❌ الرجاء التأكد من ملء البيانات بشكل صحيح!</div>
+        <div id="successMsg" class="alert alert-success">✅ تم إرسال رسالتك بنجاح، سنتواصل معك قريباً!</div>
+        <div id="errorMsg" class="alert alert-error">❌ الرجاء التأكد من ملء البيانات المطلوبة!</div>
 
         <form id="contactForm">
             <!-- نوع الرسالة -->
@@ -126,53 +113,89 @@
                 <option value="شكوى">شكوى</option>
             </select>
 
-            <!-- الاسم -->
-            <label class="label">الاسم الكامل <span class="req">*</span></label>
-            <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك الثلاثي">
+            <!-- الاسم (اختياري للكل) -->
+            <div id="nameField" style="display: none;">
+                <label class="label">الاسم الكامل</label>
+                <input type="text" name="name" placeholder="أدخل اسمك (اختياري)">
+            </div>
 
-            <!-- رقم الجوال -->
-            <label class="label">رقم الجوال <span class="req">*</span> <span class="hint">(يبدأ بـ 05 – 10 أرقام)</span></label>
-            <input type="tel" id="inputPhone" name="phone" required placeholder="05xxxxxxxxx" maxlength="10">
+            <!-- ✅ خيار الاتصال: جوال أو بريد → الافتراضي جوال -->
+            <div id="contactMethodSection">
+                <label class="label">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="contactMethod" value="phone" id="methodPhone" checked>
+                        رقم الجوال
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="contactMethod" value="email" id="methodEmail">
+                        البريد الإلكتروني
+                    </label>
+                </div>
+                <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx" required>
+            </div>
 
-            <!-- حقول ديناميكية -->
+            <!-- حقول ديناميكية حسب النوع -->
             <div id="dynamicFields"></div>
 
             <!-- زر الإرسال -->
             <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
 
-            <!-- زر العودة أسفل الإرسال مباشرة -->
+            <!-- زر العودة -->
             <a href="https://gh-rims.github.io/ghamdi-links/" class="btn btn-back">← العودة للرئيسية</a>
         </form>
     </div>
 </main>
 
-<!-- العنوان والجوال فقط بخط صغير -->
 <div class="contact-footer">
-   الغامدي لاصلاح الجنوط - جدة – كيلو14 – الصناعية الجديدة <br>
-
+    جدة – كيلو 14 – الصناعية الجديدة<br>
+    📞 0567705074
 </div>
 
-<!-- تذييل الصفحة -->
 <footer class="page-footer">
     © 2026 الغامدي لإصلاح الجنوط
 </footer>
 
 <script>
-// عناصر الصفحة
 const typeSelector = document.getElementById('msgType');
 const fieldsContainer = document.getElementById('dynamicFields');
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('successMsg');
 const errorMsg = document.getElementById('errorMsg');
-const inputName = document.getElementById('inputName');
-const inputPhone = document.getElementById('inputPhone');
+const contactInput = document.getElementById('contactInput');
+const methodPhone = document.getElementById('methodPhone');
+const methodEmail = document.getElementById('methodEmail');
+const contactMethodSection = document.getElementById('contactMethodSection');
+const nameField = document.getElementById('nameField');
+const reqContactLabel = document.querySelector('.req-contact');
 
-// تحميل الحقول بناءً على النوع
+// تبديل مكان الحقل ونصه حسب الجوال/البريد
+function updateContactPlaceholder() {
+    if (methodPhone.checked) {
+        contactInput.placeholder = "05xxxxxxxxx";
+        contactInput.type = "tel";
+    } else {
+        contactInput.placeholder = "example@email.com";
+        contactInput.type = "email";
+    }
+}
+methodPhone.addEventListener('change', updateContactPlaceholder);
+methodEmail.addEventListener('change', updateContactPlaceholder);
+
+// تحميل الحقول + قواعد الإلزام
 typeSelector.addEventListener('change', () => {
     const type = typeSelector.value;
     let html = '';
+    let needContact = false;
+    let needName = false;
+
+    // إعادة تعيين الإلزام
+    contactInput.removeAttribute('required');
+    reqContactLabel.style.display = 'none';
+    nameField.style.display = 'none';
 
     if (type === 'تقييم') {
+        // 🟢 التقييم: إلزامي النجوم فقط
         html = `
             <label class="label">تقييمك <span class="req">*</span></label>
             <div class="stars-container" id="stars">
@@ -187,15 +210,18 @@ typeSelector.addEventListener('change', () => {
                 <input type="checkbox" name="showPublic" value="نعم">
                 السماح للآخرين بالاطلاع على تجربتي
             </label>
-            <label class="label">الوصف والتفاصيل <span class="req">*</span></label>
-            <textarea name="message" required placeholder="اكتب تجربتك وتفاصيل تقييمك هنا..."></textarea>
+            <label class="label">ملاحظات إضافية</label>
+            <textarea name="message" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
         `;
     } else if (type === 'اقتراح') {
+        // 🟡 اقتراح: إلزامي الوصف فقط
         html = `
             <label class="label">الوصف <span class="req">*</span></label>
             <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
         `;
     } else if (type === 'شكوى') {
+        // 🔴 شكوى: إلزامي (جوال/بريد) + الوصف
+        needContact = true;
         html = `
             <label class="label">الخدمة التي تمت (اختياري)</label>
             <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
@@ -204,11 +230,17 @@ typeSelector.addEventListener('change', () => {
         `;
     }
 
+    // تطبيق الإلزام للاتصال في حالة الشكوى
+    if (needContact) {
+        contactInput.setAttribute('required', '');
+        reqContactLabel.style.display = 'inline';
+    }
+
     fieldsContainer.innerHTML = html;
-    initStars();
+    if (type === 'تقييم') initStars();
 });
 
-// تفعيل وظيفة النجوم
+// تفعيل النجوم
 function initStars() {
     const stars = document.querySelectorAll('.star');
     const ratingInput = document.getElementById('ratingVal');
@@ -229,58 +261,65 @@ function initStars() {
     });
 }
 
-// التحقق من صحة رقم الجوال
-function validatePhone(phone) {
-    const regex = /^05[0-9]{8}$/;
-    return regex.test(phone);
+// التحقق من صحة المدخلات
+function validateField(type, value) {
+    if (type === 'phone') return /^05[0-9]{8}$/.test(value.trim());
+    if (type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    return true;
 }
 
-// معالجة الإرسال مع إضافة رابط الحفظ لك في البريد فقط
+// الإرسال
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
-    const phoneVal = inputPhone.value;
-    const nameVal = inputName.value;
+    const type = typeSelector.value;
+    const method = document.querySelector('input[name="contactMethod"]:checked').value;
+    const contactVal = contactInput.value.trim();
 
-    if (!validatePhone(phoneVal)) {
-        errorMsg.textContent = '❌ رقم الجوال غير صحيح! يجب أن يبدأ بـ 05 ويتكون من 10 أرقام فقط.';
+    // تحقق حسب القواعد
+    if (!type) {
+        errorMsg.textContent = '❌ الرجاء اختيار نوع الرسالة!';
         errorMsg.style.display = 'block';
         return;
     }
 
-    if (typeSelector.value === 'تقييم') {
-        const rating = document.getElementById('ratingVal').value;
-        if (!rating) {
-            errorMsg.textContent = '❌ الرجاء اختيار عدد النجوم للتقييم.';
-            errorMsg.style.display = 'block';
-            return;
-        }
+    // تحقق الاتصال إذا كان مطلوباً (شكوى)
+    if (type === 'شكوى' && !validateField(method, contactVal)) {
+        errorMsg.textContent = method === 'phone' 
+            ? '❌ رقم الجوال يجب أن يبدأ بـ 05 ويتكون من 10 أرقام!' 
+            : '❌ أدخل بريداً إلكترونياً صحيحاً!';
+        errorMsg.style.display = 'block';
+        return;
+    }
+
+    // تحقق التقييم
+    if (type === 'تقييم' && !document.getElementById('ratingVal')?.value) {
+        errorMsg.textContent = '❌ الرجاء اختيار عدد النجوم!';
+        errorMsg.style.display = 'block';
+        return;
     }
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-
-    // نضيف رابط خاص لك في البريد فقط لفتح جهة الاتصال
-    data._save_contact = `tel:${phoneVal}`; 
+    data._save_contact = `${method === 'phone' ? 'جوال' : 'بريد'}: ${contactVal}`;
 
     try {
-        const response = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
+        const res = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(data)
         });
 
-        if (response.ok) {
+        if (res.ok) {
             successMsg.style.display = 'block';
             form.reset();
             fieldsContainer.innerHTML = '';
-        } else {
-            throw new Error('فشل الإرسال');
-        }
-    } catch (err) {
-        errorMsg.textContent = '❌ حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.';
+            contactInput.placeholder = '05xxxxxxxxx';
+        } else throw new Error('فشل');
+    } catch {
+        errorMsg.textContent = '❌ حدث خطأ أثناء الإرسال!';
         errorMsg.style.display = 'block';
     }
 });
