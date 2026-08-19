@@ -46,7 +46,6 @@
             font-weight: 600;
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #F47B00; background: #fff; box-shadow: 0 0 0 4px rgba(244, 123, 0, 0.1); }
-        textarea { resize: vertical; min-height: 110px; }
 
         .stars-container { display: flex; gap: 10px; justify-content: center; margin: 12px 0; font-size: 34px; }
         .star { color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.1s; }
@@ -82,10 +81,25 @@
         .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
         .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
 
-        .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 10px 15px 30px; line-height: 1.8; font-weight: 600; }
-        .contact-footer strong { color: #F47B00; font-weight: 700; }
+        /* ✅ قسم تقييمات العملاء */
+        .reviews-section { margin: 40px 0; }
+        .review-card { 
+            background: #fff; border-radius: 16px; padding: 22px; margin-bottom: 18px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-right: 4px solid #F47B00;
+        }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .review-name { font-weight: 700; color: #1B557F; font-size: 17px; }
+        .review-stars { color: #F47B00; font-size: 18px; }
+        .review-text { color: #555; font-size: 15px; line-height: 1.6; }
 
-        .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; font-weight: 400; }
+        /* التذييل الجديد */
+        .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 15px; line-height: 1.8; font-weight: 600; background: #fafafa; border-top: 1px solid #eee; }
+        .contact-footer strong { color: #F47B00; font-size: 16px; }
+
+        .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; }
+        
+        /* ✅ إخفاء الحقول عند التبديل */
+        #dynamicFields { transition: opacity 0.2s ease; }
     </style>
 </head>
 <body>
@@ -97,6 +111,36 @@
 </header>
 
 <main class="container">
+    <!-- ✅ قسم تقييمات العملاء المعروض -->
+    <div class="reviews-section">
+        <h2>⭐ آراء عملائنا</h2>
+        
+        <div class="review-card">
+            <div class="review-header">
+                <span class="review-name">أحمد السالمي</span>
+                <span class="review-stars">★★★★★</span>
+            </div>
+            <p class="review-text">عمل ممتاز ودقيق، تم إصلاح الجنوط المعوجة باحترافية عالية وسرعة في الأداء. أنصح الجميع به.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <span class="review-name">محمد الغامدي</span>
+                <span class="review-stars">★★★★★</span>
+            </div>
+            <p class="review-text">خدمة رائعة في اللحام والرش، النتيجة وكأنها جديدة. تعامل راقي وأسعار مناسبة جداً.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <span class="review-name">علي جدة</span>
+                <span class="review-stars">★★★★☆</span>
+            </div>
+            <p class="review-text">محل ممتاز ومتخصص، لديهم مسح CNC دقيق، شكراً للغامدي على الأمانة والدقة في العمل.</p>
+        </div>
+    </div>
+
+    <!-- بطاقة النموذج -->
     <div class="card">
         <h2>📬 تواصل معنا</h2>
 
@@ -113,13 +157,11 @@
                 <option value="شكوى">شكوى</option>
             </select>
 
-            <!-- الاسم (اختياري للكل) -->
-            <div id="nameField" style="display: none;">
-                <label class="label">الاسم الكامل</label>
-                <input type="text" name="name" placeholder="أدخل اسمك (اختياري)">
-            </div>
+            <!-- ✅ الاسم إجباري دائماً -->
+            <label class="label">الاسم الكامل <span class="req">*</span></label>
+            <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك الكامل">
 
-            <!-- ✅ خيار الاتصال: جوال أو بريد → الافتراضي جوال -->
+            <!-- خيار الاتصال: جوال أو بريد → الافتراضي جوال -->
             <div id="contactMethodSection">
                 <label class="label">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
                 <div class="radio-group">
@@ -135,7 +177,7 @@
                 <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx" required>
             </div>
 
-            <!-- حقول ديناميكية حسب النوع -->
+            <!-- حقول ديناميكية → ✅ تغلق وتتغير عند اختيار النوع -->
             <div id="dynamicFields"></div>
 
             <!-- زر الإرسال -->
@@ -147,9 +189,10 @@
     </div>
 </main>
 
+<!-- ✅ التذييل الجديد: العنوان فقط بالشكل المطلوب -->
 <div class="contact-footer">
-    جدة – كيلو 14 – الصناعية الجديدة<br>
-    📞 0567705074
+    <strong>الغامدي لإصلاح الجنوط</strong><br>
+    جدة – كيلو 14 – الصناعية الجديدة
 </div>
 
 <footer class="page-footer">
@@ -166,78 +209,73 @@ const contactInput = document.getElementById('contactInput');
 const methodPhone = document.getElementById('methodPhone');
 const methodEmail = document.getElementById('methodEmail');
 const contactMethodSection = document.getElementById('contactMethodSection');
-const nameField = document.getElementById('nameField');
 const reqContactLabel = document.querySelector('.req-contact');
 
-// تبديل مكان الحقل ونصه حسب الجوال/البريد
+// تبديل نص حقل الاتصال
 function updateContactPlaceholder() {
-    if (methodPhone.checked) {
-        contactInput.placeholder = "05xxxxxxxxx";
-        contactInput.type = "tel";
-    } else {
-        contactInput.placeholder = "example@email.com";
-        contactInput.type = "email";
-    }
+    contactInput.placeholder = methodPhone.checked ? "05xxxxxxxxx" : "example@email.com";
+    contactInput.type = methodPhone.checked ? "tel" : "email";
 }
 methodPhone.addEventListener('change', updateContactPlaceholder);
 methodEmail.addEventListener('change', updateContactPlaceholder);
 
-// تحميل الحقول + قواعد الإلزام
+// ✅ عند تغيير النوع: نمسح المحتوى فوراً ونعرض الجديد (كأنها نافذة تغلق وتفتح)
 typeSelector.addEventListener('change', () => {
     const type = typeSelector.value;
     let html = '';
     let needContact = false;
-    let needName = false;
 
-    // إعادة تعيين الإلزام
+    // إعادة تعيين
     contactInput.removeAttribute('required');
     reqContactLabel.style.display = 'none';
-    nameField.style.display = 'none';
+    fieldsContainer.style.opacity = "0"; // تأثير إغلاق بسيط
 
-    if (type === 'تقييم') {
-        // 🟢 التقييم: إلزامي النجوم فقط
-        html = `
-            <label class="label">تقييمك <span class="req">*</span></label>
-            <div class="stars-container" id="stars">
-                <span class="star" data-value="1">★</span>
-                <span class="star" data-value="2">★</span>
-                <span class="star" data-value="3">★</span>
-                <span class="star" data-value="4">★</span>
-                <span class="star" data-value="5">★</span>
-            </div>
-            <input type="hidden" name="rating" id="ratingVal" required>
-            <label class="checkbox-field">
-                <input type="checkbox" name="showPublic" value="نعم">
-                السماح للآخرين بالاطلاع على تجربتي
-            </label>
-            <label class="label">ملاحظات إضافية</label>
-            <textarea name="message" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
-        `;
-    } else if (type === 'اقتراح') {
-        // 🟡 اقتراح: إلزامي الوصف فقط
-        html = `
-            <label class="label">الوصف <span class="req">*</span></label>
-            <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
-        `;
-    } else if (type === 'شكوى') {
-        // 🔴 شكوى: إلزامي (جوال/بريد) + الوصف
-        needContact = true;
-        html = `
-            <label class="label">الخدمة التي تمت (اختياري)</label>
-            <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
-            <label class="label">وصف الشكوى <span class="req">*</span></label>
-            <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
-        `;
-    }
+    setTimeout(() => {
+        if (type === 'تقييم') {
+            // 🟢 تقييم: إجباري اسم + نجوم فقط
+            html = `
+                <label class="label">تقييمك <span class="req">*</span></label>
+                <div class="stars-container" id="stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <input type="hidden" name="rating" id="ratingVal" required>
+                <label class="checkbox-field">
+                    <input type="checkbox" name="showPublic" value="نعم">
+                    السماح للآخرين بالاطلاع على تجربتي
+                </label>
+                <label class="label">ملاحظات إضافية</label>
+                <textarea name="message" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
+            `;
+        } else if (type === 'اقتراح') {
+            // 🟡 اقتراح: إجباري اسم + الوصف فقط
+            html = `
+                <label class="label">الوصف <span class="req">*</span></label>
+                <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
+            `;
+        } else if (type === 'شكوى') {
+            // 🔴 شكوى: إجباري اسم + اتصال + الوصف
+            needContact = true;
+            html = `
+                <label class="label">الخدمة التي تمت (اختياري)</label>
+                <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
+                <label class="label">وصف الشكوى <span class="req">*</span></label>
+                <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
+            `;
+        }
 
-    // تطبيق الإلزام للاتصال في حالة الشكوى
-    if (needContact) {
-        contactInput.setAttribute('required', '');
-        reqContactLabel.style.display = 'inline';
-    }
+        if (needContact) {
+            contactInput.setAttribute('required', '');
+            reqContactLabel.style.display = 'inline';
+        }
 
-    fieldsContainer.innerHTML = html;
-    if (type === 'تقييم') initStars();
+        fieldsContainer.innerHTML = html;
+        fieldsContainer.style.opacity = "1"; // فتح المحتوى الجديد
+        if (type === 'تقييم') initStars();
+    }, 150);
 });
 
 // تفعيل النجوم
@@ -277,33 +315,26 @@ form.addEventListener('submit', async (e) => {
     const type = typeSelector.value;
     const method = document.querySelector('input[name="contactMethod"]:checked').value;
     const contactVal = contactInput.value.trim();
+    const nameVal = document.getElementById('inputName').value.trim();
 
-    // تحقق حسب القواعد
-    if (!type) {
-        errorMsg.textContent = '❌ الرجاء اختيار نوع الرسالة!';
-        errorMsg.style.display = 'block';
-        return;
-    }
+    // تحقق أساسي
+    if (!type) { errorMsg.textContent = '❌ اختر نوع الرسالة أولاً!'; errorMsg.style.display = 'block'; return; }
+    if (!nameVal) { errorMsg.textContent = '❌ الاسم مطلوب إلزامياً!'; errorMsg.style.display = 'block'; return; }
 
-    // تحقق الاتصال إذا كان مطلوباً (شكوى)
+    // تحقق الاتصال
     if (type === 'شكوى' && !validateField(method, contactVal)) {
-        errorMsg.textContent = method === 'phone' 
-            ? '❌ رقم الجوال يجب أن يبدأ بـ 05 ويتكون من 10 أرقام!' 
-            : '❌ أدخل بريداً إلكترونياً صحيحاً!';
-        errorMsg.style.display = 'block';
-        return;
+        errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
+        errorMsg.style.display = 'block'; return;
     }
 
     // تحقق التقييم
     if (type === 'تقييم' && !document.getElementById('ratingVal')?.value) {
-        errorMsg.textContent = '❌ الرجاء اختيار عدد النجوم!';
-        errorMsg.style.display = 'block';
-        return;
+        errorMsg.textContent = '❌ اختر عدد النجوم للتقييم!'; errorMsg.style.display = 'block'; return;
     }
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    data._save_contact = `${method === 'phone' ? 'جوال' : 'بريد'}: ${contactVal}`;
+    data._save_contact = `${method === 'phone' ? '📞 جوال' : '📧 بريد'}: ${contactVal}`;
 
     try {
         const res = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
@@ -316,10 +347,10 @@ form.addEventListener('submit', async (e) => {
             successMsg.style.display = 'block';
             form.reset();
             fieldsContainer.innerHTML = '';
-            contactInput.placeholder = '05xxxxxxxxx';
-        } else throw new Error('فشل');
+            typeSelector.value = '';
+        } else throw new Error('err');
     } catch {
-        errorMsg.textContent = '❌ حدث خطأ أثناء الإرسال!';
+        errorMsg.textContent = '❌ حدث خطأ في الإرسال، حاول مجدداً.';
         errorMsg.style.display = 'block';
     }
 });
