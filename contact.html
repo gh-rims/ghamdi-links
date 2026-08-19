@@ -27,13 +27,15 @@
         .page-header h1 { font-size: 28px; margin-bottom: 6px; font-weight: 900; }
         .subtitle { font-size: 18px; color: #666; font-weight: 400; }
 
-        .container { max-width: 470px; margin: -5px auto 40px; padding: 0 18px; position: relative; z-index: 10; }
+        .container { max-width: 470px; margin: -5px auto 40px; padding: 0 18px; position: relative; z-index: 10;
+ }
 
         .card { background: #ffffff; border-radius: 18px; padding: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 22px; border-top: 4px solid #F47B00; }
 
         h2 { color: #1B557F; text-align: center; margin-bottom: 22px; font-size: 24px; font-weight: 700; }
         .label { display: block; margin: 14px 0 6px; font-weight: 700; color: #1B557F; font-size: 16px; }
         .req { color: #F47B00; font-size: 18px; }
+        .optional { color: #888; font-weight: normal; font-size: 14px; }
         .hint { font-size: 13px; color: #666; margin-right: 4px; font-weight: 400; }
         .radio-group { display: flex; gap: 20px; margin: 10px 0; }
         .radio-option { display: flex; align-items: center; gap: 6px; cursor: pointer; }
@@ -46,6 +48,22 @@
             font-weight: 600;
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: #F47B00; background: #fff; box-shadow: 0 0 0 4px rgba(244, 123, 0, 0.1); }
+
+        /* ✅ تصميم قائمة اختيار النوع المنبثقة */
+        .select-wrapper { position: relative; }
+        .type-select { width: 100%; cursor: pointer; }
+        .type-dropdown { 
+            position: absolute; top: calc(100% + 5px); left: 0; right: 0; 
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+            display: none; z-index: 100; overflow: hidden; border: 1px solid #eee;
+        }
+        .type-dropdown.open { display: block; }
+        .type-option { 
+            padding: 15px 18px; border-bottom: 1px solid #f5f5f5; cursor: pointer; transition: 0.2s;
+            font-size: 16px; font-weight: 600;
+        }
+        .type-option:last-child { border-bottom: none; }
+        .type-option:hover { background: #fff3e8; color: #F47B00; padding-right: 22px; }
 
         .stars-container { display: flex; gap: 10px; justify-content: center; margin: 12px 0; font-size: 34px; }
         .star { color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.1s; }
@@ -79,7 +97,7 @@
         .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
         .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
 
-        /* ✅ النافذة المنبثقة */
+        /* النافذة المنبثقة للنجوم */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.6); display: none; 
@@ -117,9 +135,9 @@
 
         .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; }
         
-        /* إخفاء الحقول عند التبديل */
+        /* إخفاء الحقول بسلاسة */
         #dynamicFields { transition: opacity 0.2s ease; }
-        #contactMethodSection { transition: opacity 0.2s ease; }
+        #contactMethodSection { transition: opacity 0.2s ease, height 0.2s ease; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -139,22 +157,25 @@
         <div id="errorMsg" class="alert alert-error">❌ الرجاء التأكد من ملء البيانات المطلوبة!</div>
 
         <form id="contactForm">
-            <!-- نوع الرسالة -->
+            <!-- ✅ نوع الرسالة (قائمة منبثقة مخصصة تغلق عند الاختيار) -->
             <label class="label">نوع الرسالة <span class="req">*</span></label>
-            <select id="msgType" name="type" required>
-                <option value="">-- اختر نوعاً --</option>
-                <option value="تقييم">تقييم</option>
-                <option value="اقتراح">اقتراح</option>
-                <option value="شكوى">شكوى</option>
-            </select>
+            <div class="select-wrapper">
+                <div id="typeSelector" class="type-select" role="button">-- اختر نوعاً --</div>
+                <div id="typeDropdown" class="type-dropdown">
+                    <div class="type-option" data-value="تقييم">تقييم</div>
+                    <div class="type-option" data-value="اقتراح">اقتراح</div>
+                    <div class="type-option" data-value="شكوى">شكوى</div>
+                </div>
+                <input type="hidden" name="type" id="msgType" required>
+            </div>
 
-            <!-- الاسم إجباري دائماً -->
-            <label class="label">الاسم الكامل <span class="req">*</span></label>
-            <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك الكامل">
+            <!-- ✅ تم التعديل: الاسم بدل الاسم الكامل -->
+            <label class="label" id="nameLabel">الاسم <span class="req">*</span></label>
+            <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك">
 
-            <!-- قسم الاتصال (يختفي عند التقييم) -->
-            <div id="contactMethodSection" style="opacity:0; height:0; overflow:hidden;">
-                <label class="label">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
+            <!-- قسم الاتصال -->
+            <div id="contactMethodSection" style="opacity:0; height:0;">
+                <label class="label" id="contactLabel">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
                 <div class="radio-group">
                     <label class="radio-option">
                         <input type="radio" name="contactMethod" value="phone" id="methodPhone" checked>
@@ -208,7 +229,9 @@
 </footer>
 
 <script>
-const typeSelector = document.getElementById('msgType');
+const typeSelector = document.getElementById('typeSelector');
+const typeDropdown = document.getElementById('typeDropdown');
+const msgTypeInput = document.getElementById('msgType');
 const fieldsContainer = document.getElementById('dynamicFields');
 const form = document.getElementById('contactForm');
 const successMsg = document.getElementById('successMsg');
@@ -218,12 +241,37 @@ const contactSection = document.getElementById('contactMethodSection');
 const methodPhone = document.getElementById('methodPhone');
 const methodEmail = document.getElementById('methodEmail');
 const reqContactLabel = document.querySelector('.req-contact');
+const nameLabel = document.getElementById('nameLabel');
+const contactLabel = document.getElementById('contactLabel');
 const starModal = document.getElementById('starModal');
 
-// دالة فتح وإغلاق النافذة
+// دالة فتح وإغلاق النافذة الرئيسية
 function openModal() { starModal.style.display = 'flex'; }
 function closeModal() { starModal.style.display = 'none'; }
 window.addEventListener('click', (e) => { if(e.target === starModal) closeModal(); });
+
+// ✅ منطق القائمة المنبثقة: تغلق عند الاختيار
+typeSelector.addEventListener('click', (e) => {
+    e.stopPropagation();
+    typeDropdown.classList.toggle('open');
+});
+
+// إغلاق القائمة عند النقر خارجها
+document.addEventListener('click', () => {
+    typeDropdown.classList.remove('open');
+});
+
+// عند اختيار خيار من القائمة
+document.querySelectorAll('.type-option').forEach(option => {
+    option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const value = option.dataset.value;
+        typeSelector.textContent = option.textContent;
+        msgTypeInput.value = value;
+        typeDropdown.classList.remove('open'); // ✅ إغلاق القائمة فوراً
+        updateFormUI(value); // تحديث النموذج بناءً على الاختيار
+    });
+});
 
 // تبديل نص حقل الاتصال
 function updateContactPlaceholder() {
@@ -233,9 +281,8 @@ function updateContactPlaceholder() {
 methodPhone.addEventListener('change', updateContactPlaceholder);
 methodEmail.addEventListener('change', updateContactPlaceholder);
 
-// المنطق الرئيسي: إظهار/إخفاء رقم الجوال حسب النوع
-typeSelector.addEventListener('change', () => {
-    const type = typeSelector.value;
+// ✅ تحديث شكل النموذج بناءً على النوع المختار
+function updateFormUI(type) {
     let html = '';
     let needContact = false;
 
@@ -244,18 +291,18 @@ typeSelector.addEventListener('change', () => {
     reqContactLabel.style.display = 'none';
     fieldsContainer.style.opacity = "0";
 
-    // التحكم في ظهور قسم الاتصال
-    if (type === 'تقييم') {
-        contactSection.style.opacity = '0';
-        contactSection.style.height = '0';
-        contactInput.removeAttribute('required');
-    } else {
-        contactSection.style.opacity = '1';
-        contactSection.style.height = 'auto';
-    }
-
     setTimeout(() => {
         if (type === 'تقييم') {
+            // ✅ عند التقييم: تعديل العنوان، إظهار الجوال اختياري
+            nameLabel.innerHTML = 'الاسم - رقم الجوال <span class="optional">(اختياري)</span>';
+            contactSection.style.opacity = '1';
+            contactSection.style.height = 'auto';
+            contactLabel.style.display = 'none';
+            document.querySelector('.radio-group').style.display = 'none';
+            contactInput.removeAttribute('required'); // غير إلزامي
+            contactInput.placeholder = '05xxxxxxxxx (اختياري)';
+            contactInput.type = 'tel';
+            
             html = `
                 <label class="label">تقييمك <span class="req">*</span></label>
                 <div class="stars-container" id="stars">
@@ -269,20 +316,28 @@ typeSelector.addEventListener('change', () => {
                 <label class="label">ملاحظات إضافية</label>
                 <textarea name="message" placeholder="اكتب ملاحظاتك إن وجدت..."></textarea>
             `;
-        } else if (type === 'اقتراح') {
+        } else {
+            // ✅ عند اقتراح أو شكوى: العودة للوضع الطبيعي
+            nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
+            contactSection.style.opacity = '1';
+            contactSection.style.height = 'auto';
+            contactLabel.style.display = 'block';
+            document.querySelector('.radio-group').style.display = 'flex';
             needContact = true;
-            html = `
-                <label class="label">الوصف <span class="req">*</span></label>
-                <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
-            `;
-        } else if (type === 'شكوى') {
-            needContact = true;
-            html = `
-                <label class="label">الخدمة التي تمت (اختياري)</label>
-                <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
-                <label class="label">وصف الشكوى <span class="req">*</span></label>
-                <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
-            `;
+
+            if (type === 'اقتراح') {
+                html = `
+                    <label class="label">الوصف <span class="req">*</span></label>
+                    <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
+                `;
+            } else if (type === 'شكوى') {
+                html = `
+                    <label class="label">الخدمة التي تمت (اختياري)</label>
+                    <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
+                    <label class="label">وصف الشكوى <span class="req">*</span></label>
+                    <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
+                `;
+            }
         }
 
         if (needContact) {
@@ -294,7 +349,7 @@ typeSelector.addEventListener('change', () => {
         fieldsContainer.style.opacity = "1";
         if (type === 'تقييم') initStars();
     }, 150);
-});
+}
 
 // تفعيل النجوم
 function initStars() {
@@ -319,26 +374,32 @@ function initStars() {
 
 // التحقق من صحة المدخلات
 function validateField(type, value) {
+    if (!value) return true; // فارغ مقبول للتقييم
     if (type === 'phone') return /^05[0-9]{8}$/.test(value.trim());
     if (type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
     return true;
 }
 
-// الإرسال ✅ مع التحقق
+// الإرسال
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
-    const type = typeSelector.value;
+    const type = msgTypeInput.value;
     const nameVal = document.getElementById('inputName').value.trim();
     const ratingVal = document.getElementById('ratingVal')?.value;
 
     if (!type) { errorMsg.textContent = '❌ اختر نوع الرسالة أولاً!'; errorMsg.style.display = 'block'; return; }
     if (!nameVal) { errorMsg.textContent = '❌ الاسم مطلوب إلزامياً!'; errorMsg.style.display = 'block'; return; }
 
-    // التحقق من الاتصال فقط إذا لم يكن تقييم
-    if (type !== 'تقييم') {
+    // التحقق من الجوال فقط إذا كان مملوءاً أو ليس تقييم
+    if (type === 'تقييم') {
+        if (contactInput.value.trim() && !validateField('phone', contactInput.value.trim())) {
+            errorMsg.textContent = '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)';
+            errorMsg.style.display = 'block'; return;
+        }
+    } else {
         const method = document.querySelector('input[name="contactMethod"]:checked').value;
         const contactVal = contactInput.value.trim();
         if (!validateField(method, contactVal)) {
@@ -353,10 +414,7 @@ form.addEventListener('submit', async (e) => {
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    if (type !== 'تقييم') {
-        const method = document.querySelector('input[name="contactMethod"]:checked').value;
-        data._save_contact = `${method === 'phone' ? '📞 جوال' : '📧 بريد'}: ${contactInput.value.trim()}`;
-    }
+    data._save_type = type;
 
     try {
         const res = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
@@ -373,12 +431,14 @@ form.addEventListener('submit', async (e) => {
                 setTimeout(openModal, 300);
             }
 
+            // إعادة تعيين النموذج
             form.reset();
             fieldsContainer.innerHTML = '';
-            typeSelector.value = '';
-            // إخفاء الاتصال بعد الإرسال
+            msgTypeInput.value = '';
+            typeSelector.textContent = '-- اختر نوعاً --';
             contactSection.style.opacity = '0';
             contactSection.style.height = '0';
+            nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
         } else throw new Error('err');
     } catch {
         errorMsg.textContent = '❌ حدث خطأ في الإرسال، حاول مجدداً.';
