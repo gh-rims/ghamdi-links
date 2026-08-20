@@ -16,6 +16,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+
+
+  
 <style>
 :root{
 --o:#F47B00;--o2:#FF9D28;--n:#103456;--n2:#1B557F;
@@ -372,7 +375,46 @@ box-shadow:0 4px 0 #081F32,0 7px 12px rgba(16,52,86,.18)
 @media(prefers-reduced-motion:reduce){
 *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* === إبراز وتحديد الأقسام - حل متكامل === */
+/* نمط عام للأقسام لتبدو ككتلة منفصلة */
+section {
+  padding: 18px 20px;          /* مسافة داخلية مريحة */
+  margin-bottom: 22px;         /* مسافة خارجية بين الأقسام */
+  border-radius: 18px;         /* زوايا دائرية ناعمة */
+  background: #fff;            /* خلفية بيضاء نقية */
+  border: 1px solid #E2EBF2;   /* خط فاصل خفيف */
+  box-shadow: 0 4px 12px rgba(16,52,86,0.06); /* ظل خفيف عميق */
+}
+
+/* إضافة خط فاصل ملون تحت العنوان مباشرة */
+.section-title {
+  position: relative;
+  padding-bottom: 10px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #F47B00, #FF9D28); /* لون الشعار */
+  border-radius: 2px;
+}
+
+/* --- تخصيص لون خلفية مختلف لكل قسم (اختياري) --- */
+#locations { background: linear-gradient(145deg, #FFFFFF, #F8FBFE); }
+#hours     { background: linear-gradient(145deg, #FFFFFF, #FFF9F2); }
+#social    { background: linear-gradient(145deg, #FFFFFF, #F4FBF7); }
+#services  { background: linear-gradient(145deg, #FFFFFF, #F6F4FB); }
+.about     { background: linear-gradient(145deg, #FFFFFF, #F0F5F8); }
+
+
+  
+  
 </style>
+
 </head>
 
 <body>
