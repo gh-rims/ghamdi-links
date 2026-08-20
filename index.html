@@ -376,41 +376,47 @@ box-shadow:0 4px 0 #081F32,0 7px 12px rgba(16,52,86,.18)
 *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
-/* === إبراز وتحديد الأقسام - حل متكامل === */
-/* نمط عام للأقسام لتبدو ككتلة منفصلة */
+  
+
+/* ✅ إبراز الأقسام دون إخفاء العناوين أو الأزرار */
 section {
-  padding: 18px 20px;          /* مسافة داخلية مريحة */
-  margin-bottom: 22px;         /* مسافة خارجية بين الأقسام */
-  border-radius: 18px;         /* زوايا دائرية ناعمة */
-  background: #fff;            /* خلفية بيضاء نقية */
-  border: 1px solid #E2EBF2;   /* خط فاصل خفيف */
-  box-shadow: 0 4px 12px rgba(16,52,86,0.06); /* ظل خفيف عميق */
+  margin: 22px 0;          /* مسافة خارجية واضحة بين الأقسام */
+  padding: 16px;           /* مسافة داخلية مريحة */
+  border-radius: 20px;     /* زوايا دائرية ناعمة */
+  background: #fff;        /* خلفية نقية */
+  box-shadow: 0 6px 16px rgba(16,52,86,0.08); /* ظل خفيف فقط */
+  border: 1px solid #E8EEF3; /* إطار خفيف يفصل القسم */
 }
 
-/* إضافة خط فاصل ملون تحت العنوان مباشرة */
+/* ✅ إعادة إظهار خطوط العناوين بالشكل الأصلي */
 .section-title {
-  position: relative;
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0 14px !important;
+  font-size: 16px;
+  font-weight: 950;
+  color: var(--n);
 }
+.section-title::before,
 .section-title::after {
   content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #F47B00, #FF9D28); /* لون الشعار */
-  border-radius: 2px;
+  height: 2px;
+  flex: 1;
+  background: linear-gradient(to left, transparent, rgba(244,123,0,.55)) !important;
+}
+.section-title::after {
+  background: linear-gradient(to right, transparent, rgba(244,123,0,.55)) !important;
 }
 
-/* --- تخصيص لون خلفية مختلف لكل قسم (اختياري) --- */
-#locations { background: linear-gradient(145deg, #FFFFFF, #F8FBFE); }
-#hours     { background: linear-gradient(145deg, #FFFFFF, #FFF9F2); }
-#social    { background: linear-gradient(145deg, #FFFFFF, #F4FBF7); }
-#services  { background: linear-gradient(145deg, #FFFFFF, #F6F4FB); }
-.about     { background: linear-gradient(145deg, #FFFFFF, #F0F5F8); }
+/* ✅ الحفاظ على شكل الأزرار والبطاقات كما هي */
+.branch, .service-card, .hours-box, .social {
+  position: relative;
+  z-index: 2;
+}
 
 
+  
   
   
 </style>
