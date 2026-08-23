@@ -808,15 +808,15 @@ document.querySelectorAll('.quick-nav a').forEach(link => {
 
     document.querySelectorAll('.section-focus')
       .forEach(section => section.classList.remove('section-focus'));
+setTimeout(() => {
+  target.classList.add('section-focus');
 
-    setTimeout(() => {
-      target.classList.add('section-focus');
+  setTimeout(() => {
+    target.classList.remove('section-focus');
+  }, 4000);
 
-      setTimeout(() => {
-        target.classList.remove('section-focus');
-     none 2500);
-
-   none150);
+}, 150);
+        
   });
 });
 
