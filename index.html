@@ -368,6 +368,17 @@ section {
   box-shadow: 0 6px 16px rgba(16,52,86,0.08);  
   border: 1px solid #E8EEF3;  
 }  
+
+.section-focus{
+  border:2px solid var(--o)!important;
+  box-shadow:
+    0 0 0 4px rgba(244,123,0,.14),
+    0 10px 25px rgba(16,52,86,.15)!important;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
   
 /* إعادة إظهار خطوط العناوين */  
 .section-title {  
@@ -398,35 +409,6 @@ section {
 
 
   
-/* إبراز القسم الذي تم الانتقال إليه */
-.section-focus{
-  position:relative;
-  outline:3px solid var(--o)!important;
-  outline-offset:4px;
-  box-shadow:
-    0 0 0 7px rgba(244,123,0,.16),
-    0 0 30px rgba(244,123,0,.35),
-    0 12px 30px rgba(16,52,86,.18)!important;
-  animation:sectionFocus 2.5s ease;
-  z-index:5;
-}
-
-@keyframes sectionFocus{
-  0%{
-    outline-color:var(--o2);
-    box-shadow:
-      0 0 0 10px rgba(244,123,0,.25),
-      0 0 35px rgba(244,123,0,.45),
-      0 12px 30px rgba(16,52,86,.18);
-  }
-  100%{
-    outline-color:var(--o);
-    box-shadow:
-      0 0 0 7px rgba(244,123,0,.16),
-      0 0 30px rgba(244,123,0,.35),
-      0 12px 30px rgba(16,52,86,.18);
-  }
-}
 
 
   
