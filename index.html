@@ -808,18 +808,29 @@ document.querySelectorAll('.quick-nav a').forEach(link => {
 
     document.querySelectorAll('.section-focus')
       .forEach(section => section.classList.remove('section-focus'));
-setTimeout(() => {
-  target.classList.add('section-focus');
 
-  setTimeout(() => {
-    target.classList.remove('section-focus');
-  }, 4000);
+    /* فتح قائمة أوقات الدوام تلقائياً */
+    if (this.getAttribute('href') === '#hours') {
+      const hoursButton = document.querySelector('.hours-head');
+      const hoursContent = document.getElementById('hours-content');
 
-}, 150);
-        
+      if (hoursButton && hoursContent && !hoursContent.classList.contains('open')) {
+        hoursContent.classList.add('open');
+        hoursButton.classList.add('open');
+        hoursButton.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    setTimeout(() => {
+      target.classList.add('section-focus');
+
+      setTimeout(() => {
+        target.classList.remove('section-focus');
+      }, 4000);
+
+    }, 150);
   });
 });
-
   
   
 
