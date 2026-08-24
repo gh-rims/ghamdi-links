@@ -1,406 +1,1227 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الغامدي لإصلاح الجنوط - تواصل وتقييم</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; 
-            font-family: 'Cairo', sans-serif;
-        }
-        body { background-color: #FFFFFF; color: #1B557F; line-height: 1.7; font-weight: 600; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-        .page-header { 
-            background: #FFFFFF; 
-            color: #1B557F; 
-            padding: 30px 20px; 
-            text-align: center; 
-            border-bottom: 2px solid #f1f1f1;
-        }
-        .logo { width: 110px; height: auto; margin-bottom: 12px; border-radius: 12px; background: #fff; padding: 5px; }
-        .page-header h1 { font-size: 28px; margin-bottom: 6px; font-weight: 900; }
-        .subtitle { font-size: 18px; color: #666; font-weight: 400; }
+<title>الغامدي لإصلاح الجنوط | تقييم واقتراح وشكوى</title>
 
-        .container { max-width: 470px; margin: -5px auto 40px; padding: 0 18px; position: relative; z-index: 10; }
+<meta name="description"
+content="شاركنا تقييمك أو اقتراحك أو شكواك مع الغامدي لإصلاح الجنوط في جدة.">
 
-        .card { background: #ffffff; border-radius: 18px; padding: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 22px; border-top: 4px solid #F47B00; }
+<style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
 
-        h2 { color: #1B557F; text-align: center; margin-bottom: 22px; font-size: 24px; font-weight: 700; }
-        .label { display: block; margin: 14px 0 6px; font-weight: 700; color: #1B557F; font-size: 16px; }
-        .req { color: #F47B00; font-size: 18px; }
-        .optional { color: #888; font-weight: normal; font-size: 14px; }
-        .hint { font-size: 13px; color: #666; margin-right: 4px; font-weight: 400; }
-        .radio-group { display: flex; gap: 20px; margin: 10px 0; }
-        .radio-option { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:linear-gradient(180deg,#f7f9fc,#eef2f7);
+    color:#172033;
+}
 
-        input, select, textarea { 
-            width: 100%; padding: 14px 16px; border: 2px solid #e8e8e8; border-radius: 12px; font-size: 16px; 
-            background: #fefefe; transition: all 0.3s ease; color: #1B557F; 
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-            font-family: 'Cairo', sans-serif;
-            font-weight: 600;
-        }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: #F47B00; background: #fff; box-shadow: 0 0 0 4px rgba(244, 123, 0, 0.1); }
+.container{
+    width:min(94%,520px);
+    margin:auto;
+    padding:22px 0 35px;
+}
 
-        /* ✅ نجوم كبيرة وواضحة وسهلة النقر */
-        .stars-container { display: flex; gap: 15px; justify-content: center; margin: 15px 0; font-size: 42px; }
-        .star { 
-            color: #ddd; cursor: pointer; transition: color 0.2s, transform 0.15s; 
-            padding: 8px; user-select: none; -webkit-tap-highlight-color: transparent;
-        }
-        .star.active, .star:hover { color: #F47B00; transform: scale(1.2); }
+.header{
+    text-align:center;
+    background:#fff;
+    border-radius:24px;
+    padding:22px 18px 20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    margin-bottom:18px;
+}
 
-        .btn { 
-            width: 100%; padding: 15px; border: none; border-radius: 14px; font-size: 19px; font-weight: 700; cursor: pointer; 
-            text-decoration: none; display: inline-block; text-align: center; 
-            transition: all 0.2s ease; 
-            box-shadow: 0 6px 0 #b35a00, 0 8px 15px rgba(0,0,0,0.15); 
-            color: #fff;
-            font-family: 'Cairo', sans-serif;
-        }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-        .btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 2px 0 #b35a00, 0 4px 8px rgba(0,0,0,0.15); }
+.logo{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    border-radius:20px;
+    margin:auto;
+    display:block;
+}
 
-        .btn-primary { 
-            background: linear-gradient(180deg, #FF9C27 0%, #F47B00 50%, #d66a00 100%); 
-        }
-        .btn-primary:hover:not(:disabled) { background: linear-gradient(180deg, #ffab47 0%, #f58a1a 50%, #e07000 100%); }
+h1{
+    margin:12px 0 7px;
+    font-size:23px;
+}
 
-        /* ✅ مسافة واضحة بين الزرين */
-        .btn-back { 
-            background: linear-gradient(180deg, #2a70a0 0%, #1B557F 50%, #154568 100%); 
-            box-shadow: 0 6px 0 #0f344f, 0 8px 15px rgba(0,0,0,0.15);
-            margin-top: 25px;
-        }
-        .btn-back:hover { background: linear-gradient(180deg, #3480b3 0%, #206496 50%, #1a527a 100%); }
-        .btn-back:active { box-shadow: 0 2px 0 #0f344f, 0 4px 8px rgba(0,0,0,0.15); }
+.subtitle{
+    margin:0;
+    color:#687386;
+    font-size:14px;
+    line-height:1.8;
+}
 
-        .alert { padding: 16px; border-radius: 12px; margin: 18px 0; text-align: center; display: none; font-weight: 600; font-size: 16px; }
-        .alert-success { background: #e6f9e9; color: #155724; border: 1px solid #badbcc; }
-        .alert-error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
+.card{
+    background:#fff;
+    border-radius:22px;
+    padding:18px;
+    box-shadow:0 7px 22px rgba(0,0,0,.07);
+}
 
-        .modal-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.6); display: none; 
-            justify-content: center; align-items: center; 
-            z-index: 9999; padding: 15px;
-        }
-        .modal-content { 
-            background: #fff; border-radius: 20px; padding: 30px 25px; max-width: 420px; width: 100%; 
-            text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            animation: modalIn 0.3s ease;
-        }
-        @keyframes modalIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .modal-title { font-size: 20px; font-weight: 700; color: #1B557F; margin-bottom: 15px; line-height: 1.8; }
-        .modal-text { color: #555; font-size: 16px; margin-bottom: 25px; line-height: 1.7; }
-        .modal-links { margin-bottom: 20px; }
-        .modal-link { 
-            display: block; background: #f8f9fa; color: #1B557F; padding: 14px; border-radius: 12px; 
-            text-decoration: none; font-weight: 600; margin-bottom: 12px; border-right: 4px solid #F47B00;
-            transition: 0.2s;
-        }
-        .modal-link:hover { background: #fff3e8; transform: translateX(-5px); }
-        .modal-close { 
-            background: linear-gradient(180deg, #FF9C27 0%, #F47B00 100%); 
-            color: white; border: none; padding: 12px 35px; border-radius: 12px; font-size: 17px; 
-            font-weight: 700; cursor: pointer; box-shadow: 0 4px 0 #b35a00;
-        }
-        .modal-close:active { transform: translateY(2px); box-shadow: none; }
+.main-buttons{
+    display:grid;
+    gap:12px;
+}
 
-        .contact-footer { text-align: center; font-size: 15px; color: #1B557F; padding: 15px; line-height: 1.8; font-weight: 600; background: #fafafa; border-top: 1px solid #eee; }
-        .contact-footer strong { color: #F47B00; font-size: 16px; }
+.main-btn{
+    width:100%;
+    min-height:68px;
+    border:0;
+    border-radius:17px;
+    background:#f5f7fa;
+    color:#172033;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.18s;
+    border:1px solid #e5e9ef;
+}
 
-        .page-footer { text-align: center; padding: 15px; color: #777; font-size: 13px; }
-        
-        #dynamicFields { transition: opacity 0.2s ease; }
-        #contactMethodSection { transition: opacity 0.2s ease, height 0.2s ease; overflow: hidden; }
-    </style>
+.main-btn:active{
+    transform:scale(.98);
+}
+
+.main-btn .icon{
+    font-size:27px;
+    display:block;
+    margin-bottom:3px;
+}
+
+.section{
+    display:none;
+    animation:fade .25s ease;
+}
+
+.section.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(8px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.section-desc{
+    color:#687386;
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    margin:15px 0 8px;
+}
+
+textarea{
+    width:100%;
+    min-height:125px;
+    resize:vertical;
+    border:1px solid #dce2e9;
+    border-radius:14px;
+    padding:13px;
+    font-family:inherit;
+    font-size:15px;
+    outline:none;
+    background:#fafbfd;
+}
+
+textarea:focus{
+    border-color:#1f3b5b;
+    background:#fff;
+}
+
+.stars{
+    display:flex;
+    direction:rtl;
+    justify-content:center;
+    gap:5px;
+    margin:8px 0 15px;
+}
+
+.star{
+    border:0;
+    background:none;
+    font-size:38px;
+    color:#cbd1d9;
+    cursor:pointer;
+    padding:2px;
+    transition:.15s;
+}
+
+.star.selected,
+.star:hover{
+    color:#f5b400;
+    transform:scale(1.08);
+}
+
+.rating-text{
+    text-align:center;
+    min-height:23px;
+    color:#687386;
+    font-size:14px;
+}
+
+.branches{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.branch{
+    min-height:58px;
+    border:2px solid #e1e6ec;
+    background:#fff;
+    border-radius:15px;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.branch.selected{
+    border-color:#1f3b5b;
+    background:#f1f5f9;
+}
+
+.action{
+    width:100%;
+    min-height:54px;
+    border:0;
+    border-radius:15px;
+    background:#1f3b5b;
+    color:#fff;
+    font-family:inherit;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:18px;
+}
+
+.action:active{
+    transform:scale(.98);
+}
+
+.back{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#687386;
+    font-family:inherit;
+    font-size:14px;
+    margin-top:13px;
+    padding:10px;
+    cursor:pointer;
+}
+
+.note{
+    font-size:12px;
+    color:#8a94a3;
+    line-height:1.7;
+    margin-top:8px;
+}
+
+.required{
+    color:#d93025;
+}
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+}
+
+.home-link,
+.whatsapp{
+    display:inline-block;
+    text-decoration:none;
+    margin:5px;
+    padding:11px 16px;
+    border-radius:13px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.home-link{
+    background:#fff;
+    color:#1f3b5b;
+}
+
+.whatsapp{
+    background:#198754;
+    color:#fff;
+}
+
+/* النوافذ */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(10,18,30,.58);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:1000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(100%,430px);
+    background:#fff;
+    border-radius:24px;
+    padding:23px 18px;
+    text-align:center;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+    animation:pop .2s ease;
+}
+
+@keyframes pop{
+    from{opacity:0;transform:scale(.94)}
+    to{opacity:1;transform:scale(1)}
+}
+
+.modal-icon{
+    font-size:39px;
+    margin-bottom:7px;
+}
+
+.modal-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.modal-text{
+    color:#687386;
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:17px;
+}
+
+.modal-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.modal-btn{
+    min-height:58px;
+    border:2px solid #e1e6ec;
+    background:#fff;
+    border-radius:15px;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.modal-btn:hover{
+    border-color:#1f3b5b;
+}
+
+.close{
+    margin-top:13px;
+    border:0;
+    background:none;
+    color:#687386;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* رسالة النجاح */
+.success{
+    text-align:center;
+}
+
+.success-icon{
+    font-size:50px;
+    margin-bottom:5px;
+}
+</style>
 </head>
+
 <body>
 
-<header class="page-header">
-    <img src="Ligo.jpg" alt="شعار الغامدي لإصلاح الجنوط" class="logo">
-    <h1>الغامدي لإصلاح الجنوط</h1>
-    <p class="subtitle">رأيك يهمنا.. شاركنا تقييمك، اقتراحك أو شكواك</p>
-</header>
+<div class="container">
 
-<main class="container">
-    <div class="card">
-        <h2>📬 تواصل معنا</h2>
+    <header class="header">
+        <img src="Ligo.jpg"
+             alt="الغامدي لإصلاح الجنوط"
+             class="logo">
 
-        <!-- ✅ رسالة نجاح معدلة -->
-        <div id="successMsg" class="alert alert-success">شكرًا لك 🌟 تم استلام رسالتك بنجاح.</div>
-        <div id="errorMsg" class="alert alert-error">❌ حدث خطأ، يرجى المحاولة مرة أخرى.</div>
+        <h1>شاركنا رأيك</h1>
 
-        <form id="contactForm">
-            <!-- ✅ تغيير العنوان إلى "اختر نوع الرسالة" -->
-            <label class="label">اختر نوع الرسالة <span class="req">*</span></label>
-            <select id="msgType" name="type" required>
-                <option value="">-- اختر نوعاً --</option>
-                <option value="تقييم">تقييم</option>
-                <option value="اقتراح">اقتراح</option>
-                <option value="شكوى">شكوى</option>
-            </select>
-
-            <label class="label" id="nameLabel">الاسم <span class="req">*</span></label>
-            <input type="text" name="name" id="inputName" required placeholder="أدخل اسمك">
-
-            <div id="contactMethodSection" style="opacity:0; height:0;">
-                <label class="label" id="contactLabel">طريقة التواصل <span class="req req-contact" style="display:none;">*</span></label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="contactMethod" value="phone" id="methodPhone" checked>
-                        رقم الجوال
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="contactMethod" value="email" id="methodEmail">
-                        البريد الإلكتروني
-                    </label>
-                </div>
-                <input type="text" id="contactInput" name="contactValue" placeholder="05xxxxxxxxx">
-            </div>
-
-            <div id="dynamicFields"></div>
-
-            <!-- ✅ زر الإرسال مع حالة الانتظار -->
-            <button type="submit" id="submitBtn" class="btn btn-primary">إرسال الرسالة</button>
-
-            <!-- ✅ زر العودة بمسافة منفصلة -->
-            <a href="https://gh-rims.github.io/ghamdi-links/" class="btn btn-back">← العودة للرئيسية</a>
-        </form>
-    </div>
-</main>
-
-<div id="starModal" class="modal-overlay">
-    <div class="modal-content">
-        <h3 class="modal-title">شكراً لتقييمك الرائع 🤍</h3>
-        <p class="modal-text">
-            يسعدنا أن تشارك تجربتك وتقييمك معنا على Google Maps، فرأيك يهمنا ويساعد الآخرين 🙏
-            <br><br>
-            <strong>قيّمنا على خرائط جوجل:</strong>
+        <p class="subtitle">
+            تقييمك واقتراحك وملاحظتك تساعدنا على تقديم خدمة أفضل
         </p>
-        <div class="modal-links">
-            <a href="https://g.page/r/CXc0Www1YSqAEBE/review" target="_blank" class="modal-link">📍 فرع الغامدي كيلو 14</a>
-            <a href="https://g.page/r/CdPyT7yrq129EBE/review" target="_blank" class="modal-link">📍 فرع الغامدي كيلو 3</a>
+    </header>
+
+    <!-- الصفحة الرئيسية -->
+    <div id="home" class="card section active">
+
+        <div class="main-buttons">
+
+            <button class="main-btn" onclick="openRating()">
+                <span class="icon">⭐</span>
+                تقييم تجربتك
+            </button>
+
+            <button class="main-btn" onclick="openSuggestion()">
+                <span class="icon">💡</span>
+                لديك اقتراح؟
+            </button>
+
+            <button class="main-btn" onclick="openComplaint()">
+                <span class="icon">⚠️</span>
+                لديك شكوى؟
+            </button>
+
         </div>
-        <button type="button" class="modal-close" onclick="closeModal()">إغلاق</button>
+
     </div>
+
+
+    <!-- التقييم -->
+    <div id="ratingSection" class="card section">
+
+        <div class="section-title">⭐ تقييم تجربتك</div>
+
+        <div class="section-desc">
+            نقدر تقييمك لنا، ويساعدنا على تحسين مستوى الخدمة.
+        </div>
+
+        <label>كيف تقيّم تجربتك؟</label>
+
+        <div class="stars" id="stars">
+            <button class="star" data-value="5" onclick="selectStar(5)">★</button>
+            <button class="star" data-value="4" onclick="selectStar(4)">★</button>
+            <button class="star" data-value="3" onclick="selectStar(3)">★</button>
+            <button class="star" data-value="2" onclick="selectStar(2)">★</button>
+            <button class="star" data-value="1" onclick="selectStar(1)">★</button>
+        </div>
+
+        <div id="ratingText" class="rating-text">
+            اختر عدد النجوم
+        </div>
+
+        <label>
+            اكتب وصف تجربتك
+            <span style="font-weight:normal;color:#8a94a3">— اختياري</span>
+        </label>
+
+        <textarea
+            id="ratingDescription"
+            placeholder="اكتب لنا عن تجربتك مع الغامدي لإصلاح الجنوط..."></textarea>
+
+        <button class="action" onclick="submitRating()">
+            إرسال التقييم
+        </button>
+
+        <button class="back" onclick="showHome()">
+            ← العودة
+        </button>
+
+    </div>
+
+
+    <!-- الاقتراح -->
+    <div id="suggestionSection" class="card section">
+
+        <div class="section-title">💡 اقتراح</div>
+
+        <div class="section-desc">
+            يسعدنا معرفة أفكارك ومقترحاتك لتطوير خدماتنا.
+        </div>
+
+        <label>
+            اكتب اقتراحك
+            <span style="font-weight:normal;color:#8a94a3">— اختياري</span>
+        </label>
+
+        <textarea
+            id="suggestionText"
+            placeholder="اكتب اقتراحك هنا..."></textarea>
+
+        <label>
+            اختر الفرع
+            <span style="font-weight:normal;color:#8a94a3">— اختياري</span>
+        </label>
+
+        <div class="branches" id="suggestionBranches">
+
+            <button class="branch"
+                    data-value="كيلو 14 – الصناعية الجديدة"
+                    onclick="selectBranch('suggestion',this)">
+                كيلو 14
+            </button>
+
+            <button class="branch"
+                    data-value="كيلو 3"
+                    onclick="selectBranch('suggestion',this)">
+                كيلو 3
+            </button>
+
+        </div>
+
+        <button class="action" onclick="submitSuggestion()">
+            إرسال الاقتراح
+        </button>
+
+        <button class="back" onclick="showHome()">
+            ← العودة
+        </button>
+
+    </div>
+
+
+    <!-- الشكوى -->
+    <div id="complaintSection" class="card section">
+
+        <div class="section-title">⚠️ شكوى</div>
+
+        <div class="section-desc">
+            نأسف إذا لم تكن تجربتك بالمستوى المطلوب. اكتب لنا تفاصيل المشكلة
+            وسنراجعها بعناية.
+        </div>
+
+        <label>
+            وصف الشكوى <span class="required">*</span>
+        </label>
+
+        <textarea
+            id="complaintText"
+            placeholder="اكتب تفاصيل الشكوى هنا..."></textarea>
+
+        <label>
+            اختر الفرع <span class="required">*</span>
+        </label>
+
+        <div class="branches" id="complaintBranches">
+
+            <button class="branch"
+                    data-value="كيلو 14 – الصناعية الجديدة"
+                    onclick="selectBranch('complaint',this)">
+                كيلو 14
+            </button>
+
+            <button class="branch"
+                    data-value="كيلو 3"
+                    onclick="selectBranch('complaint',this)">
+                كيلو 3
+            </button>
+
+        </div>
+
+        <button class="action" onclick="submitComplaint()">
+            إرسال الشكوى
+        </button>
+
+        <button class="back" onclick="showHome()">
+            ← العودة
+        </button>
+
+    </div>
+
+
+    <div class="footer">
+
+        <a class="home-link"
+           href="https://gh-rims.github.io/ghamdi-links/">
+            الصفحة الرئيسية
+        </a>
+
+        <a class="whatsapp"
+           href="https://wa.me/966567705074"
+           target="_blank">
+            واتساب 0567705074
+        </a>
+
+    </div>
+
 </div>
 
-<div class="contact-footer">
-    <strong>الغامدي لإصلاح الجنوط</strong><br>
-    جدة – كيلو 14 – الصناعية الجديدة
+
+<!-- نافذة اختيار الفرع للتقييم -->
+<div id="ratingBranchModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-icon">⭐</div>
+
+        <div class="modal-title">
+            شكرًا لتقييمك الرائع
+        </div>
+
+        <div class="modal-text">
+            اختر الفرع الذي قمت بزيارته للانتقال إلى تقييم Google.
+            سيتم نسخ وصف تجربتك تلقائيًا لتتمكن من لصقه في تقييم Google.
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="modal-btn"
+                    onclick="sendFiveStar('14')">
+                📍 كيلو 14
+            </button>
+
+            <button class="modal-btn"
+                    onclick="sendFiveStar('3')">
+                📍 كيلو 3
+            </button>
+
+        </div>
+
+        <button class="close" onclick="closeModal('ratingBranchModal')">
+            إلغاء
+        </button>
+
+    </div>
+
 </div>
 
-<footer class="page-footer">
-    © 2026 الغامدي لإصلاح الجنوط
-</footer>
+
+<!-- نافذة النجاح -->
+<div id="successModal" class="modal">
+
+    <div class="modal-box success">
+
+        <div class="success-icon">✅</div>
+
+        <div class="modal-title" id="successTitle">
+            تم الإرسال بنجاح
+        </div>
+
+        <div class="modal-text" id="successText">
+            شكرًا لمشاركتنا رأيك.
+        </div>
+
+        <button class="action"
+                onclick="closeSuccess()">
+            تم
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- iframe مخفي لإرسال Google Forms بدون مغادرة الصفحة -->
+<iframe name="googleFormFrame"
+        id="googleFormFrame"
+        style="display:none"></iframe>
+
 
 <script>
-const typeSelector = document.getElementById('msgType');
-const fieldsContainer = document.getElementById('dynamicFields');
-const form = document.getElementById('contactForm');
-const successMsg = document.getElementById('successMsg');
-const errorMsg = document.getElementById('errorMsg');
-const contactInput = document.getElementById('contactInput');
-const contactSection = document.getElementById('contactMethodSection');
-const methodPhone = document.getElementById('methodPhone');
-const methodEmail = document.getElementById('methodEmail');
-const reqContactLabel = document.querySelector('.req-contact');
-const nameLabel = document.getElementById('nameLabel');
-const contactLabel = document.getElementById('contactLabel');
-const starModal = document.getElementById('starModal');
-const submitBtn = document.getElementById('submitBtn');
 
-function openModal() { starModal.style.display = 'flex'; }
-function closeModal() { starModal.style.display = 'none'; }
-window.addEventListener('click', (e) => { if(e.target === starModal) closeModal(); });
+/* =========================================================
+   إعداد Google Forms
+========================================================= */
 
-function updateContactPlaceholder() {
-    contactInput.placeholder = methodPhone.checked ? "05xxxxxxxxx" : "example@email.com";
-    contactInput.type = methodPhone.checked ? "tel" : "email";
+const FORM_URL =
+"https://docs.google.com/forms/d/e/1FAIpQLScUi49Oi8q_kmRCy7MTBuuZRHkxit4FM7ZH263opaQ8Ip0aBg/formResponse";
+
+const ENTRY = {
+
+    type: "entry.1416305078",
+
+    rating: "entry.724366756",
+
+    ratingDescription: "entry.884733964",
+
+    suggestion: "entry.493635889",
+
+    complaint: "entry.1976640215",
+
+    suggestionBranch: "entry.1343919871",
+
+    complaintBranch: "entry.1392030405"
+
+};
+
+
+/* =========================================================
+   روابط Google
+========================================================= */
+
+const GOOGLE_REVIEW = {
+
+    "14":
+    "https://g.page/r/CXc0Www1YSqAEBE/review",
+
+    "3":
+    "https://g.page/r/CdPyT7yrq129EBE/review"
+
+};
+
+
+/* =========================================================
+   المتغيرات
+========================================================= */
+
+let selectedRating = 0;
+
+let selectedSuggestionBranch = "";
+
+let selectedComplaintBranch = "";
+
+
+/* =========================================================
+   التنقل بين الأقسام
+========================================================= */
+
+function hideSections(){
+
+    document.querySelectorAll(".section")
+        .forEach(section => section.classList.remove("active"));
+
 }
-methodPhone.addEventListener('change', updateContactPlaceholder);
-methodEmail.addEventListener('change', updateContactPlaceholder);
 
-typeSelector.addEventListener('change', () => {
-    const type = typeSelector.value;
-    let html = '';
-    let needContact = false;
+function showHome(){
 
-    contactInput.removeAttribute('required');
-    reqContactLabel.style.display = 'none';
-    fieldsContainer.style.opacity = "0";
+    hideSections();
+
+    document.getElementById("home")
+        .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+function openRating(){
+
+    hideSections();
+
+    document.getElementById("ratingSection")
+        .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+function openSuggestion(){
+
+    hideSections();
+
+    document.getElementById("suggestionSection")
+        .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+function openComplaint(){
+
+    hideSections();
+
+    document.getElementById("complaintSection")
+        .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   التقييم بالنجوم
+========================================================= */
+
+function selectStar(value){
+
+    selectedRating = value;
+
+    document.querySelectorAll(".star")
+        .forEach(star => {
+
+            const starValue =
+                Number(star.dataset.value);
+
+            star.classList.toggle(
+                "selected",
+                starValue <= value
+            );
+
+        });
+
+    const texts = {
+        1:"غير راضٍ",
+        2:"بحاجة إلى تحسين",
+        3:"جيد",
+        4:"جيد جدًا",
+        5:"ممتاز"
+    };
+
+    document.getElementById("ratingText")
+        .textContent = texts[value];
+
+}
+
+
+/* =========================================================
+   إرسال التقييم
+========================================================= */
+
+function submitRating(){
+
+    if(selectedRating === 0){
+
+        alert("فضلاً اختر عدد النجوم أولاً.");
+
+        return;
+    }
+
+    /*
+       تقييم 5 نجوم:
+       لا نفتح Google مباشرة.
+       أولًا تظهر نافذة اختيار الفرع.
+    */
+
+    if(selectedRating === 5){
+
+        document.getElementById("ratingBranchModal")
+            .classList.add("show");
+
+        return;
+    }
+
+    /*
+       تقييم 1 - 4:
+       يسجل داخليًا فقط.
+    */
+
+    const description =
+        document.getElementById("ratingDescription").value.trim();
+
+    sendToGoogleForms({
+
+        [ENTRY.type]:"⭐ تقييم",
+
+        [ENTRY.rating]:
+            "⭐".repeat(selectedRating),
+
+        [ENTRY.ratingDescription]:
+            description
+
+    });
+
+    showSuccess(
+        "تم استلام تقييمك",
+        "شكرًا لك على مشاركتنا تجربتك. ملاحظتك محل اهتمامنا."
+    );
+
+}
+
+
+/* =========================================================
+   تقييم 5 نجوم
+========================================================= */
+
+function sendFiveStar(branch){
+
+    const description =
+        document.getElementById("ratingDescription")
+        .value
+        .trim();
+
+    /*
+       نسجل التقييم في Google Sheets أولًا.
+    */
+
+    sendToGoogleForms({
+
+        [ENTRY.type]:"⭐ تقييم",
+
+        [ENTRY.rating]:
+            "⭐⭐⭐⭐⭐",
+
+        [ENTRY.ratingDescription]:
+            description
+
+    });
+
+
+    /*
+       نسخ وصف التجربة.
+       إذا كان فارغًا ننسخ رسالة مناسبة.
+    */
+
+    const copyText =
+        description ||
+        "تجربتي مع الغامدي لإصلاح الجنوط كانت ممتازة.";
+
+    copyToClipboard(copyText);
+
+
+    /*
+       إغلاق نافذة الاختيار.
+    */
+
+    closeModal("ratingBranchModal");
+
+
+    /*
+       فتح Google Review للفرع المختار.
+    */
 
     setTimeout(() => {
-        if (type === 'تقييم') {
-            nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
-            contactSection.style.opacity = '1';
-            contactSection.style.height = 'auto';
-            contactLabel.style.display = 'block';
-            document.querySelector('.radio-group').style.display = 'flex';
-            contactInput.removeAttribute('required');
-            contactInput.placeholder = '05xxxxxxxxx أو بريد إلكتروني (اختياري)';
-            
-            html = `
-                <label class="label">تقييمك <span class="req">*</span></label>
-                <div class="stars-container" id="stars">
-                    <span class="star" data-value="1">★</span>
-                    <span class="star" data-value="2">★</span>
-                    <span class="star" data-value="3">★</span>
-                    <span class="star" data-value="4">★</span>
-                    <span class="star" data-value="5">★</span>
-                </div>
-                <input type="hidden" name="rating" id="ratingVal" required>
-                <label class="label">وصف تجربتك معنا</label>
-                <textarea name="message" placeholder="شاركنا تفاصيل تجربتك..."></textarea>
-            `;
-        } else if (type === 'اقتراح') {
-            nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
-            contactSection.style.opacity = '1';
-            contactSection.style.height = 'auto';
-            contactLabel.style.display = 'block';
-            document.querySelector('.radio-group').style.display = 'flex';
-            contactInput.removeAttribute('required');
-            
-            html = `
-                <label class="label">الوصف <span class="req">*</span></label>
-                <textarea name="message" required placeholder="نسعد باقتراحاتكم وآرائكم..."></textarea>
-            `;
-        } else if (type === 'شكوى') {
-            nameLabel.innerHTML = 'الاسم <span class="req">*</span>';
-            contactSection.style.opacity = '1';
-            contactSection.style.height = 'auto';
-            contactLabel.style.display = 'block';
-            document.querySelector('.radio-group').style.display = 'flex';
-            needContact = true;
-            
-            html = `
-                <!-- ✅ تعديل النص هنا -->
-                <label class="label">الخدمة التي استفدت منها (اختياري)</label>
-                <input type="text" name="service" placeholder="مثال: تعديل جنط، دهان...">
-                <label class="label">وصف الشكوى <span class="req">*</span></label>
-                <textarea name="message" required placeholder="اشرح المشكلة بالتفصيل وماذا حدث..."></textarea>
-            `;
-        }
 
-        if (needContact) {
-            contactInput.setAttribute('required', '');
-            reqContactLabel.style.display = 'inline';
-        }
+        window.open(
+            GOOGLE_REVIEW[branch],
+            "_blank"
+        );
 
-        fieldsContainer.innerHTML = html;
-        fieldsContainer.style.opacity = "1";
-        if (type === 'تقييم') initStars();
-    }, 150);
-});
+    },180);
 
-function initStars() {
-    const stars = document.querySelectorAll('.star');
-    const ratingInput = document.getElementById('ratingVal');
-    if (!stars.length) return;
 
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            const val = star.dataset.value;
-            ratingInput.value = val;
-            stars.forEach(s => s.classList.toggle('active', s.dataset.value <= val));
-        });
-        star.addEventListener('mouseover', () => {
-            stars.forEach(s => s.classList.toggle('active', s.dataset.value <= star.dataset.value));
-        });
-        star.addEventListener('mouseout', () => {
-            stars.forEach(s => s.classList.toggle('active', s.dataset.value <= (ratingInput?.value || 0)));
-        });
+    /*
+       تنظيف النموذج.
+    */
+
+    resetRating();
+
+}
+
+
+/* =========================================================
+   اختيار فرع الاقتراح أو الشكوى
+========================================================= */
+
+function selectBranch(type,button){
+
+    const parent =
+        button.parentElement;
+
+    parent.querySelectorAll(".branch")
+        .forEach(btn => btn.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+    if(type === "suggestion"){
+
+        selectedSuggestionBranch =
+            button.dataset.value;
+
+    }
+
+    if(type === "complaint"){
+
+        selectedComplaintBranch =
+            button.dataset.value;
+
+    }
+
+}
+
+
+/* =========================================================
+   إرسال الاقتراح
+========================================================= */
+
+function submitSuggestion(){
+
+    const text =
+        document.getElementById("suggestionText")
+        .value
+        .trim();
+
+    if(!text){
+
+        alert("فضلاً اكتب اقتراحك.");
+
+        return;
+    }
+
+    const data = {
+
+        [ENTRY.type]:"💡 اقتراح",
+
+        [ENTRY.suggestion]:text
+
+    };
+
+    if(selectedSuggestionBranch){
+
+        data[ENTRY.suggestionBranch] =
+            selectedSuggestionBranch;
+
+    }
+
+    sendToGoogleForms(data);
+
+    showSuccess(
+        "تم إرسال اقتراحك",
+        "شكرًا لك. نقدر مشاركتك ونستفيد من اقتراحات عملائنا."
+    );
+
+}
+
+
+/* =========================================================
+   إرسال الشكوى
+========================================================= */
+
+function submitComplaint(){
+
+    const text =
+        document.getElementById("complaintText")
+        .value
+        .trim();
+
+    if(!text){
+
+        alert("فضلاً اكتب وصف الشكوى.");
+
+        return;
+    }
+
+    if(!selectedComplaintBranch){
+
+        alert("فضلاً اختر الفرع.");
+
+        return;
+    }
+
+    sendToGoogleForms({
+
+        [ENTRY.type]:"⚠️ شكوى",
+
+        [ENTRY.complaint]:text,
+
+        [ENTRY.complaintBranch]:
+            selectedComplaintBranch
+
     });
+
+    showSuccess(
+        "تم استلام الشكوى",
+        "شكرًا لتواصلك معنا. سيتم مراجعة شكواك والاهتمام بها."
+    );
+
 }
 
-function validateField(type, value) {
-    if (!value) return true;
-    if (type === 'phone') return /^05[0-9]{8}$/.test(value.trim());
-    if (type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-    return true;
+
+/* =========================================================
+   إرسال البيانات إلى Google Forms
+========================================================= */
+
+function sendToGoogleForms(data){
+
+    const form =
+        document.createElement("form");
+
+    form.method = "POST";
+
+    form.action = FORM_URL;
+
+    form.target = "googleFormFrame";
+
+    form.style.display = "none";
+
+
+    Object.keys(data).forEach(name => {
+
+        const input =
+            document.createElement("input");
+
+        input.type = "hidden";
+
+        input.name = name;
+
+        input.value =
+            data[name] ?? "";
+
+        form.appendChild(input);
+
+    });
+
+
+    document.body.appendChild(form);
+
+    form.submit();
+
+    setTimeout(() => {
+
+        form.remove();
+
+    },1000);
+
 }
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
 
-    const type = typeSelector.value;
-    const nameVal = document.getElementById('inputName').value.trim();
-    const ratingVal = document.getElementById('ratingVal')?.value;
+/* =========================================================
+   نسخ النص
+========================================================= */
 
-    if (!type) { errorMsg.textContent = '❌ اختر نوع الرسالة أولاً!'; errorMsg.style.display = 'block'; return; }
-    if (!nameVal) { errorMsg.textContent = '❌ الاسم مطلوب إلزامياً!'; errorMsg.style.display = 'block'; return; }
+function copyToClipboard(text){
 
-    const method = document.querySelector('input[name="contactMethod"]:checked').value;
-    const contactVal = contactInput.value.trim();
-    
-    if (type === 'شكوى') {
-        if (!validateField(method, contactVal)) {
-            errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
-            errorMsg.style.display = 'block'; return;
-        }
-    } else {
-        if (contactVal && !validateField(method, contactVal)) {
-            errorMsg.textContent = method === 'phone' ? '❌ رقم الجوال غير صحيح! (05xxxxxxxxx)' : '❌ البريد الإلكتروني غير صحيح!';
-            errorMsg.style.display = 'block'; return;
-        }
+    if(navigator.clipboard &&
+       window.isSecureContext){
+
+        navigator.clipboard.writeText(text)
+            .catch(() => fallbackCopy(text));
+
+    }else{
+
+        fallbackCopy(text);
+
     }
 
-    if (type === 'تقييم' && !ratingVal) {
-        errorMsg.textContent = '❌ اختر عدد النجوم للتقييم!'; errorMsg.style.display = 'block'; return;
-    }
+}
 
-    // ✅ تفعيل حالة "جاري الإرسال"
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'جاري الإرسال...';
+function fallbackCopy(text){
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    data._save_type = type;
+    const area =
+        document.createElement("textarea");
 
-    try {
-        const res = await fetch('https://formsubmit.co/ajax/f0d327c60b3b6fd056b82526c5529259', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
-        });
+    area.value = text;
 
-        if (res.ok) {
-            successMsg.style.display = 'block';
-            
-            if (type === 'تقييم' && ratingVal === '5') {
-                setTimeout(openModal, 300);
+    area.style.position = "fixed";
+
+    area.style.opacity = "0";
+
+    document.body.appendChild(area);
+
+    area.focus();
+
+    area.select();
+
+    try{
+
+        document.execCommand("copy");
+
+    }catch(e){}
+
+    area.remove();
+
+}
+
+
+/* =========================================================
+   النوافذ
+========================================================= */
+
+function closeModal(id){
+
+    document.getElementById(id)
+        .classList.remove("show");
+
+}
+
+function showSuccess(title,text){
+
+    document.getElementById("successTitle")
+        .textContent = title;
+
+    document.getElementById("successText")
+        .textContent = text;
+
+    document.getElementById("successModal")
+        .classList.add("show");
+
+}
+
+function closeSuccess(){
+
+    document.getElementById("successModal")
+        .classList.remove("show");
+
+    resetAll();
+
+    showHome();
+
+}
+
+
+/* =========================================================
+   تنظيف النماذج
+========================================================= */
+
+function resetRating(){
+
+    selectedRating = 0;
+
+    document.getElementById("ratingDescription")
+        .value = "";
+
+    document.querySelectorAll(".star")
+        .forEach(star =>
+            star.classList.remove("selected")
+        );
+
+    document.getElementById("ratingText")
+        .textContent = "اختر عدد النجوم";
+
+}
+
+function resetAll(){
+
+    resetRating();
+
+    document.getElementById("suggestionText")
+        .value = "";
+
+    document.getElementById("complaintText")
+        .value = "";
+
+    selectedSuggestionBranch = "";
+
+    selectedComplaintBranch = "";
+
+    document.querySelectorAll(".branch")
+        .forEach(btn =>
+            btn.classList.remove("selected")
+        );
+
+}
+
+
+/* =========================================================
+   إغلاق النافذة عند الضغط خارجها
+========================================================= */
+
+document.querySelectorAll(".modal")
+    .forEach(modal => {
+
+        modal.addEventListener("click",function(e){
+
+            if(e.target === modal){
+
+                modal.classList.remove("show");
+
             }
 
-            form.reset();
-            fieldsContainer.innerHTML = '';
-            typeSelector.value = '';
-            contactSection.style.opacity = '0';
-            contactSection.style.height = '0';
-        } else throw new Error('err');
-    } catch {
-        errorMsg.textContent = '❌ حدث خطأ في الإرسال، حاول مجدداً.';
-        errorMsg.style.display = 'block';
-    } finally {
-        // ✅ إعادة تفعيل الزر مهما كانت النتيجة
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'إرسال الرسالة';
-    }
-});
+        });
 
-const params = new URLSearchParams(window.location.search);
-if (params.get('ok') === '1') successMsg.style.display = 'block';
-if (params.get('err') === '1') errorMsg.style.display = 'block';
+    });
+
 </script>
 
 </body>
