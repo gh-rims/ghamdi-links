@@ -3,85 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
 <title>الغامدي لإصلاح الجنوط - آراء العملاء</title>
 
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
 body{
- margin:0;font-family:Tahoma,Arial,sans-serif;color:#172033;
+ margin:0;
+ font-family:Tahoma,Arial,sans-serif;
+ color:#172033;
  background:linear-gradient(180deg,#f7f9fc,#edf2f7)
 }
-.container{width:min(94%,560px);margin:auto;padding:20px 0 35px}
-.header,.card{
- background:#fff;border-radius:22px;padding:20px 17px;
- box-shadow:0 7px 25px rgba(0,0,0,.08);margin-bottom:16px
+
+.container{
+ width:min(94%,560px);
+ margin:auto;
+ padding:20px 0 35px
 }
+
+.header,.card{
+ background:#fff;
+ border-radius:22px;
+ padding:20px 17px;
+ box-shadow:0 7px 25px rgba(0,0,0,.08);
+ margin-bottom:16px
+}
+
 .header{text-align:center}
-.logo{width:105px;height:105px;object-fit:contain;border-radius:18px}
-h1{margin:10px 0 5px;font-size:23px}
-.sub,.desc{color:#6d7787;font-size:13px;line-height:1.9}
+
+.logo{
+ width:105px;
+ height:105px;
+ object-fit:contain;
+ border-radius:18px
+}
+
+h1{
+ margin:10px 0 5px;
+ font-size:23px
+}
+
+.sub,.desc{
+ color:#6d7787;
+ font-size:13px;
+ line-height:1.9
+}
+
 .section{display:none}
 .section.active{display:block}
-.title{font-size:21px;font-weight:bold;margin-bottom:7px}
-label{display:block;font-size:14px;font-weight:bold;margin:17px 0 8px}
-.opt{color:#7b8491;font-weight:normal;font-size:12px}
+
+.title{
+ font-size:21px;
+ font-weight:bold;
+ margin-bottom:7px
+}
+
+label{
+ display:block;
+ font-size:14px;
+ font-weight:bold;
+ margin:17px 0 8px
+}
+
+.opt{
+ color:#7b8491;
+ font-weight:normal;
+ font-size:12px
+}
+
 .req{color:#d93025}
+
 select,input,textarea{
- width:100%;border:1px solid #dce2e9;border-radius:14px;
- background:#fafbfd;color:#172033;font-family:inherit;font-size:15px;outline:0
+ width:100%;
+ border:1px solid #dce2e9;
+ border-radius:14px;
+ background:#fafbfd;
+ color:#172033;
+ font-family:inherit;
+ font-size:15px;
+ outline:0
 }
-select,input{height:53px;padding:0 13px}
-textarea{min-height:145px;padding:13px;resize:vertical;line-height:1.8}
-select:focus,input:focus,textarea:focus{border-color:#243f5e;background:#fff}
 
-.buttons{display:grid;gap:12px}
+select,input{
+ height:53px;
+ padding:0 13px
+}
+
+textarea{
+ min-height:145px;
+ padding:13px;
+ resize:vertical;
+ line-height:1.8
+}
+
+select:focus,input:focus,textarea:focus{
+ border-color:#243f5e;
+ background:#fff
+}
+
+.buttons{
+ display:grid;
+ gap:12px
+}
+
 .msg{
- width:100%;min-height:75px;border:1px solid #e2e7ed;border-radius:17px;
- background:#f8fafc;font-family:inherit;font-size:17px;font-weight:bold;cursor:pointer
+ width:100%;
+ min-height:75px;
+ border:1px solid #e2e7ed;
+ border-radius:17px;
+ background:#f8fafc;
+ font-family:inherit;
+ font-size:17px;
+ font-weight:bold;
+ cursor:pointer
 }
-.msg:active,.primary:active,.branch:active{transform:scale(.98)}
-.icon{display:block;font-size:28px;margin-bottom:4px}
 
-.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.msg:active,.primary:active,.branch:active{
+ transform:scale(.98)
+}
+
+.icon{
+ display:block;
+ font-size:28px;
+ margin-bottom:4px
+}
+
+.branches{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:8px
+}
+
 .branch{
- min-height:60px;border:2px solid #e0e5eb;background:#fff;border-radius:14px;
- font-family:inherit;font-size:12px;font-weight:bold;color:#172033;cursor:pointer
+ min-height:60px;
+ border:2px solid #e0e5eb;
+ background:#fff;
+ border-radius:14px;
+ font-family:inherit;
+ font-size:12px;
+ font-weight:bold;
+ color:#172033;
+ cursor:pointer
 }
-.branch.selected{border-color:#243f5e;background:#f0f4f8}
 
-.stars{display:flex;direction:rtl;justify-content:center;gap:3px;margin:8px 0}
-.star{border:0;background:none;color:#cbd1d9;font-size:39px;padding:2px 4px;cursor:pointer}
+.branch.selected{
+ border-color:#243f5e;
+ background:#f0f4f8
+}
+
+.stars{
+ display:flex;
+ direction:rtl;
+ justify-content:center;
+ gap:3px;
+ margin:8px 0
+}
+
+.star{
+ border:0;
+ background:none;
+ color:#cbd1d9;
+ font-size:39px;
+ padding:2px 4px;
+ cursor:pointer
+}
+
 .star.selected{color:#f5b400}
-.ratingText{text-align:center;color:#6d7787;font-size:13px;min-height:22px}
 
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.primary{
- width:100%;min-height:55px;margin-top:20px;border:0;border-radius:15px;
- background:#243f5e;color:#fff;font-family:inherit;font-size:16px;font-weight:bold;cursor:pointer
+.ratingText{
+ text-align:center;
+ color:#6d7787;
+ font-size:13px;
+ min-height:22px
 }
+
+.two{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px
+}
+
+.primary{
+ width:100%;
+ min-height:55px;
+ margin-top:20px;
+ border:0;
+ border-radius:15px;
+ background:#243f5e;
+ color:#fff;
+ font-family:inherit;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer
+}
+
 .back{
- width:100%;margin-top:12px;padding:13px;border:0;background:none;
- color:#667180;font-family:inherit;font-size:14px;cursor:pointer
+ width:100%;
+ margin-top:12px;
+ padding:13px;
+ border:0;
+ background:none;
+ color:#667180;
+ font-family:inherit;
+ font-size:14px;
+ cursor:pointer
 }
 
 .modal{
- position:fixed;inset:0;z-index:10;display:none;align-items:center;
- justify-content:center;padding:18px;background:rgba(10,18,30,.58)
+ position:fixed;
+ inset:0;
+ z-index:10;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:18px;
+ background:rgba(10,18,30,.58)
 }
+
 .modal.show{display:flex}
+
 .modalBox{
- width:min(100%,430px);background:#fff;border-radius:24px;padding:24px 18px;
- text-align:center;box-shadow:0 18px 55px rgba(0,0,0,.25)
+ width:min(100%,430px);
+ background:#fff;
+ border-radius:24px;
+ padding:24px 18px;
+ text-align:center;
+ box-shadow:0 18px 55px rgba(0,0,0,.25)
 }
+
 .modalIcon{font-size:40px}
-.modalTitle{font-size:20px;font-weight:bold;margin:8px 0}
-.modalText{color:#697384;font-size:13px;line-height:1.9}
-.modalBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-.modalBtn{
- min-height:55px;border:2px solid #e0e5eb;background:#fff;
- border-radius:15px;font-family:inherit;font-weight:bold;cursor:pointer
+
+.modalTitle{
+ font-size:20px;
+ font-weight:bold;
+ margin:8px 0
 }
-.close{margin-top:12px;border:0;background:none;color:#687386;font-family:inherit;cursor:pointer}
+
+.modalText{
+ color:#697384;
+ font-size:13px;
+ line-height:1.9
+}
+
+.modalBtns{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+ margin-top:18px
+}
+
+.modalBtn{
+ min-height:55px;
+ border:2px solid #e0e5eb;
+ background:#fff;
+ border-radius:15px;
+ font-family:inherit;
+ font-weight:bold;
+ cursor:pointer
+}
+
+.close{
+ margin-top:12px;
+ border:0;
+ background:none;
+ color:#687386;
+ font-family:inherit;
+ cursor:pointer
+}
 
 @media(max-width:400px){
  .branches,.two{grid-template-columns:1fr}
@@ -91,6 +280,7 @@ select:focus,input:focus,textarea:focus{border-color:#243f5e;background:#fff}
 </head>
 
 <body>
+
 <div class="container">
 
 <header class="header">
@@ -99,70 +289,174 @@ select:focus,input:focus,textarea:focus{border-color:#243f5e;background:#fff}
 <p class="sub">تقييمك واقتراحك وملاحظتك تساعدنا على تطوير خدماتنا</p>
 </header>
 
-<!-- الرئيسية -->
+
+<!-- ================= الرئيسية ================= -->
+
 <section id="home" class="card section active">
+
 <div class="title">شاركنا رأيك</div>
-<p class="desc">اختر نوع الرسالة التي ترغب في إرسالها</p>
+
+<p class="desc">
+اختر نوع الرسالة التي ترغب في إرسالها
+</p>
 
 <div class="buttons">
+
 <button class="msg" onclick="openSection('rating')">
-<span class="icon">⭐</span>تقييم
+<span class="icon">⭐</span>
+تقييم
 </button>
+
 <button class="msg" onclick="openSection('suggestion')">
-<span class="icon">💡</span>اقتراح
+<span class="icon">💡</span>
+اقتراح
 </button>
+
 <button class="msg" onclick="openSection('complaint')">
-<span class="icon">⚠️</span>شكوى
+<span class="icon">⚠️</span>
+شكوى
 </button>
+
 </div>
+
 </section>
 
-<!-- التقييم -->
-<section id="rating" class="card section">
-<div class="title">تقييم تجربتك</div>
-<p class="desc">نقدر تقييمك لنا، ويساعدنا على تحسين مستوى الخدمة.</p>
 
-<label>اختر الفرع <span class="req">*</span></label>
+<!-- ================= التقييم ================= -->
+
+<section id="rating" class="card section">
+
+<div class="title">تقييم تجربتك</div>
+
+<p class="desc">
+نقدر تقييمك لنا، ويساعدنا على تحسين مستوى الخدمة.
+</p>
+
+<label>
+اختر الفرع
+<span class="req">*</span>
+</label>
+
 <div class="branches">
-<button class="branch" data-r="جدة - كيلو١٤" onclick="pickBranch(this,'r')">جدة - كيلو١٤</button>
-<button class="branch" data-r="جدة - كيلو٣" onclick="pickBranch(this,'r')">جدة - كيلو٣</button>
-<button class="branch" data-r="جميع الفروع" onclick="pickBranch(this,'r')">جميع الفروع</button>
+
+<button class="branch"
+data-r="جدة - كيلو١٤"
+onclick="pickBranch(this,'r')">
+جدة - كيلو١٤
+</button>
+
+<button class="branch"
+data-r="جدة - كيلو٣"
+onclick="pickBranch(this,'r')">
+جدة - كيلو٣
+</button>
+
+<button class="branch"
+data-r="جميع الفروع"
+onclick="pickBranch(this,'r')">
+جميع الفروع
+</button>
+
 </div>
 
-<label>كيف تقيّم تجربتك؟ <span class="req">*</span></label>
+
+<label>
+كيف تقيّم تجربتك؟
+<span class="req">*</span>
+</label>
+
 <div class="stars">
+
 <button class="star" data-star="5" onclick="rate(5)">★</button>
 <button class="star" data-star="4" onclick="rate(4)">★</button>
 <button class="star" data-star="3" onclick="rate(3)">★</button>
 <button class="star" data-star="2" onclick="rate(2)">★</button>
 <button class="star" data-star="1" onclick="rate(1)">★</button>
+
 </div>
-<div id="ratingText" class="ratingText">اختر عدد النجوم</div>
 
-<label>اكتب وصف تجربتك <span class="opt">[اختياري]</span></label>
-<textarea id="ratingDesc" placeholder="اكتب لنا باختصار عن تجربتك معنا، وما أعجبك أو ما يمكننا تحسينه."></textarea>
+<div id="ratingText" class="ratingText">
+اختر عدد النجوم
+</div>
 
-<label>الاسم <span class="opt">[اختياري]</span></label>
-<input id="ratingName" placeholder="اكتب اسمك إذا رغبت.">
 
-<button class="primary" onclick="submitRating()">إرسال التقييم</button>
-<button class="back" onclick="home()">← العودة إلى الصفحة الرئيسية</button>
+<label>
+اكتب وصف تجربتك
+<span class="opt">[اختياري]</span>
+</label>
+
+<textarea
+id="ratingDesc"
+placeholder="اكتب لنا باختصار عن تجربتك معنا، وما أعجبك أو ما يمكننا تحسينه.">
+</textarea>
+
+
+<label>
+الاسم
+<span class="opt">[اختياري]</span>
+</label>
+
+<input
+id="ratingName"
+placeholder="اكتب اسمك إذا رغبت.">
+
+
+<button class="primary" onclick="submitRating()">
+إرسال التقييم
+</button>
+
+<button class="back" onclick="home()">
+← العودة إلى الصفحة الرئيسية
+</button>
+
 </section>
 
-<!-- الاقتراح -->
-<section id="suggestion" class="card section">
-<div class="title">شاركنا اقتراحك</div>
-<p class="desc">نرحب بأفكارك ومقترحاتك لتطوير خدماتنا وتحسين تجربتك معنا.</p>
 
-<label>اختر الفرع <span class="req">*</span></label>
+<!-- ================= الاقتراح ================= -->
+
+<section id="suggestion" class="card section">
+
+<div class="title">شاركنا اقتراحك</div>
+
+<p class="desc">
+نرحب بأفكارك ومقترحاتك لتطوير خدماتنا وتحسين تجربتك معنا.
+</p>
+
+<label>
+اختر الفرع
+<span class="req">*</span>
+</label>
+
 <div class="branches">
-<button class="branch" data-s="جدة - كيلو١٤" onclick="pickBranch(this,'s')">جدة - كيلو١٤</button>
-<button class="branch" data-s="جدة - كيلو٣" onclick="pickBranch(this,'s')">جدة - كيلو٣</button>
-<button class="branch" data-s="جميع الفروع" onclick="pickBranch(this,'s')">جميع الفروع</button>
+
+<button class="branch"
+data-s="جدة - كيلو١٤"
+onclick="pickBranch(this,'s')">
+جدة - كيلو١٤
+</button>
+
+<button class="branch"
+data-s="جدة - كيلو٣"
+onclick="pickBranch(this,'s')">
+جدة - كيلو٣
+</button>
+
+<button class="branch"
+data-s="جميع الفروع"
+onclick="pickBranch(this,'s')">
+جميع الفروع
+</button>
+
 </div>
 
-<label>نوع الاقتراح <span class="opt">[اختياري]</span></label>
+
+<label>
+نوع الاقتراح
+<span class="opt">[اختياري]</span>
+</label>
+
 <select id="suggestionType">
+
 <option value="">اختر نوع الاقتراح</option>
 <option>خدمة جديدة</option>
 <option>تطوير خدمة موجودة</option>
@@ -171,40 +465,115 @@ select:focus,input:focus,textarea:focus{border-color:#243f5e;background:#fff}
 <option>أسلوب تعامل الموظفين</option>
 <option>خدمة العملاء</option>
 <option>اقتراح آخر</option>
+
 </select>
 
-<label>اكتب اقتراحك <span class="req">*</span></label>
-<textarea id="suggestionText" placeholder="اكتب اقتراحك أو فكرتك بالتفصيل، وساعدنا على تطوير خدماتنا وتحسين تجربتك معنا."></textarea>
+
+<label>
+اكتب اقتراحك
+<span class="req">*</span>
+</label>
+
+<textarea
+id="suggestionText"
+placeholder="اكتب اقتراحك أو فكرتك بالتفصيل، وساعدنا على تطوير خدماتنا وتحسين تجربتك معنا.">
+</textarea>
+
 
 <div class="two">
+
 <div>
-<label>الاسم <span class="opt">[اختياري]</span></label>
-<input id="suggestionName" placeholder="اكتب اسمك [اختياري]">
-</div>
-<div>
-<label>رقم الجوال <span class="opt">[اختياري]</span></label>
-<input id="suggestionPhone" type="tel" inputmode="numeric" maxlength="10" placeholder="05XXXXXXXX">
-</div>
+
+<label>
+الاسم
+<span class="opt">[اختياري]</span>
+</label>
+
+<input
+id="suggestionName"
+placeholder="اكتب اسمك [اختياري]">
+
 </div>
 
-<button class="primary" onclick="submitSuggestion()">إرسال الاقتراح</button>
-<button class="back" onclick="home()">← العودة إلى الصفحة الرئيسية</button>
+
+<div>
+
+<label>
+رقم الجوال
+<span class="opt">[اختياري]</span>
+</label>
+
+<input
+id="suggestionPhone"
+type="tel"
+inputmode="numeric"
+maxlength="10"
+placeholder="05XXXXXXXX">
+
+</div>
+
+</div>
+
+
+<button class="primary" onclick="submitSuggestion()">
+إرسال الاقتراح
+</button>
+
+<button class="back" onclick="home()">
+← العودة إلى الصفحة الرئيسية
+</button>
+
 </section>
 
-<!-- الشكوى -->
-<section id="complaint" class="card section">
-<div class="title">⚠️ أرسل شكواك</div>
-<p class="desc">نأسف لوجود مشكلة. أرسل لنا التفاصيل لنتمكن من مراجعتها ومعالجتها.</p>
 
-<label>اختر الفرع <span class="req">*</span></label>
-<div class="branches">
-<button class="branch" data-c="جدة - كيلو١٤" onclick="pickBranch(this,'c')">جدة - كيلو١٤</button>
-<button class="branch" data-c="جدة - كيلو٣" onclick="pickBranch(this,'c')">جدة - كيلو٣</button>
-<button class="branch" data-c="جميع الفروع" onclick="pickBranch(this,'c')">جميع الفروع</button>
+<!-- ================= الشكوى ================= -->
+
+<section id="complaint" class="card section">
+
+<div class="title">
+⚠️ أرسل شكواك
 </div>
 
-<label>اختر نوع الشكوى <span class="req">*</span></label>
+<p class="desc">
+نأسف لوجود مشكلة. أرسل لنا التفاصيل لنتمكن من مراجعتها ومعالجتها.
+</p>
+
+
+<label>
+اختر الفرع
+<span class="req">*</span>
+</label>
+
+<div class="branches">
+
+<button class="branch"
+data-c="جدة - كيلو١٤"
+onclick="pickBranch(this,'c')">
+جدة - كيلو١٤
+</button>
+
+<button class="branch"
+data-c="جدة - كيلو٣"
+onclick="pickBranch(this,'c')">
+جدة - كيلو٣
+</button>
+
+<button class="branch"
+data-c="جميع الفروع"
+onclick="pickBranch(this,'c')">
+جميع الفروع
+</button>
+
+</div>
+
+
+<label>
+اختر نوع الشكوى
+<span class="req">*</span>
+</label>
+
 <select id="complaintType">
+
 <option value="">اختر نوع الشكوى</option>
 <option>جودة العمل</option>
 <option>مشكلة في الجنوط بعد الإصلاح</option>
@@ -213,264 +582,743 @@ select:focus,input:focus,textarea:focus{border-color:#243f5e;background:#fff}
 <option>أسلوب تعامل الموظفين</option>
 <option>خدمة العملاء</option>
 <option>شكوى أخرى</option>
+
 </select>
 
-<label>الاسم <span class="opt">[اختياري]</span></label>
-<input id="complaintName" placeholder="اكتب اسمك [اختياري]">
 
-<label>رقم الجوال <span class="req">*</span></label>
-<input id="complaintPhone" type="tel" inputmode="numeric" maxlength="10"
+<label>
+الاسم
+<span class="opt">[اختياري]</span>
+</label>
+
+<input
+id="complaintName"
+placeholder="اكتب اسمك [اختياري]">
+
+
+<label>
+رقم الجوال
+<span class="req">*</span>
+</label>
+
+<input
+id="complaintPhone"
+type="tel"
+inputmode="numeric"
+maxlength="10"
 placeholder="أدخل رقم الجوال المكون من 10 أرقام ويبدأ بـ 05">
 
-<label>تاريخ الشكوى <span class="opt">[اختياري]</span></label>
-<input id="complaintDate" type="date">
 
-<label>وصف الشكوى <span class="req">*</span></label>
-<textarea id="complaintDesc" placeholder="اشرح لنا المشكلة بالتفصيل، وما الذي حدث معك، وأي معلومات تساعدنا على فهم الشكوى ومعالجتها."></textarea>
+<label>
+تاريخ الشكوى
+<span class="opt">[اختياري]</span>
+</label>
 
-<label>رقم الفاتورة <span class="opt">[اختياري]</span></label>
-<input id="invoice" placeholder="أدخل رقم الفاتورة إذا كان متوفرًا.">
+<input
+id="complaintDate"
+type="date">
 
-<button class="primary" onclick="submitComplaint()">إرسال الشكوى</button>
-<button class="back" onclick="home()">← العودة إلى الصفحة الرئيسية</button>
+
+<label>
+وصف الشكوى
+<span class="req">*</span>
+</label>
+
+<textarea
+id="complaintDesc"
+placeholder="اشرح لنا المشكلة بالتفصيل، وما الذي حدث معك، وأي معلومات تساعدنا على فهم الشكوى ومعالجتها.">
+</textarea>
+
+
+<label>
+رقم الفاتورة
+<span class="opt">[اختياري]</span>
+</label>
+
+<input
+id="invoice"
+placeholder="أدخل رقم الفاتورة إذا كان متوفرًا.">
+
+
+<button class="primary" onclick="submitComplaint()">
+إرسال الشكوى
+</button>
+
+<button class="back" onclick="home()">
+← العودة إلى الصفحة الرئيسية
+</button>
+
 </section>
 
 </div>
 
-<!-- نافذة 5 نجوم -->
+
+<!-- ================= نافذة 5 نجوم ================= -->
+
 <div id="reviewModal" class="modal">
+
 <div class="modalBox">
+
 <div class="modalIcon">⭐</div>
-<div class="modalTitle">شكرًا لتقييمك الرائع</div>
-<div class="modalText">اختر الفرع الذي قمت بزيارته للانتقال إلى تقييم Google.</div>
+
+<div class="modalTitle">
+شكرًا لتقييمك الرائع
+</div>
+
+<div class="modalText">
+اختر الفرع الذي قمت بزيارته للانتقال إلى تقييم Google.
+</div>
 
 <div class="modalBtns">
-<button class="modalBtn" onclick="fiveStar('جدة - كيلو١٤')">جدة - كيلو١٤</button>
-<button class="modalBtn" onclick="fiveStar('جدة - كيلو٣')">جدة - كيلو٣</button>
+
+<button class="modalBtn"
+onclick="fiveStar('جدة - كيلو١٤')">
+جدة - كيلو١٤
+</button>
+
+<button class="modalBtn"
+onclick="fiveStar('جدة - كيلو٣')">
+جدة - كيلو٣
+</button>
+
 </div>
 
-<button class="close" onclick="closeModal()">إلغاء</button>
+<button class="close" onclick="closeReview()">
+إلغاء
+</button>
+
 </div>
 </div>
 
-<!-- نافذة النجاح -->
+
+<!-- ================= نافذة النجاح ================= -->
+
 <div id="success" class="modal">
+
 <div class="modalBox">
+
 <div class="modalIcon">✓</div>
-<div id="successTitle" class="modalTitle">تم الإرسال</div>
+
+<div id="successTitle" class="modalTitle">
+تم الإرسال
+</div>
+
 <div id="successText" class="modalText"></div>
-<button class="primary" onclick="closeSuccess()">تم</button>
+
+<button class="primary" onclick="closeSuccess()">
+تم
+</button>
+
 </div>
 </div>
 
-<iframe name="formFrame" style="display:none"></iframe>
+
+<!-- iframe مخفي لإرسال Google Forms -->
+
+<iframe
+name="formFrame"
+style="display:none">
+</iframe>
+
 
 <script>
-/* Google Forms */
-const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLScUi49Oi8q_kmRCy7MTBuuZRHkxit4FM7ZH263opaQ8Ip0aBg/formResponse";
 
-const E={
- type:"entry.1416305078",
+/* ==================================================
+   Google Forms
+================================================== */
 
- ratingBranch:"entry.1051316798",
- rating:"entry.724366756",
- ratingDesc:"entry.884733964",
- ratingName:"entry.1513918262",
+const FORM_URL =
+"https://docs.google.com/forms/d/e/1FAIpQLScUi49Oi8q_kmRCy7MTBuuZRHkxit4FM7ZH263opaQ8Ip0aBg/formResponse";
 
- suggestionBranch:"entry.1343919871",
- suggestionType:"entry.1332949409",
- suggestion:"entry.493635889",
- suggestionName:"entry.1265117197",
- suggestionPhone:"entry.676940972",
 
- complaintBranch:"entry.1392030405",
- complaintType:"entry.1580699057",
- complaintName:"entry.1966959485",
- complaintPhone:"entry.651930152",
- complaintDate:"entry.1921551826",
- complaintDesc:"entry.1976640215",
- invoice:"entry.2058007568"
+/* ==================================================
+   Entry IDs
+================================================== */
+
+const E = {
+
+type:"entry.1416305078",
+
+ratingBranch:"entry.1051316798",
+rating:"entry.724366756",
+ratingDesc:"entry.884733964",
+ratingName:"entry.1513918262",
+
+suggestionBranch:"entry.1343919871",
+suggestionType:"entry.1332949409",
+suggestion:"entry.493635889",
+suggestionName:"entry.1265117197",
+suggestionPhone:"entry.676940972",
+
+complaintBranch:"entry.1392030405",
+complaintType:"entry.1580699057",
+complaintName:"entry.1966959485",
+complaintPhone:"entry.651930152",
+complaintDate:"entry.1921551826",
+complaintDesc:"entry.1976640215",
+invoice:"entry.2058007568"
+
 };
 
-/* روابط Google */
-const GOOGLE={
- "جدة - كيلو١٤":"https://g.page/r/CXc0Www1YSqAEBE/review",
- "جدة - كيلو٣":"https://g.page/r/CdPyT7yrq129EBE/review"
+
+/* ==================================================
+   روابط Google
+================================================== */
+
+const GOOGLE = {
+
+"جدة - كيلو١٤":
+"https://g.page/r/CXc0Www1YSqAEBE/review",
+
+"جدة - كيلو٣":
+"https://g.page/r/CdPyT7yrq129EBE/review"
+
 };
 
-let branch={r:"",s:"",c:""},rating=0;
 
-/* التنقل */
+/* ==================================================
+   المتغيرات
+================================================== */
+
+let branch = {
+r:"",
+s:"",
+c:""
+};
+
+let rating = 0;
+
+
+/* ==================================================
+   التنقل
+================================================== */
+
 function openSection(id){
- document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function home(){openSection("home")}
 
-/* اختيار الفرع */
+document
+.querySelectorAll(".section")
+.forEach(x=>x.classList.remove("active"));
+
+document
+.getElementById(id)
+.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function home(){
+openSection("home");
+}
+
+
+/* ==================================================
+   اختيار الفرع
+================================================== */
+
 function pickBranch(btn,type){
- document.querySelectorAll(`[data-${type}]`).forEach(x=>x.classList.remove("selected"));
- btn.classList.add("selected");
- branch[type]=btn.dataset[type];
+
+document
+.querySelectorAll(`[data-${type}]`)
+.forEach(x=>x.classList.remove("selected"));
+
+btn.classList.add("selected");
+
+branch[type] =
+btn.dataset[type];
+
 }
 
-/* النجوم */
+
+/* ==================================================
+   النجوم
+================================================== */
+
 function rate(n){
- rating=n;
- document.querySelectorAll(".star").forEach(x=>
-  x.classList.toggle("selected",Number(x.dataset.star)<=n)
- );
- document.getElementById("ratingText").textContent=[
- "","⭐ نجمة واحدة","⭐⭐ نجمتان","⭐⭐⭐ 3 نجوم",
- "⭐⭐⭐⭐ 4 نجوم","⭐⭐⭐⭐⭐ 5 نجوم"
- ][n];
+
+rating=n;
+
+document
+.querySelectorAll(".star")
+.forEach(x=>{
+
+x.classList.toggle(
+"selected",
+Number(x.dataset.star)<=n
+);
+
+});
+
+document
+.getElementById("ratingText")
+.textContent = [
+
+"",
+"⭐ نجمة واحدة",
+"⭐⭐ نجمتان",
+"⭐⭐⭐ 3 نجوم",
+"⭐⭐⭐⭐ 4 نجوم",
+"⭐⭐⭐⭐⭐ 5 نجوم"
+
+][n];
+
 }
 
-/* إرسال Google Forms */
+
+/* ==================================================
+   إرسال فعلي إلى Google Forms
+================================================== */
+
 function send(data){
-    const params = new URLSearchParams();
 
-    Object.entries(data).forEach(([key, value]) => {
-        params.append(key, value ?? "");
-    });
+const form =
+document.createElement("form");
 
-    fetch(FORM_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: params.toString()
-    }).catch(() => {});
+form.method = "POST";
+
+form.action = FORM_URL;
+
+form.target = "formFrame";
+
+form.style.display = "none";
+
+
+Object.entries(data).forEach(([key,value])=>{
+
+const input =
+document.createElement("input");
+
+input.type = "hidden";
+
+input.name = key;
+
+input.value =
+value == null ? "" : String(value);
+
+form.appendChild(input);
+
+});
+
+
+document.body.appendChild(form);
+
+form.submit();
+
+
+setTimeout(()=>{
+
+form.remove();
+
+},2000);
+
 }
 
-/* التقييم */
+
+/* ==================================================
+   التقييم
+================================================== */
+
 function submitRating(){
- if(!branch.r){alert("فضلاً اختر الفرع.");return}
- if(!rating){alert("فضلاً اختر تقييمك بالنجوم.");return}
 
- if(rating===5){
-  document.getElementById("reviewModal").classList.add("show");
-  return;
- }
+if(!branch.r){
 
- saveRating();
- success("تم استلام تقييمك","شكرًا لك على مشاركتنا تجربتك. ملاحظتك محل اهتمامنا.");
+alert("فضلاً اختر الفرع.");
+
+return;
 }
+
+if(!rating){
+
+alert("فضلاً اختر تقييمك بالنجوم.");
+
+return;
+}
+
+
+if(rating===5){
+
+document
+.getElementById("reviewModal")
+.classList.add("show");
+
+return;
+}
+
+
+saveRating();
+
+success(
+"تم استلام تقييمك",
+"شكرًا لك على مشاركتنا تجربتك. ملاحظتك محل اهتمامنا."
+);
+
+}
+
 
 function saveRating(){
- send({
-  [E.type]:"⭐ تقييم",
-  [E.ratingBranch]:branch.r,
-  [E.rating]:"⭐".repeat(rating),
-  [E.ratingDesc]:document.getElementById("ratingDesc").value.trim(),
-  [E.ratingName]:document.getElementById("ratingName").value.trim()
- });
+
+send({
+
+[E.type]:"⭐ تقييم",
+
+[E.ratingBranch]:
+branch.r,
+
+[E.rating]:
+"⭐".repeat(rating),
+
+[E.ratingDesc]:
+document
+.getElementById("ratingDesc")
+.value
+.trim(),
+
+[E.ratingName]:
+document
+.getElementById("ratingName")
+.value
+.trim()
+
+});
+
 }
 
-/* تقييم 5 نجوم */
+
+/* ==================================================
+   تقييم 5 نجوم
+================================================== */
+
 function fiveStar(b){
- branch.r=b;
- saveRating();
 
- const text=document.getElementById("ratingDesc").value.trim()||
- "كانت تجربتي مع الغامدي لإصلاح الجنوط ممتازة.";
+branch.r=b;
 
- navigator.clipboard?.writeText(text).catch(()=>{});
+saveRating();
 
- closeModal();
 
- setTimeout(()=>{
-  if(GOOGLE[b]) location.href=GOOGLE[b];
- },400);
+const text =
+document
+.getElementById("ratingDesc")
+.value
+.trim()
+||
+"كانت تجربتي مع الغامدي لإصلاح الجنوط ممتازة.";
+
+
+if(navigator.clipboard){
+
+navigator.clipboard
+.writeText(text)
+.catch(()=>{});
+
 }
 
-/* الاقتراح */
+
+closeReview();
+
+
+setTimeout(()=>{
+
+if(GOOGLE[b]){
+
+location.href =
+GOOGLE[b];
+
+}
+
+},700);
+
+}
+
+
+/* ==================================================
+   الاقتراح
+================================================== */
+
 function submitSuggestion(){
- if(!branch.s){alert("فضلاً اختر الفرع.");return}
 
- const text=document.getElementById("suggestionText").value.trim();
- if(!text){alert("فضلاً اكتب اقتراحك.");return}
+if(!branch.s){
 
- send({
-  [E.type]:"💡 اقتراح",
-  [E.suggestionBranch]:branch.s,
-  [E.suggestionType]:document.getElementById("suggestionType").value,
-  [E.suggestion]:text,
-  [E.suggestionName]:document.getElementById("suggestionName").value.trim(),
-  [E.suggestionPhone]:document.getElementById("suggestionPhone").value.trim()
- });
+alert("فضلاً اختر الفرع.");
 
- success("تم استلام اقتراحك","شكرًا لك على مشاركتنا اقتراحك، ونقدر اهتمامك بتطوير خدماتنا.");
+return;
 }
 
-/* الشكوى */
+
+const text =
+document
+.getElementById("suggestionText")
+.value
+.trim();
+
+
+if(!text){
+
+alert("فضلاً اكتب اقتراحك.");
+
+return;
+}
+
+
+send({
+
+[E.type]:"💡 اقتراح",
+
+[E.suggestionBranch]:
+branch.s,
+
+[E.suggestionType]:
+document
+.getElementById("suggestionType")
+.value,
+
+[E.suggestion]:
+text,
+
+[E.suggestionName]:
+document
+.getElementById("suggestionName")
+.value
+.trim(),
+
+[E.suggestionPhone]:
+document
+.getElementById("suggestionPhone")
+.value
+.trim()
+
+});
+
+
+success(
+"تم استلام اقتراحك",
+"شكرًا لك على مشاركتنا اقتراحك، ونقدر اهتمامك بتطوير خدماتنا."
+);
+
+}
+
+
+/* ==================================================
+   الشكوى
+================================================== */
+
 function submitComplaint(){
- if(!branch.c){alert("فضلاً اختر الفرع.");return}
 
- const type=document.getElementById("complaintType").value;
- if(!type){alert("فضلاً اختر نوع الشكوى.");return}
+if(!branch.c){
 
- const phone=document.getElementById("complaintPhone").value.trim();
- if(!/^05\d{8}$/.test(phone)){
-  alert("رقم الجوال يجب أن يتكون من 10 أرقام ويبدأ بـ 05.");
-  return;
- }
+alert("فضلاً اختر الفرع.");
 
- const desc=document.getElementById("complaintDesc").value.trim();
- if(!desc){alert("فضلاً اكتب وصف الشكوى.");return}
-
- send({
-  [E.type]:"⚠️ شكوى",
-  [E.complaintBranch]:branch.c,
-  [E.complaintType]:type,
-  [E.complaintName]:document.getElementById("complaintName").value.trim(),
-  [E.complaintPhone]:phone,
-  [E.complaintDate]:document.getElementById("complaintDate").value,
-  [E.complaintDesc]:desc,
-  [E.invoice]:document.getElementById("invoice").value.trim()
- });
-
- success("✓ تم استلام شكواك","شكرًا لتواصلك معنا، وسنعمل على مراجعة ملاحظتك.");
+return;
 }
 
-/* النوافذ */
+
+const type =
+document
+.getElementById("complaintType")
+.value;
+
+
+if(!type){
+
+alert("فضلاً اختر نوع الشكوى.");
+
+return;
+}
+
+
+const phone =
+document
+.getElementById("complaintPhone")
+.value
+.trim();
+
+
+if(!/^05\d{8}$/.test(phone)){
+
+alert(
+"رقم الجوال يجب أن يتكون من 10 أرقام ويبدأ بـ 05."
+);
+
+return;
+}
+
+
+const desc =
+document
+.getElementById("complaintDesc")
+.value
+.trim();
+
+
+if(!desc){
+
+alert("فضلاً اكتب وصف الشكوى.");
+
+return;
+}
+
+
+/* إرسال الشكوى */
+
+send({
+
+[E.type]:"⚠️ شكوى",
+
+[E.complaintBranch]:
+branch.c,
+
+[E.complaintType]:
+type,
+
+[E.complaintName]:
+document
+.getElementById("complaintName")
+.value
+.trim(),
+
+[E.complaintPhone]:
+phone,
+
+[E.complaintDate]:
+document
+.getElementById("complaintDate")
+.value,
+
+[E.complaintDesc]:
+desc,
+
+[E.invoice]:
+document
+.getElementById("invoice")
+.value
+.trim()
+
+});
+
+
+success(
+"✓ تم استلام شكواك",
+"شكرًا لتواصلك معنا، وسنعمل على مراجعة ملاحظتك."
+);
+
+}
+
+
+/* ==================================================
+   النجاح
+================================================== */
+
 function success(title,text){
- document.getElementById("successTitle").textContent=title;
- document.getElementById("successText").textContent=text;
- document.getElementById("success").classList.add("show");
+
+document
+.getElementById("successTitle")
+.textContent=title;
+
+document
+.getElementById("successText")
+.textContent=text;
+
+document
+.getElementById("success")
+.classList.add("show");
+
 }
 
-function closeModal(){
- document.getElementById("reviewModal").classList.remove("show");
+
+/* ==================================================
+   إغلاق النوافذ
+================================================== */
+
+function closeReview(){
+
+document
+.getElementById("reviewModal")
+.classList.remove("show");
+
 }
+
 
 function closeSuccess(){
- document.getElementById("success").classList.remove("show");
- reset();
- home();
+
+document
+.getElementById("success")
+.classList.remove("show");
+
+reset();
+
+home();
+
 }
 
-/* إعادة النموذج */
+
+/* ==================================================
+   إعادة النموذج
+================================================== */
+
 function reset(){
- rating=0;
- branch={r:"",s:"",c:""};
 
- document.querySelectorAll(".branch").forEach(x=>x.classList.remove("selected"));
- document.querySelectorAll(".star").forEach(x=>x.classList.remove("selected"));
+rating=0;
 
- document.getElementById("ratingText").textContent="اختر عدد النجوم";
+branch={
+r:"",
+s:"",
+c:""
+};
 
- [
- "ratingDesc","ratingName","suggestionText","suggestionName",
- "suggestionPhone","complaintName","complaintPhone","complaintDate",
- "complaintDesc","invoice"
- ].forEach(id=>document.getElementById(id).value="");
 
- document.getElementById("suggestionType").value="";
- document.getElementById("complaintType").value="";
+document
+.querySelectorAll(".branch")
+.forEach(x=>
+x.classList.remove("selected")
+);
+
+
+document
+.querySelectorAll(".star")
+.forEach(x=>
+x.classList.remove("selected")
+);
+
+
+document
+.getElementById("ratingText")
+.textContent="اختر عدد النجوم";
+
+
+[
+"ratingDesc",
+"ratingName",
+"suggestionText",
+"suggestionName",
+"suggestionPhone",
+"complaintName",
+"complaintPhone",
+"complaintDate",
+"complaintDesc",
+"invoice"
+
+].forEach(id=>{
+
+document
+.getElementById(id)
+.value="";
+
+});
+
+
+document
+.getElementById("suggestionType")
+.value="";
+
+
+document
+.getElementById("complaintType")
+.value="";
+
 }
+
 </script>
 
 </body>
