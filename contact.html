@@ -2,567 +2,212 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>الغامدي لإصلاح الجنوط - تقييم العملاء</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>اختبار تقييم - الغامدي لإصلاح الجنوط</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
-    font-family:"Cairo",Tahoma,Arial,sans-serif;
     background:#f5f5f5;
     color:#111;
+    font-family:"Cairo",Tahoma,Arial,sans-serif;
 }
 
-.container{
-    width:min(94%,560px);
-    margin:auto;
-    padding:20px 0 30px;
-}
-
-.header,
-.card,
-.footer{
+.box{
+    width:min(94%,500px);
+    margin:40px auto;
     background:#fff;
-    border-radius:22px;
-    box-shadow:0 6px 22px rgba(0,0,0,.08);
-}
-
-.header{
-    text-align:center;
-    padding:22px 16px;
-    margin-bottom:16px;
-}
-
-.logo{
-    width:105px;
-    height:105px;
-    object-fit:contain;
-    border-radius:18px;
+    padding:25px 20px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
 h1{
-    margin:10px 0 5px;
+    margin:0 0 8px;
+    text-align:center;
     font-size:23px;
-    font-weight:800;
 }
 
-.subtitle{
-    margin:0;
+p{
+    text-align:center;
     color:#666;
-    font-size:13px;
-}
-
-.card{
-    padding:22px 17px;
-}
-
-.title{
-    font-size:21px;
-    font-weight:800;
-    margin-bottom:5px;
-}
-
-.description{
-    color:#666;
-    font-size:13px;
-    line-height:1.9;
-    margin:0 0 20px;
+    font-size:14px;
 }
 
 label{
     display:block;
-    font-size:14px;
-    font-weight:700;
     margin:18px 0 8px;
+    font-weight:bold;
 }
 
-.required{
-    color:#e85d04;
-}
-
-.optional{
-    color:#777;
-    font-size:11px;
-    font-weight:400;
-}
-
-.branches{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-}
-
-.branch{
-    min-height:60px;
-    border:2px solid #ddd;
-    border-radius:14px;
-    background:#fff;
-    color:#111;
+select,
+input,
+textarea{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:13px;
     font-family:inherit;
-    font-size:12px;
-    font-weight:700;
-    cursor:pointer;
+    font-size:15px;
+    background:#fff;
 }
 
-.branch.selected{
-    border-color:#f36c00;
-    background:#fff5ec;
+textarea{
+    min-height:120px;
+    resize:vertical;
 }
 
 .stars{
     display:flex;
     direction:rtl;
     justify-content:center;
-    gap:2px;
-    margin:8px 0;
+    gap:4px;
+    margin:10px 0;
 }
 
 .star{
     border:0;
-    background:transparent;
+    background:none;
     color:#ccc;
-    font-size:40px;
-    padding:2px 4px;
+    font-size:42px;
     cursor:pointer;
 }
 
 .star.selected{
-    color:#f36c00;
+    color:#f28c00;
 }
 
-.rating-text{
+#ratingText{
     text-align:center;
     color:#666;
-    font-size:13px;
-    min-height:24px;
+    min-height:25px;
 }
 
-textarea,
-input{
+button.send{
     width:100%;
-    border:1px solid #ddd;
-    border-radius:14px;
-    background:#fafafa;
-    color:#111;
-    font-family:inherit;
-    font-size:14px;
-    outline:none;
-}
-
-input{
-    height:52px;
-    padding:0 13px;
-}
-
-textarea{
-    min-height:140px;
-    padding:12px;
-    resize:vertical;
-    line-height:1.8;
-}
-
-textarea:focus,
-input:focus{
-    border-color:#f36c00;
-    background:#fff;
-}
-
-.send{
-    width:100%;
-    min-height:56px;
     margin-top:22px;
+    padding:15px;
     border:0;
-    border-radius:15px;
-    background:#111;
+    border-radius:13px;
+    background:#f28c00;
     color:#fff;
     font-family:inherit;
-    font-size:16px;
-    font-weight:800;
+    font-size:17px;
+    font-weight:bold;
     cursor:pointer;
 }
 
-.send:active{
+button.send:active{
     transform:scale(.98);
 }
 
-.back{
-    width:100%;
-    margin-top:10px;
-    border:0;
-    background:transparent;
-    color:#666;
-    font-family:inherit;
-    font-size:14px;
-    cursor:pointer;
-}
-
-.footer{
-    margin-top:16px;
-    padding:18px;
-    text-align:center;
-    font-size:12px;
-    line-height:1.9;
-    color:#555;
-}
-
-.footer strong{
-    display:block;
-    color:#111;
-    font-size:14px;
-}
-
-.home-button{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 18px;
-    border-radius:12px;
-    background:#f36c00;
-    color:#fff;
-    text-decoration:none;
-    font-weight:700;
-}
-
-.message{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:999;
-    background:rgba(0,0,0,.55);
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.message.show{
-    display:flex;
-}
-
-.message-box{
-    width:min(100%,400px);
-    background:#fff;
-    border-radius:22px;
-    padding:25px 18px;
-    text-align:center;
-}
-
-.message-icon{
-    font-size:40px;
-}
-
-.message-title{
-    font-size:20px;
-    font-weight:800;
-    margin:8px 0;
-}
-
-.message-text{
-    color:#666;
-    font-size:13px;
-    line-height:1.9;
-}
-
-.message-button{
-    width:100%;
-    min-height:52px;
+#message{
     margin-top:18px;
-    border:0;
-    border-radius:14px;
-    background:#111;
-    color:#fff;
-    font-family:inherit;
-    font-weight:700;
-}
-
-@media(max-width:400px){
-    .branches{
-        grid-template-columns:1fr;
-    }
-
-    .star{
-        font-size:35px;
-    }
+    text-align:center;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="box">
 
-<header class="header">
+<h1>تقييم تجربتك</h1>
 
-    <img
-        src="Ligo.jpg"
-        class="logo"
-        alt="الغامدي لإصلاح الجنوط">
+<p>
+الغامدي لإصلاح الجنوط
+</p>
 
-    <h1>شاركنا رأيك</h1>
+<label>
+اختر الفرع *
+</label>
 
-    <p class="subtitle">
-        تقييمك يساعدنا على تطوير خدماتنا
-    </p>
-
-</header>
-
-
-<main class="card">
-
-    <div class="title">
-        تقييم تجربتك
-    </div>
-
-    <p class="description">
-        نقدر تقييمك لنا، ويساعدنا على تحسين مستوى الخدمة.
-    </p>
+<select id="branch">
+<option value="">اختر الفرع</option>
+<option value="جدة - كيلو١٤">جدة - كيلو١٤</option>
+<option value="جدة - كيلو٣">جدة - كيلو٣</option>
+<option value="جميع الفروع">جميع الفروع</option>
+</select>
 
 
-    <!-- الفرع -->
+<label>
+كيف تقيّم تجربتك؟ *
+</label>
 
-    <label>
-        اختر الفرع
-        <span class="required">*</span>
-    </label>
+<div class="stars">
 
-    <div class="branches">
-
-        <button
-            type="button"
-            class="branch"
-            onclick="selectBranch(this,'جدة - كيلو١٤')">
-            جدة - كيلو١٤
-        </button>
-
-        <button
-            type="button"
-            class="branch"
-            onclick="selectBranch(this,'جدة - كيلو٣')">
-            جدة - كيلو٣
-        </button>
-
-        <button
-            type="button"
-            class="branch"
-            onclick="selectBranch(this,'جميع الفروع')">
-            جميع الفروع
-        </button>
-
-    </div>
-
-
-    <!-- النجوم -->
-
-    <label>
-        كيف تقيّم تجربتك؟
-        <span class="required">*</span>
-    </label>
-
-    <div class="stars">
-
-        <button
-            type="button"
-            class="star"
-            data-value="5"
-            onclick="selectRating(5)">★</button>
-
-        <button
-            type="button"
-            class="star"
-            data-value="4"
-            onclick="selectRating(4)">★</button>
-
-        <button
-            type="button"
-            class="star"
-            data-value="3"
-            onclick="selectRating(3)">★</button>
-
-        <button
-            type="button"
-            class="star"
-            data-value="2"
-            onclick="selectRating(2)">★</button>
-
-        <button
-            type="button"
-            class="star"
-            data-value="1"
-            onclick="selectRating(1)">★</button>
-
-    </div>
-
-    <div id="ratingText" class="rating-text">
-        اختر عدد النجوم
-    </div>
-
-
-    <!-- الوصف -->
-
-    <label>
-        اكتب وصف تجربتك
-        <span class="optional">[اختياري]</span>
-    </label>
-
-    <textarea
-        id="description"
-        placeholder="اكتب لنا باختصار عن تجربتك معنا..."></textarea>
-
-
-    <!-- الاسم -->
-
-    <label>
-        الاسم
-        <span class="optional">[اختياري]</span>
-    </label>
-
-    <input
-        id="name"
-        type="text"
-        placeholder="اكتب اسمك إذا رغبت">
-
-
-    <button
-        type="button"
-        class="send"
-        onclick="submitRating()">
-
-        إرسال التقييم
-
-    </button>
-
-</main>
-
-
-<footer class="footer">
-
-    <strong>
-        الغامدي لإصلاح الجنوط
-    </strong>
-
-    العنوان الرئيسي:
-    جدة - كيلو١٤ الصناعية الجديدة
-
-    <br>
-
-    <a
-        class="home-button"
-        href="https://gh-rims.github.io/ghamdi-links/">
-
-        الصفحة الرئيسية
-
-    </a>
-
-</footer>
+<button type="button" class="star" data-star="5">★</button>
+<button type="button" class="star" data-star="4">★</button>
+<button type="button" class="star" data-star="3">★</button>
+<button type="button" class="star" data-star="2">★</button>
+<button type="button" class="star" data-star="1">★</button>
 
 </div>
 
-
-<!-- نافذة النجاح -->
-
-<div id="successMessage" class="message">
-
-    <div class="message-box">
-
-        <div class="message-icon">
-            ✓
-        </div>
-
-        <div class="message-title">
-            تم إرسال تقييمك
-        </div>
-
-        <div class="message-text">
-            شكرًا لك على مشاركتنا تجربتك.
-        </div>
-
-        <button
-            class="message-button"
-            onclick="closeSuccess()">
-
-            تم
-
-        </button>
-
-    </div>
-
+<div id="ratingText">
+اختر عدد النجوم
 </div>
 
 
-<!-- نافذة 5 نجوم -->
+<label>
+اكتب وصف تجربتك
+</label>
 
-<div id="fiveStarMessage" class="message">
+<textarea
+id="description"
+placeholder="اكتب وصف تجربتك [اختياري]"></textarea>
 
-    <div class="message-box">
 
-        <div class="message-icon">
-            ⭐
-        </div>
+<label>
+الاسم
+</label>
 
-        <div class="message-title">
-            شكرًا لتقييمك الرائع
-        </div>
+<input
+id="name"
+type="text"
+placeholder="اكتب اسمك [اختياري]">
 
-        <div class="message-text">
-            سيتم حفظ تقييمك أولًا، ثم يمكنك تقييمنا على Google.
-        </div>
 
-        <button
-            class="message-button"
-            onclick="continueFiveStar()">
+<button
+type="button"
+class="send"
+onclick="sendRating()">
 
-            الانتقال إلى تقييم Google
+إرسال التقييم
 
-        </button>
+</button>
 
-        <button
-            class="back"
-            onclick="cancelFiveStar()">
-
-            إلغاء
-
-        </button>
-
-    </div>
+<div id="message"></div>
 
 </div>
 
 
 <!--
-====================================================
-Google Forms
-الإرسال يتم عن طريق POST داخل iframe مخفي
-====================================================
+هذا الـ iframe يستقبل نتيجة Google Forms
+بدون مغادرة الصفحة
 -->
-
 <iframe
-    name="googleFormFrame"
-    style="display:none">
+name="googleFormFrame"
+style="display:none">
 </iframe>
 
 
 <script>
 
-/* ==================================================
-   Google Forms
-================================================== */
+/* =========================================
+   رابط استقبال Google Forms
+========================================= */
 
 const FORM_URL =
 "https://docs.google.com/forms/d/e/1FAIpQLScUi49Oi8q_kmRCy7MTBuuZRHkxit4FM7ZH263opaQ8Ip0aBg/formResponse";
 
 
-/* ==================================================
-   معرّفات الحقول التي تأكدنا منها من رابط
-   الملء المسبق الذي أرسلته
-================================================== */
+/* =========================================
+   معرفات حقول Google Forms
+========================================= */
 
 const ENTRY = {
 
@@ -584,106 +229,93 @@ const ENTRY = {
 };
 
 
-/* ==================================================
-   روابط Google
-================================================== */
+/* =========================================
+   التقييم الحالي
+========================================= */
 
-const GOOGLE_REVIEW = {
-
-    "جدة - كيلو١٤":
-    "https://g.page/r/CXc0Www1YSqAEBE/review",
-
-    "جدة - كيلو٣":
-    "https://g.page/r/CdPyT7yrq129EBE/review"
-
-};
+let rating = 0;
 
 
-/* ==================================================
-   المتغيرات
-================================================== */
-
-let selectedBranch = "";
-
-let selectedRating = 0;
-
-let fiveStarBranch = "";
-
-
-/* ==================================================
-   اختيار الفرع
-================================================== */
-
-function selectBranch(button,branch){
-
-    document
-    .querySelectorAll(".branch")
-    .forEach(item => {
-
-        item.classList.remove("selected");
-
-    });
-
-    button.classList.add("selected");
-
-    selectedBranch = branch;
-
-}
-
-
-/* ==================================================
+/* =========================================
    اختيار النجوم
-================================================== */
+========================================= */
 
-function selectRating(value){
+document
+.querySelectorAll(".star")
+.forEach(button => {
 
-    selectedRating = value;
+    button.addEventListener("click",function(){
 
-    document
-    .querySelectorAll(".star")
-    .forEach(star => {
+        rating =
+        Number(this.dataset.star);
 
-        const number =
-        Number(star.dataset.value);
+        document
+        .querySelectorAll(".star")
+        .forEach(star => {
 
-        star.classList.toggle(
-            "selected",
-            number <= value
-        );
+            const value =
+            Number(star.dataset.star);
+
+            star.classList.toggle(
+                "selected",
+                value <= rating
+            );
+
+        });
+
+
+        const text = {
+
+            1:"⭐ نجمة واحدة",
+
+            2:"⭐⭐ نجمتان",
+
+            3:"⭐⭐⭐ 3 نجوم",
+
+            4:"⭐⭐⭐⭐ 4 نجوم",
+
+            5:"⭐⭐⭐⭐⭐ 5 نجوم"
+
+        };
+
+        document
+        .getElementById("ratingText")
+        .textContent = text[rating];
 
     });
 
-
-    const labels = {
-
-        1:"⭐ نجمة واحدة",
-
-        2:"⭐⭐ نجمتان",
-
-        3:"⭐⭐⭐ 3 نجوم",
-
-        4:"⭐⭐⭐⭐ 4 نجوم",
-
-        5:"⭐⭐⭐⭐⭐ 5 نجوم"
-
-    };
+});
 
 
-    document
-    .getElementById("ratingText")
-    .textContent =
-    labels[value];
-
-}
-
-
-/* ==================================================
+/* =========================================
    إرسال التقييم
-================================================== */
+========================================= */
 
-function submitRating(){
+function sendRating(){
 
-    if(!selectedBranch){
+    const branch =
+    document
+    .getElementById("branch")
+    .value;
+
+
+    const description =
+    document
+    .getElementById("description")
+    .value
+    .trim();
+
+
+    const name =
+    document
+    .getElementById("name")
+    .value
+    .trim();
+
+
+    /* التحقق */
+
+    if(!branch){
 
         alert("فضلاً اختر الفرع.");
 
@@ -691,54 +323,40 @@ function submitRating(){
     }
 
 
-    if(!selectedRating){
+    if(!rating){
 
-        alert("فضلاً اختر تقييمك بالنجوم.");
+        alert("فضلاً اختر التقييم بالنجوم.");
 
         return;
     }
 
 
     /*
-       5 نجوم:
-       نعرض النافذة أولًا.
-       لا نرسل التقييم إلا بعد اختيار الفرع
-       من نافذة Google.
+       إنشاء Form حقيقي
+       وإرساله مباشرة إلى Google Forms
     */
-
-    if(selectedRating === 5){
-
-        document
-        .getElementById("fiveStarMessage")
-        .classList.add("show");
-
-        return;
-    }
-
-
-    sendRating();
-
-}
-
-
-/* ==================================================
-   إرسال البيانات إلى Google Forms
-================================================== */
-
-function sendRating(){
 
     const form =
     document.createElement("form");
 
 
-    form.method = "POST";
+    form.method =
+    "POST";
 
-    form.action = FORM_URL;
 
-    form.target = "googleFormFrame";
+    form.action =
+    FORM_URL;
 
-    form.style.display = "none";
 
+    form.target =
+    "googleFormFrame";
+
+
+    form.style.display =
+    "none";
+
+
+    /* نوع الرسالة */
 
     addField(
         form,
@@ -747,162 +365,93 @@ function sendRating(){
     );
 
 
+    /* الفرع */
+
     addField(
         form,
         ENTRY.branch,
-        selectedBranch
+        branch
     );
 
+
+    /* التقييم */
 
     addField(
         form,
         ENTRY.rating,
-        "⭐".repeat(selectedRating)
+        "⭐".repeat(rating)
     );
 
+
+    /* الوصف */
 
     addField(
         form,
         ENTRY.description,
-        document
-        .getElementById("description")
-        .value
-        .trim()
+        description
     );
 
+
+    /* الاسم */
 
     addField(
         form,
         ENTRY.name,
-        document
-        .getElementById("name")
-        .value
-        .trim()
+        name
     );
 
 
     document.body.appendChild(form);
 
 
+    /*
+       إرسال النموذج
+    */
+
     form.submit();
 
 
     /*
-       ننتظر قليلًا حتى يتم إرسال POST
-       ثم نمسح البيانات.
+       حذف النموذج بعد الإرسال
     */
 
-    setTimeout(() => {
+    setTimeout(function(){
 
         form.remove();
 
-        clearForm();
-
-        showSuccess();
-
     },1000);
 
-}
 
+    /*
+       رسالة للمستخدم
+    */
 
-/* ==================================================
-   إنشاء حقل مخفي
-================================================== */
-
-function addField(form,name,value){
-
-    const input =
-    document.createElement("input");
-
-    input.type = "hidden";
-
-    input.name = name;
-
-    input.value = value ?? "";
-
-    form.appendChild(input);
-
-}
-
-
-/* ==================================================
-   اختيار Google بعد 5 نجوم
-================================================== */
-
-function continueFiveStar(){
-
-    fiveStarBranch =
-    selectedBranch;
-
-
-    sendRating();
+    document
+    .getElementById("message")
+    .textContent =
+    "✓ تم إرسال التقييم بنجاح";
 
 
     /*
-       ننتظر إرسال البيانات قبل فتح Google.
+       تنظيف المدخلات
     */
-
-    setTimeout(() => {
-
-        document
-        .getElementById("fiveStarMessage")
-        .classList.remove("show");
-
-
-        if(GOOGLE_REVIEW[fiveStarBranch]){
-
-            window.location.href =
-            GOOGLE_REVIEW[fiveStarBranch];
-
-        }else{
-
-            showSuccess();
-
-        }
-
-    },1200);
-
-}
-
-
-/* ==================================================
-   إلغاء نافذة 5 نجوم
-================================================== */
-
-function cancelFiveStar(){
 
     document
-    .getElementById("fiveStarMessage")
-    .classList.remove("show");
-
-    /*
-       لا توجد بيانات مرسلة حتى الآن،
-       لذلك لا نحتاج لإرسال شيء.
-    */
-
-    clearForm();
-
-}
-
-
-/* ==================================================
-   مسح البيانات
-================================================== */
-
-function clearForm(){
-
-    selectedBranch = "";
-
-    selectedRating = 0;
-
-    fiveStarBranch = "";
+    .getElementById("branch")
+    .value = "";
 
 
     document
-    .querySelectorAll(".branch")
-    .forEach(button =>
-        button.classList.remove("selected")
-    );
+    .getElementById("description")
+    .value = "";
+
+
+    document
+    .getElementById("name")
+    .value = "";
+
+
+    rating = 0;
 
 
     document
@@ -917,37 +466,28 @@ function clearForm(){
     .textContent =
     "اختر عدد النجوم";
 
-
-    document
-    .getElementById("description")
-    .value = "";
-
-
-    document
-    .getElementById("name")
-    .value = "";
-
 }
 
 
-/* ==================================================
-   نافذة النجاح
-================================================== */
+/* =========================================
+   إنشاء حقل مخفي
+========================================= */
 
-function showSuccess(){
+function addField(form,name,value){
 
-    document
-    .getElementById("successMessage")
-    .classList.add("show");
+    const input =
+    document.createElement("input");
 
-}
+    input.type =
+    "hidden";
 
+    input.name =
+    name;
 
-function closeSuccess(){
+    input.value =
+    value ?? "";
 
-    document
-    .getElementById("successMessage")
-    .classList.remove("show");
+    form.appendChild(input);
 
 }
 
