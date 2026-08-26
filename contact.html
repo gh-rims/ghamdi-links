@@ -24,17 +24,52 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
 
-        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 1rem; text-align: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 0.75rem 1rem; text-align: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
         .header-container { max-width: 600px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; }
         
         .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; flex: 1; }
-        .logo { max-height: 55px; width: auto; object-fit: contain; }
-        header h1 { font-size: 1.15rem; font-weight: 800; }
+        .logo { max-height: 50px; width: auto; object-fit: contain; }
+        header h1 { font-size: 1.1rem; font-weight: 800; color: var(--dark); }
 
-        /* زر العودة وزر المشاركة في الهيدر */
-        .header-btn { background: var(--light-bg); border: 1px solid var(--border); color: var(--dark); padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; transition: 0.2s; text-decoration: none; }
-        .header-btn:hover { border-color: var(--primary); color: var(--primary); }
-        .back-btn-header { display: none; } /* مخفي بالرئيسية ويظهر بالصفحات الأخرى */
+        /* تنسيق زر المشاركة الدائري المطابق لصفحة C */
+        .share-btn-c {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            transition: 0.2s;
+            box-shadow: var(--shadow);
+        }
+        .share-btn-c:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* زر العودة مع سهم (مطابق لهوية الصفحة) */
+        .header-back-btn {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            color: var(--dark);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none; /* مخفي في الرئيسية ويظهر في باقي الصفحات */
+            align-items: center;
+            gap: 0.3rem;
+            transition: 0.2s;
+        }
+        .header-back-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
 
         main { flex: 1; max-width: 600px; width: 100%; margin: 0 auto; padding: 1.5rem 1rem; }
         .card { background-color: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; border: 1px solid var(--border); }
@@ -81,21 +116,22 @@
         .modal-card { background: var(--white); border-radius: var(--radius); width: 100%; max-width: 420px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
         .modal-icon { font-size: 3rem; margin-bottom: 1rem; }
 
-        footer { background: var(--white); border-top: 1px solid var(--border); padding: 2rem 1rem; text-align: center; margin-top: auto; }
+        /* الفوتر بلون كحلي موحد مع الصفحة C */
+        footer { background: var(--navy); color: var(--white); border-top: 1px solid var(--border); padding: 2rem 1rem; text-align: center; margin-top: auto; }
         .footer-content { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
-        .footer-link-btn { display: inline-block; background-color: var(--navy); color: var(--white); padding: 0.65rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-bottom: 1rem; transition: 0.2s; }
-        .footer-link-btn:hover { background-color: var(--primary); }
-        .footer-title { font-weight: 800; font-size: 1.05rem; }
-        .footer-address { color: var(--gray-text); font-size: 0.9rem; }
+        .footer-link-btn { display: inline-block; background-color: var(--white); color: var(--navy); padding: 0.65rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-bottom: 1rem; transition: 0.2s; box-shadow: var(--shadow); }
+        .footer-link-btn:hover { background-color: var(--primary-light); color: var(--primary-dark); }
+        .footer-title { font-weight: 800; font-size: 1.05rem; color: var(--white); }
+        .footer-address { color: #d1d5db; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <!-- زر العودة أعلى اليسار (يظهر داخل الأقسام) -->
-            <button class="header-btn back-btn-header" id="back-header-btn" onclick="switchView('home-view')">
-                ← الرئيسية
+            <!-- زر العودة مع سهم في أعلى اليمين -->
+            <button class="header-back-btn" id="header-back-btn" onclick="switchView('home-view')">
+                العودة ➔
             </button>
             
             <div class="logo-container">
@@ -103,9 +139,9 @@
                 <h1>الغامدي لإصلاح الجنوط</h1>
             </div>
 
-            <!-- زر مشاركة الصفحة أعلى اليمين -->
-            <button class="header-btn" onclick="sharePage()">
-                🔗 مشاركة
+            <!-- زر المشاركة في أعلى اليسار (مطابق لصفحة C) -->
+            <button class="share-btn-c" onclick="sharePage()" title="مشاركة الصفحة">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
             </button>
         </div>
     </header>
@@ -270,7 +306,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // إظهار أو إخفاء زر العودة في الهيدر حسب الصفحة
-            const backBtn = document.getElementById('back-header-btn');
+            const backBtn = document.getElementById('header-back-btn');
             if (id === 'home-view') {
                 backBtn.style.display = 'none';
                 resetAll();
@@ -378,7 +414,6 @@
             switchView('home-view');
         }
 
-        // دالة مشاركة الصفحة عبر متصفح الجوال أو نسخ الرابط
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
