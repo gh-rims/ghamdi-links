@@ -4,639 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الغامدي لإصلاح الجنوط - آراء العملاء</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #f97316;
             --primary-dark: #ea580c;
             --primary-light: #ffedd5;
             --dark: #111827;
+            --navy: #1e3a8a;
             --gray-text: #4b5563;
             --light-bg: #f9fafb;
             --white: #ffffff;
             --border: #e5e7eb;
             --danger: #ef4444;
-            --success: #22c55e;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --radius: 12px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.6;
-        }
+        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 1.25rem 1rem; text-align: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .logo { max-height: 70px; width: auto; object-fit: contain; }
+        header h1 { font-size: 1.25rem; font-weight: 800; }
 
-        header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border);
-            padding: 1.25rem 1rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        main { flex: 1; max-width: 600px; width: 100%; margin: 0 auto; padding: 1.5rem 1rem; }
+        .card { background-color: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; border: 1px solid var(--border); }
+        .view { display: none; }
+        .view.active { display: block; }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
+        .hero-title { text-align: center; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .hero-desc { text-align: center; color: var(--gray-text); font-size: 0.95rem; margin-bottom: 2rem; }
 
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
+        .menu-buttons { display: flex; flex-direction: column; gap: 1rem; }
+        .btn-menu { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: var(--white); color: var(--dark); border: 2px solid var(--border); padding: 1rem; border-radius: var(--radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; transition: 0.2s; }
+        .btn-menu:hover { border-color: var(--primary); background-color: var(--primary-light); color: var(--primary-dark); }
 
-        header h1 {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--dark);
-        }
+        .btn-primary { background-color: var(--primary); color: var(--white); border: none; padding: 0.85rem 1.5rem; border-radius: var(--radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; transition: 0.2s; }
+        .btn-primary:hover { background-color: var(--primary-dark); }
 
-        main {
-            flex: 1;
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
+        .btn-back { background: none; border: none; color: var(--gray-text); font-size: 1rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; }
+        .btn-back:hover { color: var(--primary); }
 
-        .card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
-        }
+        .section-header { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.5rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .required { color: var(--danger); }
 
-        .view {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
+        .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
+        .option-btn { background: var(--white); border: 1px solid var(--border); padding: 0.75rem 0.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; }
+        .option-btn.selected { background-color: var(--primary); color: var(--white); border-color: var(--primary); }
 
-        .view.active {
-            display: block;
-        }
+        .stars-container { display: flex; justify-content: center; gap: 0.5rem; font-size: 2.2rem; margin: 0.5rem 0; direction: ltr; }
+        .star { cursor: pointer; color: #d1d5db; transition: 0.1s; }
+        .star:hover, .star.active { color: #fbbf24; transform: scale(1.1); }
+        .rating-desc { text-align: center; font-weight: 700; color: var(--primary); min-height: 1.5rem; margin-bottom: 1rem; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        input, select, textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: 'Cairo', sans-serif; font-size: 1rem; background: var(--white); }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15); }
+        textarea { resize: vertical; min-height: 100px; }
 
-        .hero-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
+        .error-msg { color: var(--danger); font-size: 0.85rem; margin-top: 0.35rem; display: none; }
+        .form-group.error input, .form-group.error textarea, .form-group.error select { border-color: var(--danger); }
+        .form-group.error .error-msg { display: block; }
 
-        .hero-desc {
-            text-align: center;
-            color: var(--gray-text);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: 0.3s; padding: 1rem; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-card { background: var(--white); border-radius: var(--radius); width: 100%; max-width: 420px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .modal-icon { font-size: 3rem; margin-bottom: 1rem; }
 
-        .menu-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .btn-menu {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            background-color: var(--white);
-            color: var(--dark);
-            border: 2px solid var(--border);
-            padding: 1rem;
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow);
-            width: 100%;
-        }
-
-        .btn-menu:hover {
-            border-color: var(--primary);
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.85rem 1.5rem;
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
-
-        .btn-back {
-            background: none;
-            border: none;
-            color: var(--gray-text);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.25rem;
-            padding: 0.25rem 0;
-            transition: color 0.2s;
-        }
-
-        .btn-back:hover {
-            color: var(--primary);
-        }
-
-        .section-header {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .form-label .required {
-            color: var(--danger);
-            margin-right: 3px;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-        }
-
-        @media (max-width: 480px) {
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .option-btn {
-            background-color: var(--white);
-            border: 1px solid var(--border);
-            padding: 0.75rem 0.5rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-            color: var(--dark);
-        }
-
-        .option-btn:hover {
-            border-color: var(--primary);
-        }
-
-        .option-btn.selected {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-            box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
-        }
-
-        .stars-container {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            font-size: 2.2rem;
-            margin: 0.5rem 0;
-            direction: ltr;
-        }
-
-        .star {
-            cursor: pointer;
-            color: #d1d5db;
-            transition: transform 0.1s, color 0.1s;
-        }
-
-        .star:hover, .star.active {
-            color: #fbbf24;
-            transform: scale(1.1);
-        }
-
-        .rating-desc {
-            text-align: center;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.05rem;
-            min-height: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 1rem;
-            background-color: var(--white);
-            color: var(--dark);
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .select-wrapper {
-            position: relative;
-        }
-
-        .error-msg {
-            color: var(--danger);
-            font-size: 0.85rem;
-            margin-top: 0.35rem;
-            display: none;
-        }
-
-        .form-group.error input,
-        .form-group.error textarea,
-        .form-group.error select {
-            border-color: var(--danger);
-        }
-
-        .form-group.error .error-msg {
-            display: block;
-        }
-
-        /* Modal styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            padding: 1rem;
-        }
-
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            width: 100%;
-            max-width: 420px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transform: scale(0.9);
-            transition: transform 0.3s;
-        }
-
-        .modal-overlay.show .modal-card {
-            transform: scale(1);
-        }
-
-        .modal-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-
-        .modal-desc {
-            color: var(--gray-text);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--border);
-            padding: 1.5rem 1rem;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .footer-title {
-            font-weight: 800;
-            font-size: 1.05rem;
-            color: var(--dark);
-        }
-
-        .footer-address {
-            color: var(--gray-text);
-            font-size: 0.9rem;
-        }
-
-        .footer-link-btn {
-            display: inline-block;
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 0.5rem 1.25rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-            margin-top: 0.25rem;
-        }
-
-        .footer-link-btn:hover {
-            background-color: var(--primary);
-        }
+        footer { background: var(--white); border-top: 1px solid var(--border); padding: 2rem 1rem; text-align: center; margin-top: auto; }
+        .footer-content { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+        .footer-link-btn { display: inline-block; background-color: var(--navy); color: var(--white); padding: 0.65rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin-bottom: 1rem; transition: 0.2s; }
+        .footer-link-btn:hover { background-color: var(--primary); }
+        .footer-title { font-weight: 800; font-size: 1.05rem; }
+        .footer-address { color: var(--gray-text); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo-container">
-            <img src="Ligo.jpg" alt="شعار الغامدي لإصلاح الجنوط" class="logo" onerror="this.style.display='none'">
+            <img src="Ligo.jpg" alt="شعار الغامدي" class="logo" onerror="this.style.display='none'">
             <h1>الغامدي لإصلاح الجنوط</h1>
         </div>
     </header>
 
     <main>
-        <!-- الصفحة الرئيسية -->
+        <!-- الرئيسية -->
         <section id="home-view" class="view active">
             <div class="card">
                 <h2 class="hero-title">شاركنا رأيك</h2>
                 <p class="hero-desc">تقييمك واقتراحك وملاحظتك تساعدنا على تقديم خدمة أفضل</p>
-                
                 <div class="menu-buttons">
-                    <button class="btn-menu" onclick="switchView('rating-view')">
-                        <span style="font-size: 1.4rem;">⭐</span> تقييم تجربتك
-                    </button>
-                    <button class="btn-menu" onclick="switchView('suggestion-view')">
-                        <span style="font-size: 1.4rem;">💡</span> لديك اقتراح؟
-                    </button>
-                    <button class="btn-menu" onclick="switchView('complaint-view')">
-                        <span style="font-size: 1.4rem;">⚠️</span> لديك شكوى؟
-                    </button>
+                    <button class="btn-menu" onclick="switchView('rating-view')">⭐ تقييم تجربتك</button>
+                    <button class="btn-menu" onclick="switchView('suggestion-view')">💡 لديك اقتراح؟</button>
+                    <button class="btn-menu" onclick="switchView('complaint-view')">⚠️ لديك شكوى؟</button>
                 </div>
             </div>
         </section>
 
-        <!-- قسم التقييم -->
+        <!-- التقييم -->
         <section id="rating-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">
-                ← العودة
-            </button>
+            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
                 <h2 class="section-header">⭐ تقييم تجربتك</h2>
-                
-                <form id="rating-form" onsubmit="handleRatingSubmit(event)">
+                <form id="rating-form" onsubmit="handleFormSubmit(event, 'rating')">
                     <div class="form-group" id="rating-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
-                        <div class="options-grid" id="rating-branches">
-                            <button type="button" class="option-btn" onclick="selectOption('rating-branch', 'جدة - كيلو١٤', this)">جدة - كيلو١٤</button>
-                            <button type="button" class="option-btn" onclick="selectOption('rating-branch', 'جدة - كيلو٣', this)">جدة - كيلو٣</button>
-                            <button type="button" class="option-btn" onclick="selectOption('rating-branch', 'جميع الفروع', this)">جميع الفروع</button>
+                        <div class="options-grid">
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'rating', 'جدة - كيلو١٤')">جدة - كيلو١٤</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'rating', 'جدة - كيلو٣')">جدة - كيلو٣</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'rating', 'جميع الفروع')">جميع الفروع</button>
                         </div>
                         <div class="error-msg">الرجاء اختيار الفرع</div>
                     </div>
-
                     <div class="form-group" id="rating-stars-group">
                         <label class="form-label"><span class="required">*</span> كيف تقيّم تجربتك؟</label>
                         <div class="stars-container">
-                            <span class="star" onclick="setRating(1)" onmouseover="hoverRating(1)" onmouseout="resetHover()">★</span>
-                            <span class="star" onclick="setRating(2)" onmouseover="hoverRating(2)" onmouseout="resetHover()">★</span>
-                            <span class="star" onclick="setRating(3)" onmouseover="hoverRating(3)" onmouseout="resetHover()">★</span>
-                            <span class="star" onclick="setRating(4)" onmouseover="hoverRating(4)" onmouseout="resetHover()">★</span>
-                            <span class="star" onclick="setRating(5)" onmouseover="hoverRating(5)" onmouseout="resetHover()">★</span>
+                            <span class="star" onclick="setRating(1)">★</span><span class="star" onclick="setRating(2)">★</span><span class="star" onclick="setRating(3)">★</span><span class="star" onclick="setRating(4)">★</span><span class="star" onclick="setRating(5)">★</span>
                         </div>
                         <div class="rating-desc" id="rating-desc-text"></div>
                         <div class="error-msg" style="text-align: center;">الرجاء تحديد التقييم بالنجوم</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="rating-desc">اكتب وصف تجربتك <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <textarea id="rating-desc" placeholder="اكتب تفاصيل تجربتك معنا..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="rating-name">الاسم <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="text" id="rating-name" placeholder="اسمك الكريم">
-                    </div>
-
+                    <div class="form-group"><label class="form-label">وصف التجربة (اختياري)</label><textarea id="rating-desc" placeholder="تفاصيل تجربتك..."></textarea></div>
+                    <div class="form-group"><label class="form-label">الاسم (اختياري)</label><input type="text" id="rating-name" placeholder="اسمك الكريم"></div>
                     <button type="submit" class="btn-primary">إرسال التقييم</button>
                 </form>
             </div>
         </section>
 
-        <!-- قسم الاقتراح -->
+        <!-- الاقتراح -->
         <section id="suggestion-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">
-                ← العودة
-            </button>
+            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
                 <h2 class="section-header">💡 اقتراح</h2>
-                
-                <form id="suggestion-form" onsubmit="handleSuggestionSubmit(event)">
+                <form onsubmit="handleFormSubmit(event, 'suggestion')">
                     <div class="form-group" id="sug-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
-                        <div class="options-grid" id="sug-branches">
-                            <button type="button" class="option-btn" onclick="selectOption('sug-branch', 'جدة - كيلو١٤', this)">جدة - كيلو١٤</button>
-                            <button type="button" class="option-btn" onclick="selectOption('sug-branch', 'جدة - كيلو٣', this)">جدة - كيلو٣</button>
-                            <button type="button" class="option-btn" onclick="selectOption('sug-branch', 'جميع الفروع', this)">جميع الفروع</button>
+                        <div class="options-grid">
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'suggestion', 'جدة - كيلو١٤')">جدة - كيلو١٤</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'suggestion', 'جدة - كيلو٣')">جدة - كيلو٣</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'suggestion', 'جميع الفروع')">جميع الفروع</button>
                         </div>
                         <div class="error-msg">الرجاء اختيار الفرع</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sug-type">نوع الاقتراح <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <div class="select-wrapper">
-                            <select id="sug-type">
-                                <option value="">اختر نوع الاقتراح (اختياري)</option>
-                                <option value="خدمة جديدة">خدمة جديدة</option>
-                                <option value="تطوير خدمة موجودة">تطوير خدمة موجودة</option>
-                                <option value="سرعة الإنجاز والمواعيد">سرعة الإنجاز والمواعيد</option>
-                                <option value="الأسعار والعروض">الأسعار والعروض</option>
-                                <option value="أسلوب تعامل الموظفين">أسلوب تعامل الموظفين</option>
-                                <option value="خدمة العملاء">خدمة العملاء</option>
-                                <option value="اقتراح آخر">اقتراح آخر</option>
-                            </select>
-                        </div>
+                    <div class="form-group"><label class="form-label">نوع الاقتراح</label>
+                        <select id="sug-type"><option value="">اختر النوع</option><option value="خدمة جديدة">خدمة جديدة</option><option value="تطوير خدمة">تطوير خدمة</option><option value="الأسعار">الأسعار</option><option value="أخرى">أخرى</option></select>
                     </div>
-
                     <div class="form-group" id="sug-text-group">
-                        <label class="form-label" for="sug-content"><span class="required">*</span> اكتب اقتراحك</label>
-                        <textarea id="sug-content" placeholder="شاركنا اقتراحك لتطوير خدماتنا..."></textarea>
+                        <label class="form-label"><span class="required">*</span> اكتب اقتراحك</label>
+                        <textarea id="sug-content" placeholder="اقتراحك لتطوير خدماتنا..."></textarea>
                         <div class="error-msg">الرجاء كتابة الاقتراح</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sug-name">الاسم <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="text" id="sug-name" placeholder="اسمك الكريم">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sug-phone">رقم الجوال <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="tel" id="sug-phone" placeholder="05xxxxxxxx" dir="ltr" style="text-align: right;">
-                    </div>
-
+                    <div class="form-group"><label class="form-label">الاسم (اختياري)</label><input type="text" id="sug-name" placeholder="اسمك"></div>
+                    <div class="form-group"><label class="form-label">رقم الجوال (اختياري)</label><input type="tel" id="sug-phone" placeholder="05xxxxxxxx" dir="ltr"></div>
                     <button type="submit" class="btn-primary">إرسال الاقتراح</button>
                 </form>
             </div>
         </section>
 
-        <!-- قسم الشكوى -->
+        <!-- الشكوى -->
         <section id="complaint-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">
-                ← العودة
-            </button>
+            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
                 <h2 class="section-header">⚠️ شكوى</h2>
-                
-                <form id="complaint-form" onsubmit="handleComplaintSubmit(event)">
+                <form onsubmit="handleFormSubmit(event, 'complaint')">
                     <div class="form-group" id="comp-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
-                        <div class="options-grid" id="comp-branches">
-                            <button type="button" class="option-btn" onclick="selectOption('comp-branch', 'جدة - كيلو١٤', this)">جدة - كيلو١٤</button>
-                            <button type="button" class="option-btn" onclick="selectOption('comp-branch', 'جدة - كيلو٣', this)">جدة - كيلو٣</button>
-                            <button type="button" class="option-btn" onclick="selectOption('comp-branch', 'جميع الفروع', this)">جميع الفروع</button>
+                        <div class="options-grid">
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'complaint', 'جدة - كيلو١٤')">جدة - كيلو١٤</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'complaint', 'جدة - كيلو٣')">جدة - كيلو٣</button>
+                            <button type="button" class="option-btn" onclick="selectBranch(this, 'complaint', 'جميع الفروع')">جميع الفروع</button>
                         </div>
                         <div class="error-msg">الرجاء اختيار الفرع</div>
                     </div>
-
                     <div class="form-group" id="comp-type-group">
-                        <label class="form-label" for="comp-type"><span class="required">*</span> اختر نوع الشكوى</label>
-                        <div class="select-wrapper">
-                            <select id="comp-type">
-                                <option value="">اختر نوع الشكوى</option>
-                                <option value="جودة العمل">جودة العمل</option>
-                                <option value="مشكلة في الجنوط بعد الإصلاح">مشكلة في الجنوط بعد الإصلاح</option>
-                                <option value="التأخير في الإنجاز والمواعيد">التأخير في الإنجاز والمواعيد</option>
-                                <option value="الأسعار أو الفاتورة">الأسعار أو الفاتورة</option>
-                                <option value="أسلوب تعامل الموظفين">أسلوب تعامل الموظفين</option>
-                                <option value="خدمة العملاء">خدمة العملاء</option>
-                                <option value="شكوى أخرى">شكوى أخرى</option>
-                            </select>
-                        </div>
+                        <label class="form-label"><span class="required">*</span> نوع الشكوى</label>
+                        <select id="comp-type"><option value="">اختر النوع</option><option value="جودة العمل">جودة العمل</option><option value="التأخير">التأخير</option><option value="الأسعار">الأسعار</option><option value="أخرى">أخرى</option></select>
                         <div class="error-msg">الرجاء اختيار نوع الشكوى</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="comp-name">الاسم <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="text" id="comp-name" placeholder="اسمك الكريم">
-                    </div>
-
+                    <div class="form-group"><label class="form-label">الاسم (اختياري)</label><input type="text" id="comp-name" placeholder="اسمك"></div>
                     <div class="form-group" id="comp-phone-group">
-                        <label class="form-label" for="comp-phone"><span class="required">*</span> رقم الجوال</label>
-                        <input type="tel" id="comp-phone" placeholder="0500000000" dir="ltr" style="text-align: right;" maxlength="10">
-                        <div class="error-msg">الرجاء إدخال رقم جوال صحيح يتكون من 10 أرقام ويبدأ بـ 05 (مثال: 0500000000)</div>
+                        <label class="form-label"><span class="required">*</span> رقم الجوال</label>
+                        <input type="tel" id="comp-phone" placeholder="05xxxxxxxx" dir="ltr" maxlength="10">
+                        <div class="error-msg">رقم جوال غير صحيح (10 أرقام يبدأ بـ 05)</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="comp-date">تاريخ الشكوى <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="date" id="comp-date">
-                    </div>
-
+                    <div class="form-group"><label class="form-label">التاريخ</label><input type="date" id="comp-date"></div>
                     <div class="form-group" id="comp-desc-group">
-                        <label class="form-label" for="comp-content"><span class="required">*</span> وصف الشكوى</label>
-                        <textarea id="comp-content" placeholder="اشرح لنا المشكلة بالتفصيل لنتمكن من خدمتك..."></textarea>
-                        <div class="error-msg">الرجاء كتابة وصف الشكوى</div>
+                        <label class="form-label"><span class="required">*</span> وصف الشكوى</label>
+                        <textarea id="comp-content" placeholder="تفاصيل المشكلة..."></textarea>
+                        <div class="error-msg">الرجاء وصف المشكلة</div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="comp-invoice">رقم الفاتورة <span style="color: var(--gray-text); font-weight: normal; font-size: 0.85rem;">(اختياري)</span></label>
-                        <input type="text" id="comp-invoice" placeholder="رقم الفاتورة إن وجد">
-                    </div>
-
+                    <div class="form-group"><label class="form-label">رقم الفاتورة (اختياري)</label><input type="text" id="comp-invoice"></div>
                     <button type="submit" class="btn-primary">إرسال الشكوى</button>
                 </form>
             </div>
@@ -645,371 +207,140 @@
 
     <footer>
         <div class="footer-content">
+            <a href="https://gh-rims.github.io/ghamdi-links/" class="footer-link-btn" target="_blank">الصفحة الرئيسية</a>
             <div class="footer-title">الغامدي لإصلاح الجنوط</div>
             <div class="footer-address">جدة - كيلو١٤ الصناعية الجديدة</div>
-            <a href="https://gh-rims.github.io/ghamdi-links/" class="footer-link-btn" target="_blank">الصفحة الرئيسية</a>
         </div>
     </footer>
 
-    <!-- نافذة منبثقة لتقييم 5 نجوم (Google Review) -->
+    <!-- نافذة تقييم 5 نجوم -->
     <div class="modal-overlay" id="google-review-modal">
         <div class="modal-card">
             <div class="modal-icon">⭐</div>
-            <h3 class="modal-title">شكرًا لتقييمك الرائع</h3>
-            <p class="modal-desc">اختر الفرع الذي قمت بزيارته للانتقال إلى تقييم Google.<br><span style="font-size: 0.85rem; color: var(--primary);">تم نسخ وصف تجربتك تلقائياً لتتمكن من لصقه هناك.</span></p>
-            <div class="modal-buttons">
-                <button class="btn-primary" onclick="submitGoogleReviewBranch('kilowatt14')">📍 جدة - كيلو١٤</button>
-                <button class="btn-primary" onclick="submitGoogleReviewBranch('kilowatt3')">📍 جدة - كيلو٣</button>
-                <button class="btn-menu" onclick="closeGoogleReviewModal()" style="border-color: var(--border); background-color: var(--light-bg);">إلغاء</button>
+            <h3 style="margin-bottom:0.75rem; font-weight:800;">شكرًا لتقييمك الرائع</h3>
+            <p style="color:var(--gray-text); font-size:0.9rem; margin-bottom:1.5rem;">اختر الفرع للانتقال لتقييم Google (تم نسخ تعليقك تلقائياً).</p>
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <button class="btn-primary" onclick="submitGoogleReview('kilowatt14')">📍 جدة - كيلو١٤</button>
+                <button class="btn-primary" onclick="submitGoogleReview('kilowatt3')">📍 جدة - كيلو٣</button>
+                <button class="btn-menu" onclick="closeModalWithSave()">إلغاء</button>
             </div>
         </div>
     </div>
 
-    <!-- نافذة نجاح الإرسال العامة -->
+    <!-- نافذة النجاح العامة -->
     <div class="modal-overlay" id="success-modal">
         <div class="modal-card">
             <div class="modal-icon">🎉</div>
-            <h3 class="modal-title" id="success-modal-title">تم الإرسال بنجاح</h3>
-            <p class="modal-desc" id="success-modal-desc">شكرًا لك، تم استلام مشاركتك بنجاح وحرصاً منا على تقديم الأفضل سنقوم بمراجعتها في أقرب وقت.</p>
-            <button class="btn-primary" onclick="closeSuccessModal()">تم</button>
+            <h3 id="success-title" style="margin-bottom:0.75rem; font-weight:800;">تم الإرسال بنجاح</h3>
+            <p id="success-desc" style="color:var(--gray-text); font-size:0.9rem; margin-bottom:1.5rem;"></p>
+            <button class="btn-primary" onclick="resetAll()">تم</button>
         </div>
     </div>
 
     <script>
-        // رابط تطبيق الويب الخاص بـ Apps Script لجدول بياناتك
         const FORM_URL = "https://script.google.com/macros/s/AKfycbwM-mXsDvfivbEj6SZGAVXA5vPEFCHWzd2Z642u2ekZygOq2R-ABaE2UBrUDqyIFzkO/exec";
+        let state = { branch: { rating: "", suggestion: "", complaint: "" }, stars: 0 };
+        const descMap = { 1: "غير راضٍ", 2: "بحاجة إلى تحسين", 3: "جيد", 4: "جيد جدًا", 5: "ممتاز" };
 
-        // حالة البيانات المؤقتة
-        let formDataState = {
-            rating: {
-                branch: "",
-                stars: 0,
-                desc: "",
-                name: ""
-            },
-            suggestion: {
-                branch: "",
-                type: "",
-                content: "",
-                name: "",
-                phone: ""
-            },
-            complaint: {
-                branch: "",
-                type: "",
-                name: "",
-                phone: "",
-                date: "",
-                content: "",
-                invoice: ""
-            }
-        };
-
-        const ratingDescriptions = {
-            1: "غير راضٍ",
-            2: "بحاجة إلى تحسين",
-            3: "جيد",
-            4: "جيد جدًا",
-            5: "ممتاز"
-        };
-
-        // التنقل بين الأقسام
-        function switchView(viewId) {
+        function switchView(id) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
+            document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (viewId === 'home-view') {
-                resetAllForms();
-            }
+            if (id === 'home-view') resetAll();
         }
 
-        // اختيار الأزرار (الفروع)
-        function selectOption(groupName, value, element) {
-            const parent = element.parentElement;
-            parent.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
-            element.classList.add('selected');
-            
-            parent.closest('.form-group').classList.remove('error');
-
-            if (groupName.startsWith('rating')) {
-                formDataState.rating.branch = value;
-            } else if (groupName.startsWith('sug')) {
-                formDataState.suggestion.branch = value;
-            } else if (groupName.startsWith('comp')) {
-                formDataState.complaint.branch = value;
-            }
+        function selectBranch(btn, type, val) {
+            btn.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            state.branch[type] = val;
+            btn.closest('.form-group').classList.remove('error');
         }
 
-        // التعامل مع النجوم
         function setRating(score) {
-            formDataState.rating.stars = score;
-            const stars = document.querySelectorAll('.stars-container .star');
-            stars.forEach((star, index) => {
-                if (index < score) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-            document.getElementById('rating-desc-text').textContent = ratingDescriptions[score] || "";
+            state.stars = score;
+            document.querySelectorAll('.stars-container .star').forEach((s, i) => s.classList.toggle('active', i < score));
+            document.getElementById('rating-desc-text').textContent = descMap[score] || "";
             document.getElementById('rating-stars-group').classList.remove('error');
         }
 
-        function hoverRating(score) {
-            const stars = document.querySelectorAll('.stars-container .star');
-            stars.forEach((star, index) => {
-                if (index < score) {
-                    star.style.color = '#fbbf24';
-                } else {
-                    star.style.color = '#d1d5db';
-                }
-            });
-            document.getElementById('rating-desc-text').textContent = ratingDescriptions[score] || "";
+        function sendData(payload) {
+            fetch(FORM_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(payload) });
         }
 
-        function resetHover() {
-            const currentScore = formDataState.rating.stars;
-            const stars = document.querySelectorAll('.stars-container .star');
-            stars.forEach((star, index) => {
-                if (index < currentScore) {
-                    star.style.color = '#fbbf24';
-                    star.classList.add('active');
-                } else {
-                    star.style.color = '#d1d5db';
-                    star.classList.remove('active');
-                }
-            });
-            document.getElementById('rating-desc-text').textContent = currentScore > 0 ? ratingDescriptions[currentScore] : "";
-        }
-
-        // دالة إرسال البيانات المباشرة إلى Google Sheets عبر Apps Script Web App
-        function sendToGoogleForms(data) {
-            fetch(FORM_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: new URLSearchParams(data)
-            }).then(() => {
-                console.log("تم إرسال البيانات بنجاح إلى جدول الشيت");
-            }).catch(error => {
-                console.error("خطأ في الإرسال:", error);
-            });
-        }
-
-        // معالجة إرسال التقييم
-        function handleRatingSubmit(event) {
-            event.preventDefault();
-            
-            const branch = formDataState.rating.branch;
-            const stars = formDataState.rating.stars;
-            const desc = document.getElementById('rating-desc').value.trim();
-            const name = document.getElementById('rating-name').value.trim();
-
-            formDataState.rating.desc = desc;
-            formDataState.rating.name = name;
-
+        function handleFormSubmit(e, type) {
+            e.preventDefault();
+            const branch = state.branch[type];
             let isValid = true;
 
-            if (!branch) {
-                document.getElementById('rating-branch-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('rating-branch-group').classList.remove('error');
-            }
-
-            if (!stars || stars === 0) {
-                document.getElementById('rating-stars-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('rating-stars-group').classList.remove('error');
-            }
-
-            if (!isValid) return;
-
-            const starsString = "⭐".repeat(stars);
-
-            if (stars === 5) {
-                document.getElementById('google-review-modal').classList.add('show');
-            } else {
-                const payload = {
-                    "type": "⭐ تقييم",
-                    "branch": branch,
-                    "rating": starsString,
-                    "content": desc,
-                    "name": name
-                };
-
-                sendToGoogleForms(payload);
-                showSuccessModal("تم ارسال تقييمك بنجاح", "شكرًا لك، تقييمك يساهم في تحسين جودة خدماتنا المستمرة.");
+            if (!branch) { document.getElementById(`${type}-branch-group`).classList.add('error'); isValid = false; }
+            
+            if (type === 'rating') {
+                if (!state.stars) { document.getElementById('rating-stars-group').classList.add('error'); isValid = false; }
+                if (!isValid) return;
+                if (state.stars === 5) {
+                    document.getElementById('google-review-modal').classList.add('show');
+                    return;
+                }
+                sendData({ type: "⭐ تقييم", branch, rating: "⭐".repeat(state.stars), content: document.getElementById('rating-desc').value.trim(), name: document.getElementById('rating-name').value.trim() });
+                showSuccess("تم ارسال تقييمك بنجاح", "شكرًا لك، تقييمك يساهم في تحسين جودة خدماتنا.");
+            } else if (type === 'suggestion') {
+                const content = document.getElementById('sug-content').value.trim();
+                if (!content) { document.getElementById('sug-text-group').classList.add('error'); isValid = false; }
+                if (!isValid) return;
+                sendData({ type: "💡 اقتراح", branch, sug_type: document.getElementById('sug-type').value, content, name: document.getElementById('sug-name').value.trim(), phone: document.getElementById('sug-phone').value.trim() });
+                showSuccess("تم إرسال اقتراحك بنجاح", "نقدر لك حرصك واقتراحك لتطوير خدماتنا.");
+            } else if (type === 'complaint') {
+                const compType = document.getElementById('comp-type').value;
+                const phone = document.getElementById('comp-phone').value.trim();
+                const content = document.getElementById('comp-content').value.trim();
+                if (!compType) { document.getElementById('comp-type-group').classList.add('error'); isValid = false; }
+                if (!/^05\d{8}$/.test(phone)) { document.getElementById('comp-phone-group').classList.add('error'); isValid = false; }
+                if (!content) { document.getElementById('comp-desc-group').classList.add('error'); isValid = false; }
+                if (!isValid) return;
+                sendData({ type: "⚠️ شكوى", branch, comp_type: compType, name: document.getElementById('comp-name').value.trim(), phone, date: document.getElementById('comp-date').value, content, invoice: document.getElementById('comp-invoice').value.trim() });
+                showSuccess("تم تسجيل الشكوى بنجاح", "نعتذر لك، وسيتم متابعة شكواك والاتصال بك في أقرب وقت.");
             }
         }
 
-        // اختيار فرع في نافذة 5 نجوم
-        function submitGoogleReviewBranch(branchKey) {
-            const branch = (branchKey === 'kilowatt14') ? "جدة - كيلو١٤" : "جدة - كيلو٣";
-            const desc = formDataState.rating.desc || "كانت تجربتي مع الغامدي لإصلاح الجنوط ممتازة.";
-            const name = formDataState.rating.name;
-
-            const payload = {
-                "type": "⭐ تقييم",
-                "branch": branch,
-                "rating": "⭐⭐⭐⭐⭐",
-                "content": desc,
-                "name": name
-            };
-
-            sendToGoogleForms(payload);
-
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(desc).catch(err => console.log('Clipboard error:', err));
-            }
-
-            closeGoogleReviewModal();
-
-            const googleUrl = (branchKey === 'kilowatt14') 
-                ? "https://g.page/r/CXc0Www1YSqAEBE/review" 
-                : "https://g.page/r/CdPyT7yrq129EBE/review";
-
+        function submitGoogleReview(branchKey) {
+            const branch = branchKey === 'kilowatt14' ? "جدة - كيلو١٤" : "جدة - كيلو٣";
+            const desc = document.getElementById('rating-desc').value.trim() || "تجربة ممتازة مع الغامدي لإصلاح الجنوط.";
+            sendData({ type: "⭐ تقييم", branch, rating: "⭐⭐⭐⭐⭐", content: desc, name: document.getElementById('rating-name').value.trim() });
+            
+            if (navigator.clipboard) navigator.clipboard.writeText(desc).catch(() => {});
+            closeModals();
             setTimeout(() => {
-                window.open(googleUrl, '_blank');
+                window.open(branchKey === 'kilowatt14' ? "https://g.page/r/CXc0Www1YSqAEBE/review" : "https://g.page/r/CdPyT7yrq129EBE/review", '_blank');
                 switchView('home-view');
             }, 300);
         }
 
-        function closeGoogleReviewModal() {
-            document.getElementById('google-review-modal').classList.remove('show');
-            resetAllForms();
+        function closeModalWithSave() {
+            const branch = state.branch.rating || "غير محدد";
+            sendData({ type: "⭐ تقييم", branch, rating: "⭐⭐⭐⭐⭐", content: document.getElementById('rating-desc').value.trim(), name: document.getElementById('rating-name').value.trim() });
+            closeModals();
             switchView('home-view');
         }
 
-        // معالجة إرسال الاقتراح
-        function handleSuggestionSubmit(event) {
-            event.preventDefault();
-
-            const branch = formDataState.suggestion.branch;
-            const type = document.getElementById('sug-type').value;
-            const content = document.getElementById('sug-content').value.trim();
-            const name = document.getElementById('sug-name').value.trim();
-            const phone = document.getElementById('sug-phone').value.trim();
-
-            let isValid = true;
-
-            if (!branch) {
-                document.getElementById('sug-branch-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('sug-branch-group').classList.remove('error');
-            }
-
-            if (!content) {
-                document.getElementById('sug-text-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('sug-text-group').classList.remove('error');
-            }
-
-            if (!isValid) return;
-
-            const payload = {
-                "type": "💡 اقتراح",
-                "branch": branch,
-                "sug_type": type,
-                "content": content,
-                "name": name,
-                "phone": phone
-            };
-
-            sendToGoogleForms(payload);
-            showSuccessModal("تم إرسال اقتراحك بنجاح", "نقدر لك حرصك واقتراحك البناء لتطوير خدماتنا.");
-        }
-
-        // معالجة إرسال الشكوى
-        function handleComplaintSubmit(event) {
-            event.preventDefault();
-
-            const branch = formDataState.complaint.branch;
-            const type = document.getElementById('comp-type').value;
-            const name = document.getElementById('comp-name').value.trim();
-            const phone = document.getElementById('comp-phone').value.trim();
-            const date = document.getElementById('comp-date').value;
-            const content = document.getElementById('comp-content').value.trim();
-            const invoice = document.getElementById('comp-invoice').value.trim();
-
-            let isValid = true;
-
-            if (!branch) {
-                document.getElementById('comp-branch-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('comp-branch-group').classList.remove('error');
-            }
-
-            if (!type) {
-                document.getElementById('comp-type-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('comp-type-group').classList.remove('error');
-            }
-
-            const phoneRegex = /^05\d{8}$/;
-            if (!phone || !phoneRegex.test(phone)) {
-                document.getElementById('comp-phone-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('comp-phone-group').classList.remove('error');
-            }
-
-            if (!content) {
-                document.getElementById('comp-desc-group').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('comp-desc-group').classList.remove('error');
-            }
-
-            if (!isValid) return;
-
-            const payload = {
-                "type": "⚠️ شكوى",
-                "branch": branch,
-                "comp_type": type,
-                "name": name,
-                "phone": phone,
-                "date": date,
-                "content": content,
-                "invoice": invoice
-            };
-
-            sendToGoogleForms(payload);
-            showSuccessModal("تم تسجيل الشكوى بنجاح", "نعتذر لك عن أي تقصير، وسيتم متابعة شكواك والاتصال بك في أقرب وقت لحل المشكلة.");
-        }
-
-        function showSuccessModal(title, desc) {
-            document.getElementById('success-modal-title').textContent = title;
-            document.getElementById('success-modal-desc').textContent = desc;
+        function showSuccess(title, desc) {
+            document.getElementById('success-title').textContent = title;
+            document.getElementById('success-desc').textContent = desc;
             document.getElementById('success-modal').classList.add('show');
         }
 
-        function closeSuccessModal() {
-            document.getElementById('success-modal').classList.remove('show');
-            resetAllForms();
-            switchView('home-view');
+        function closeModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('show'));
         }
 
-        function resetAllForms() {
+        function resetAll() {
+            closeModals();
             document.querySelectorAll('form').forEach(f => f.reset());
-            document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
             document.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
-            
-            document.querySelectorAll('.stars-container .star').forEach(star => star.classList.remove('active'));
+            document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
             document.getElementById('rating-desc-text').textContent = "";
-
-            formDataState = {
-                rating: { branch: "", stars: 0, desc: "", name: "" },
-                suggestion: { branch: "", type: "", content: "", name: "", phone: "" },
-                complaint: { branch: "", type: "", name: "", phone: "", date: "", content: "", invoice: "" }
-            };
+            state = { branch: { rating: "", suggestion: "", complaint: "" }, stars: 0 };
+            switchView('home-view');
         }
     </script>
 </body>
