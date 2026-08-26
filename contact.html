@@ -675,11 +675,9 @@
         </div>
     </div>
 
-    <!-- إطار مخفي لإرسال البيانات إلى Google Forms بدون إعادة تحميل الصفحة -->
-    <iframe name="googleFormFrame" style="display:none"></iframe>
-
     <script>
-        const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScUi49Oi8q_kmRCy7MTBuuZRHkxit4FM7ZH263opaQ8Ip0aBg/formResponse";
+        // رابط تطبيق الويب الخاص بـ Apps Script لجدول بياناتك
+        const FORM_URL = "https://script.google.com/macros/s/AKfycbwM-mXsDvfivbEj6SZGAVXA5vPEFCHWzd2Z642u2ekZygOq2R-ABaE2UBrUDqyIFzkO/exec";
 
         // حالة البيانات المؤقتة
         let formDataState = {
@@ -784,35 +782,20 @@
             document.getElementById('rating-desc-text').textContent = currentScore > 0 ? ratingDescriptions[currentScore] : "";
         }
 
-        // إرسال البيانات إلى Google Forms عبر Form POST و iframe مخفي مع ضمان الوقت الكافي للاستلام
+        // دالة إرسال البيانات المباشرة إلى Google Sheets عبر Apps Script Web App
         function sendToGoogleForms(data) {
-            const oldForm = document.getElementById('hidden-google-form');
-            if (oldForm) oldForm.remove();
-
-            const form = document.createElement("form");
-            form.id = "hidden-google-form";
-            form.method = "POST";
-            form.action = FORM_URL;
-            form.target = "googleFormFrame";
-            form.style.display = "none";
-
-            Object.entries(data).forEach(([key, value]) => {
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = key;
-                input.value = value ?? "";
-                form.appendChild(input);
+            fetch(FORM_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(data)
+            }).then(() => {
+                console.log("تم إرسال البيانات بنجاح إلى جدول الشيت");
+            }).catch(error => {
+                console.error("خطأ في الإرسال:", error);
             });
-
-            document.body.appendChild(form);
-            form.submit();
-
-            // تأخير الحذف لمدة 4 ثوانٍ لضمان وصول البيانات لجدول Sheets تماماً
-            setTimeout(() => {
-                if (form && form.parentNode) {
-                    form.remove();
-                }
-            }, 4000);
         }
 
         // معالجة إرسال التقييم
@@ -851,11 +834,11 @@
                 document.getElementById('google-review-modal').classList.add('show');
             } else {
                 const payload = {
-                    "entry.1416305078": "⭐ تقييم",
-                    "entry.1051316798": branch,
-                    "entry.724366756": starsString,
-                    "entry.884733964": desc,
-                    "entry.1513918262": name
+                    "type": "⭐ تقييم",
+                    "branch": branch,
+                    "rating": starsString,
+                    "content": desc,
+                    "name": name
                 };
 
                 sendToGoogleForms(payload);
@@ -870,11 +853,11 @@
             const name = formDataState.rating.name;
 
             const payload = {
-                "entry.1416305078": "⭐ تقييم",
-                "entry.1051316798": branch,
-                "entry.724366756": "⭐⭐⭐⭐⭐",
-                "entry.884733964": desc,
-                "entry.1513918262": name
+                "type": "⭐ تقييم",
+                "branch": branch,
+                "rating": "⭐⭐⭐⭐⭐",
+                "content": desc,
+                "name": name
             };
 
             sendToGoogleForms(payload);
@@ -930,12 +913,12 @@
             if (!isValid) return;
 
             const payload = {
-                "entry.1416305078": "💡 اقتراح",
-                "entry.1343919871": branch,
-                "entry.1332949409": type,
-                "entry.493635889": content,
-                "entry.1265117197": name,
-                "entry.676940972": phone
+                "type": "💡 اقتراح",
+                "branch": branch,
+                "sug_type": type,
+                "content": content,
+                "name": name,
+                "phone": phone
             };
 
             sendToGoogleForms(payload);
@@ -988,14 +971,14 @@
             if (!isValid) return;
 
             const payload = {
-                "entry.1416305078": "⚠️ شكوى",
-                "entry.1392030405": branch,
-                "entry.1580699057": type,
-                "entry.1966959485": name,
-                "entry.651930152": phone,
-                "entry.1921551826": date,
-                "entry.1976640215": content,
-                "entry.2058007568": invoice
+                "type": "⚠️ شكوى",
+                "branch": branch,
+                "comp_type": type,
+                "name": name,
+                "phone": phone,
+                "date": date,
+                "content": content,
+                "invoice": invoice
             };
 
             sendToGoogleForms(payload);
