@@ -24,10 +24,17 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
 
-        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 1.25rem 1rem; text-align: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
-        .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-        .logo { max-height: 70px; width: auto; object-fit: contain; }
-        header h1 { font-size: 1.25rem; font-weight: 800; }
+        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 1rem; text-align: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 600px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; }
+        
+        .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; flex: 1; }
+        .logo { max-height: 55px; width: auto; object-fit: contain; }
+        header h1 { font-size: 1.15rem; font-weight: 800; }
+
+        /* زر العودة وزر المشاركة في الهيدر */
+        .header-btn { background: var(--light-bg); border: 1px solid var(--border); color: var(--dark); padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; transition: 0.2s; text-decoration: none; }
+        .header-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .back-btn-header { display: none; } /* مخفي بالرئيسية ويظهر بالصفحات الأخرى */
 
         main { flex: 1; max-width: 600px; width: 100%; margin: 0 auto; padding: 1.5rem 1rem; }
         .card { background-color: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; border: 1px solid var(--border); }
@@ -44,18 +51,17 @@
         .btn-primary { background-color: var(--primary); color: var(--white); border: none; padding: 0.85rem 1.5rem; border-radius: var(--radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; text-align: center; transition: 0.2s; }
         .btn-primary:hover { background-color: var(--primary-dark); }
 
-        .btn-back { background: none; border: none; color: var(--gray-text); font-size: 1rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; }
-        .btn-back:hover { color: var(--primary); }
-
-        .section-header { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.5rem; }
+        .section-header { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .section-desc { color: var(--gray-text); font-size: 0.9rem; margin-bottom: 1.25rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        
         .form-group { margin-bottom: 1.25rem; }
         .form-label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
         .required { color: var(--danger); }
 
-        .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-        @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
-        .option-btn { background: var(--white); border: 1px solid var(--border); padding: 0.75rem 0.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; }
-        .option-btn.selected { background-color: var(--primary); color: var(--white); border-color: var(--primary); }
+        /* تصميم الأقراص المدمجة (Pills) للفرع */
+        .options-grid { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .option-btn { background: var(--light-bg); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-align: center; transition: 0.2s; flex: 1; min-width: 110px; }
+        .option-btn.selected { background-color: var(--primary); color: var(--white); border-color: var(--primary); box-shadow: 0 2px 4px rgba(249,115,22,0.2); }
 
         .stars-container { display: flex; justify-content: center; gap: 0.5rem; font-size: 2.2rem; margin: 0.5rem 0; direction: ltr; }
         .star { cursor: pointer; color: #d1d5db; transition: 0.1s; }
@@ -86,9 +92,21 @@
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="Ligo.jpg" alt="شعار الغامدي" class="logo" onerror="this.style.display='none'">
-            <h1>الغامدي لإصلاح الجنوط</h1>
+        <div class="header-container">
+            <!-- زر العودة أعلى اليسار (يظهر داخل الأقسام) -->
+            <button class="header-btn back-btn-header" id="back-header-btn" onclick="switchView('home-view')">
+                ← الرئيسية
+            </button>
+            
+            <div class="logo-container">
+                <img src="Ligo.jpg" alt="شعار الغامدي" class="logo" onerror="this.style.display='none'">
+                <h1>الغامدي لإصلاح الجنوط</h1>
+            </div>
+
+            <!-- زر مشاركة الصفحة أعلى اليمين -->
+            <button class="header-btn" onclick="sharePage()">
+                🔗 مشاركة
+            </button>
         </div>
     </header>
 
@@ -108,9 +126,10 @@
 
         <!-- التقييم -->
         <section id="rating-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
-                <h2 class="section-header">⭐ تقييم تجربتك</h2>
+                <h2 class="section-header">⭐ قيّم تجربتك معنا</h2>
+                <p class="section-desc">رأيك يهمنا ويساعدنا على تحسين خدماتنا وتقديم تجربة أفضل لك ولعملائنا.</p>
+                
                 <form id="rating-form" onsubmit="handleFormSubmit(event, 'rating')">
                     <div class="form-group" id="rating-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
@@ -131,16 +150,17 @@
                     </div>
                     <div class="form-group"><label class="form-label">وصف التجربة (اختياري)</label><textarea id="rating-desc" placeholder="تفاصيل تجربتك..."></textarea></div>
                     <div class="form-group"><label class="form-label">الاسم (اختياري)</label><input type="text" id="rating-name" placeholder="اسمك الكريم"></div>
-                    <button type="submit" class="btn-primary">إرسال التقييم</button>
+                    <button type="submit" class="btn-primary">📩 إرسال تقييمك</button>
                 </form>
             </div>
         </section>
 
         <!-- الاقتراح -->
         <section id="suggestion-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
-                <h2 class="section-header">💡 اقتراح</h2>
+                <h2 class="section-header">💡 شاركنا اقتراحك</h2>
+                <p class="section-desc">اقتراحك يهمنا، ويساعدنا على تطوير خدماتنا وتحسين تجربتك معنا.</p>
+                
                 <form onsubmit="handleFormSubmit(event, 'suggestion')">
                     <div class="form-group" id="sug-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
@@ -161,16 +181,17 @@
                     </div>
                     <div class="form-group"><label class="form-label">الاسم (اختياري)</label><input type="text" id="sug-name" placeholder="اسمك"></div>
                     <div class="form-group"><label class="form-label">رقم الجوال (اختياري)</label><input type="tel" id="sug-phone" placeholder="05xxxxxxxx" dir="ltr"></div>
-                    <button type="submit" class="btn-primary">إرسال الاقتراح</button>
+                    <button type="submit" class="btn-primary">📩 إرسال الاقتراح</button>
                 </form>
             </div>
         </section>
 
         <!-- الشكوى -->
         <section id="complaint-view" class="view">
-            <button class="btn-back" onclick="switchView('home-view')">← العودة</button>
             <div class="card">
-                <h2 class="section-header">⚠️ شكوى</h2>
+                <h2 class="section-header">⚠️ شاركنا شكواك</h2>
+                <p class="section-desc">نحرص على رضاك، ونعتذر عن أي تجربة لم تكن بالمستوى المتوقع. اكتب لنا تفاصيل شكواك، وسنعمل على مراجعتها ومعالجتها.</p>
+                
                 <form onsubmit="handleFormSubmit(event, 'complaint')">
                     <div class="form-group" id="comp-branch-group">
                         <label class="form-label"><span class="required">*</span> اختر الفرع</label>
@@ -199,7 +220,7 @@
                         <div class="error-msg">الرجاء وصف المشكلة</div>
                     </div>
                     <div class="form-group"><label class="form-label">رقم الفاتورة (اختياري)</label><input type="text" id="comp-invoice"></div>
-                    <button type="submit" class="btn-primary">إرسال الشكوى</button>
+                    <button type="submit" class="btn-primary">📩 إرسال الشكوى</button>
                 </form>
             </div>
         </section>
@@ -213,12 +234,13 @@
         </div>
     </footer>
 
-    <!-- نافذة تقييم 5 نجوم -->
+    <!-- نافذة تقييم 5 نجوم (Google Review) -->
     <div class="modal-overlay" id="google-review-modal">
         <div class="modal-card">
             <div class="modal-icon">⭐</div>
-            <h3 style="margin-bottom:0.75rem; font-weight:800;">شكرًا لتقييمك الرائع</h3>
-            <p style="color:var(--gray-text); font-size:0.9rem; margin-bottom:1.5rem;">اختر الفرع للانتقال لتقييم Google (تم نسخ تعليقك تلقائياً).</p>
+            <h3 style="margin-bottom:0.5rem; font-weight:800;">⭐ تم إرسال تقييمك بنجاح</h3>
+            <p style="color:var(--dark); font-weight:600; font-size:0.95rem; margin-bottom:0.5rem;">شكرًا لمشاركتنا تجربتك 🤍</p>
+            <p style="color:var(--gray-text); font-size:0.85rem; margin-bottom:1.5rem;">شارك تقييمك على Google، فمشاركتك تصنع الفرق 🌟<br><span style="color:var(--primary); font-size:0.75rem;">تم نسخ تعليقك تلقائياً للصقه هناك.</span></p>
             <div style="display:flex; flex-direction:column; gap:0.75rem;">
                 <button class="btn-primary" onclick="submitGoogleReview('kilowatt14')">📍 جدة - كيلو١٤</button>
                 <button class="btn-primary" onclick="submitGoogleReview('kilowatt3')">📍 جدة - كيلو٣</button>
@@ -227,12 +249,12 @@
         </div>
     </div>
 
-    <!-- نافذة النجاح العامة -->
+    <!-- نافذة النجاح العامة (للتقييم أقل من 5، الاقتراح، الشكوى) -->
     <div class="modal-overlay" id="success-modal">
         <div class="modal-card">
-            <div class="modal-icon">🎉</div>
+            <div class="modal-icon" id="success-icon">🎉</div>
             <h3 id="success-title" style="margin-bottom:0.75rem; font-weight:800;">تم الإرسال بنجاح</h3>
-            <p id="success-desc" style="color:var(--gray-text); font-size:0.9rem; margin-bottom:1.5rem;"></p>
+            <p id="success-desc" style="color:var(--gray-text); font-size:0.9rem; margin-bottom:1.5rem; line-height: 1.6;"></p>
             <button class="btn-primary" onclick="resetAll()">تم</button>
         </div>
     </div>
@@ -246,7 +268,15 @@
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (id === 'home-view') resetAll();
+            
+            // إظهار أو إخفاء زر العودة في الهيدر حسب الصفحة
+            const backBtn = document.getElementById('back-header-btn');
+            if (id === 'home-view') {
+                backBtn.style.display = 'none';
+                resetAll();
+            } else {
+                backBtn.style.display = 'inline-flex';
+            }
         }
 
         function selectBranch(btn, type, val) {
@@ -277,18 +307,22 @@
             if (type === 'rating') {
                 if (!state.stars) { document.getElementById('rating-stars-group').classList.add('error'); isValid = false; }
                 if (!isValid) return;
+                
+                const desc = document.getElementById('rating-desc').value.trim();
+                const name = document.getElementById('rating-name').value.trim();
+
                 if (state.stars === 5) {
                     document.getElementById('google-review-modal').classList.add('show');
                     return;
                 }
-                sendData({ type: "⭐ تقييم", branch, rating: "⭐".repeat(state.stars), content: document.getElementById('rating-desc').value.trim(), name: document.getElementById('rating-name').value.trim() });
-                showSuccess("تم ارسال تقييمك بنجاح", "شكرًا لك، تقييمك يساهم في تحسين جودة خدماتنا.");
+                sendData({ type: "⭐ تقييم", branch, rating: "⭐".repeat(state.stars), content: desc, name });
+                showSuccess("⭐ تم إرسال تقييمك بنجاح", "شكرًا لك، تقييمك يساهم في تحسين جودة خدماتنا.", "🎉");
             } else if (type === 'suggestion') {
                 const content = document.getElementById('sug-content').value.trim();
                 if (!content) { document.getElementById('sug-text-group').classList.add('error'); isValid = false; }
                 if (!isValid) return;
                 sendData({ type: "💡 اقتراح", branch, sug_type: document.getElementById('sug-type').value, content, name: document.getElementById('sug-name').value.trim(), phone: document.getElementById('sug-phone').value.trim() });
-                showSuccess("تم إرسال اقتراحك بنجاح", "نقدر لك حرصك واقتراحك لتطوير خدماتنا.");
+                showSuccess("تم إرسال اقتراحك بنجاح", "نقدر لك حرصك واقتراحك لتطوير خدماتنا\nاقتراحك يصنع فرقاً", "💡");
             } else if (type === 'complaint') {
                 const compType = document.getElementById('comp-type').value;
                 const phone = document.getElementById('comp-phone').value.trim();
@@ -298,7 +332,7 @@
                 if (!content) { document.getElementById('comp-desc-group').classList.add('error'); isValid = false; }
                 if (!isValid) return;
                 sendData({ type: "⚠️ شكوى", branch, comp_type: compType, name: document.getElementById('comp-name').value.trim(), phone, date: document.getElementById('comp-date').value, content, invoice: document.getElementById('comp-invoice').value.trim() });
-                showSuccess("تم تسجيل الشكوى بنجاح", "نعتذر لك، وسيتم متابعة شكواك والاتصال بك في أقرب وقت.");
+                showSuccess("تم تسجيل الشكوى بنجاح", "نعتذر لك عن أي تقصير، وسيتم متابعة شكواك والاتصال بك في أقرب وقت لحل المشكلة.", "⚠️");
             }
         }
 
@@ -322,9 +356,10 @@
             switchView('home-view');
         }
 
-        function showSuccess(title, desc) {
+        function showSuccess(title, desc, icon) {
             document.getElementById('success-title').textContent = title;
-            document.getElementById('success-desc').textContent = desc;
+            document.getElementById('success-desc').innerHTML = desc.replace(/\n/g, '<br>');
+            document.getElementById('success-icon').textContent = icon;
             document.getElementById('success-modal').classList.add('show');
         }
 
@@ -341,6 +376,20 @@
             document.getElementById('rating-desc-text').textContent = "";
             state = { branch: { rating: "", suggestion: "", complaint: "" }, stars: 0 };
             switchView('home-view');
+        }
+
+        // دالة مشاركة الصفحة عبر متصفح الجوال أو نسخ الرابط
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'الغامدي لإصلاح الجنوط - آراء العملاء',
+                    text: 'شاركنا رأيك أو اقتراحك أو شكواك لخدمة أفضل',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('تم نسخ رابط الصفحة إلى الحافظة!');
+            }
         }
     </script>
 </body>
